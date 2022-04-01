@@ -10,6 +10,10 @@ description: >
 <!-- BEGIN SECTION "archive" "Usage" false -->
 Usage: kluctl archive
 
+Write project and all related components into single tgz
+
+This archive can then be used with '--from-archive'
+
 <!-- END SECTION -->
 
 ## Arguments
@@ -19,8 +23,9 @@ The following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  --output-archive=STRING     Path to .tgz to write project to.
-  --output-metadata=STRING    Path to .yml to write metadata to. If not specified, metadata is written into the archive.
+  --output-archive=STRING     Path to .tgz to write project to ($KLUCTL_OUTPUT_ARCHIVE).
+  --output-metadata=STRING    Path to .yml to write metadata to. If not specified, metadata is written into the archive
+                              ($KLUCTL_OUTPUT_METADATA).
 
 ```
 <!-- END SECTION -->

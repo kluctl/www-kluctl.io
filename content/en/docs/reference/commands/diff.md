@@ -10,6 +10,12 @@ description: >
 <!-- BEGIN SECTION "diff" "Usage" false -->
 Usage: kluctl diff
 
+Perform a diff between the locally rendered target and the already deployed target
+
+The output is by default in human readable form (a table combined with unified diffs). The output can also be changed to
+output a yaml file. Please note however that the format is currently not documented and prone to changes. After the diff
+is performed, the command will also search for prunable objects and list them.
+
 <!-- END SECTION -->
 
 ## Arguments
@@ -25,18 +31,20 @@ Misc arguments:
   Command specific arguments.
 
       --force-apply                        Force conflict resolution when applying. See documentation for details
+                                           ($KLUCTL_FORCE_APPLY)
       --replace-on-error                   When patching an object fails, try to replace it. See documentation for more
-                                           details.
+                                           details ($KLUCTL_REPLACE_ON_ERROR).
       --force-replace-on-error             Same as --replace-on-error, but also try to delete and re-create objects. See
-                                           documentation for more details.
-      --ignore-tags                        Ignores changes in tags when diffing
-      --ignore-labels                      Ignores changes in labels when diffing
-      --ignore-annotations                 Ignores changes in annotations when diffing
+                                           documentation for more details ($KLUCTL_FORCE_REPLACE_ON_ERROR).
+      --ignore-tags                        Ignores changes in tags when diffing ($KLUCTL_IGNORE_TAGS)
+      --ignore-labels                      Ignores changes in labels when diffing ($KLUCTL_IGNORE_LABELS)
+      --ignore-annotations                 Ignores changes in annotations when diffing ($KLUCTL_IGNORE_ANNOTATIONS)
   -o, --output-format=OUTPUT-FORMAT,...    Specify output format and target file, in the format 'format=path'. Format
                                            can either be 'text' or 'yaml'. Can be specified multiple times. The actual
-                                           format for yaml is currently not documented and subject to change.
+                                           format for yaml is currently not documented and subject to change
+                                           ($KLUCTL_OUTPUT_FORMAT).
       --render-output-dir=STRING           Specifies the target directory to render the project into. If omitted, a
-                                           temporary directory is used.
+                                           temporary directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
 
 ```
 <!-- END SECTION -->

@@ -10,6 +10,13 @@ description: >
 <!-- BEGIN SECTION "list-images" "Usage" false -->
 Usage: kluctl list-images
 
+Renders the target and outputs all images used via 'images.get_image(...)
+
+The result is a compatible with yaml files expected by --fixed-images-file.
+
+If fixed images ('-f/--fixed-image') are provided, these are also taken into account, as described in for the deploy
+command.
+
 <!-- END SECTION -->
 
 ## Arguments
@@ -24,8 +31,8 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  -o, --output=OUTPUT,...    Specify output target file. Can be specified multiple times
-      --simple               Output a simplified version of the images list
+  -o, --output=OUTPUT,...    Specify output target file. Can be specified multiple times ($KLUCTL_OUTPUT)
+      --simple               Output a simplified version of the images list ($KLUCTL_SIMPLE)
 
 ```
 <!-- END SECTION -->

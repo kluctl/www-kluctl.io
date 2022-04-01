@@ -10,6 +10,10 @@ description: >
 <!-- BEGIN SECTION "helm-update" "Usage" false -->
 Usage: kluctl helm-update
 
+Recursively searches for 'helm-chart.yml” files and checks for new available versions
+
+Optionally performs the actual upgrade and/or add a commit to version control.
+
 <!-- END SECTION -->
 
 ## Arguments
@@ -22,8 +26,8 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  --upgrade    Write new versions into helm-chart.yml and perform helm-pull afterwards
-  --commit     Create a git commit for every updated chart
+  --upgrade    Write new versions into helm-chart.yml and perform helm-pull afterwards ($KLUCTL_UPGRADE)
+  --commit     Create a git commit for every updated chart ($KLUCTL_COMMIT)
 
 ```
 <!-- END SECTION -->

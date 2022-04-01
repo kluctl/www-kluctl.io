@@ -10,6 +10,11 @@ description: >
 <!-- BEGIN SECTION "poke-images" "Usage" false -->
 Usage: kluctl poke-images
 
+Replace all images in target
+
+This command will fully render the target and then only replace images instead of fully deploying the target. Only
+images used in combination with 'images.get_image(...)' are replaced
+
 <!-- END SECTION -->
 
 ## Arguments
@@ -24,11 +29,12 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  -y, --yes                         Suppresses 'Are you sure?' questions and proceeds as if you would answer 'yes'.
-      --dry-run                     Performs all kubernetes API calls in dry-run mode.
-  -o, --output=OUTPUT,...           Specify output target file. Can be specified multiple times
+  -y, --yes                         Suppresses 'Are you sure?' questions and proceeds as if you would answer 'yes'
+                                    ($KLUCTL_YES).
+      --dry-run                     Performs all kubernetes API calls in dry-run mode ($KLUCTL_DRY_RUN).
+  -o, --output=OUTPUT,...           Specify output target file. Can be specified multiple times ($KLUCTL_OUTPUT)
       --render-output-dir=STRING    Specifies the target directory to render the project into. If omitted, a temporary
-                                    directory is used.
+                                    directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
 
 ```
 <!-- END SECTION -->

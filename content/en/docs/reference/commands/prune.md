@@ -10,6 +10,8 @@ description: >
 <!-- BEGIN SECTION "prune" "Usage" false -->
 Usage: kluctl prune
 
+Searches the target cluster for prunable objects and deletes them
+
 <!-- END SECTION -->
 
 ## Arguments
@@ -25,11 +27,12 @@ Misc arguments:
   Command specific arguments.
 
   -y, --yes                                Suppresses 'Are you sure?' questions and proceeds as if you would answer
-                                           'yes'.
-      --dry-run                            Performs all kubernetes API calls in dry-run mode.
+                                           'yes' ($KLUCTL_YES).
+      --dry-run                            Performs all kubernetes API calls in dry-run mode ($KLUCTL_DRY_RUN).
   -o, --output-format=OUTPUT-FORMAT,...    Specify output format and target file, in the format 'format=path'. Format
                                            can either be 'text' or 'yaml'. Can be specified multiple times. The actual
-                                           format for yaml is currently not documented and subject to change.
+                                           format for yaml is currently not documented and subject to change
+                                           ($KLUCTL_OUTPUT_FORMAT).
 
 ```
 <!-- END SECTION -->
