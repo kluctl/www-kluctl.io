@@ -28,14 +28,14 @@ deployment:
 clusters:
   project:
     url: https://github.com/kluctl/kluctl-example-clusters
-    subdir: clusters
+    subDir: clusters
 
 # This is optional. If omitted, `<baseDirOfKluctlYml>/.sealed-secrets` will be used
 # See "External Projects" for details
 sealedSecrets:
   project:
     url: https://github.com/kluctl/kluctl-example
-    subdir: .sealed-secrets
+    subDir: .sealed-secrets
 
 targets:
   # test cluster, dev env
