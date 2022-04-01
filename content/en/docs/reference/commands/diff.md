@@ -1,14 +1,14 @@
 ---
-title: "downscale"
-linkTitle: "downscale"
+title: "diff"
+linkTitle: "diff"
 weight: 10
 description: >
-    downscale command
+    diff command
 ---
 
 ## Command
-<!-- BEGIN SECTION "downscale" "Usage" false -->
-Usage: kluctl downscale
+<!-- BEGIN SECTION "diff" "Usage" false -->
+Usage: kluctl diff
 
 <!-- END SECTION -->
 
@@ -19,14 +19,19 @@ The following sets of arguments are available:
 1. [inclusion/exclusion arguments]({{< ref "./common-arguments#inclusionexclusion-arguments" >}})
 
 In addition, the following arguments are available:
-<!-- BEGIN SECTION "downscale" "Misc arguments" true -->
+<!-- BEGIN SECTION "diff" "Misc arguments" true -->
 ```
 Misc arguments:
   Command specific arguments.
 
-  -y, --yes                                Suppresses 'Are you sure?' questions and proceeds as if you would answer
-                                           'yes'.
-      --dry-run                            Performs all kubernetes API calls in dry-run mode.
+      --force-apply                        Force conflict resolution when applying. See documentation for details
+      --replace-on-error                   When patching an object fails, try to replace it. See documentation for more
+                                           details.
+      --force-replace-on-error             Same as --replace-on-error, but also try to delete and re-create objects. See
+                                           documentation for more details.
+      --ignore-tags                        Ignores changes in tags when diffing
+      --ignore-labels                      Ignores changes in labels when diffing
+      --ignore-annotations                 Ignores changes in annotations when diffing
   -o, --output-format=OUTPUT-FORMAT,...    Specify output format and target file, in the format 'format=path'. Format
                                            can either be 'text' or 'yaml'. Can be specified multiple times. The actual
                                            format for yaml is currently not documented and subject to change.
@@ -35,3 +40,5 @@ Misc arguments:
 
 ```
 <!-- END SECTION -->
+
+`--force-apply` and `--replace-on-error` have the same meaning as in [deploy](#deploy).

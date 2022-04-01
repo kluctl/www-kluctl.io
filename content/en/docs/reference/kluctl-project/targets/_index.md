@@ -34,7 +34,7 @@ The following fields are allowed per target:
 
 ## name
 This field specifies the name of the target. The name must be unique. It is referred in all commands via the
-[-t]({{< ref "docs/reference/commands/project-arguments" >}}) option.
+[-t]({{< ref "docs/reference/commands/common-arguments" >}}) option.
 
 ## cluster
 This field specifies the name of the target cluster. The cluster must exist in the [cluster configuration]({{< ref "docs/reference/cluster-configs" >}})
