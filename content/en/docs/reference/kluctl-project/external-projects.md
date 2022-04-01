@@ -46,7 +46,21 @@ This field is optional and specifies the subdirectory to use. If omitted, the re
 Specifies the git project where the [cluster configuration]({{< ref "docs/reference/cluster-configs" >}}) is located. If it is omitted, the
 `clusters` subdirectory of the `.kluctl.yml` project is used as the clusters config root.
 
-It has the same form as in [deployment]({{< ref "docs/reference/kluctl-project#deployment" >}}), except that it is called `clusters`.
+It has the same form as in [deployment]({{< ref "docs/reference/kluctl-project#deployment" >}}), except that it is called `clusters` and 
+you can specify multiple projects:
+
+```yaml
+clusters:
+  - project:
+      url: <git-url>
+      ref: <tag-or-branch>
+      subDir: <subdir>
+  - project:
+      url: <git-url>
+      ref: <tag-or-branch>
+      subDir: <subdir>
+```
+
 
 ## sealedSecrets
 
