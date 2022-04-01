@@ -1,7 +1,13 @@
-# Image versions/tags
+---
+title: "Container Images"
+linkTitle: "Container Images"
+weight: 3
+description: >
+    Dynamic configuration of container images.
+---
 
 There are usually 2 different scenarios where Container Images need to be specified:
-1. When deploying third party applications like nginx, redis, ... (e.g. via the [Helm integration](./helm-integration.md)). <br>
+1. When deploying third party applications like nginx, redis, ... (e.g. via the [Helm integration]({{< ref "./helm" >}})). <br>
    * In this case, image versions/tags rarely change, and if they do, this is an explicit change to the deployment.
 1. When deploying your own applications. <br>
    * In this case, image versions/tags might change very rapidly, sometimes multiple times per hour. It would be too much
@@ -21,7 +27,7 @@ otherwise unchanged resources.
 
 ## images.get_image()
 
-This is solved via a Jinja2 function that is available in all templates/resources. The function is part of the global
+This is solved via a templating function that is available in all templates/resources. The function is part of the global
 `images` object and expects the following arguments:
 
 `images.get_image(image, latest_version)`
@@ -45,16 +51,11 @@ This is solved via a Jinja2 function that is available in all templates/resource
           Only allows versions/tags that match the given regex. Sorting is done the same way as in version.semver(),
           except that versions do not necessarily need to start with a number.
 
-The mentioned version filters can be specified either via native Python objects (Jinja is mostly using python for
-expressions) or via strings. For example, 
-
-`images.get_version("my-image", version.prefix("master-", suffix=version.number()))`
-
-is the same as 
+The mentioned version filters must be specified as strings. For example,
 
 `images.get_version("my-image", "prefix('master-', suffix=number())")`.
 
-If no version_filter is specified, then it defaults to `version.semver()`.
+If no version_filter is specified, then it defaults to `"semver()"`.
 
 Example deployment:
 
@@ -83,7 +84,7 @@ The described `images.get_image` logic however leads to a loosely defined state 
 might be fine in a CI/CD environment, but might be undesired when deploying to production. In that case, it might be
 desirable to explicitly define which versions need to be deployed.
 
-To achieve this, you can use the `-F FIXED_IMAGE` [argument](./commands.md#image-arguments).
+To achieve this, you can use the `-F FIXED_IMAGE` [argument]({{< ref "docs/reference/commands/common-arguments#image-arguments" >}}).
 `FIXED_IMAGE` must be in the form of `-F image<:namespace:deployment:container>=result`. For example, to pin the image
 `registry.gitlab.com/my-group/my-project` to the tag `1.1.2` you'd have to specify
 `-F registry.gitlab.com/my-group/my-project=registry.gitlab.com/my-group/my-project:1.1.2`.
