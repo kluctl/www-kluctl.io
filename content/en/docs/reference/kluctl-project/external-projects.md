@@ -29,7 +29,7 @@ deployment:
   project:
     url: <git-url>
     ref: <tag-or-branch>
-    subdir: <subdir>
+    subDir: <subdir>
 ```
 
 ### project.url
