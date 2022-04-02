@@ -14,7 +14,7 @@ Everything found in kluctl is based on years of experience in daily business, fr
 Kluctl prefers practicability when possible, trying to make the daily life of a DevOps Engineer as comfortable as possible.
 
 ## Consistent CLI
-Commands try to be as consistent as possible, making it easy to remember how they are used. For example, a `diff` is used the same way as a `deploy`.
+Commands try to be as consistent as possible, making it easy to remember how they are used. For example, a `diff` is used the same way as a `deploy`. This applies to all sizes and complexities of projects. A simple/single-application deployment is used the same way as a complex one, so that it is easy to switch between projects.
 
 ## Mostly declarative
 Kluctl tries to be declarative whenever possible, but loosens this in some cases to stay practical.
