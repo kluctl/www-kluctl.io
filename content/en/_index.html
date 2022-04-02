@@ -5,6 +5,25 @@ linkTitle = "kluctl.io"
 +++
 
 {{< blocks/cover title="" image_anchor="top" height="min" color="white" >}}
+<section class="row td-cover-block td-cover-block--height-{{ $height }} js-td-cover td-overlay td-overlay--light -bg-{{ $col_id }}">
+	<div class="container td-overlay__inner">
+		<div class="row align-items-end">
+			<div class="col-lg-6 mt-5 mt-lg-3 d-sm-block" style="display: none">
+				<asciinema-player
+						loop autoplay font-size="12px" rows=12 cols=60 theme="kluctl"
+						src="kluctl.cast"></asciinema-player>
+			</div>
+			<div class="col-lg-6">
+				<h1 class="display-1 mt-0 pb-3">
+					<img alt="kluctl" width="98" src="images/logo.svg" />
+				</h1>
+				<p class="display-2 mb-0">The most natural way to create and manage complex Kubernetes deployments!</p>
+			</div>
+			<div class="col-12 pt-3">
+			</div>
+		</div>
+	</div>
+</section>
 <div class="mx-auto">
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="{{< relref "/docs" >}}">
 	Learn More <i class="fas fa-arrow-alt-circle-right ml-2"></i>
