@@ -1,0 +1,118 @@
+/* Based on Monokai from base16 collection - https://github.com/chriskempson/base16 */
+.asciinema-theme-kluctl .asciinema-terminal {
+    color: #f8f8f2;
+    background-color: #272822;
+    border-color: #272822;
+}
+.asciinema-theme-kluctl .fg-bg {
+    color: #272822;
+}
+.asciinema-theme-kluctl .bg-fg {
+    background-color: #f8f8f2;
+}
+.asciinema-theme-kluctl .fg-0 {
+    color: #272822;
+}
+.asciinema-theme-kluctl .bg-0 {
+    background-color: #272822;
+}
+.asciinema-theme-kluctl .fg-1 {
+    color: #f92672;
+}
+.asciinema-theme-kluctl .bg-1 {
+    background-color: #f92672;
+}
+.asciinema-theme-kluctl .fg-2 {
+    color: #a6e22e;
+}
+.asciinema-theme-kluctl .bg-2 {
+    background-color: #a6e22e;
+}
+.asciinema-theme-kluctl .fg-3 {
+    color: #f4bf75;
+}
+.asciinema-theme-kluctl .bg-3 {
+    background-color: #f4bf75;
+}
+.asciinema-theme-kluctl .fg-4 {
+    color: #66d9ef;
+}
+.asciinema-theme-kluctl .bg-4 {
+    background-color: #66d9ef;
+}
+.asciinema-theme-kluctl .fg-5 {
+    color: #ae81ff;
+}
+.asciinema-theme-kluctl .bg-5 {
+    background-color: #ae81ff;
+}
+.asciinema-theme-kluctl .fg-6 {
+    color: #a1efe4;
+}
+.asciinema-theme-kluctl .bg-6 {
+    background-color: #a1efe4;
+}
+.asciinema-theme-kluctl .fg-7 {
+    color: #f8f8f2;
+}
+.asciinema-theme-kluctl .bg-7 {
+    background-color: #f8f8f2;
+}
+.asciinema-theme-kluctl .fg-8 {
+    color: #75715e;
+}
+.asciinema-theme-kluctl .bg-8 {
+    background-color: #75715e;
+}
+.asciinema-theme-kluctl .fg-9 {
+    color: #f92672;
+}
+.asciinema-theme-kluctl .bg-9 {
+    background-color: #f92672;
+}
+.asciinema-theme-kluctl .fg-10 {
+    color: #a6e22e;
+}
+.asciinema-theme-kluctl .bg-10 {
+    background-color: #a6e22e;
+}
+.asciinema-theme-kluctl .fg-11 {
+    color: #f4bf75;
+}
+.asciinema-theme-kluctl .bg-11 {
+    background-color: #f4bf75;
+}
+.asciinema-theme-kluctl .fg-12 {
+    color: #66d9ef;
+}
+.asciinema-theme-kluctl .bg-12 {
+    background-color: #66d9ef;
+}
+.asciinema-theme-kluctl .fg-13 {
+    color: #ae81ff;
+}
+.asciinema-theme-kluctl .bg-13 {
+    background-color: #ae81ff;
+}
+.asciinema-theme-kluctl .fg-14 {
+    color: #a1efe4;
+}
+.asciinema-theme-kluctl .bg-14 {
+    background-color: #a1efe4;
+}
+.asciinema-theme-kluctl .fg-15 {
+    color: #f9f8f5;
+}
+.asciinema-theme-kluctl .bg-15 {
+    background-color: #f9f8f5;
+}
+.asciinema-theme-kluctl .fg-8,
+.asciinema-theme-kluctl .fg-9,
+.asciinema-theme-kluctl .fg-10,
+.asciinema-theme-kluctl .fg-11,
+.asciinema-theme-kluctl .fg-12,
+.asciinema-theme-kluctl .fg-13,
+.asciinema-theme-kluctl .fg-14,
+.asciinema-theme-kluctl .fg-15 {
+    font-weight: bold;
+}
