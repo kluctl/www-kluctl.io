@@ -47,7 +47,7 @@ Specifies the git project where the [cluster configuration]({{< ref "docs/refere
 `clusters` subdirectory of the `.kluctl.yml` project is used as the clusters config root.
 
 It has the same form as in [deployment]({{< ref "docs/reference/kluctl-project#deployment" >}}), except that it is called `clusters` and 
-you can specify multiple projects:
+you can optionally specify multiple projects:
 
 ```yaml
 clusters:
