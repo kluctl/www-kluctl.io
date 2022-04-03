@@ -66,3 +66,10 @@
 	border-right: 1px solid #dee2e6;
 }
 
+.td-box--2 p > a {
+	color: $primary;
+}
+
+.navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+	color: $secondary;
+}
