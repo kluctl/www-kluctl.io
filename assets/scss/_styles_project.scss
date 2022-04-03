@@ -69,3 +69,7 @@
 .td-box--2 p > a {
 	color: $primary;
 }
+
+.navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+	color: $secondary;
+}
