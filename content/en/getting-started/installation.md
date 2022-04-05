@@ -17,30 +17,15 @@ You need to install a set of command line tools to fully use kluctl. These are:
 
 All of these tools must be in your PATH, so that kluctl can easily invoke them.
 
-## Installation of kluctl
-
-kluctl can currently only be installed this way:
-1. Download a standalone binary from the latest release and make it available in your PATH, either by copying it into `/usr/local/bin` or by modifying the PATH variable
-
-Future releases will include packaged releases for homebrew and other established package managers (contributions are welcome).
-
 ### Install kubectl binary with curl on Linux
 
 1. Download the latest release with the command:
 
    ```bash
-   curl -LO "https://github.com/kluctl/kluctl/releases/download/$(curl --silent -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/kluctl/kluctl/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')/kluctl-linux-amd64" 
+   # To download a specific version, replace the kluctl_version with the version you need for example kluctl_version={{< param "fullversion" >}}
+   kluctl_version=$(curl --silent -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/kluctl/kluctl/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+   curl -LO "https://github.com/kluctl/kluctl/releases/download/${kluctl_version}/kluctl-linux-amd64"
    ```
-
-   {{< note >}}
-
-   To download a specific version, replace the `$(curl --silent -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/kluctl/kluctl/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')` portion of the command with the specific version.
-   For example, to download version {{< param "fullversion" >}} on Linux, type:
-
-   ```bash
-   curl -LO https://github.com/kluctl/kluctl/releases/download/{{< param "fullversion" >}}/kluctl-linux-amd64
-   ```
-   {{< /note >}}
 
 3. Install kubectl
 
@@ -57,7 +42,6 @@ Future releases will include packaged releases for homebrew and other establishe
    mv ./kluctl-linux-amd64 ~/.local/bin/kluctl
    # and then append (or prepend) ~/.local/bin to $PATH
    ```
-
    {{< /note >}}
 
 4. Test to ensure the version you installed is up-to-date:
