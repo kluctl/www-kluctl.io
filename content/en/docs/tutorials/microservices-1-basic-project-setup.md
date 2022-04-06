@@ -6,11 +6,11 @@ weight: 1
 
 ## Introduction
 
-This is the first article in a series of articles around the [GCP Microservices Demo](https://github.com/GoogleCloudPlatform/microservices-demo)
+This is the first tutorial in a series of tutorials around the [GCP Microservices Demo](https://github.com/GoogleCloudPlatform/microservices-demo)
 and the use of kluctl to deploy and manage the demo.
 
-We will start with a simple kluctl project setup (this article) and then advance to a multi-environment and 
-multi-cluster setup (upcoming article). Afterwards, we will also show how daily business (updates, house keeping, ...)
+We will start with a simple kluctl project setup (this tutorial) and then advance to a multi-environment and
+multi-cluster setup (upcoming tutorial). Afterwards, we will also show how daily business (updates, house keeping, ...)
 with such a deployment would look like.
 
 ## GCP Microservices Demo
@@ -47,8 +47,8 @@ able to relieve you from parts of the deployment orchestration tasks, but bring 
 solved as well.
 
 ## Deploying with kluctl
-In this article, we'll show how the microservices demo can be deployed and managed with kluctl. We will start with a
-simple and naive deployment to a local [kind](https://kind.sigs.k8s.io/) cluster. The next article in this series will
+In this tutorial, we'll show how the microservices demo can be deployed and managed with kluctl. We will start with a
+simple and naive deployment to a local [kind](https://kind.sigs.k8s.io/) cluster. The next tutorial in this series will
 then focus on making the deployment multi-environment and multi-cluster capable.
 
 The goal is to make a deployment as simple as typing:
@@ -289,7 +289,7 @@ New objects:
 ```
 
 The `-t local` selects the `local` target which was previously defined in the `.kluctl.yml`. Right now we only have this
-one target, but we will add more targets in upcoming articles from this series.
+one target, but we will add more targets in upcoming tutorials from this series.
 
 Answer with `y` to the question if you really want to deploy. The command will output what is happening and then show
 what has been changed on the target.
@@ -358,8 +358,8 @@ Deleted objects:
 ```
 
 ## How to continue
-The result of this article is a naive version of the microservices demo deployment. There are a few things that you
+The result of this tutorial is a naive version of the microservices demo deployment. There are a few things that you
 would solve differently in the real world, e.g. use Helm Charts for things like redis instead of proving self-crafted
-manifests. The next articles in this series will focus on a few improvements and refactorings that will make this
+manifests. The next tutorials in this series will focus on a few improvements and refactorings that will make this
 kluctl project more "realistic" and more useful. They will also introduce concepts like multi-environment and multi-cluster
 deployments.

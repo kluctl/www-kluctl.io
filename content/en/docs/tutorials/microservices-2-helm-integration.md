@@ -5,21 +5,21 @@ weight: 2
 ---
 
 ## Introduction
-The [first article]({{< ref "docs/tutorials/microservices-1-basic-project-setup" >}}) in this series demonstrated how
+The [first tutorial]({{< ref "docs/tutorials/microservices-1-basic-project-setup" >}}) in this series demonstrated how
 to setup a simple kluctl project that is able to deploy the [GCP Microservices Demo](https://github.com/GoogleCloudPlatform/microservices-demo)
 to a local kind cluster.
 
 This initial kluctl project was however quite naive and too simple to be any way realistic. For example, the project
 structure is too flat and will likely result in chaos when the project grows. Also, the project used self-crafted
 manifests while it might have been better to reuse feature rich Helm Charts. We will fix both these issues in this
-article.
+tutorial.
 
 ## How to proceed
-This article is based on the results of the first article. As an alternative, you can take the `1-basic-project`
+This tutorial is based on the results of the first tutorial. As an alternative, you can take the `1-basic-project`
 example project found [here](https://github.com/kluctl/kluctl-examples/blob/main/microservices-demo/1-basic-project)
-and use it the base to be able to continue with this article.
+and use it the base to be able to continue with this tutorial.
 
-You can also deploy the base project and then incrementally perform deployment after each step in this article. This way
+You can also deploy the base project and then incrementally perform deployment after each step in this tutorial. This way
 you will also gain some experience and feeling for to use kluctl.
 
 ## A simple refactoring
@@ -73,7 +73,7 @@ deployments:
 ```
 
 To get an overview of these changes, look into [this commit](https://github.com/kluctl/kluctl-examples/commit/ddcc81b48157b908ccf5ea115c68b46028eb8842)
-inside the example project belonging to this article.
+inside the example project belonging to this tutorial.
 
 If you deploy the new state of the project, you'll notice that only labels will change. These labels are automatically
 added to all resources and represent the [tags]({{< ref "docs/reference/deployments/tags" >}}) of the corresponding
@@ -247,8 +247,8 @@ INFO[0010] Committing: Updated helm chart third-party/redis from 16.8.0 to 16.8.
 ```
 
 ## How to continue
-After this article, you have hopefully learned how to better structure your projects and how to integrate third-party
+After this tutorial, you have hopefully learned how to better structure your projects and how to integrate third-party
 Helm Charts into your project, including some basic house-keeping tasks.
 
-The next articles in this series will show you how to use this kluctl project as a base to implement a multi-environment
+The next tutorials in this series will show you how to use this kluctl project as a base to implement a multi-environment
 and multi-cluster deployment.
