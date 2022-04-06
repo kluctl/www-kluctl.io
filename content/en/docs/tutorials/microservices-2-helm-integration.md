@@ -19,7 +19,7 @@ This tutorial is based on the results of the first tutorial. As an alternative, 
 example project found [here](https://github.com/kluctl/kluctl-examples/blob/main/microservices-demo/1-basic-project)
 and use it the base to be able to continue with this tutorial.
 
-You can also deploy the base project and then incrementally perform deployment after each step in this tutorial. This way
+You can also deploy the base project and then incrementally perform deployments after each step in this tutorial. This way
 you will also gain some experience and feeling for to use kluctl.
 
 ## A simple refactoring
