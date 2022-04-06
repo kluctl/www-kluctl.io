@@ -10,12 +10,12 @@ to integrate Helm into your deployment project and how to keep things structured
 
 The project is however still not flexible enough to be deployed multiple times and/or in different flavors. As an example,
 it doesn't make much sense to deploy redis with replication on a local cluster, as there can't be any high availability
-with single node. Also, the resource requests currently used are quite demanding for a local cluster.
+with single node. Also, the resource requests currently used are quite demanding for a single node cluster.
 
 ## How to start
 This tutorial is based on the results of the second tutorial. As an alternative, you can take the `2-helm-integration`
 example project found [here](https://github.com/kluctl/kluctl-examples/blob/main/microservices-demo/2-helm-integration)
-and use it the base to be able to continue with this tutorial.
+and use it as the base to be able to continue with this tutorial.
 
 This time, you should start with a fresh kind cluster. If you are sure that you won't loose any critical data by deleting
 the existing cluster, simply run:
@@ -69,13 +69,13 @@ targets:
 You might notice that all targets point to the kind cluster at the moment. This is of course not how you would do it
 in a real project as you'd probably have at least one real production-ready cluster to target your deployments against.
 
-We've also introduced [`args`]({{< ref "docs/reference/kluctl-project/targets#args" >}}) to each target, with one
-actual arguments names `env_type`. This argument will later be used to change details of the deployment, depending
-on the value of it. For example, if it is set to `local`, it doesn't make much sense to have a replicated redis
+We've also introduced [`args`]({{< ref "docs/reference/kluctl-project/targets#args" >}}) for each target, with each target
+having an `env_type` argument configured. This argument will later be used to change details of the deployment, depending
+on the value of it. For example, setting it to `local` might change the redis deployment into a single-node/standalone
 deployment.
 
 ## Dynamic namespaces
-One of the most obvious and also useful uses of templates is making namespaces dynamic, depending on the target
+One of the most obvious and also useful application of templates is making namespaces dynamic, depending on the target
 that you want to deploy. This allows to deploy the same set of deployment/manifests multiple times, even to the same
 cluster.
 
@@ -96,10 +96,10 @@ metadata:
 ...
 ```
 
-This can however easily lead to resources being forgotten or resources where you have no control over, e.g. rendered
+This can however easily lead to resources being missed or resources where you are not in control, e.g. rendered
 Helm Charts. Another way to set the namespace on multiple resources is by using the
 [`namespace` property](https://kubectl.docs.kubernetes.io/guides/config_management/namespaces_names/) of kustomize.
-For example, instead of changing the `adservice` deployment directly, you could for example modify the content of
+For example, instead of changing the `adservice` deployment directly, you could modify the content of
 `services/adservice/kustomization.yml` to:
 
 ```yaml
@@ -121,7 +121,7 @@ overrideNamespace: ms-demo-{{ target.name }}
 ```
 
 As an alternative, you could also use `overrideNamespace` separately in `third-party/deployment.yml` and
-`services/deploymetn.yml`. In this case, you're also free to use different prefixed for the namespaces, as long as you
+`services/deployment.yml`. In this case, you're also free to use different prefixes for the namespaces, as long as you
 include `{{ target.name }}` in them.
 
 {{< alert >}}
@@ -131,7 +131,7 @@ If you followed the `kustomization.yml` example from above, make sure to undo th
 
 ## Helm Charts and namespaces
 The previously described way of making namespaces dynamic in all resources works well for most cases. There are however
-situations where this is not enough, mostly when the name of the namespace is used in other places then `metadata.namespace`.
+situations where this is not enough, mostly when the name of the namespace is used in other places than `metadata.namespace`.
 
 Helm Charts very often do this internally, which makes it necessary to also include the dynamic namespace into the
 `helm-chart.yml`'s `namespace` property. You will have to do this for the redis chart as well, so let's modify
@@ -147,16 +147,16 @@ helmChart:
   output: deploy.yml
 ```
 
-Without this change, redis is going to be deployed successfully but will then fail to start due to wrong references
-to the `default` namespace internally.
+Without this change, redis is going to be deployed successfully but will then fail to start due to wrong internal
+references to the default namespace.
 
 ## Making commonLabels unique per target
 [`commonLabels`]({{< ref "docs/reference/deployments/deployment-yml#commonlabels" >}}) in your root `deployment.yml` has
 a very special meaning which is important to understand and work with. The combination of all `commonLabels` MUST be unique
 between all supported targets on a cluster, including the ones that don't exist yet and are from other kluctl projects.
 
-This is because kluctl uses these to identify which resources on a cluster belong to the currently processed deployment,
-which becomes especially important when deleting or pruning targets.
+This is because kluctl uses these to identify resources belonging to the currently processed deployment/target,
+which becomes especially important when deleting or pruning.
 
 To fulfill this requirement, change the root `deployment.yml` to:
 ```yaml
@@ -175,9 +175,9 @@ once per target. The names of the labels are arbitrary, and you can choose whate
 If you'd try to deploy the current state of the project, you'd notice that it will result in many errors where kluctl
 says that the desired namespace is not found. This is because kluctl does not create namespaces on its own. It also
 does not do this for Helm Charts, even if `helm install` for the same charts would do this. In kluctl you have to
-create namespaces by yourself, which ensures that you have full control over these.
+create namespaces by yourself, which ensures that you have full control over them.
 
-This means, we must now create the necessary namespace resource. Let's put it into its own kustomize deployment below
+This implies that we must create the necessary namespace resource by ourselves. Let's put it into its own kustomize deployment below
 the root directory. First, create the `namespaces` directory and place a simple `kustomization.yml` into it:
 
 ```yaml
@@ -205,7 +205,7 @@ deployments:
 ```
 
 ## Deploying multiple targets
-You're now able to deploy the current state multiple times to the same kind cluster. Simply run:
+You're now able to deploy the current deployment multiple times to the same kind cluster. Simply run:
 ```sh
 $ kluctl deploy -t local
 $ kluctl deploy -t prod
@@ -218,7 +218,7 @@ After this, you'll have two namespaces with the same set of microservices and tw
 For a complete overview of the necessary changes to get to this point, look into [this commit](https://github.com/kluctl/kluctl-examples/commit/511fc0e06790152bfcedf9caa6b402029fea0ffb).
 
 ## Make the local target more lightweight
-Having the microserves demo deployed twice might easily lead to you local cluster being completely overloaded. The
+Having the microservices demo deployed twice might easily lead to you local cluster being completely overloaded. The
 solution would obviously be to not deploy the prod target to your local cluster and instead use a real cluster.
 
 However, for the sake of this tutorial, we'll instead try to introduce a few differences between targets so that they
@@ -352,7 +352,7 @@ For an overview of the above changes, look into [this commit](https://github.com
 
 ## How to continue
 After this tutorial, you should have a basic understanding how templating in kluctl works and how a multi-environment
-deployment can be implemented with it.
+deployment can be implemented.
 
 We however only deployed to a single cluster so far and are unable to properly manage the image versions of our microservices
 at the moment. In the next tutorial of this series, we'll learn how to deploy to multiple clusters and split third-party
