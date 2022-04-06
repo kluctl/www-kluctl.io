@@ -14,7 +14,7 @@ structure is too flat and will likely result in chaos when the project grows. Al
 manifests while it might have been better to reuse feature rich Helm Charts. We will fix both these issues in this
 tutorial.
 
-## How to proceed
+## How to start
 This tutorial is based on the results of the first tutorial. As an alternative, you can take the `1-basic-project`
 example project found [here](https://github.com/kluctl/kluctl-examples/blob/main/microservices-demo/1-basic-project)
 and use it the base to be able to continue with this tutorial.

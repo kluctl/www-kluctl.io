@@ -12,7 +12,7 @@ The project is however still not flexible enough to be deployed multiple times a
 it doesn't make much sense to deploy redis with replication on a local cluster, as there can't be any high availability
 with single node. Also, the resource requests currently used are quite demanding for a local cluster.
 
-## How to proceed
+## How to start
 This tutorial is based on the results of the second tutorial. As an alternative, you can take the `2-helm-integration`
 example project found [here](https://github.com/kluctl/kluctl-examples/blob/main/microservices-demo/2-helm-integration)
 and use it the base to be able to continue with this tutorial.
