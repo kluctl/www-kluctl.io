@@ -1,7 +1,10 @@
 ---
-title: "Overview"
-linkTitle: "Overview"
+title: "About"
+linkTitle: "About"
 weight: 1
+menu:
+  main:
+    weight: 1
 description: >
   What is kluctl, it's motivation and history?
 ---
