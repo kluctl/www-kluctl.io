@@ -1,11 +1,11 @@
 ---
-title: "Microservices Demo 3 - Templating and multi-env deployments"
-linkTitle: "Microservices Demo 3 - Templating and multi-env deployments"
+title: "3. Templating and multi-env deployments"
+linkTitle: "3. Templating and multi-env deployments"
 weight: 3
 ---
 
 ## Introduction
-The [second tutorial]({{< ref "tutorials/microservices-2-helm-integration" >}}) in this series demonstrated how
+The [second tutorial]({{< ref "tutorials/microservices-demo/2-helm-integration" >}}) in this series demonstrated how
 to integrate Helm into your deployment project and how to keep things structured.
 
 The project is however still not flexible enough to be deployed multiple times and/or in different flavors. As an example,

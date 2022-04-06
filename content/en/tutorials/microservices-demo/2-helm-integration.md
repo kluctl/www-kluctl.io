@@ -1,11 +1,11 @@
 ---
-title: "Microservices Demo 2 - Helm Integration"
-linkTitle: "Microservices Demo 2 - Helm Integration"
+title: "2. Helm Integration"
+linkTitle: "2. Helm Integration"
 weight: 2
 ---
 
 ## Introduction
-The [first tutorial]({{< ref "tutorials/microservices-1-basic-project-setup" >}}) in this series demonstrated how
+The [first tutorial]({{< ref "tutorials/microservices-demo/1-basic-project-setup" >}}) in this series demonstrated how
 to setup a simple kluctl project that is able to deploy the [GCP Microservices Demo](https://github.com/GoogleCloudPlatform/microservices-demo)
 to a local kind cluster.
 

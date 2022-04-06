@@ -1,6 +1,6 @@
 ---
-title: "Microservices Demo 1 - Basic Project Setup"
-linkTitle: "Microservices Demo 1 - Basic Project Setup"
+title: "1. Basic Project Setup"
+linkTitle: "1. Basic Project Setup"
 weight: 1
 ---
 
