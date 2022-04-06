@@ -20,7 +20,7 @@ hands over the rendered yaml to [kustomize](https://kustomize.io/). Rendering is
 `helm-values.yml`, which contains the necessary values to configure the Helm Chart.
 
 The resulting rendered yaml is then referred by your `kustomization.yml`, from which point on the
-[kustomize integration]({{< ref "docs/reference/sealed-secrets#outputpattern-and-location-of-stored-sealed-secrets" >}}) 
+[kustomize integration]({{< ref "reference/sealed-secrets#outputpattern-and-location-of-stored-sealed-secrets" >}}) 
 takes over. This means, that you can perform all desired customization (patches, namespace override, ...) as if you
 provided your own resources via yaml files.
 
@@ -94,7 +94,7 @@ The name of the chart that can be found in the repository.
 The version of the chart.
 
 ### skipUpdate
-Skip this Helm Chart when the [helm-update]({{< ref "docs/reference/commands/helm-update" >}}) command is called.
+Skip this Helm Chart when the [helm-update]({{< ref "reference/commands/helm-update" >}}) command is called.
 If omitted, defaults to `false`.
 
 ### releaseName
@@ -120,12 +120,12 @@ read the documentation of the used Helm Charts for details on what is supported.
 
 ## Updates to helm-charts
 In case a Helm Chart needs to be updated, you can either do this manually by replacing the [chartVersion](#chartversion)
-value in `helm-chart.yml` and the calling the [helm-pull]({{< ref "docs/reference/commands/helm-pull" >}}) command or by simply invoking
-[helm-update]({{< ref "docs/reference/commands/helm-update" >}}) with `--upgrade` and/or `--commit` being set.
+value in `helm-chart.yml` and the calling the [helm-pull]({{< ref "reference/commands/helm-pull" >}}) command or by simply invoking
+[helm-update]({{< ref "reference/commands/helm-update" >}}) with `--upgrade` and/or `--commit` being set.
 
 ## Templating
 
-Both `helm-chart.yml` and `helm-values.yml` are rendered by the [templating engine]({{< ref "docs/reference/templating" >}}) before they
+Both `helm-chart.yml` and `helm-values.yml` are rendered by the [templating engine]({{< ref "reference/templating" >}}) before they
 are actually used. This means, that you can use all available Jinja2 variables at that point, which can for example be
 seen in the above `helm-chart.yml` example for the namespace.
 

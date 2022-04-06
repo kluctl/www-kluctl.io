@@ -8,13 +8,13 @@ description: >
 
 ## Kluctl project
 The kluctl project defines targets, secret sources and external git projects. 
-It is defined via the [.kluctl.yml]({{< ref "docs/reference/kluctl-project" >}}) configuration file.
+It is defined via the [.kluctl.yml]({{< ref "reference/kluctl-project" >}}) configuration file.
 
 The kluctl project can also optionally define where the deployment project and clusters configs are located (external
 git projects).
 
 ## Cluster configs
-[Cluster configs]({{< ref "docs/reference/cluster-configs" >}}) are a set of .yml files that define different clusters. Cluster configs have a name, a kubectl context
+[Cluster configs]({{< ref "reference/cluster-configs" >}}) are a set of .yml files that define different clusters. Cluster configs have a name, a kubectl context
 and an arbitrary set of configuration properties.
 
 ## Targets
@@ -22,14 +22,14 @@ A target defines a target cluster and a set of deployment arguments. Multiple ta
 allow implementing multi-cluster, multi-environment, multi-customer, ... deployments.
 
 ## Deployments
-A [deployment]({{< ref "docs/reference/deployments" >}}) defines which Kustomize deployments and which sub-deployments
+A [deployment]({{< ref "reference/deployments" >}}) defines which Kustomize deployments and which sub-deployments
 to deploy. It also controls the order of deployments.
 
 Deployments may be configured through deployment arguments, which are typically provided via the targets but might also
 be provided through the CLI.
 
 ## Variables
-[Variables]({{< ref "docs/reference/templating" >}}) are the main source of configuration. They are either loaded yaml
+[Variables]({{< ref "reference/templating" >}}) are the main source of configuration. They are either loaded yaml
 files or directly defined inside deployments. Each variables file that is loaded has access to all the variables which
 were defined before, allowing complex composition of configuration.
 
@@ -38,16 +38,16 @@ After being loaded, variables are usable through the templating engine at all ne
 ## Templating
 All configuration files (including .kluctl.yml and deployment.yml) and all Kubernetes manifests involved are processed
 through a templating engine.
-The [templating engine]({{< ref "docs/reference/templating" >}}) allows simple variable substitution and also complex
+The [templating engine]({{< ref "reference/templating" >}}) allows simple variable substitution and also complex
 control structures (if/else, for loops, ...).
 
 ## Secrets
-Secrets are loaded from [external sources]({{< ref "docs/reference/kluctl-project" >}}) and are only available
-while [sealing]({{< ref "docs/reference/sealed-secrets" >}}). After the sealing process, only the public-key encrypted
+Secrets are loaded from [external sources]({{< ref "reference/kluctl-project" >}}) and are only available
+while [sealing]({{< ref "reference/sealed-secrets" >}}). After the sealing process, only the public-key encrypted
 sealed secrets are available.
 
 ## Sealed Secrets
-[Sealed Secrets]({{< ref "docs/reference/sealed-secrets" >}}) are based on 
+[Sealed Secrets]({{< ref "reference/sealed-secrets" >}}) are based on 
 [Bitnami's sealed-secrets controller](https://github.com/bitnami-labs/sealed-secrets). Kluctl offers integration of
 sealed secrets through the `seal` command. Kluctl allows managing multiple sets of sealed secrets for multiple targets.
 

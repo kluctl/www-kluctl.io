@@ -60,9 +60,9 @@ example, that objects that are meant to be deployed into a namespace might be de
 resulting in failure.
 
 ### --force-apply
-kluctl implements deployments via [server-side apply](https://kubernetes.io/docs/reference/using-api/server-side-apply/)
+kluctl implements deployments via [server-side apply](https://kubernetes.io/reference/using-api/server-side-apply/)
 and a custom automatic conflict resolution algorithm. This algurithm is an automatic implementation of the
-"[Don't overwrite value, give up management claim](https://kubernetes.io/docs/reference/using-api/server-side-apply/#conflicts)"
+"[Don't overwrite value, give up management claim](https://kubernetes.io/reference/using-api/server-side-apply/#conflicts)"
 method. It should work in most cases, but might still fail. In case of such failure, you can use `--force-apply` to
 use the "Overwrite value, become sole manager" strategy instead.
 

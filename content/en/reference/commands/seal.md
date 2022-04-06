@@ -20,7 +20,7 @@ If no '--target' is specified, sealing is performed for all targets.
 
 <!-- END SECTION -->
 
-See [sealed-secrets]({{< ref "docs/reference/sealed-secrets">}}) for more details.
+See [sealed-secrets]({{< ref "reference/sealed-secrets">}}) for more details.
 
 ## Arguments
 The following sets of arguments are available:

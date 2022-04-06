@@ -23,11 +23,11 @@ by automatically pre-provisioning a key onto the cluster that is compatible with
 
 ## Sealing of .sealme files
 
-Sealing is done via the [seal command]({{< ref "docs/reference/commands/seal" >}}). It must be done before the actual
+Sealing is done via the [seal command]({{< ref "reference/commands/seal" >}}). It must be done before the actual
 deployment is performed.
 
 The `seal` command recursively searches for files that end with `.sealme`, renders them with the
-[templating engine]({{< ref "docs/reference/templating" >}}) engine. The rendered secret resource is then
+[templating engine]({{< ref "reference/templating" >}}) engine. The rendered secret resource is then
 converted/encrypted into a sealed secret.
 
 The `.sealme` files itself have to be [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/),
@@ -48,14 +48,14 @@ stringData:
   DB_PASSWORD: {{ secrets.database.password }}
 ```
 
-While sealing, the full templating context (same as in [templating]({{< ref "docs/reference/templating" >}})) is available.
+While sealing, the full templating context (same as in [templating]({{< ref "reference/templating" >}})) is available.
 Additionally, the global `secrets` object/variable is available which contains the sensitive secrets.
 
 ## Secret Sources
 
 Secrets are only loaded while sealing. Available secret sets and sources are configured via
-[.kluctl.yml]({{< ref "docs/reference/kluctl-project/secrets-config" >}}). The secrets used per target are configured via the
-[secrets config]({{< ref "docs/reference/kluctl-project/targets#secretsets" >}}) of the targets.
+[.kluctl.yml]({{< ref "reference/kluctl-project/secrets-config" >}}). The secrets used per target are configured via the
+[secrets config]({{< ref "reference/kluctl-project/targets#secretsets" >}}) of the targets.
 
 ## Using sealed secrets
 
@@ -76,9 +76,9 @@ resources:
 ```
 
 ## outputPattern and location of stored sealed secrets
-The root [deployment project]({{< ref "docs/reference/deployments" >}}) must specify the outputPattern to use when storing/loading
+The root [deployment project]({{< ref "reference/deployments" >}}) must specify the outputPattern to use when storing/loading
 sealed secrets. The output pattern must be a template string that is rendered with the full
-[templating context]({{< ref "docs/reference/templating" >}}) available for the deployment.yml.
+[templating context]({{< ref "reference/templating" >}}) available for the deployment.yml.
 
 This template string usually at least contains the cluster name. If your deployment can be deployed multiple times to the
 same cluster (via different targets), you should also add something to differentiate the targets.
@@ -91,7 +91,7 @@ The final storage location for the sealed secret is:
 `<base_dir>/<rendered_output_pattern>/<relative_sealme_file_dir>/<file_name>`
 
 with:
-* `base_dir`: The base directory for sealed secrets is configured in the [.kluctl.yml]({{< ref "docs/reference/kluctl-project/external-projects#sealedsecrets" >}}) config
+* `base_dir`: The base directory for sealed secrets is configured in the [.kluctl.yml]({{< ref "reference/kluctl-project/external-projects#sealedsecrets" >}}) config
   file. If not specified, the base directory defaults to the subdirectory `.sealed-secrets` in the kluctl project root
   diretory.
 * `rendered_output_pattern`: The rendered outputPattern as described above.
@@ -100,8 +100,8 @@ with:
 
 ## Content Hashes and re-sealing
 Sealed secrets are stored together with hashes of all individual secret entries. These hashes are then used to avoid
-unnecessary re-sealing in future [seal]({{< ref "docs/reference/commands/seal" >}}) invocations. If you want to force re-sealing, use the
-[--force-reseal]({{< ref "docs/reference/commands/seal" >}}) option.
+unnecessary re-sealing in future [seal]({{< ref "reference/commands/seal" >}}) invocations. If you want to force re-sealing, use the
+[--force-reseal]({{< ref "reference/commands/seal" >}}) option.
 
 Hashing of secrets is done with bcrypt and the cluster id as salt. The cluster id is currently defined as the sha256 hash
 of the cluster CA certificate. This will cause re-sealing of all secrets in case a cluster is set up from scratch

@@ -9,7 +9,7 @@ description: >
 A simple local file based source. The path must be relative and multiple places are tried to find the file:
 
 1. Relative to the deployment project root
-2. The path provided via [--secrets-dir]({{< ref "docs/reference/commands/seal" >}})
+2. The path provided via [--secrets-dir]({{< ref "reference/commands/seal" >}})
 
 Example:
 ```yaml

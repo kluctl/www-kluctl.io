@@ -6,7 +6,7 @@ description: >
     Annotations to control validation
 ---
 
-The following annotations influence the [validate]({{< ref "docs/reference/commands/validate" >}}) command.
+The following annotations influence the [validate]({{< ref "reference/commands/validate" >}}) command.
 
 ### validate-result.kluctl.io/xxx
 If this annotation is found on a resource that is checked while validation, the key and the value of the annotation

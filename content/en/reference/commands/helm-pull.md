@@ -18,7 +18,7 @@ version changes).
 
 <!-- END SECTION -->
 
-See [helm-integration]({{< ref "docs/reference/deployments/helm">}}) for more details.
+See [helm-integration]({{< ref "reference/deployments/helm">}}) for more details.
 
 ## Arguments
 The following sets of arguments are available:

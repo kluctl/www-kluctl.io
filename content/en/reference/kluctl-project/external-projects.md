@@ -20,7 +20,7 @@ The following configuration is possible in `.kluctl.yml`
 
 ## deployment
 
-Specifies the git project where the [deployment project]({{< ref "docs/reference/deployments" >}}) is located. If it is omitted, the base
+Specifies the git project where the [deployment project]({{< ref "reference/deployments" >}}) is located. If it is omitted, the base
 directory of the `.kluctl.yml` project is used as the deployment project root.
 
 It has the following form:
@@ -43,10 +43,10 @@ This field is optional and specifies the subdirectory to use. If omitted, the re
 
 ## clusters
 
-Specifies the git project where the [cluster configuration]({{< ref "docs/reference/cluster-configs" >}}) is located. If it is omitted, the
+Specifies the git project where the [cluster configuration]({{< ref "reference/cluster-configs" >}}) is located. If it is omitted, the
 `clusters` subdirectory of the `.kluctl.yml` project is used as the clusters config root.
 
-It has the same form as in [deployment]({{< ref "docs/reference/kluctl-project#deployment" >}}), except that it is called `clusters` and 
+It has the same form as in [deployment]({{< ref "reference/kluctl-project#deployment" >}}), except that it is called `clusters` and 
 you can optionally specify multiple projects:
 
 ```yaml
@@ -64,7 +64,7 @@ clusters:
 
 ## sealedSecrets
 
-Specifies the git project where the [sealed secrets]({{< ref "docs/reference/cluster-configs" >}}) are located. If it is omitted, the
+Specifies the git project where the [sealed secrets]({{< ref "reference/cluster-configs" >}}) are located. If it is omitted, the
 `.sealed-secrets` subdirectory of the `.kluctl.yml` project is used as the sealed secrets location.
 
-It has the same form as in [deployment]({{< ref "docs/reference/kluctl-project#deployment" >}}), except that it is called `sealedSecrets`.
+It has the same form as in [deployment]({{< ref "reference/kluctl-project#deployment" >}}), except that it is called `sealedSecrets`.
