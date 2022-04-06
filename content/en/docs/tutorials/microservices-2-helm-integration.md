@@ -72,7 +72,7 @@ deployments:
   - path: shippingservice
 ```
 
-To get an overview of these changes, look into [this commit](https://github.com/kluctl/kluctl-examples/commit/ddcc81b48157b908ccf5ea115c68b46028eb8842)
+To get an overview of these changes, look into [this commit](https://github.com/kluctl/kluctl-examples/commit/1388dd025e5471c3d6727fe01e626cee6091e4fb)
 inside the example project belonging to this tutorial.
 
 If you deploy the new state of the project, you'll notice that only labels will change. These labels are automatically
@@ -147,7 +147,7 @@ to point to `cart-redis:6379` instead of `redis-cart:6379`.
 
 You can now remove the old redis related manifests (`third-party/redis/deployment.yml` and `third-party/redis/service.yml`).
 
-All the above changes can be found in [this commit](https://github.com/kluctl/kluctl-examples/commit/c27c36b5477b0f06150d11cb3b0229a5380a778a)
+All the above changes can be found in [this commit](https://github.com/kluctl/kluctl-examples/commit/e90dd85a2947402d08172295bb3ac22d27e72123)
 from the example project.
 
 ## Pulling Helm Charts
