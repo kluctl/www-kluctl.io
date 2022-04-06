@@ -10,11 +10,14 @@ case "$(uname -s)" in
       *)          echo "unknown os"; exit 1;
 esac
 
-latest_version=$(curl -s https://api.github.com/repos/kluctl/kluctl/releases/latest | jq '.tag_name' -r)
+echo "Determining version"
+version=$(cat config.toml | grep 'fullversion =' | sed 's/fullversion = "\(.*\)"/\1/')
+echo "version=$version"
 
 mkdir -p /tmp/kluctl-for-docs
-curl -L -o /tmp/kluctl-for-docs/kluctl$exe "https://github.com/kluctl/kluctl/releases/download/$latest_version/kluctl-$arch$exe"
+curl -L -o /tmp/kluctl-for-docs/kluctl$exe "https://github.com/kluctl/kluctl/releases/download/$version/kluctl-$arch$exe"
 chmod +x /tmp/kluctl-for-docs/kluctl$exe
+ls -lah /tmp/kluctl-for-docs/
 
 export PATH=/tmp/kluctl-for-docs:$PATH
 
