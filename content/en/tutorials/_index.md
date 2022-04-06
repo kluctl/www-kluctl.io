@@ -2,5 +2,7 @@
 ---
 title: "Tutorials"
 linkTitle: "Tutorials"
-weight: 8
+menu:
+  main:
+    weight: 30
 ---
