@@ -202,3 +202,8 @@ enable = false
 #  url = "https://example.org/mail"
 #  icon = "fa fa-envelope"
 #  desc = "Discuss development issues around the project"
+
+[privacy.googleAnalytics]
+disabled = false
+respectDoNotTrack = true
+anonymizeIP = true
