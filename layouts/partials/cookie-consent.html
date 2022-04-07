@@ -29,6 +29,13 @@ functionality of this website.</span>
     function eraseCookie(name) {
         createCookie(name,"",-1);
     }
+    function showCookieConsent(show) {
+        if (show == 'true' || show == true) {
+            document.getElementById('cookie-notice').style.display = 'block';
+        } else {
+            document.getElementById('cookie-notice').style.display = 'none';
+        }
+    }
 
     var cookieValue = readCookie('cookie-notice-option');
     console.log("cookieValue="+cookieValue)
@@ -36,28 +43,28 @@ functionality of this website.</span>
         console.log("a")
         navigator.doNotTrack = '1'
         window.doNotTrack = '1'
-        document.getElementById('cookie-notice').style.display = 'block';
+        showCookieConsent(true)
     } else if (cookieValue == 'true') {
         console.log("b")
         navigator.doNotTrack = '0'
         window.doNotTrack = '0'
-        document.getElementById('cookie-notice').style.display = 'none';
+        showCookieConsent(false)
     } else {
         console.log("c")
         navigator.doNotTrack = '1'
         window.doNotTrack = '1'
-        document.getElementById('cookie-notice').style.display = 'none';
+        showCookieConsent(false)
     }
 
     document.getElementById('cookie-notice-accept').addEventListener("click",function() {
         createCookie('cookie-notice-option','true',31);
-        document.getElementById('cookie-notice').style.display = 'none';
+        showCookieConsent(false)
         location.reload();
     });
 
     document.getElementById('cookie-notice-deny').addEventListener("click",function() {
         createCookie('cookie-notice-option','false',31);
-        document.getElementById('cookie-notice').style.display = 'none';
+        showCookieConsent(false)
         location.reload();
     });
 
