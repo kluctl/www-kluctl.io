@@ -17,9 +17,35 @@ You need to install a set of command line tools to fully use kluctl. These are:
 
 All of these tools must be in your PATH, so that kluctl can easily invoke them.
 
-## Installation of kluctl
+### Install kubectl binary with curl on Linux
 
-kluctl can currently only be installed this way:
-1. Download a standalone binary from the latest release and make it available in your PATH, either by copying it into `/usr/local/bin` or by modifying the PATH variable
+1. Download the latest release with the command:
 
-Future releases will include packaged releases for homebrew and other established package managers (contributions are welcome).
+   ```bash
+   # To download a specific version, replace the kluctl_version with the version you need for example kluctl_version={{< param "fullversion" >}}
+   kluctl_version=$(curl --silent -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/kluctl/kluctl/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+   curl -LO "https://github.com/kluctl/kluctl/releases/download/${kluctl_version}/kluctl-linux-amd64"
+   ```
+
+3. Install kubectl
+
+   ```bash
+   sudo install -o root -g root -m 0755 kluctl-linux-amd64 /usr/local/bin/kluctl
+   ```
+
+   {{< alert >}}
+   If you do not have root access on the target system, you can still install kluctl to the `~/.local/bin` directory:
+
+   ```bash
+   chmod +x kluctl-linux-amd64
+   mkdir -p ~/.local/bin
+   mv ./kluctl-linux-amd64 ~/.local/bin/kluctl
+   # and then append (or prepend) ~/.local/bin to $PATH
+   ```
+   {{< /alert >}}
+
+4. Test to ensure the version you installed is up-to-date:
+
+   ```bash
+   kluctl version
+   ```

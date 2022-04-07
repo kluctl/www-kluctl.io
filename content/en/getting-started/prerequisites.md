@@ -10,7 +10,8 @@ description: >
 ## Get a Kubernetes cluster
 
 The first step is of course: You need a kubernetes cluster. It doesn't really matter where this cluster is hosted, if
-it's a local (e.g. kind) cluster, managed cluster, or a self-hosted cluster, kops or kubespray based, AWS, GCE, Azure, ... and so on. kluctl
+it's a local (e.g. [kind](https://kind.sigs.k8s.io/docs/user/quick-start/)) cluster, managed cluster, or a self-hosted
+cluster, kops or kubespray based, AWS, GCE, Azure, ... and so on. kluctl
 is completely independent of how Kubernetes is deployed and where it is hosted.
 
 There is however a minimum Kubernetes version that must be met: 1.20.0. This is due to the heavy use of server-side apply
