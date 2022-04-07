@@ -13,7 +13,7 @@ target cluster and the deployment is defined externally. You can configure the r
 ## Prerequisites
 1) A running [kind](https://kind.sigs.k8s.io/) cluster with a context named `kind-kind`.
 2) Of course, you need to install kluctl. Please take a look at the
-   [installation guide]({{< ref "docs/getting-started/installation.md" >}}) if you need further information.
+   [installation guide]({{< ref "docs/getting-started/installation.md" >}}), in case you need further information.
 
 ## How to deploy
 ```bash
