@@ -24,4 +24,6 @@ export PATH=/tmp/kluctl-for-docs:$PATH
 go mod vendor
 go run ./replace-commands-help --docs-dir ./content/en/docs/reference/commands
 
+export HUGO_ENV=$CONTEXT
+
 hugo
