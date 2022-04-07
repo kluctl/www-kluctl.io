@@ -5,7 +5,7 @@ weight: 3
 ---
 
 ## Introduction
-The [second tutorial]({{< ref "tutorials/microservices-demo/2-helm-integration" >}}) in this series demonstrated how
+The [second tutorial]({{< ref "guides/tutorials/microservices-demo/2-helm-integration" >}}) in this series demonstrated how
 to integrate Helm into your deployment project and how to keep things structured.
 
 The project is however still not flexible enough to be deployed multiple times and/or in different flavors. As an example,
