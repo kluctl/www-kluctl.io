@@ -1,0 +1,71 @@
+<div id="cookie-notice">
+<span>We would like to use third party cookies and scripts to improve the
+functionality of this website.</span>
+    <a id="cookie-notice-accept" class="btn btn-primary btn-sm">Approve</a>
+    <a id="cookie-notice-deny" class="btn btn-primary btn-sm">Deny</a>
+    <a href="/privacy" class="btn btn-primary btn-sm">More info</a>
+</div>
+<script>
+    function createCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+    function eraseCookie(name) {
+        createCookie(name,"",-1);
+    }
+    function showCookieConsent(show) {
+        if (show == 'true' || show == true) {
+            document.getElementById('cookie-notice').style.display = 'block';
+        } else {
+            document.getElementById('cookie-notice').style.display = 'none';
+        }
+    }
+
+    var cookieValue = readCookie('cookie-notice-option');
+    console.log("cookieValue="+cookieValue)
+    if (cookieValue != 'true' && cookieValue != 'false') {
+        console.log("a")
+        navigator.doNotTrack = '1'
+        window.doNotTrack = '1'
+        showCookieConsent(true)
+    } else if (cookieValue == 'true') {
+        console.log("b")
+        navigator.doNotTrack = '0'
+        window.doNotTrack = '0'
+        showCookieConsent(false)
+    } else {
+        console.log("c")
+        navigator.doNotTrack = '1'
+        window.doNotTrack = '1'
+        showCookieConsent(false)
+    }
+
+    document.getElementById('cookie-notice-accept').addEventListener("click",function() {
+        createCookie('cookie-notice-option','true',31);
+        showCookieConsent(false)
+        location.reload();
+    });
+
+    document.getElementById('cookie-notice-deny').addEventListener("click",function() {
+        createCookie('cookie-notice-option','false',31);
+        showCookieConsent(false)
+        location.reload();
+    });
+
+</script>
