@@ -29,7 +29,7 @@ cascade:
 				<h1 class="display-1 mt-0 pb-3">
 					<img alt="Kluctl" width="98" src="images/logo.svg" />
 				</h1>
-				<p class="display-2 mb-0">The most natural way to create and manage complex Kubernetes deployments!</p>
+				<p class="display-2 mb-0">Trust your deployments!</p>
 			</div>
 			<div class="col-12 pt-3">
 			</div>
@@ -45,12 +45,6 @@ cascade:
 	</a>
 	<p class="lead mt-4">Kluctl glues together your own k8s deployments with established tools
 		like <a href="https://kustomize.io/">Kustomize</a>, Operators and <a href="https://helm.sh/">Helm</a> charts.
-		Kluctl makes it in such an easy and clean way that you can use the same deployment project and branch for
-		both local development and a multi cluster production environment.
-		Thereby you have all possibilities to individualize the environments by the power of Jinja templating.
-		All resources are declared and marked and can therefore be comprehensively managed with commands
-		such as <strong>deploy</strong> <em>(create)</em>, <strong>diff</strong> <em>(change)</em>,
-		<strong>prune</strong> <em>(clean)</em> and <strong>delete</strong> <em>(remove)</em>.
 	</p>
 	<div class="mx-auto mt-5">
 		{{< blocks/link-down color="light-secondary" >}}
@@ -61,15 +55,3 @@ cascade:
 {{% blocks/lead color="primary" %}}
 The most natural way to create and manage complex Kubernetes deployments
 {{% /blocks/lead %}}
-
-{{< blocks/section >}}
-
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/kluctl/kluctl" %}}
-We do a [Pull Request](https://github.com/kluctl/kluctl/pulls) contributions workflow on **GitHub**. New users are always welcome!
-{{% /blocks/feature %}}
-
-{{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!" url="https://twitter.com/kluctl" %}}
-For announcement of latest features etc.
-{{% /blocks/feature %}}
-
-{{< /blocks/section >}}
