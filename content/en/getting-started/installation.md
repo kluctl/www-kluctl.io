@@ -33,7 +33,7 @@ All of these tools must be in your PATH, so that kluctl can easily invoke them.
    sudo install -o root -g root -m 0755 kluctl-linux-amd64 /usr/local/bin/kluctl
    ```
 
-   {{< note >}}
+   {{< alert >}}
    If you do not have root access on the target system, you can still install kluctl to the `~/.local/bin` directory:
 
    ```bash
@@ -42,7 +42,7 @@ All of these tools must be in your PATH, so that kluctl can easily invoke them.
    mv ./kluctl-linux-amd64 ~/.local/bin/kluctl
    # and then append (or prepend) ~/.local/bin to $PATH
    ```
-   {{< /note >}}
+   {{< /alert >}}
 
 4. Test to ensure the version you installed is up-to-date:
 
