@@ -38,19 +38,15 @@ functionality of this website.</span>
     }
 
     var cookieValue = readCookie('cookie-notice-option');
-    console.log("cookieValue="+cookieValue)
     if (cookieValue != 'true' && cookieValue != 'false') {
-        console.log("a")
         navigator.doNotTrack = '1'
         window.doNotTrack = '1'
         showCookieConsent(true)
     } else if (cookieValue == 'true') {
-        console.log("b")
         navigator.doNotTrack = '0'
         window.doNotTrack = '0'
         showCookieConsent(false)
     } else {
-        console.log("c")
         navigator.doNotTrack = '1'
         window.doNotTrack = '1'
         showCookieConsent(false)
