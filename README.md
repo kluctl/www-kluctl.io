@@ -1,5 +1,7 @@
 # Kluctl Documentation
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/02a02d5e-b26e-495c-be3d-946de035115b/deploy-status)](https://app.netlify.com/sites/kluctl/deploys)
+
 Built with [Docsy](https://github.com/google/docsy)
 
 # Launch website locally
