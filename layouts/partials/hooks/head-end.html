@@ -3,3 +3,7 @@
 
 <link rel="stylesheet" type="text/css" href={{ "css/cookie-consent.css" | absURL }} />
 {{ partial "cookie-consent.html" }}
+
+{{ if .Params.noindex }}
+<meta name="robots" content="noindex, nofollow" />
+{{ end }}
