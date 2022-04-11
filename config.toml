@@ -71,7 +71,7 @@ id = "G-TQWQ2X944S"
 [languages]
 [languages.en]
 title = "kluctl.io"
-description = "The most natural way to create and manage complex Kubernetes deployments"
+description = "The missing glue to put together large Kubernetes deployments."
 languageName ="English"
 # Weight used for sorting.
 weight = 1
