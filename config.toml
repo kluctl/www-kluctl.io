@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://kluctl.io/"
 title = "kluctl.io"
 
 # Language settings
@@ -141,7 +141,7 @@ offlineSearch = false
 # Enable syntax highlighting and copy buttons on code blocks with Prism
 prism_syntax_highlighting = false
 
-fullversion = "v2.4.3"
+fullversion = "v2.5.0"
 
 # User interface configuration
 [params.ui]
