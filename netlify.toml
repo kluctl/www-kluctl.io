@@ -1,3 +1,6 @@
 [build]
+
+command = "cd themes/docsy && git submodule update -f --init && cd ../.. && ./build.sh"
+
 [build.environment]
 HUGO_VERSION = "0.95.0"
