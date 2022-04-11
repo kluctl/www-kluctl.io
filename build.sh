@@ -25,7 +25,7 @@ go mod vendor
 go run ./replace-commands-help --docs-dir ./content/en/docs/reference/commands
 
 if [ "$BASE_URL" != "" ]; then
-  BASE_URL_ARG="-b $BASE_URL/"
+  BASE_URL_ARG="-b $BASE_URL"
 elif [ "$DEPLOY_PRIME_URL" != "" ]; then
   BASE_URL_ARG="-b $DEPLOY_PRIME_URL/"
 fi
