@@ -4,3 +4,6 @@ command = "cd themes/docsy && git submodule update -f --init && cd ../.. && ./bu
 
 [build.environment]
 HUGO_VERSION = "0.95.0"
+
+[context.production]
+  environment = { BASE_URL = "https://kluctl.io/" }

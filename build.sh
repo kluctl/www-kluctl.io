@@ -24,8 +24,13 @@ export PATH=/tmp/kluctl-for-docs:$PATH
 go mod vendor
 go run ./replace-commands-help --docs-dir ./content/en/docs/reference/commands
 
-if [ "$DEPLOY_PRIME_URL" != "" ]; then
+if [ "$BASE_URL" != "" ]; then
+  BASE_URL_ARG="-b $BASE_URL/"
+elif [ "$DEPLOY_PRIME_URL" != "" ]; then
   BASE_URL_ARG="-b $DEPLOY_PRIME_URL/"
+fi
+
+if [ "$CONTEXT" != "" ]; then
   export HUGO_ENV=$CONTEXT
 fi
 
