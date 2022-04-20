@@ -38,6 +38,8 @@ Misc arguments:
                                                Format can either be 'text' or 'yaml'. Can be specified multiple times.
                                                The actual format for yaml is currently not documented and subject to
                                                change ($KLUCTL_OUTPUT_FORMAT).
+      --render-output-dir=STRING               Specifies the target directory to render the project into. If omitted, a
+                                               temporary directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
   -l, --delete-by-label=DELETE-BY-LABEL,...    Override the labels used to find objects for deletion
                                                ($KLUCTL_DELETE_BY_LABEL).
 

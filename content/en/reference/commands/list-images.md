@@ -31,8 +31,10 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  -o, --output=OUTPUT,...    Specify output target file. Can be specified multiple times ($KLUCTL_OUTPUT)
-      --simple               Output a simplified version of the images list ($KLUCTL_SIMPLE)
+  -o, --output=OUTPUT,...           Specify output target file. Can be specified multiple times ($KLUCTL_OUTPUT)
+      --render-output-dir=STRING    Specifies the target directory to render the project into. If omitted, a temporary
+                                    directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
+      --simple                      Output a simplified version of the images list ($KLUCTL_SIMPLE)
 
 ```
 <!-- END SECTION -->

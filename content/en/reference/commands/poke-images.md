@@ -29,12 +29,15 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  -y, --yes                         Suppresses 'Are you sure?' questions and proceeds as if you would answer 'yes'
-                                    ($KLUCTL_YES).
-      --dry-run                     Performs all kubernetes API calls in dry-run mode ($KLUCTL_DRY_RUN).
-  -o, --output=OUTPUT,...           Specify output target file. Can be specified multiple times ($KLUCTL_OUTPUT)
-      --render-output-dir=STRING    Specifies the target directory to render the project into. If omitted, a temporary
-                                    directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
+  -y, --yes                                Suppresses 'Are you sure?' questions and proceeds as if you would answer
+                                           'yes' ($KLUCTL_YES).
+      --dry-run                            Performs all kubernetes API calls in dry-run mode ($KLUCTL_DRY_RUN).
+  -o, --output-format=OUTPUT-FORMAT,...    Specify output format and target file, in the format 'format=path'. Format
+                                           can either be 'text' or 'yaml'. Can be specified multiple times. The actual
+                                           format for yaml is currently not documented and subject to change
+                                           ($KLUCTL_OUTPUT_FORMAT).
+      --render-output-dir=STRING           Specifies the target directory to render the project into. If omitted, a
+                                           temporary directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
 
 ```
 <!-- END SECTION -->
