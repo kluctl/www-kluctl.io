@@ -2,6 +2,13 @@
   color: $primary;
 }
 
+.navbar-brand {
+  visibility: hidden;
+}
+.navbar-logo {
+  visibility: visible;
+}
+
 .td-navbar-cover {
     background: white;
 
