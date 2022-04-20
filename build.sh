@@ -22,7 +22,7 @@ ls -lah /tmp/kluctl-for-docs/
 export PATH=/tmp/kluctl-for-docs:$PATH
 
 go mod vendor
-go run ./replace-commands-help --docs-dir ./content/en/docs/reference/commands
+go run ./replace-commands-help --docs-dir ./content/en/reference/commands
 
 if [ "$BASE_URL" != "" ]; then
   BASE_URL_ARG="-b $BASE_URL"
