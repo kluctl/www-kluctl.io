@@ -29,24 +29,27 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  -y, --yes                         Suppresses 'Are you sure?' questions and proceeds as if you would answer 'yes'
-                                    ($KLUCTL_YES).
-      --dry-run                     Performs all kubernetes API calls in dry-run mode ($KLUCTL_DRY_RUN).
-      --force-apply                 Force conflict resolution when applying. See documentation for details
-                                    ($KLUCTL_FORCE_APPLY)
-      --replace-on-error            When patching an object fails, try to replace it. See documentation for more details
-                                    ($KLUCTL_REPLACE_ON_ERROR).
-      --force-replace-on-error      Same as --replace-on-error, but also try to delete and re-create objects. See
-                                    documentation for more details ($KLUCTL_FORCE_REPLACE_ON_ERROR).
-      --abort-on-error              Abort deploying when an error occurs instead of trying the remaining deployments
-                                    ($KLUCTL_ABORT_ON_ERROR)
-      --hook-timeout=5m             Maximum time to wait for hook readiness. The timeout is meant per-hook. Timeouts are
-                                    in the duration format (1s, 1m, 1h, ...). If not specified, a default timeout of 5m
-                                    is used ($KLUCTL_HOOK_TIMEOUT).
-  -o, --output=OUTPUT,...           Specify output target file. Can be specified multiple times ($KLUCTL_OUTPUT)
-      --render-output-dir=STRING    Specifies the target directory to render the project into. If omitted, a temporary
-                                    directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
-      --no-wait                     Don't wait for objects readiness' ($KLUCTL_NO_WAIT)
+  -y, --yes                                Suppresses 'Are you sure?' questions and proceeds as if you would answer
+                                           'yes' ($KLUCTL_YES).
+      --dry-run                            Performs all kubernetes API calls in dry-run mode ($KLUCTL_DRY_RUN).
+      --force-apply                        Force conflict resolution when applying. See documentation for details
+                                           ($KLUCTL_FORCE_APPLY)
+      --replace-on-error                   When patching an object fails, try to replace it. See documentation for more
+                                           details ($KLUCTL_REPLACE_ON_ERROR).
+      --force-replace-on-error             Same as --replace-on-error, but also try to delete and re-create objects. See
+                                           documentation for more details ($KLUCTL_FORCE_REPLACE_ON_ERROR).
+      --abort-on-error                     Abort deploying when an error occurs instead of trying the remaining
+                                           deployments ($KLUCTL_ABORT_ON_ERROR)
+      --hook-timeout=5m                    Maximum time to wait for hook readiness. The timeout is meant per-hook.
+                                           Timeouts are in the duration format (1s, 1m, 1h, ...). If not specified, a
+                                           default timeout of 5m is used ($KLUCTL_HOOK_TIMEOUT).
+  -o, --output-format=OUTPUT-FORMAT,...    Specify output format and target file, in the format 'format=path'. Format
+                                           can either be 'text' or 'yaml'. Can be specified multiple times. The actual
+                                           format for yaml is currently not documented and subject to change
+                                           ($KLUCTL_OUTPUT_FORMAT).
+      --render-output-dir=STRING           Specifies the target directory to render the project into. If omitted, a
+                                           temporary directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
+      --no-wait                            Don't wait for objects readiness' ($KLUCTL_NO_WAIT)
 
 ```
 <!-- END SECTION -->
