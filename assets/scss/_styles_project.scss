@@ -80,3 +80,55 @@
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
 	color: $secondary;
 }
+
+.btn-link {
+	color: $primary;
+}
+
+.btn-link:hover {
+	color: $secondary;
+}
+
+a {
+	color: $primary;
+	text-decoration: none;
+}
+
+a:hover {
+	color: $secondary;
+	text-decoration: none;
+}
+
+p {
+	color: $secondary;
+	text-decoration: none;
+}
+
+.-bg-white p > a {
+	color: $primary;
+}
+
+.-bg-white p > a:hover {
+	color: $secondary;
+}
+
+.td-sidebar-nav a:hover {
+	color: $primary;
+}
+
+.td-toc #TableOfContents a:hover {
+	color: $primary;
+	text-decoration: none;
+}
+
+.td-box--4 p > a {
+	color: $primary;
+}
+
+.td-box--4 p > a:hover {
+	color: $secondary;
+}
+
+.bg-dark {
+	background-color: $secondary !important;
+}
