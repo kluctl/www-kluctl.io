@@ -43,7 +43,7 @@ All of these tools must be in your PATH, so that kluctl can easily invoke them.
    kluctl-linux-amd64: OK
    ```
 
-4. Install kubectl
+3. Install kubectl
 
    ```bash
    sudo install -o root -g root -m 0755 kluctl-linux-amd64 /usr/local/bin/kluctl
@@ -60,7 +60,7 @@ All of these tools must be in your PATH, so that kluctl can easily invoke them.
    ```
    {{< /alert >}}
 
-5. Test to ensure the version you installed is up-to-date:
+4. Test to ensure the version you installed is up-to-date:
 
    ```bash
    kluctl version
