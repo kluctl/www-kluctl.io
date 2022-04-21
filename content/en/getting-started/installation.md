@@ -27,7 +27,23 @@ All of these tools must be in your PATH, so that kluctl can easily invoke them.
    curl -LO "https://github.com/kluctl/kluctl/releases/download/${kluctl_version}/kluctl-linux-amd64"
    ```
 
-3. Install kubectl
+2. **Optional**: Validate the kluctl binary *only available as of version >= v2.7.0*
+
+   Download the kluctl checksum file:
+   ```bash
+   kluctl_version=$(curl --silent -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/kluctl/kluctl/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+   curl -LO "https://github.com/kluctl/kluctl/releases/download/${kluctl_version}/checksums.txt"
+   ```
+   Validate the kluctl binary against the checksum file:
+   ```
+   echo $(grep kluctl-linux-amd64 checksums.txt) | sha256sum --check
+   ```
+   If valid, the output is:
+   ```
+   kluctl-linux-amd64: OK
+   ```
+
+4. Install kubectl
 
    ```bash
    sudo install -o root -g root -m 0755 kluctl-linux-amd64 /usr/local/bin/kluctl
@@ -44,7 +60,7 @@ All of these tools must be in your PATH, so that kluctl can easily invoke them.
    ```
    {{< /alert >}}
 
-4. Test to ensure the version you installed is up-to-date:
+5. Test to ensure the version you installed is up-to-date:
 
    ```bash
    kluctl version
