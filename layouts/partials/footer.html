@@ -21,7 +21,6 @@
         {{ with .Site.Params.copyright }}<small class="text-white">&copy; {{ now.Year}} {{ .}} {{ T "footer_all_rights_reserved" }}</small>{{ end }}
         {{ with .Site.Params.privacy_policy }}<small class="ml-1"><a href="{{ . }}" target="_blank" rel="noopener">{{ T "footer_privacy_policy" }}</a></small>{{ end }}
         <br><small class="text-white"><a href="/impressum" rel="noopener">Impressum</a></small>
-        <br><small class="text-white"><a href="javascript:showCookieConsent(true)" rel="noopener">Cookie Consent</a></small>
     {{ if not .Site.Params.ui.footer_about_disable }}
 		{{ with .Site.GetPage "about" }}<p class="mt-2"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>{{ end }}
 	{{ end }}

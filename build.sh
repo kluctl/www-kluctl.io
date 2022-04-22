@@ -3,20 +3,23 @@
 set -e
 
 case "$(uname -s)" in
-      Linux*)     arch=linux-amd64;;
-      Darwin*)    arch=darwin-amd64;;
-      MINGW*)     arch=windows-amd64;exe=.exe;;
-      MSYS*)      arch=windows-amd64;exe=.exe;;
+      Linux*)     os=linux;arch=amd64;;
+      Darwin*)    os=darwin;arch=amd64;;
+      MINGW*)     os=windows;arch=amd64;exe=.exe;;
+      MSYS*)      os=windows;arch=amd64;exe=.exe;;
       *)          echo "unknown os"; exit 1;
 esac
+
+echo "Downloading kluctl install script"
+curl -s -# -Lf https://raw.githubusercontent.com/kluctl/kluctl/main/install/kluctl.sh -o static/install.sh
 
 echo "Determining version"
 version=$(cat config.toml | grep 'fullversion =' | sed 's/fullversion = "\(.*\)"/\1/')
 echo "version=$version"
 
 mkdir -p /tmp/kluctl-for-docs
-curl -L -o /tmp/kluctl-for-docs/kluctl$exe "https://github.com/kluctl/kluctl/releases/download/$version/kluctl-$arch$exe"
-chmod +x /tmp/kluctl-for-docs/kluctl$exe
+curl -L -o /tmp/kluctl-for-docs/kluctl.tar.gz "https://github.com/kluctl/kluctl/releases/download/$version/kluctl_${version}_${os}_${arch}.tar.gz"
+(cd /tmp/kluctl-for-docs && tar xzf kluctl.tar.gz)
 ls -lah /tmp/kluctl-for-docs/
 
 export PATH=/tmp/kluctl-for-docs:$PATH
