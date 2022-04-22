@@ -24,8 +24,13 @@ All of these tools must be in your PATH, so that kluctl can easily invoke them.
    ```bash
    # To download a specific version, replace the kluctl_version with the version you need for example kluctl_version={{< param "fullversion" >}}
    kluctl_version=$(curl --silent -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/kluctl/kluctl/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-   curl -LO "https://github.com/kluctl/kluctl/releases/download/${kluctl_version}/kluctl-linux-amd64"
+   curl -LO "https://github.com/kluctl/kluctl/releases/download/${kluctl_version}/kluctl_${kluctl_version:1}_Linux_x86_64.tar.gz"
    ```
+   {{< alert >}}
+   Since version `kluctl-v2.7.6` we package the releases in `tar.gz` archive. 
+   If you download older versions of kluctl, the command to check the checksum must be changed to
+   {{< /alert >}}
+   
 
 2. **Optional**: Validate the kluctl binary *only available as of version >= v2.7.0*
 
@@ -36,7 +41,7 @@ All of these tools must be in your PATH, so that kluctl can easily invoke them.
    ```
    Validate the kluctl binary against the checksum file:
    ```
-   echo $(grep kluctl-linux-amd64 checksums.txt) | sha256sum --check
+   echo $(grep kluctl_${kluctl_version:1}_Linux_x86_64.tar.gz checksums.txt) | sha256sum --check
    ```
    If valid, the output is:
    ```
