@@ -10,42 +10,66 @@ description: >
 
 You need to install a set of command line tools to fully use kluctl. These are:
 
-1. [helm](https://github.com/helm/helm/releases):
-   Download/Install the binaries for your system, make them executable and make them globally available
-   (modify your PATH or copy it into /usr/local/bin). The version of Helm required depends on the Helm Charts that you
+1. [helm](https://helm.sh/). Follow the [installation guide](https://helm.sh/docs/intro/install/) of Helm to install it.
+   The version of Helm required depends on the Helm Charts that you
    plan to use. If these have a minimum version of Helm, this becomes the minimum version for kluctl.
 
 All of these tools must be in your PATH, so that kluctl can easily invoke them.
 
-### Install kubectl binary with curl on Linux
+## Install kluctl
 
-1. Download the latest release with the command:
+The kluctl CLI is available as a binary executable for all major platforms,
+the binaries can be downloaded form GitHub
+[releases page](https://github.com/kluctl/kluctl/releases).
 
-   ```bash
-   # To download a specific version, replace the kluctl_version with the version you need for example kluctl_version={{< param "fullversion" >}}
-   kluctl_version=$(curl --silent -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/kluctl/kluctl/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-   curl -LO "https://github.com/kluctl/kluctl/releases/download/${kluctl_version}/kluctl-linux-amd64"
-   ```
+{{% tabs %}}
+{{% tab "Homebrew" %}}
 
-3. Install kubectl
+With [Homebrew](https://brew.sh) for macOS and Linux:
 
-   ```bash
-   sudo install -o root -g root -m 0755 kluctl-linux-amd64 /usr/local/bin/kluctl
-   ```
+```sh
+brew install kluctl/tap/kluctl
+```
 
-   {{< alert >}}
-   If you do not have root access on the target system, you can still install kluctl to the `~/.local/bin` directory:
+{{% /tab %}}
+{{% tab "bash" %}}
 
-   ```bash
-   chmod +x kluctl-linux-amd64
-   mkdir -p ~/.local/bin
-   mv ./kluctl-linux-amd64 ~/.local/bin/kluctl
-   # and then append (or prepend) ~/.local/bin to $PATH
-   ```
-   {{< /alert >}}
+With [Bash](https://www.gnu.org/software/bash/) for macOS and Linux:
 
-4. Test to ensure the version you installed is up-to-date:
+```sh
+curl -s https://kluctl.io/install.sh | sudo bash
+```
 
-   ```bash
-   kluctl version
-   ```
+{{% /tab %}}
+
+<!-- TODO uncomment when chocolatey support is implemented
+{{% tab "Chocolatey" %}}
+
+With [Chocolatey](https://chocolatey.org/) for Windows:
+
+```powershell
+choco install kluctl
+```
+
+{{% /tab %}}
+-->
+{{% /tabs %}}
+
+<!-- TODO uncomment this when completion is implemented
+To configure your shell to load `kluctl` [bash completions](./cmd/kluctl_completion_bash.md) add to your profile:
+
+```sh
+. <(kluctl completion bash)
+```
+
+[`zsh`](./cmd/kluctl_completion_zsh.md), [`fish`](./cmd/kluctl_completion_fish.md),
+and [`powershell`](./cmd/kluctl_completion_powershell.md)
+are also supported with their own sub-commands.
+
+-->
+
+## Container images
+
+A container image with `helm` and `kluctl` is available on GitHub:
+
+* `ghcr.io/kluctl/kluctl:<version>`
