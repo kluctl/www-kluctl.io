@@ -1,13 +1,13 @@
 ---
-title: "Concepts"
-linkTitle: "Concepts"
-weight: 3
-description: >
-    Concepts of kluctl
+title: Core Concepts
+description: Core Concepts of Kluctl.
+weight: 10
 ---
 
+These are some core concepts in Kluctl.
+
 ## Kluctl project
-The kluctl project defines targets, secret sources and external git projects. 
+The kluctl project defines targets, secret sources and external git projects.
 It is defined via the [.kluctl.yml]({{< ref "reference/kluctl-project" >}}) configuration file.
 
 The kluctl project can also optionally define where the deployment project and clusters configs are located (external
@@ -47,7 +47,7 @@ while [sealing]({{< ref "reference/sealed-secrets" >}}). After the sealing proce
 sealed secrets are available.
 
 ## Sealed Secrets
-[Sealed Secrets]({{< ref "reference/sealed-secrets" >}}) are based on 
+[Sealed Secrets]({{< ref "reference/sealed-secrets" >}}) are based on
 [Bitnami's sealed-secrets controller](https://github.com/bitnami-labs/sealed-secrets). Kluctl offers integration of
 sealed secrets through the `seal` command. Kluctl allows managing multiple sets of sealed secrets for multiple targets.
 
