@@ -60,7 +60,7 @@ The Kluctl CLI then allows to deploy, diff, prune, delete, ... your deployments.
 
 {{% alert title="Get started with Kluctl!" %}}
 Following this [guide]({{< ref "docs/get-started" >}}) will just take a couple of minutes to complete:
-After installing `kluctl`, you can either check out the [example]({{< ref "guides/examples" >}}) or [tutorials]({{< ref "guides/tutorials" >}}).
+After installing `kluctl`, you can either check out the [example]({{< ref "docs/guides/examples" >}}) or [tutorials]({{< ref "docs/guides/tutorials" >}}).
 {{% /alert %}}
 
 <!-- TODO
