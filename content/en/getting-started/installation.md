@@ -37,7 +37,7 @@ brew install kluctl/tap/kluctl
 With [Bash](https://www.gnu.org/software/bash/) for macOS and Linux:
 
 ```sh
-curl -s https://kluctl.io/install.sh | sudo bash
+curl -s https://kluctl.io/install.sh | bash
 ```
 
 {{% /tab %}}
