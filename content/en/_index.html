@@ -1,54 +1,72 @@
 ---
-title: "kluctl.io"
-linkTitle: "kluctl.io"
-cascade:
-- type: "docs"
-  _target:
-    path: "/impressum/**"
-- type: "docs"
-  _target:
-    path: "/privacy/**"
+title: Kluctl - the missing glue
 description: >
-  The missing glue to put together large Kubernetes deployments
+  Kluctl is the missing glue to put together large Kubernetes deployments.
 ---
 
-{{< blocks/cover title="" image_anchor="top" height="min" color="white" >}}
-<section class="row td-cover-block td-cover-block--height-{{ $height }} js-td-cover td-overlay td-overlay--light -bg-{{ $col_id }}">
-	<div class="container td-overlay__inner">
-		<div class="row align-items-center">
-			<div class="col-lg-7 mt-5 mt-lg-3 d-sm-block" style="display: none">
-				<asciinema-player
-						loop autoplay font-size="12px" rows=15 cols=75 theme="kluctl"
-						speed=2
-						src="asciinema/kluctl.cast"></asciinema-player>
-			</div>
-			<div class="col-lg-5">
-				<h1 class="display-1 mt-0 pb-3">
-					<img alt="Kluctl" width="200" src="images/logo.svg" />
-				</h1>
-				<p class="display-2 mb-0">Trust your deployments!</p>
-			</div>
-			<div class="col-12 pt-3">
-			</div>
-		</div>
-	</div>
-</section>
-<div class="mx-auto">
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="{{< relref "/docs/get-started" >}}">
-	Learn More <i class="fas fa-arrow-alt-circle-right ml-2"></i>
-	</a>
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/kluctl/kluctl/releases">
-		Releases <i class="fab fa-github ml-2 "></i>
-	</a>
-	<p class="lead mt-4">Kluctl glues together your own k8s deployments with established tools
-		like <a href="https://kustomize.io/">Kustomize</a>, <a href="https://kubernetes.io/docs/concepts/extend-kubernetes/operator/">Operators</a> and <a href="https://helm.sh/">Helm</a> charts.
-	</p>
-	<div class="mx-auto mt-5">
-		{{< blocks/link-down color="light-secondary" >}}
-	</div>
-</div>
-{{< /blocks/cover >}}
+<div class="hero-gitops">
+  {{% blocks/hero title="Kluctl - trust your deployments!" color="primary"
+                  height="full" link_title="Get started" link_url="/docs/get-started/" %}}
+  Kluctl is the missing glue to put together large Kubernetes deployments.
 
-{{% blocks/lead color="primary" %}}
-The most natural way to create and manage complex Kubernetes deployments
-{{% /blocks/lead %}}
+  It allows you to declare and manage small, large, simple and/or complex multi-env and multi-cluster deployments.
+
+  {{% /blocks/hero %}}
+
+  <div class="lead-kluctl">
+  {{< blocks/lead >}}
+
+  <h2 id="kluctl-facts">Kluctl in short</h2>
+
+  {{< /blocks/lead >}}
+  </div>
+</div>
+
+<!-- used in ./content/en/docs/_index.md as well -->
+
+<div id="feature-list">
+{{% blocks/section color="white" %}}
+  <div class="feature-items">
+
+  {{< blocks/featureitem emoji="💪" caption="Kluctl handles all your deployments" >}}
+    You can manage all your deployments with Kluctl, including infrastructure related and your applications.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="🪶" caption="Complex or simple, all the same" >}}
+    You can manage complex and simple deployments with Kluctl. Simple deployments are lightweight while complex deployment are easily manageable.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="🤖" caption="Native git support" >}}
+    Kluctl has native Git support integrated, meaning that it can easily deploy remote Kluctl projects or externalize parts (e.g. cluster configs) of your Kluctl project.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="🪐" caption="Multiple environments" >}}
+    Deploy the same deployment to multiple environments (dev, test, prod, ...), with flexible differences in configuration.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="🌌" caption="Multiple clusters" >}}
+    Manage multiple target clusters (in multiple clouds or bare-metal if you want).
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="🔩" caption="Configuration and Templating" >}}
+    Kluctl allows to use templating in nearly all places, making it easy to have dynamic configuration.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="⎈" caption="Helm and Kustomize" >}}
+    The Helm and Kustomize integrations allow you to reuse plenty of third-party charts and kustomizations.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="🔍" caption="See what's different" >}}
+    Always know what the state of your deployments is by being able to run diffs on the whole deployment.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="🔎" caption="See what happened" >}}
+    Always know what you actually changed after performing a deployment.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="💥" caption="Know what went wrong" >}}
+    Kluctl will show you what part of your deployment failed and why.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="👐" caption="Live and let live" >}}
+    Kluctl tries to not interfere with any other tools or operators. This is possible due to it's use of server-side-apply.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="🧹" caption="Keep it clean" >}}
+    Keep your clusters clean by issuing regular prune calls.
+  {{< /blocks/featureitem >}}
+  {{< blocks/featureitem emoji="🔐" caption="Encrypted Secrets" >}}
+    Manage encrypted secrets for multiple target environments and clusters.
+  {{< /blocks/featureitem >}}
+  </div>
+{{% /blocks/section %}}
+</div>
