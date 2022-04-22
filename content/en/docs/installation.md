@@ -1,9 +1,8 @@
 ---
 title: "Installation"
 linkTitle: "Installation"
-weight: 2
-description: >
-    Installing kluctl.
+weight: 30
+description: "Installing kluctl."
 ---
 
 ## Additional tools needed
