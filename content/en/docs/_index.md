@@ -14,7 +14,11 @@ Kubernetes deployment, while making it fully manageable (deploy, diff, prune, de
 line interface.
 
 Kluctl tries to be as flexible as possible, while remaining as simple as possible. It reuses established
-tools (e.g. kustomize and Helm), making it possible to re-use a large set of available third-party deployments.
+tools (e.g. Kustomize and Helm), making it possible to re-use a large set of available third-party deployments.
+
+Kluctl is centered around "targets", which can be a cluster or a specific environment (e.g. test, dev, prod, ...) on one
+or multiple clusters. Targets can be deployed, diffed, pruned, deleted, and so on. The idea is to have the same set of
+operations for every target, no matter how simple or complex the deployment and/or target is.
 
 Kluctl does not depend on external operators/controllers and allows to use the same deployment wherever you want,
 as long as access to the kluctl project and clusters is available. This means, that you can use it from your 
@@ -55,8 +59,8 @@ The Kluctl CLI then allows to deploy, diff, prune, delete, ... your deployments.
 ## Where do I start?
 
 {{% alert title="Get started with Kluctl!" %}}
-Following this [guide](get-started) will just take a couple of minutes to complete:
-After installing `kluctl`, you can either check out the [example](examples) or [tutorials](tutorials).
+Following this [guide]({{< ref "docs/get-started" >}}) will just take a couple of minutes to complete:
+After installing `kluctl`, you can either check out the [example]({{< ref "guides/examples" >}}) or [tutorials]({{< ref "guides/tutorials" >}}).
 {{% /alert %}}
 
 <!-- TODO

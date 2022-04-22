@@ -1,9 +1,8 @@
 ---
 title: "Philosophy"
 linkTitle: "Philosophy"
-weight: 2
-description: >
-    The philosophy behind kluctl
+weight: 30
+description: "The philosophy behind kluctl."
 ---
 
 Kluctl tries to follow a few basic ideas and a philosophy. Project and deployments structure, as well as all commands

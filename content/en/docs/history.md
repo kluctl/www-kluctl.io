@@ -1,9 +1,8 @@
 ---
 title: "History"
 linkTitle: "History"
-weight: 3
-description: >
-    The history of kluctl
+weight: 40
+description: "The history of kluctl."
 ---
 
 Kluctl was created after multiple incarnations of complex multi-environment (e.g. dev, test, prod) deployments, including everything
