@@ -10,6 +10,9 @@ case "$(uname -s)" in
       *)          echo "unknown os"; exit 1;
 esac
 
+echo "Downloading kluctl install script"
+curl -s -# -Lf https://raw.githubusercontent.com/kluctl/kluctl/main/install/kluctl.sh -o static/install.sh
+
 echo "Determining version"
 version=$(cat config.toml | grep 'fullversion =' | sed 's/fullversion = "\(.*\)"/\1/')
 echo "version=$version"
