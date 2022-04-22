@@ -94,7 +94,7 @@ section = ["HTML", "print", "RSS"]
 
 [params]
 copyright = "The Kluctl Authors"
-#privacy_policy = "https://policies.google.com/privacy"
+privacy_policy = "https://kluctl.io/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
 # images = ["images/project-illustration.png"]
