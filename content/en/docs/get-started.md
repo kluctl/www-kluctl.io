@@ -79,7 +79,7 @@ kind create cluster
 
 This will update your kubeconfig to contain a context with the name `kind-kind`. The examples are all prepared to use
 this context. In case you want to use another local cluster or reuse an existing cluster, ensure to update the example
-project to use the correct [context]({{< ref "reference/cluster-configs" >}})
+project to use the correct [context]({{< ref "docs/reference/cluster-configs" >}})
 
 ## Deploy the example
 

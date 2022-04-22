@@ -7,7 +7,7 @@ description: >
 ---
 
 kluctl uses a Jinja2 Templating engine to pre-process/render every involved configuration file and resource before
-actually interpreting it. Only files that are explicitly excluded via [templateExcludes]({{< ref "reference/deployments/deployment-yml#templateexcludes" >}})
+actually interpreting it. Only files that are explicitly excluded via [templateExcludes]({{< ref "docs/reference/deployments/deployment-yml#templateexcludes" >}})
 are not rendered via Jinja2.
 
 Generally, everything that is possible with Jinja2 is possible in kluctl configuration/resources. Please

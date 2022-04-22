@@ -10,7 +10,7 @@ Cluster configurations are a set of yaml files, located in the clusters configur
 configuration defines the name of the cluster, which kubectl context belongs to it and which arbitrary configuration
 is attached to it.
 
-[Targets]({{< ref "reference/kluctl-project/targets" >}}) refer to these configurations by name. Multiple targets
+[Targets]({{< ref "docs/reference/kluctl-project/targets" >}}) refer to these configurations by name. Multiple targets
 can reference the same cluster.
 
 ## Naming of cluster configuration files
@@ -23,7 +23,7 @@ example, the cluster configuration for the cluster `test.example.com` must be pl
 The clusters configuration  directory is by default `<kluctl-project-dir>/clusters`. There are 3 ways to override 
 the default cluster configurations directory:
 
-1. Via [clusters]({{< ref "reference/kluctl-project/external-projects#clusters" >}}) in `.kluctl.yml`. This is the preferred way
+1. Via [clusters]({{< ref "docs/reference/kluctl-project/external-projects#clusters" >}}) in `.kluctl.yml`. This is the preferred way
 and allows to put the cluster configurations into a separate git repository, which in turn allows you to reuse cluster
 configurations for multiple kluctl projects.
 2. Via `--local-clusters` when invoking CLI commands. This is useful when you need to override the settings from `.kluctl.yml` due to locally uncommitted changes inside the cluster configurations.
@@ -46,7 +46,7 @@ have to match, but it is recommended to use the same name.
 
 ## Using cluster configuration in templates
 
-In every place that allows to use [templates]({{< ref "reference/templating" >}}), the target's cluster
+In every place that allows to use [templates]({{< ref "docs/reference/templating" >}}), the target's cluster
 configuration is available in the form of template variables. This means, that you for example can
 use `{{ cluster.name }}` to get the cluster name into one of your deployment configurations/resources.
 

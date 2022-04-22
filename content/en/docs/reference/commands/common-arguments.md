@@ -61,7 +61,7 @@ Project arguments:
 ## Image arguments
 
 These arguments are available on some target based commands.
-They control image versions requested by `images.get_image(...)` [calls]({{< ref "reference/deployments/images#imagesget_image" >}}).
+They control image versions requested by `images.get_image(...)` [calls]({{< ref "docs/reference/deployments/images#imagesget_image" >}}).
 
 <!-- BEGIN SECTION "deploy" "Image arguments" true -->
 ```

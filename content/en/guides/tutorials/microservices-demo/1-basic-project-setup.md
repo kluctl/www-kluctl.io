@@ -58,7 +58,7 @@ $ kluctl deploy -t local
 ```
 
 ## Setting up the kluctl project
-The first thing you need is an empty project directory and the [`.kluctl.yml`]({{< ref "reference/kluctl-project" >}}) project configuration:
+The first thing you need is an empty project directory and the [`.kluctl.yml`]({{< ref "docs/reference/kluctl-project" >}}) project configuration:
 
 ```shell
 $ mkdir -p microservices-demo/1-basic-setup
@@ -73,7 +73,7 @@ targets:
 ```
 
 This is a very simple example with only a single target, being a local [kind](https://kind.sigs.k8s.io/) cluster. The
-kind cluster must also be [defined/configured]({{< ref "reference/cluster-configs" >}}) now, which is done by
+kind cluster must also be [defined/configured]({{< ref "docs/reference/cluster-configs" >}}) now, which is done by
 creating the file `kind.yml` inside the `clusters` subdirectory:
 
 ```shell
@@ -98,8 +98,8 @@ $ kind create cluster
 After this, you should have a local cluster setup and your kubeconfig prepared with a new context named `kind-kind`.
 
 ## Setting up a minimal deployment project
-Inside the kluctl project, you will now have to create a minimal [deployment project]({{< ref "reference/deployments" >}}).
-The deployment project starts with the root [`deployment.yml`]({{< ref "reference/deployments/deployment-yml" >}}).
+Inside the kluctl project, you will now have to create a minimal [deployment project]({{< ref "docs/reference/deployments" >}}).
+The deployment project starts with the root [`deployment.yml`]({{< ref "docs/reference/deployments/deployment-yml" >}}).
 
 The location of this `deployment.yml` is the same as the `.kluctl.yml`. Create the file with following content:
 ```yaml
@@ -111,9 +111,9 @@ commonLabels:
 ```
 
 This minimal deployment project contains two elements:
-1. The list of [deployment items]({{< ref "reference/deployments/deployment-yml#deployments" >}}), which currently
+1. The list of [deployment items]({{< ref "docs/reference/deployments/deployment-yml#deployments" >}}), which currently
 only consists of the upcoming redis deployment. The next chapter will explain this deployment.
-2. The [commonLabels]({{< ref "reference/deployments/deployment-yml#commonlabels" >}}), which is a map of common
+2. The [commonLabels]({{< ref "docs/reference/deployments/deployment-yml#commonlabels" >}}), which is a map of common
 labels and values. These labels are applied to all deployed resources and are later used by kluctl to identify resources
 that belong to this kluctl deployment.
 

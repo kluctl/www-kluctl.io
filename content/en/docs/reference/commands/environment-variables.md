@@ -17,7 +17,7 @@ underscores. As an example, `--project-url=my-project` can also be specified wit
 ## Additional environment variables
 A few additional environment variables are supported which do not belong to an option/argument. These are:
 
-1. `KLUCTL_REGISTRY_<idx>_HOST`, `KLUCTL_REGISTRY_<idx>_USERNAME`, and so on. See [registries]({{< ref "reference/deployments/images#supported-image-registries-and-authentication" >}}) for details.
+1. `KLUCTL_REGISTRY_<idx>_HOST`, `KLUCTL_REGISTRY_<idx>_USERNAME`, and so on. See [registries]({{< ref "docs/reference/deployments/images#supported-image-registries-and-authentication" >}}) for details.
 2. `KLUCTL_SSH_DISABLE_STRICT_HOST_KEY_CHECKING`. Disable ssh host key checking when accessing git repositories.
 3. `KLUCTL_NO_THREADS`. Do not use multithreading while performing work. This is only useful for debugging purposes.
 4. `KLUCTL_IGNORE_DEBUGGER`. Pretend that there is no debugger attached when automatically deciding if multi-threading should be enabled or not.

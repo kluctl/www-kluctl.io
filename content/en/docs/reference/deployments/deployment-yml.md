@@ -31,7 +31,7 @@ The following sub-chapters describe the available fields in the `deployment.yml`
 
 ## sealedSecrets
 `sealedSecrets` configures how sealed secrets are stored while sealing and located while rendering.
-See [Sealed Secrets]({{< ref "reference/sealed-secrets#outputpattern-and-location-of-stored-sealed-secrets" >}})
+See [Sealed Secrets]({{< ref "docs/reference/sealed-secrets#outputpattern-and-location-of-stored-sealed-secrets" >}})
 for details.
 
 ## deployments
@@ -97,7 +97,7 @@ All entries in `deployments` can have the following common properties:
 A list of variable sets to be loaded into the templating context, which is then available in all [deployment items](#deployments)
 and [sub-deployments](#includes).
 
-See [templating]({{< ref "reference/templating#vars-from-deploymentyml" >}}) for more details.
+See [templating]({{< ref "docs/reference/templating#vars-from-deploymentyml" >}}) for more details.
 
 Example:
 ```yaml
@@ -162,7 +162,7 @@ deployments:
 A list of variable sets to be loaded into the templating context, which is then available in all [deployment items](#deployments)
 and [sub-deployments](#includes).
 
-See [templating]({{< ref "reference/templating#vars-from-deploymentyml" >}}) for more details.
+See [templating]({{< ref "docs/reference/templating#vars-from-deploymentyml" >}}) for more details.
 
 ## commonLabels
 A dictionary of [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) and values to be
