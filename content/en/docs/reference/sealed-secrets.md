@@ -86,6 +86,12 @@ same cluster (via different targets), you should also add something to different
 As an example, `{{ cluster.name }}/{{ args.environment }}` works well, assuming that you differentiate targets via
 `args.environment`.
 
+```yaml
+# deployment.yml in root directory
+sealedSecrets:
+  outputPattern: "{{ cluster.name }}/{{ args.environment }}"
+```
+
 The final storage location for the sealed secret is:
 
 `<base_dir>/<rendered_output_pattern>/<relative_sealme_file_dir>/<file_name>`
