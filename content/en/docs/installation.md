@@ -5,16 +5,6 @@ weight: 20
 description: "Installing kluctl."
 ---
 
-## Additional tools needed
-
-You need to install a set of command line tools to fully use kluctl. These are:
-
-1. [helm](https://helm.sh/). Follow the [installation guide](https://helm.sh/docs/intro/install/) of Helm to install it.
-   The version of Helm required depends on the Helm Charts that you
-   plan to use. If these have a minimum version of Helm, this becomes the minimum version for kluctl.
-
-All of these tools must be in your PATH, so that kluctl can easily invoke them.
-
 ## Install kluctl
 
 The kluctl CLI is available as a binary executable for all major platforms,
@@ -69,6 +59,6 @@ are also supported with their own sub-commands.
 
 ## Container images
 
-A container image with `helm` and `kluctl` is available on GitHub:
+A container image with `kluctl` is available on GitHub:
 
 * `ghcr.io/kluctl/kluctl:<version>`

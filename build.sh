@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+set -o pipefail
 
 case "$(uname -s)" in
       Linux*)     os=linux;arch=amd64;;
@@ -13,8 +14,8 @@ esac
 echo "Downloading kluctl install script"
 curl -s -# -Lf https://raw.githubusercontent.com/kluctl/kluctl/main/install/kluctl.sh -o static/install.sh
 
-echo "Determining version"
-version=$(cat config.toml | grep 'fullversion =' | sed 's/fullversion = "\(.*\)"/\1/')
+echo "Download latest kluctl version"
+version=$(curl -L -f https://api.github.com/repos/kluctl/kluctl/releases/latest | jq '.tag_name' -r)
 echo "version=$version"
 
 mkdir -p /tmp/kluctl-for-docs
@@ -25,7 +26,7 @@ ls -lah /tmp/kluctl-for-docs/
 export PATH=/tmp/kluctl-for-docs:$PATH
 
 go mod vendor
-go run ./replace-commands-help --docs-dir ./content/en/reference/commands
+go run ./replace-commands-help --docs-dir ./content/en/docs/reference/commands
 
 if [ "$BASE_URL" != "" ]; then
   BASE_URL_ARG="-b $BASE_URL"

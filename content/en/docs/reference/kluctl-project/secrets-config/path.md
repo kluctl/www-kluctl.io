@@ -11,6 +11,8 @@ A simple local file based source. The path must be relative and multiple places 
 1. Relative to the deployment project root
 2. The path provided via [--secrets-dir]({{< ref "docs/reference/commands/seal" >}})
 
+The referenced file must be a valid [secrets file]({{< ref "docs/reference/kluctl-project/secrets-config#format-of-secrets-files" >}}).
+
 Example:
 ```yaml
 secretsConfig:
