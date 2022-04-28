@@ -27,3 +27,18 @@ This field specifies the name of the secret set. The name can be used in targets
 
 ### sources
 This field specifies a list of secret sources. Check the sub-sections for the supported secret sources.
+
+## Format of secrets files
+
+Many supported secrets sources expect an underlying yaml file with arbitrary data below a root "secrets" map, e.g.:
+
+```yaml
+secrets:
+  secret: value1
+  nested:
+    secret: value2
+    list:
+      - a
+      - b
+...
+```

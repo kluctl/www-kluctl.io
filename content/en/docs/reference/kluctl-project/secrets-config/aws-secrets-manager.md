@@ -10,6 +10,9 @@ description: >
 Manager secret. The secret can either be specified via an ARN or via a secretName and region combination. An AWS
 config profile can also be specified (which must exist while sealing).
 
+The secrets stored in AWS Secrets manager must contain
+a valid [secrets file]({{< ref "docs/reference/kluctl-project/secrets-config#format-of-secrets-files" >}}).
+
 Example using an ARN:
 ```yaml
 secretsConfig:
