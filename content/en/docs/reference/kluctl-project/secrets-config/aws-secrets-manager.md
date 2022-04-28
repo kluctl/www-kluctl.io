@@ -1,7 +1,7 @@
 ---
 title: "awsSecretsManager"
 linkTitle: "awsSecretsManager"
-weight: 3
+weight: 4
 description: >
   Loads secrets from AWS Secrets Manager.
 ---
