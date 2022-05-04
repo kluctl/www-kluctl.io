@@ -8,10 +8,9 @@ description: >
 
 ## Command
 <!-- BEGIN SECTION "list-targets" "Usage" false -->
-Usage: kluctl list-targets
+Usage: kluctl list-targets [flags]
 
 Outputs a yaml list with all target, including dynamic targets
-
 Outputs a yaml list with all target, including dynamic targets
 
 <!-- END SECTION -->
@@ -23,7 +22,7 @@ The following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  -o, --output=OUTPUT,...    Specify output target file. Can be specified multiple times ($KLUCTL_OUTPUT)
+  -o, --output strings   Specify output target file. Can be specified multiple times
 
 ```
 <!-- END SECTION -->

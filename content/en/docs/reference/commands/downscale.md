@@ -8,12 +8,12 @@ description: >
 
 ## Command
 <!-- BEGIN SECTION "downscale" "Usage" false -->
-Usage: kluctl downscale
+Usage: kluctl downscale [flags]
 
 Downscale all deployments
-
-This command will downscale all Deployments, StatefulSets and CronJobs. It is also possible to influence the behaviour
-with the help of annotations, as described in the documentation.
+This command will downscale all Deployments, StatefulSets and CronJobs.
+It is also possible to influence the behaviour with the help of annotations, as described in
+the documentation.
 
 <!-- END SECTION -->
 
@@ -29,15 +29,13 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  -y, --yes                                Suppresses 'Are you sure?' questions and proceeds as if you would answer
-                                           'yes' ($KLUCTL_YES).
-      --dry-run                            Performs all kubernetes API calls in dry-run mode ($KLUCTL_DRY_RUN).
-  -o, --output-format=OUTPUT-FORMAT,...    Specify output format and target file, in the format 'format=path'. Format
-                                           can either be 'text' or 'yaml'. Can be specified multiple times. The actual
-                                           format for yaml is currently not documented and subject to change
-                                           ($KLUCTL_OUTPUT_FORMAT).
-      --render-output-dir=STRING           Specifies the target directory to render the project into. If omitted, a
-                                           temporary directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
+      --dry-run                  Performs all kubernetes API calls in dry-run mode.
+  -o, --output-format strings    Specify output format and target file, in the format 'format=path'. Format can
+                                 either be 'text' or 'yaml'. Can be specified multiple times. The actual format
+                                 for yaml is currently not documented and subject to change.
+      --render-output-dir path   Specifies the target directory to render the project into. If omitted, a
+                                 temporary directory is used.
+  -y, --yes                      Suppresses 'Are you sure?' questions and proceeds as if you would answer 'yes'.
 
 ```
 <!-- END SECTION -->
