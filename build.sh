@@ -11,22 +11,7 @@ case "$(uname -s)" in
       *)          echo "unknown os"; exit 1;
 esac
 
-echo "Downloading kluctl install script"
-curl -s -# -Lf https://raw.githubusercontent.com/kluctl/kluctl/main/install/kluctl.sh -o static/install.sh
-
-echo "Download latest kluctl version"
-version=$(curl -L -f https://api.github.com/repos/kluctl/kluctl/releases/latest | jq '.tag_name' -r)
-echo "version=$version"
-
-mkdir -p /tmp/kluctl-for-docs
-curl -L -o /tmp/kluctl-for-docs/kluctl.tar.gz "https://github.com/kluctl/kluctl/releases/download/$version/kluctl_${version}_${os}_${arch}.tar.gz"
-(cd /tmp/kluctl-for-docs && tar xzf kluctl.tar.gz)
-ls -lah /tmp/kluctl-for-docs/
-
-export PATH=/tmp/kluctl-for-docs:$PATH
-
-go mod vendor
-go run ./replace-commands-help --docs-dir ./content/en/docs/reference/commands
+./hack/import-kluctl-assets.sh
 
 if [ "$BASE_URL" != "" ]; then
   BASE_URL_ARG="-b $BASE_URL"
