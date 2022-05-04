@@ -24,6 +24,10 @@ targets:
       arg1: <value1>
       arg2: <value2>
       ...
+    dynamicArgs:
+      - name: <arg_name>
+        pattern: <regex_pattern>
+      ...
     sealingConfig:
       secretSets:
         - <name_of_secrets_set>
@@ -43,6 +47,18 @@ specified via [clusters]({{< ref "../external-projects#clusters" >}}).
 ## args
 This fields specifies a map of arguments to be passed to the deployment project when it is rendered. Allowed argument names
 are configured via [deployment args]({{< ref "docs/reference/deployments/deployment-yml#args" >}})
+
+## dynamicArgs
+This field specifies a list of CLI arguments that can be passed to kluctl when performing any commands on the target. These
+arguments are passed with `-a arg_name=arg_value` when for example calling `kluctl deploy -t target_name`.
+
+Each entry has the following fields:
+
+### name
+The name of the argument.
+
+### pattern
+This field is optional and specifies a regex pattern that the arguments value must match.
 
 ## sealingConfig
 This field configures how sealing is performed when the [seal command] ({{< ref "docs/reference/commands/seal" >}}) is invoked for this target.
