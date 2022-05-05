@@ -94,3 +94,6 @@ create the appropriate KluctlDeployment resource and let GitOps/Flux do its magi
 
 You can also use dedicated targets for development purposes and only deploy to them from your local machine, while
 other targets are deployed via GitOps/Flux.
+
+## What now?
+More documentation, guides, tutorials and examples will follow in the next few days and weeks.
