@@ -110,6 +110,7 @@ download_doc() {
   download_doc "https://raw.githubusercontent.com/kluctl/flux-kluctl-controller/$KLUCTL_CONTROLLER_VER/docs/api/kluctldeployment.md" "$FLUX_KLUCTL_CONTROLLER_DIR/api.md"
   download_doc "https://raw.githubusercontent.com/kluctl/flux-kluctl-controller/$KLUCTL_CONTROLLER_VER/docs/spec/README.md" "$FLUX_KLUCTL_CONTROLLER_DIR/controller.md"
   download_doc "https://raw.githubusercontent.com/kluctl/flux-kluctl-controller/$KLUCTL_CONTROLLER_VER/docs/spec/v1alpha1/kluctldeployment.md" "$FLUX_KLUCTL_CONTROLLER_DIR/kluctldeployment.md" "HUGETABLE"
+  download_doc "https://raw.githubusercontent.com/kluctl/flux-kluctl-controller/$KLUCTL_CONTROLLER_VER/docs/install.md" "$FLUX_KLUCTL_CONTROLLER_DIR/install.md"
 }
 
 {
