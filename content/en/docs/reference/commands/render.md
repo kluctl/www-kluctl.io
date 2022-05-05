@@ -8,12 +8,11 @@ description: >
 
 ## Command
 <!-- BEGIN SECTION "render" "Usage" false -->
-Usage: kluctl render
+Usage: kluctl render [flags]
 
 Renders all resources and configuration files
-
-Renders all resources and configuration files and stores the result in either a temporary directory or a specified
-directory.
+Renders all resources and configuration files and stores the result in either
+a temporary directory or a specified directory.
 
 <!-- END SECTION -->
 
@@ -28,8 +27,8 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  --render-output-dir=STRING    Specifies the target directory to render the project into. If omitted, a temporary
-                                directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
+      --render-output-dir path   Specifies the target directory to render the project into. If omitted, a
+                                 temporary directory is used.
 
 ```
 <!-- END SECTION -->

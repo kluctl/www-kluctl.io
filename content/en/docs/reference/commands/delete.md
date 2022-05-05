@@ -8,14 +8,14 @@ description: >
 
 ## Command
 <!-- BEGIN SECTION "delete" "Usage" false -->
-Usage: kluctl delete
+Usage: kluctl delete [flags]
 
 Delete a target (or parts of it) from the corresponding cluster
+Objects are located based on 'commonLabels'', configured in 'deployment.yml'
 
-Objects are located based on 'commonLabels”, configured in 'deployment.yml'
-
-WARNING: This command will also delete objects which are not part of your deployment project (anymore). It really only
-decides based on the 'deleteByLabel' labels and does NOT take the local target/state into account!
+WARNING: This command will also delete objects which are not part of your deployment
+project (anymore). It really only decides based on the 'deleteByLabel' labels and does NOT
+take the local target/state into account!
 
 <!-- END SECTION -->
 
@@ -31,17 +31,14 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  -y, --yes                                    Suppresses 'Are you sure?' questions and proceeds as if you would answer
-                                               'yes' ($KLUCTL_YES).
-      --dry-run                                Performs all kubernetes API calls in dry-run mode ($KLUCTL_DRY_RUN).
-  -o, --output-format=OUTPUT-FORMAT,...        Specify output format and target file, in the format 'format=path'.
-                                               Format can either be 'text' or 'yaml'. Can be specified multiple times.
-                                               The actual format for yaml is currently not documented and subject to
-                                               change ($KLUCTL_OUTPUT_FORMAT).
-      --render-output-dir=STRING               Specifies the target directory to render the project into. If omitted, a
-                                               temporary directory is used ($KLUCTL_RENDER_OUTPUT_DIR).
-  -l, --delete-by-label=DELETE-BY-LABEL,...    Override the labels used to find objects for deletion
-                                               ($KLUCTL_DELETE_BY_LABEL).
+  -l, --delete-by-label strings   Override the labels used to find objects for deletion.
+      --dry-run                   Performs all kubernetes API calls in dry-run mode.
+  -o, --output-format strings     Specify output format and target file, in the format 'format=path'. Format can
+                                  either be 'text' or 'yaml'. Can be specified multiple times. The actual format
+                                  for yaml is currently not documented and subject to change.
+      --render-output-dir path    Specifies the target directory to render the project into. If omitted, a
+                                  temporary directory is used.
+  -y, --yes                       Suppresses 'Are you sure?' questions and proceeds as if you would answer 'yes'.
 
 ```
 <!-- END SECTION -->
