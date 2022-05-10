@@ -2,7 +2,7 @@
 ---
 title: "Kluctl and Flux"
 linkTitle: "Kluctl and Flux"
-date: 2022-05-05
+date: 2022-05-11
 author: Alexander Block (@codablock)
 ---
 
