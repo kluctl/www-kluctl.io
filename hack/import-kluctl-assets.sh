@@ -57,7 +57,7 @@ setup_verify_arch() {
 
 
 controller_version() {
-  curl -f -s "https://api.github.com/repos/kluctl/$1/releases" | jq -r '.[] | .tag_name' | sort -V | tail -n 1
+  curl -u kluctlbot:$GITHUB_TOKEN -f -s "https://api.github.com/repos/kluctl/$1/releases" | jq -r '.[] | .tag_name' | sort -V | tail -n 1
 }
 
 download_doc() {
