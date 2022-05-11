@@ -95,5 +95,10 @@ create the appropriate KluctlDeployment resource and let GitOps/Flux do its magi
 You can also use dedicated targets for development purposes and only deploy to them from your local machine, while
 other targets are deployed via GitOps/Flux.
 
+## See it in action
+If you want to see the Flux Kluctl Controller in action, check out [template-cluster-k3s-kluctl](https://github.com/kluctl/template-cluster-k3s-kluctl),
+which is a fork of [k8s@home template-cluster-k3s](https://github.com/k8s-at-home/template-cluster-k3s) with all
+HelmReleases and Kustomizations ported to KluctlDeployments.
+
 ## What now?
 More documentation, guides, tutorials and examples will follow in the next few days and weeks.
