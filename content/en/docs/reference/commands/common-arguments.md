@@ -16,8 +16,8 @@ These arguments are available for all commands.
 <!-- BEGIN SECTION "deploy" "Global arguments" true -->
 ```
 Global arguments:
-      --no-update-check    Disable update check on startup
-  -v, --verbosity string   Log level (debug, info, warn, error, fatal, panic). (default "info")
+      --debug             Enable debug logging
+      --no-update-check   Disable update check on startup
 
 ```
 <!-- END SECTION -->
@@ -40,8 +40,6 @@ Project arguments:
                                              metadata is assumed to be part of the archive.
       --git-cache-update-interval duration   Specify the time to wait between git cache updates. Defaults to not
                                              wait at all and always updating caches.
-      --load-timeout duration                Specify timeout for project loading. This will especially limit the
-                                             time spent in git operations. (default 1m0s)
       --local-clusters existingdir           Local clusters directory. Overrides the project from .kluctl.yml
       --local-deployment existingdir         Local deployment directory. Overrides the project from .kluctl.yml
       --local-sealed-secrets existingdir     Local sealed-secrets directory. Overrides the project from .kluctl.yml
@@ -53,6 +51,8 @@ Project arguments:
   -p, --project-url string                   Git url of the kluctl project. If not specified, the current
                                              directory will be used instead of a remote Git project
   -t, --target string                        Target name to run command for. Target must exist in .kluctl.yml.
+      --timeout duration                     Specify timeout for all operations, including loading of the project,
+                                             all external api calls and waiting for readiness. (default 10m0s)
 
 ```
 <!-- END SECTION -->

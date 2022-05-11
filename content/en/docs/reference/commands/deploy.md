@@ -29,22 +29,23 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-      --abort-on-error           Abort deploying when an error occurs instead of trying the remaining deployments
-      --dry-run                  Performs all kubernetes API calls in dry-run mode.
-      --force-apply              Force conflict resolution when applying. See documentation for details
-      --force-replace-on-error   Same as --replace-on-error, but also try to delete and re-create objects. See
-                                 documentation for more details.
-      --hook-timeout duration    Maximum time to wait for hook readiness. The timeout is meant per-hook. Timeouts
-                                 are in the duration format (1s, 1m, 1h, ...). If not specified, a default timeout
-                                 of 5m is used. (default 5m0s)
-      --no-wait                  Don't wait for objects readiness'
-  -o, --output-format strings    Specify output format and target file, in the format 'format=path'. Format can
-                                 either be 'text' or 'yaml'. Can be specified multiple times. The actual format
-                                 for yaml is currently not documented and subject to change.
-      --render-output-dir path   Specifies the target directory to render the project into. If omitted, a
-                                 temporary directory is used.
-      --replace-on-error         When patching an object fails, try to replace it. See documentation for more details.
-  -y, --yes                      Suppresses 'Are you sure?' questions and proceeds as if you would answer 'yes'.
+      --abort-on-error               Abort deploying when an error occurs instead of trying the remaining deployments
+      --dry-run                      Performs all kubernetes API calls in dry-run mode.
+      --force-apply                  Force conflict resolution when applying. See documentation for details
+      --force-replace-on-error       Same as --replace-on-error, but also try to delete and re-create objects. See
+                                     documentation for more details.
+      --no-wait                      Don't wait for objects readiness'
+  -o, --output-format strings        Specify output format and target file, in the format 'format=path'. Format
+                                     can either be 'text' or 'yaml'. Can be specified multiple times. The actual
+                                     format for yaml is currently not documented and subject to change.
+      --readiness-timeout duration   Maximum time to wait for object readiness. The timeout is meant per-object.
+                                     Timeouts are in the duration format (1s, 1m, 1h, ...). If not specified, a
+                                     default timeout of 5m is used. (default 5m0s)
+      --render-output-dir path       Specifies the target directory to render the project into. If omitted, a
+                                     temporary directory is used.
+      --replace-on-error             When patching an object fails, try to replace it. See documentation for more
+                                     details.
+  -y, --yes                          Suppresses 'Are you sure?' questions and proceeds as if you would answer 'yes'.
 
 ```
 <!-- END SECTION -->
