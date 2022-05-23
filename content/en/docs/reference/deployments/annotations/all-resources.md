@@ -47,12 +47,12 @@ This annotation will override the name of the object when looking for the in-clu
 diffs. This is useful when you are forced to use new names for the same objects whenever the content changes, e.g.
 for all kinds of immutable resource types.
 
-Example (filename job.yml):
+Example (filename job.yaml):
 ```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: myjob-{{ load_sha256("job.yml", 6) }}
+  name: myjob-{{ load_sha256("job.yaml", 6) }}
   annotations:
     kluctl.io/diff-name: myjob
 spec:
@@ -65,7 +65,7 @@ spec:
       restartPolicy: Never
 ```
 
-Without the `kluctl.io/diff-name` annotation, any change to the `job.yml` would be treated as a new object in resulting
+Without the `kluctl.io/diff-name` annotation, any change to the `job.yaml` would be treated as a new object in resulting
 diffs from various commands. This is due to the inclusion of the file hash in the job name. This would make it very hard
 to figure out what exactly changed in an object.
 
@@ -93,7 +93,7 @@ The following annotations control how [downscale]({{< ref "docs/reference/comman
 Describes how a [downscale]({{< ref "docs/reference/commands/downscale" >}}) on a resource can be done via a json patch. This is useful on
 CRD based resources where no automatic downscale can be performed by kluctl.
 
-Example (filename job.yml):
+Example (filename job.yaml):
 ```yaml
 apiVersion: kibana.k8s.elastic.co/v1
 kind: Kibana

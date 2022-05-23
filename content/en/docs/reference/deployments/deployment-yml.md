@@ -1,15 +1,15 @@
 ---
-title: "deployment.yml"
-linkTitle: "deployment.yml"
+title: "deployment.yaml"
+linkTitle: "deployment.yaml"
 weight: 1
 description: >
-    Structure of deployment.yml.
+    Structure of deployment.yaml.
 ---
 
-The `deployment.yml` file is the entrypoint for the deployment project. Included sub-deployments also provide a
-`deployment.yml` file with the same structure as the initial one.
+The `deployment.yaml` file is the entrypoint for the deployment project. Included sub-deployments also provide a
+`deployment.yaml` file with the same structure as the initial one.
 
-An example `deployment.yml` looks like this:
+An example `deployment.yaml` looks like this:
 ```yaml
 sealedSecrets:
   outputPattern: "{{ cluster.name }}/{{ args.environment }}"
@@ -27,7 +27,7 @@ args:
 - name: environment
 ```
 
-The following sub-chapters describe the available fields in the `deployment.yml`
+The following sub-chapters describe the available fields in the `deployment.yaml`
 
 ## sealedSecrets
 `sealedSecrets` configures how sealed secrets are stored while sealing and located while rendering.
@@ -53,8 +53,8 @@ deployments:
   waitReadiness: true
 ```
 
-The `path` must point to a directory relative to the directory containing the `deployment.yml`. Only directories
-that are part of the kluctl project are allowed. The directory must contain a valid `kustomization.yml`.
+The `path` must point to a directory relative to the directory containing the `deployment.yaml`. Only directories
+that are part of the kluctl project are allowed. The directory must contain a valid `kustomization.yaml`.
 
 `waitReadiness` is optional and if set to `true` instructs kluctl to wait for readiness of each individual object
 of the kustomize deployment. Readiness is defined in [readiness]({{< ref "./readiness" >}}).
@@ -70,8 +70,8 @@ deployments:
 - include: path/to/sub-deploment
 ```
 
-The `path` must point to a directory relative to the directory containing the `deployment.yml`. Only directories
-that are part of the kluctl project are allowed. The directory must contain a valid `deployment.yml`.
+The `path` must point to a directory relative to the directory containing the `deployment.yaml`. Only directories
+that are part of the kluctl project are allowed. The directory must contain a valid `deployment.yaml`.
 
 ### Barriers
 Causes kluctl to wait until all previous kustomize deployments have been applied. This is useful when
@@ -97,21 +97,21 @@ All entries in `deployments` can have the following common properties:
 A list of variable sets to be loaded into the templating context, which is then available in all [deployment items](#deployments)
 and [sub-deployments](#includes).
 
-See [templating]({{< ref "docs/reference/templating#vars-from-deploymentyml" >}}) for more details.
+See [templating]({{< ref "docs/reference/templating#vars-from-deploymentyaml" >}}) for more details.
 
 Example:
 ```yaml
 deployments:
 - path: kustomizeDeployment1
   vars:
-    - file: vars1.yml
+    - file: vars1.yaml
     - values:
         var1: value1
 - path: kustomizeDeployment2
 # all sub-deployments of this include will have the given variables available in their Jinj2 context.
 - include: subDeployment1
   vars:
-    - file: vars2.yml
+    - file: vars2.yaml
 ```
 
 ### tags (deployment item)
@@ -162,7 +162,7 @@ deployments:
 A list of variable sets to be loaded into the templating context, which is then available in all [deployment items](#deployments)
 and [sub-deployments](#includes).
 
-See [templating]({{< ref "docs/reference/templating#vars-from-deploymentyml" >}}) for more details.
+See [templating]({{< ref "docs/reference/templating#vars-from-deploymentyaml" >}}) for more details.
 
 ## commonLabels
 A dictionary of [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) and values to be
@@ -171,7 +171,7 @@ added to all resources deployed by any of the kustomize deployments in this depl
 This feature is mainly meant to make it possible to identify all objects in a kubernetes cluster that were once deployed
 through a specific deployment project.
 
-Consider the following example `deployment.yml`:
+Consider the following example `deployment.yaml`:
 ```yaml
 deployments:
   - path: nginx
@@ -194,7 +194,7 @@ inside the included sub-deployment project. In case of conflicts, the included c
 The root deployment's `commonLabels` is also used to identify objects to be deleted when performing `kluctl delete`
 or `kluctl prune` operations
 
-Please note that these `commonLabels` are not related to `commonLabels` supported in `kustomization.yml` files. It was
+Please note that these `commonLabels` are not related to `commonLabels` supported in `kustomization.yaml` files. It was
 decided to not rely on this feature but instead attach labels manually to resources right before sending them to
 kubernetes. This is due to an [implementation detail](https://github.com/kubernetes-sigs/kustomize/issues/1009) in
 kustomize which causes `commonLabels` to also be applied to label selectors, which makes otherwise editable resources
@@ -202,7 +202,7 @@ read-only when it comes to `commonLabels`.
 
 ## overrideNamespace
 A string that is used as the default namespace for all kustomize deployments which don't have a `namespace` set in their
-`kustomization.yml`.
+`kustomization.yaml`.
 
 ## tags (deployment project)
 A list of common tags which are applied to all kustomize deployments and sub-deployment includes.
@@ -211,7 +211,7 @@ See [tags]({{< ref "./tags" >}}) for more details.
 
 ## args
 A list of arguments that can or must be passed to most kluctl operations. Each of these arguments is then available
-in templating via the global `args` object. Only the root `deployment.yml` can contain such argument definitions.
+in templating via the global `args` object. Only the root `deployment.yaml` can contain such argument definitions.
 
 An example looks like this:
 ```yaml

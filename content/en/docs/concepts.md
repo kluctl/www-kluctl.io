@@ -8,14 +8,10 @@ These are some core concepts in Kluctl.
 
 ## Kluctl project
 The kluctl project defines targets, secret sources and external git projects.
-It is defined via the [.kluctl.yml]({{< ref "docs/reference/kluctl-project" >}}) configuration file.
+It is defined via the [.kluctl.yaml]({{< ref "docs/reference/kluctl-project" >}}) configuration file.
 
 The kluctl project can also optionally define where the deployment project and clusters configs are located (external
 git projects).
-
-## Cluster configs
-[Cluster configs]({{< ref "docs/reference/cluster-configs" >}}) are a set of .yml files that define different clusters. Cluster configs have a name, a kubectl context
-and an arbitrary set of configuration properties.
 
 ## Targets
 A target defines a target cluster and a set of deployment arguments. Multiple targets can use the same cluster. Targets
@@ -36,7 +32,7 @@ were defined before, allowing complex composition of configuration.
 After being loaded, variables are usable through the templating engine at all nearly all places.
 
 ## Templating
-All configuration files (including .kluctl.yml and deployment.yml) and all Kubernetes manifests involved are processed
+All configuration files (including .kluctl.yaml and deployment.yaml) and all Kubernetes manifests involved are processed
 through a templating engine.
 The [templating engine]({{< ref "docs/reference/templating" >}}) allows simple variable substitution and also complex
 control structures (if/else, for loops, ...).

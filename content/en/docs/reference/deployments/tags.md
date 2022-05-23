@@ -5,7 +5,7 @@ weight: 6
 ---
 
 Every kustomize deployment has a set of tags assigned to it. These tags are defined in multiple places, which is
-documented in [deployment.yml]({{< ref "./deployment-yml" >}}). Look for the `tags` field, which is available in multiple places per
+documented in [deployment.yaml]({{< ref "./deployment-yml" >}}). Look for the `tags` field, which is available in multiple places per
 deployment project.
 
 Tags are useful when only one or more specific kustomize deployments need to be deployed or deleted.
@@ -39,7 +39,7 @@ inherit all these tags. Also, the sub-deployment projects included via deploymen
 [include]({{< ref "./deployment-yml#includes" >}}) inherit the tags of the deployment project. These included sub-deployments also
 inherit the [tags]({{< ref "./deployment-yml#tags-deployment-item" >}}) specified by the deployment item itself.
 
-Consider the following example `deployment.yml`:
+Consider the following example `deployment.yaml`:
 
 ```yaml
 deployments:

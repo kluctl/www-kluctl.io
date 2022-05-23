@@ -12,7 +12,7 @@ A deployment project is collection of deployment items and sub-deployments. Depl
 ## Basic structure
 
 The following visualization shows the basic structure of a deployment project. The entry point of every deployment
-project is the `deployment.yml` file, which then includes further sub-deployments and kustomize deployments. It also
+project is the `deployment.yaml` file, which then includes further sub-deployments and kustomize deployments. It also
 provides some additional configuration required for multiple kluctl features to work as expected.
 
 As can be seen, sub-deployments can include other sub-deployments, allowing you to structure the deployment project
@@ -25,31 +25,31 @@ Some visualized files/directories have links attached, follow them to get more i
 
 <pre>
 -- project-dir/
-   |-- <a href="{{< ref "./deployment-yml" >}}">deployment.yml</a>
+   |-- <a href="{{< ref "./deployment-yml" >}}">deployment.yaml</a>
    |-- .gitignore
    |-- kustomize-deployment1/
-   |   |-- kustomization.yml
-   |   `-- resource.yml
+   |   |-- kustomization.yaml
+   |   `-- resource.yaml
    |-- sub-deployment/
-   |   |-- deployment.yml
+   |   |-- deployment.yaml
    |   |-- kustomize-deployment2/
-   |   |   |-- kustomization.yml
-   |   |   |-- resource1.yml
+   |   |   |-- kustomization.yaml
+   |   |   |-- resource1.yaml
    |   |   `-- ...
    |   |-- kustomize-deployment3/
-   |   |   |-- kustomization.yml
-   |   |   |-- resource1.yml
-   |   |   |-- resource2.yml
-   |   |   |-- patch1.yml
+   |   |   |-- kustomization.yaml
+   |   |   |-- resource1.yaml
+   |   |   |-- resource2.yaml
+   |   |   |-- patch1.yaml
    |   |   `-- ...
    |   |-- <a href="{{< ref "./helm" >}}">kustomize-with-helm-deployment/</a>
    |   |   |-- charts/
    |   |   |   `-- ...
-   |   |   |-- kustomization.yml
-   |   |   |-- helm-chart.yml
-   |   |   `-- helm-values.yml
+   |   |   |-- kustomization.yaml
+   |   |   |-- helm-chart.yaml
+   |   |   `-- helm-values.yaml
    |   `-- subsub-deployment/
-   |       |-- deployment.yml
+   |       |-- deployment.yaml
    |       |-- ... kustomize deployments
    |       `-- ... subsubsub deployments
    `-- sub-deployment/
