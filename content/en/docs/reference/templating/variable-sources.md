@@ -61,6 +61,17 @@ vars:
 
 These variables can then be used in all deployments and sub-deployments.
 
+### git
+This loads variables from a git repository. Example:
+
+```yaml
+vars:
+  - git:
+      url: ssh://git@github.com/example/repo.git
+      ref: my-branch
+      path: path/to/vars.yaml
+```
+
 ### clusterConfigMap
 Loads a configmap from the target's cluster and loads the specified key's value as a yaml file into the jinja2 variables
 context.
@@ -96,3 +107,92 @@ useful to store meta information about the cluster itself and then make it avail
 
 ### clusterSecret
 Same as clusterConfigMap, but for secrets.
+
+### http
+The http variables source allows to load variables from an arbitrary HTTP resource by performing a GET (or any other
+configured HTTP method) on the URL. Example:
+
+```yaml
+vars:
+  - http:
+      url: https://example.com/path/to/my/vars
+```
+
+The above source will load a variables file from the given URL. The file is expected to be in yaml or json format.
+
+The following additional properties are supported for http sources:
+
+##### method
+Specifies the HTTP method to be used when requesting the given resource. Defaults to `GET`.
+
+##### body
+The body to send along with the request. If not specified, nothing is sent.
+
+#### headers
+A map of key/values pairs representing the header entries to be added to the request. If not specified, nothing is added.
+
+##### jsonPath
+Can be used to select a nested element from the yaml/json document returned by the HTTP request. This is useful in case
+some REST api is used which does not directly return the variables file. Example:
+
+```yaml
+vars:
+  - http:
+      url: https://example.com/path/to/my/vars
+      jsonPath: $[0].data
+```
+
+The above example would successfully use the following json document as variables source:
+
+```json
+[{"data": {"vars": {"var1": "value1"}}}]
+```
+
+#### Authentication
+
+Kluctl currently supports BASIC and NTLM authentication. It will prompt for credentials when needed.
+
+### awsSecretsManager
+[AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) integration. Loads a variables YAML from an AWS Secrets
+Manager secret. The secret can either be specified via an ARN or via a secretName and region combination. An AWS
+config profile can also be specified (which must exist while sealing).
+
+The secrets stored in AWS Secrets manager must contain a valid yaml or json file.
+
+Example using an ARN:
+```yaml
+vars:
+  - awsSecretsManager:
+      secretName: arn:aws:secretsmanager:eu-central-1:12345678:secret:secret-name-XYZ
+      profile: my-prod-profile
+```
+
+Example using a secret name and region:
+```yaml
+vars:
+  - awsSecretsManager:
+      secretName: secret-name
+      region: eu-central-1
+      profile: my-prod-profile
+```
+
+The advantage of the latter is that the auto-generated suffix in the ARN (which might not be known at the time of
+writing the configuration) doesn't have to be specified.
+
+### systemEnvVars
+Load variables from environment variables. Children of `systemEnvVars` can be arbitrary yaml, e.g. dictionaries or lists.
+The leaf values are used to get a value from the system environment.
+
+Example:
+```yaml
+vars:
+- systemEnvVars:
+    var1: ENV_VAR_NAME1
+    someDict:
+      var2: ENV_VAR_NAME2
+    someList:
+      - var3: ENV_VAR_NAME3
+```
+
+The above example will make 3 variables available: `var1`, `someDict.var2` and
+`someList[0].var3`, each having the values of the environment variables specified by the leaf values.

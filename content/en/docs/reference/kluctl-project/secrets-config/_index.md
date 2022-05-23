@@ -15,7 +15,7 @@ It has the following form:
 secretsConfig:
   secretSets:
     - name: <name>
-      sources:
+      vars:
         - ...
 ...
 ```
@@ -25,12 +25,14 @@ Each `secretSets` entry has the following fields.
 ### name
 This field specifies the name of the secret set. The name can be used in targets to refer to this secret set.
 
-### sources
-This field specifies a list of secret sources. Check the sub-sections for the supported secret sources.
+### vars
+A list of variables sources. Check the documentation of
+[variables sources]{{< ref "docs/reference/templating/variable-sources" >}} for details.
 
-## Format of secrets files
+Each variables source must have a root dictionary with the name `secrets` and all the actual secret values
+below that dictionary. Every other root key will be ignored.
 
-Many supported secrets sources expect an underlying yaml file with arbitrary data below a root "secrets" map, e.g.:
+Example variables file:
 
 ```yaml
 secrets:
