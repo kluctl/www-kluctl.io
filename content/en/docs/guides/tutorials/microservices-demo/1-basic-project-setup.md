@@ -69,25 +69,12 @@ Inside this new directory, create the file `.kluctl.yml` with the following cont
 ```yaml
 targets:
   - name: local
-    cluster: kind
+    context: kind-kind
 ```
 
-This is a very simple example with only a single target, being a local [kind](https://kind.sigs.k8s.io/) cluster. The
-kind cluster must also be [defined/configured]({{< ref "docs/reference/cluster-configs" >}}) now, which is done by
-creating the file `kind.yml` inside the `clusters` subdirectory:
+This is a very simple example with only a single target, being a local [kind](https://kind.sigs.k8s.io/) cluster.
 
-```shell
-$ mkdir clusters
-```
-
-Inside the `clusters` directory, create the file `kind.yml` with the following content:
-```yaml
-cluster:
-  name: kind
-  context: kind-kind
-```
-
-You might have noticed that the cluster configuration refers a kubectl context that is not existing yet. It's time to
+You might have noticed that the target configuration refers a kubectl context that is not existing yet. It's time to
 create a local kind cluster now. To do so, first ensure that you have [kind installed](https://kind.sigs.k8s.io/docs/user/quick-start/#installation)
 and then run:
 

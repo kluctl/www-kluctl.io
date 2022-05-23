@@ -13,10 +13,6 @@ It is defined via the [.kluctl.yml]({{< ref "docs/reference/kluctl-project" >}})
 The kluctl project can also optionally define where the deployment project and clusters configs are located (external
 git projects).
 
-## Cluster configs
-[Cluster configs]({{< ref "docs/reference/cluster-configs" >}}) are a set of .yml files that define different clusters. Cluster configs have a name, a kubectl context
-and an arbitrary set of configuration properties.
-
 ## Targets
 A target defines a target cluster and a set of deployment arguments. Multiple targets can use the same cluster. Targets
 allow implementing multi-cluster, multi-environment, multi-customer, ... deployments.

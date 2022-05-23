@@ -77,9 +77,8 @@ Create a local cluster with [kind](https://kind.sigs.k8s.io):
 kind create cluster
 ```
 
-This will update your kubeconfig to contain a context with the name `kind-kind`. The examples are all prepared to use
-this context. In case you want to use another local cluster or reuse an existing cluster, ensure to update the example
-project to use the correct [context]({{< ref "docs/reference/cluster-configs" >}})
+This will update your kubeconfig to contain a context with the name `kind-kind`. By default, all examples will use
+the currently active context.
 
 ## Deploy the example
 

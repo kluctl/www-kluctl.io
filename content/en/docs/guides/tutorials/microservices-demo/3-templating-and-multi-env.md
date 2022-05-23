@@ -53,15 +53,15 @@ content of `.kluctl.yml` to contain:
 ```yaml
 targets:
   - name: local
-    cluster: kind
+    context: kind-kind
     args:
       env_type: local
   - name: test
-    cluster: kind
+    context: kind-kind
     args:
       env_type: real
   - name: prod
-    cluster: kind
+    context: kind-kind
     args:
       env_type: real
 ```

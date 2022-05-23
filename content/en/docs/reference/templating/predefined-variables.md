@@ -8,10 +8,6 @@ description: >
 
 There are multiple variables available which are pre-defined by kluctl. These are:
 
-### cluster
-This is the cluster definition as found in the cluster yaml that belongs to the chosen target cluster. See
-[cluster config]({{< ref "docs/reference/cluster-configs" >}}) for details on what this variable contains.
-
 ### args
 This is a dictionary of arguments given via command line. It contains every argument defined in
 [deployment args]({{< ref "docs/reference/deployments/deployment-yml#args" >}}).

@@ -10,8 +10,8 @@ Specifies a list of targets for which commands can be invoked. A target puts tog
 configuration and the target cluster. Multiple targets can exist which target the same cluster but with differing
 configuration (via `args`). Target entries also specifies which secrets to use while [sealing]({{< ref "docs/reference/sealed-secrets" >}}).
 
-Each value found in the target definition is rendered with a simple Jinja2 context that only contains the target itself
-and cluster configuration. The rendering process is retried 10 times until it finally succeeds, allowing you to reference
+Each value found in the target definition is rendered with a simple Jinja2 context that only contains the target itself.
+The rendering process is retried 10 times until it finally succeeds, allowing you to reference
 the target itself in complex ways. This is especially useful when using [dynamic targets]({{< ref "./dynamic-targets" >}}).
 
 Target entries have the following form:
@@ -19,7 +19,7 @@ Target entries have the following form:
 targets:
 ...
   - name: <target_name>
-    cluster: <cluster_name>
+    context: <context_name>
     args:
       arg1: <value1>
       arg2: <value2>
@@ -40,9 +40,9 @@ The following fields are allowed per target:
 This field specifies the name of the target. The name must be unique. It is referred in all commands via the
 [-t]({{< ref "docs/reference/commands/common-arguments" >}}) option.
 
-## cluster
-This field specifies the name of the target cluster. The cluster must exist in the [cluster configuration]({{< ref "docs/reference/cluster-configs" >}})
-specified via [clusters]({{< ref "../external-projects#clusters" >}}).
+## context
+This field specifies the kubectl context of the target cluster. The context must exist in the currently active kubeconfig.
+If this field is omitted, Kluctl will always use the currently active context.
 
 ## args
 This fields specifies a map of arguments to be passed to the deployment project when it is rendered. Allowed argument names
