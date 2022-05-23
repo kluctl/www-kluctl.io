@@ -76,21 +76,21 @@ resources:
 ```
 
 ## outputPattern and location of stored sealed secrets
-The root [deployment project]({{< ref "docs/reference/deployments" >}}) must specify the outputPattern to use when storing/loading
-sealed secrets. The output pattern must be a template string that is rendered with the full
+
+It is possible to override the output pattern in the root [deployment project]({{< ref "docs/reference/deployments" >}}).
+The output pattern must be a template string that is rendered with the full
 [templating context]({{< ref "docs/reference/templating" >}}) available for the deployment.yml.
 
-This template string usually at least contains the cluster name. If your deployment can be deployed multiple times to the
-same cluster (via different targets), you should also add something to differentiate the targets.
-
-As an example, `{{ cluster.name }}/{{ args.environment }}` works well, assuming that you differentiate targets via
-`args.environment`.
+When manually specifying the outputPattern, ensure that it works well with multiple clusters and targets. You can
+for example use the `{{ target.name }}` and `{{ cluster.name }}` inside the outputPattern.
 
 ```yaml
 # deployment.yml in root directory
 sealedSecrets:
-  outputPattern: "{{ cluster.name }}/{{ args.environment }}"
+  outputPattern: "{{ cluster.name }}/{{ target.name }}"
 ```
+
+The default outputPattern is simply `{{ target.name }}`, which should work well in most cases.
 
 The final storage location for the sealed secret is:
 
