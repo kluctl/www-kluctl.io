@@ -123,6 +123,40 @@ In case a Helm Chart needs to be updated, you can either do this manually by rep
 value in `helm-chart.yml` and the calling the [helm-pull]({{< ref "docs/reference/commands/helm-pull" >}}) command or by simply invoking
 [helm-update]({{< ref "docs/reference/commands/helm-update" >}}) with `--upgrade` and/or `--commit` being set.
 
+## Private Chart Repositories
+It is also possible to use private chart repositories. There are currently two options to provide Helm Repository
+credentials to Kluctl.
+
+### Use `helm repo add --username xxx --password xxx` before
+Kluctl will try to find known repositories that are managed by the Helm CLI and then try to reuse the credentials of
+these. The repositories are identified by the URL of the repository, so it doesn't matter what name you used when you
+added the repository to Helm. The same method can be used for client certificate based authentication (`--key-file`
+in `helm repo add`).
+
+### Use the --username/--password arguments in `kluctl helm-pull`
+See the [helm-pull command]({{< ref "docs/reference/commands/helm-pull" >}}). You can control repository credentials
+via `--username`, `--password` and `--key-file`. Each argument must be in the form `credentialsId:value`, where
+the `credentialsId` must match the id specified in the `helm-chart.yaml`. Example:
+
+```yaml
+helmChart:
+  repo: https://raw.githubusercontent.com/example/private-helm-repo/main/
+  credentialsId: private-helm-repo
+  chartName: my-chart
+  chartVersion: 1.2.3
+  releaseName: my-chart
+  namespace: default
+```
+
+When credentialsId is specified, Kluctl will require you to specify `--username=private-helm-repo:my-username` and
+`--password=private-helm-repo:my-password`. You can also specify a client-side certificate instead via
+`--key-file=private-helm-repo:/path/to/cert`.
+
+Multiple Helm Charts can use the same `credentialsId`.
+
+Environment variables can also be used instead of arguments. See
+[Environment Variables]({{< ref "docs/reference/commands/environment-variables" >}}) for details.
+
 ## Templating
 
 Both `helm-chart.yml` and `helm-values.yml` are rendered by the [templating engine]({{< ref "docs/reference/templating" >}}) before they
