@@ -75,7 +75,7 @@ This field specifies the config file name to read externalized target config fro
 
 ## Simple dynamic targets
 
-A simplified form of dynamic targets is to store target config inside the same directory/project as the `.kluctl.yml`.
+A simplified form of dynamic targets is to store target config inside the same directory/project as the `.kluctl.yaml`.
 This can be done by omitting `project`, `ref` and `refPattern` from `targetConfig` and only specify `file`.
 
 ## A note on sealing

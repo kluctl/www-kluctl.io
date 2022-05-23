@@ -21,7 +21,7 @@ metadata:
     kluctl.io/wait-readiness: "true"
 
 resources:
-  - deployment.yml
+  - deployment.yaml
 ```
 
 ### kluctl.io/barrier

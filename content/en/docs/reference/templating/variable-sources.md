@@ -6,7 +6,7 @@ description: >
   Available variable sources.
 ---
 
-There are multiple places in deployment projects (deployment.yml) where additional variables can be loaded into
+There are multiple places in deployment projects (deployment.yaml) where additional variables can be loaded into
 future Jinja2 contexts.
 
 The first place where vars can be specified is the deployment root, as documented [here]({{< ref "docs/reference/deployments/deployment-yml#vars-deployment-project" >}}).
@@ -14,23 +14,23 @@ These vars are visible for all deployments inside the deployment project, includ
 
 The second place to specify variables is in the deployment items, as documented [here]({{< ref "docs/reference/deployments/deployment-yml#vars-deployment-item" >}}).
 
-The variables loaded for each entry in `vars` are not available inside the `deployment.yml` file itself.
+The variables loaded for each entry in `vars` are not available inside the `deployment.yaml` file itself.
 However, each entry in `vars` can use all variables defined before that specific entry is processed. Consider the
 following example.
 
 ```yaml
 vars:
-- file: vars1.yml
-- file: vars2.yml
+- file: vars1.yaml
+- file: vars2.yaml
 ```
 
-`vars2.yml` can now use variables that are defined in `vars1.yml`. At all times, variables defined by
+`vars2.yaml` can now use variables that are defined in `vars1.yaml`. At all times, variables defined by
 parents of the current sub-deployment project can be used in the current vars file.
 
 Different types of vars entries are possible:
 
 ### file
-This loads variables from a yaml file. Assume the following yaml file with the name `vars1.yml`:
+This loads variables from a yaml file. Assume the following yaml file with the name `vars1.yaml`:
 ```yaml
 my_vars:
   a: 1
@@ -44,10 +44,10 @@ This file can be loaded via:
 
 ```yaml
 vars:
-  - file: vars1.yml
+  - file: vars1.yaml
 ```
 
-After which all included deployments and sub-deployments can use the jinja2 variables from `vars1.yml`.
+After which all included deployments and sub-deployments can use the jinja2 variables from `vars1.yaml`.
 
 ### values
 An inline definition of variables. Example:

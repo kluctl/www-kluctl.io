@@ -35,7 +35,7 @@ but without any actual secret data inside. The secret data is referenced via tem
 provided only at the time of sealing. This means, that the sensitive secret data must only be in clear text while sealing.
 Afterwards the sealed secrets can be added to version control.
 
-Example file (the name could be for example `db-secrets.yml.sealme`):
+Example file (the name could be for example `db-secrets.yaml.sealme`):
 ```yaml
 kind: Secret
 apiVersion: v1
@@ -54,38 +54,38 @@ Additionally, the global `secrets` object/variable is available which contains t
 ## Secret Sources
 
 Secrets are only loaded while sealing. Available secret sets and sources are configured via
-[.kluctl.yml]({{< ref "docs/reference/kluctl-project/secrets-config" >}}). The secrets used per target are configured via the
+[.kluctl.yaml]({{< ref "docs/reference/kluctl-project/secrets-config" >}}). The secrets used per target are configured via the
 [secrets config]({{< ref "docs/reference/kluctl-project/targets#secretsets" >}}) of the targets.
 
 ## Using sealed secrets
 
 After sealing a secret, it can be used inside kustomize deployments. While deploying, kluctl will look for resources
-included from `kustomization.yml` which are not existent but for which a file with a `.sealme` extension exists. If such
+included from `kustomization.yaml` which are not existent but for which a file with a `.sealme` extension exists. If such
 a file is found, the appropriate sealed secrets is located based on the
 [outputPattern](#outputpattern-and-location-of-stored-sealed-secrets).
 
-An example `kustomization.yml`:
+An example `kustomization.yaml`:
 ```yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
 # please note that we do not specify the .sealme suffix here
-- db-secrets.yml
-- my-deployments.yml
+- db-secrets.yaml
+- my-deployments.yaml
 ```
 
 ## outputPattern and location of stored sealed secrets
 
 It is possible to override the output pattern in the root [deployment project]({{< ref "docs/reference/deployments" >}}).
 The output pattern must be a template string that is rendered with the full
-[templating context]({{< ref "docs/reference/templating" >}}) available for the deployment.yml.
+[templating context]({{< ref "docs/reference/templating" >}}) available for the deployment.yaml.
 
 When manually specifying the outputPattern, ensure that it works well with multiple clusters and targets. You can
 for example use the `{{ target.name }}` and `{{ cluster.name }}` inside the outputPattern.
 
 ```yaml
-# deployment.yml in root directory
+# deployment.yaml in root directory
 sealedSecrets:
   outputPattern: "{{ cluster.name }}/{{ target.name }}"
 ```
@@ -97,7 +97,7 @@ The final storage location for the sealed secret is:
 `<base_dir>/<rendered_output_pattern>/<relative_sealme_file_dir>/<file_name>`
 
 with:
-* `base_dir`: The base directory for sealed secrets is configured in the [.kluctl.yml]({{< ref "docs/reference/kluctl-project/external-projects#sealedsecrets" >}}) config
+* `base_dir`: The base directory for sealed secrets is configured in the [.kluctl.yaml]({{< ref "docs/reference/kluctl-project/external-projects#sealedsecrets" >}}) config
   file. If not specified, the base directory defaults to the subdirectory `.sealed-secrets` in the kluctl project root
   diretory.
 * `rendered_output_pattern`: The rendered outputPattern as described above.

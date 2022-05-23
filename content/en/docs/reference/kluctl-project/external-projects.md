@@ -13,12 +13,12 @@ repositories when necessary.
 External Projects allow better reuse of deployments. You can have multiple Kluctl projects that all point to the same
 deployment project but with different targets defined.
 
-The following configuration is possible in `.kluctl.yml`
+The following configuration is possible in `.kluctl.yaml`
 
 ## deployment
 
 Specifies the git project where the [deployment project]({{< ref "docs/reference/deployments" >}}) is located. If it is omitted, the base
-directory of the `.kluctl.yml` project is used as the deployment project root.
+directory of the `.kluctl.yaml` project is used as the deployment project root.
 
 It has the following form:
 ```yaml
@@ -41,6 +41,6 @@ This field is optional and specifies the subdirectory to use. If omitted, the re
 ## sealedSecrets
 
 Specifies the git project where the [sealed secrets]({{< ref "docs/reference/sealed-secrets" >}}) are located. If it is omitted, the
-`.sealed-secrets` subdirectory of the `.kluctl.yml` project is used as the sealed secrets location.
+`.sealed-secrets` subdirectory of the `.kluctl.yaml` project is used as the sealed secrets location.
 
 It has the same form as in [deployment]({{< ref "docs/reference/kluctl-project#deployment" >}}), except that it is called `sealedSecrets`.

@@ -13,7 +13,7 @@ kluctl also provides a few global functions:
 ### load_template(file)
 Loads the given file into memory, renders it with the current Jinja2 context and then returns it as a string. Example:
 ```
-{% set a=load_template('file.yml') %}
+{% set a=load_template('file.yaml') %}
 {{ a }}
 ```
 
@@ -30,7 +30,7 @@ This also allows to calculate the hash of the currently rendered template, for e
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: my-config-{{ load_sha256("configmap.yml") }}
+  name: my-config-{{ load_sha256("configmap.yaml") }}
 data:
 ```
 

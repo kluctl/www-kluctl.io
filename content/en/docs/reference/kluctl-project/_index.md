@@ -1,33 +1,26 @@
 ---
-title: "Kluctl project (.kluctl.yml)"
-linkTitle: ".kluctl.yml"
+title: "Kluctl project (.kluctl.yaml)"
+linkTitle: ".kluctl.yaml"
 weight: 1
 description: >
-    Kluctl project configuration, found in the .kluctl.yml file.
+    Kluctl project configuration, found in the .kluctl.yaml file.
 ---
 
-The `.kluctl.yml` is the central configuration and entry point for your deployments. It defines where the actual
+The `.kluctl.yaml` is the central configuration and entry point for your deployments. It defines where the actual
 [deployment project]({{< ref "docs/reference/deployments" >}}) is located,
 where [sealed secrets]({{< ref "docs/reference/sealed-secrets" >}}) and unencrypted secrets are localed and which targets are available to
 invoke [commands]({{< ref "docs/reference/commands" >}}) on.
 
 ## Example
 
-An example .kluctl.yml looks like this:
+An example .kluctl.yaml looks like this:
 
 ```yaml
-# This is optional. If omitted, the same directory where `.kluctl.yml` is located will be used as root deployment
+# This is optional. If omitted, the same directory where `.kluctl.yaml` is located will be used as root deployment
 # See "External Projects" for details
 deployment:
   project:
     url: https://github.com/kluctl/kluctl-example
-
-# This is optional. If omitted, `<baseDirOfKluctlYml>/clusters` will be used
-# See "External Projects" for details
-clusters:
-  project:
-    url: https://github.com/kluctl/kluctl-example-clusters
-    subDir: clusters
 
 # This is optional. If omitted, `<baseDirOfKluctlYml>/.sealed-secrets` will be used
 # See "External Projects" for details
@@ -66,22 +59,22 @@ targets:
 secretsConfig:
   secretSets:
     - name: prod
-      sources:
+      vars:
         # This file should not be part of version control!
-        - path: .secrets-prod.yml
+        - file: .secrets-prod.yaml
     - name: non-prod
-      sources:
+      vars:
         # This file should not be part of version control!
-        - path: .secrets-non-prod.yml
+        - file: .secrets-non-prod.yaml
 ```
 
 ## Allowed fields
 
-Please check the sub-sections of this section to see which fields are allowed at the root level of `.kluctl.yml`.
+Please check the sub-sections of this section to see which fields are allowed at the root level of `.kluctl.yaml`.
 
 ## Separating kluctl projects and deployment projects
 
-As seen in the `.kluctl.yml` documentation, deployment projects can exist in other repositories then the kluctl project.
+As seen in the `.kluctl.yaml` documentation, deployment projects can exist in other repositories then the kluctl project.
 This is a desired pattern in some circumstances, for example when you want to share a single deployment project with
 multiple teams that all manage their own clusters. This way each team can have its own minimalistic kluctl project which
 points to the deployment project and the teams clusters configuration.
