@@ -10,7 +10,7 @@ description: >
 <!-- BEGIN SECTION "helm-update" "Usage" false -->
 Usage: kluctl helm-update [flags]
 
-Recursively searches for 'helm-chart.yml'' files and checks for new available versions
+Recursively searches for 'helm-chart.yaml' files and checks for new available versions
 Optionally performs the actual upgrade and/or add a commit to version control.
 
 <!-- END SECTION -->
@@ -25,8 +25,20 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-      --commit    Create a git commit for every updated chart
-      --upgrade   Write new versions into helm-chart.yml and perform helm-pull afterwards
+      --commit                             Create a git commit for every updated chart
+      --insecure-skip-tls-verify strings   Controls skipping of TLS verification. Must be in the form
+                                           --insecure-skip-tls-verify=<credentialsId>, where <credentialsId> must
+                                           match the id specified in the helm-chart.yaml.
+      --key-file strings                   Specify client certificate to use for Helm Repository authentication.
+                                           Must be in the form --key-file=<credentialsId>:<path>, where
+                                           <credentialsId> must match the id specified in the helm-chart.yaml.
+      --password strings                   Specify password to use for Helm Repository authentication. Must be in
+                                           the form --password=<credentialsId>:<password>, where <credentialsId>
+                                           must match the id specified in the helm-chart.yaml.
+      --upgrade                            Write new versions into helm-chart.yaml and perform helm-pull afterwards
+      --username strings                   Specify username to use for Helm Repository authentication. Must be in
+                                           the form --username=<credentialsId>:<username>, where <credentialsId>
+                                           must match the id specified in the helm-chart.yaml.
 
 ```
 <!-- END SECTION -->
