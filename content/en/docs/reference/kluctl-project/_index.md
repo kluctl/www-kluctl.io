@@ -16,19 +16,6 @@ invoke [commands]({{< ref "docs/reference/commands" >}}) on.
 An example .kluctl.yaml looks like this:
 
 ```yaml
-# This is optional. If omitted, the same directory where `.kluctl.yaml` is located will be used as root deployment
-# See "External Projects" for details
-deployment:
-  project:
-    url: https://github.com/kluctl/kluctl-example
-
-# This is optional. If omitted, `<baseDirOfKluctlYml>/.sealed-secrets` will be used
-# See "External Projects" for details
-sealedSecrets:
-  project:
-    url: https://github.com/kluctl/kluctl-example
-    subDir: .sealed-secrets
-
 targets:
   # test cluster, dev env
   - name: dev
