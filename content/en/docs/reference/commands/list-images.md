@@ -30,10 +30,10 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  -o, --output strings           Specify output target file. Can be specified multiple times
-      --render-output-dir path   Specifies the target directory to render the project into. If omitted, a
-                                 temporary directory is used.
-      --simple                   Output a simplified version of the images list
+  -o, --output strings             Specify output target file. Can be specified multiple times
+      --render-output-dir string   Specifies the target directory to render the project into. If omitted, a
+                                   temporary directory is used.
+      --simple                     Output a simplified version of the images list
 
 ```
 <!-- END SECTION -->

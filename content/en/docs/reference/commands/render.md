@@ -27,8 +27,8 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-      --render-output-dir path   Specifies the target directory to render the project into. If omitted, a
-                                 temporary directory is used.
+      --render-output-dir string   Specifies the target directory to render the project into. If omitted, a
+                                   temporary directory is used.
 
 ```
 <!-- END SECTION -->

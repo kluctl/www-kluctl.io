@@ -41,7 +41,7 @@ Misc arguments:
       --readiness-timeout duration   Maximum time to wait for object readiness. The timeout is meant per-object.
                                      Timeouts are in the duration format (1s, 1m, 1h, ...). If not specified, a
                                      default timeout of 5m is used. (default 5m0s)
-      --render-output-dir path       Specifies the target directory to render the project into. If omitted, a
+      --render-output-dir string     Specifies the target directory to render the project into. If omitted, a
                                      temporary directory is used.
       --replace-on-error             When patching an object fails, try to replace it. See documentation for more
                                      details.
