@@ -67,11 +67,39 @@ of the parent project, e.g. tags, commonLabels and so on.
 Example:
 ```yaml
 deployments:
-- include: path/to/sub-deploment
+- include: path/to/sub-deployment
 ```
 
 The `path` must point to a directory relative to the directory containing the `deployment.yaml`. Only directories
 that are part of the kluctl project are allowed. The directory must contain a valid `deployment.yaml`.
+
+### Git includes
+
+Specifies an external git project to be included. The project is included the same way with regular includes, except
+that the included project can not use/load templates from the parent project. An included project might also include
+further git projects.
+
+Simple example:
+```yaml
+deployments:
+- git: git@github.com/example/example.git
+```
+
+This will clone the git repository at `git@github.com/example/example.git`, checkout the default branch and include it
+into the current project.
+
+Advanced Example:
+```yaml
+deployments:
+- git:
+    url: git@github.com/example/example.git
+    ref: my-branch
+    subDir: some/sub/dir
+```
+
+The url specifies the Git url to be cloned and checked out. `ref` is optional and specifies the branch or tag to be used.
+If `ref` is omitted, the default branch will be checked out. `subDir` is optional and specifies the sub directory inside
+the git repository to include.
 
 ### Barriers
 Causes kluctl to wait until all previous kustomize deployments have been applied. This is useful when
