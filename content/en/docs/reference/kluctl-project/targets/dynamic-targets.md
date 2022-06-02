@@ -73,6 +73,26 @@ the actual branch name it belong to. This allows using of `{{ target.targetConfi
 ### file
 This field specifies the config file name to read externalized target config from.
 
+## Format of the target config
+The target config file referenced in `targetConfig` must be of the following format:
+
+```yaml
+args:
+  arg1: value1
+  arg2: value2
+images:
+  - image: registry.gitlab.com/my-group/my-project
+    resultImage: registry.gitlab.com/my-group/my-project:1.1.0
+```
+
+### args
+An optional map of arguments, in the same format as in the normal [target args]({{< ref "docs/reference/kluctl-project/targets/#args" >}}).
+
+The arguments specified here have higher priority.
+
+### images
+An optional list of fixed images, in the same format as in the normal [target images]({{< ref "docs/reference/kluctl-project/targets/#images" >}})
+
 ## Simple dynamic targets
 
 A simplified form of dynamic targets is to store target config inside the same directory/project as the `.kluctl.yaml`.

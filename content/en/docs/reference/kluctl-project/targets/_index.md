@@ -28,6 +28,9 @@ targets:
       - name: <arg_name>
         pattern: <regex_pattern>
       ...
+    images:
+      - image: my-image
+        resultImage: my-image:1.2.3
     sealingConfig:
       secretSets:
         - <name_of_secrets_set>
@@ -46,13 +49,23 @@ If this field is omitted, Kluctl will always use the currently active context.
 
 ## args
 This fields specifies a map of arguments to be passed to the deployment project when it is rendered. Allowed argument names
-are configured via [deployment args]({{< ref "docs/reference/deployments/deployment-yml#args" >}})
+are configured via [deployment args]({{< ref "docs/reference/deployments/deployment-yml#args" >}}).
+
+The arguments specified in the [dynamic target config]({{< ref "docs/reference/kluctl-project/targets/dynamic-targets#args" >}})
+have higher priority.
 
 ## dynamicArgs
 This field specifies a list of CLI arguments that can be passed to kluctl when performing any commands on the target. These
 arguments are passed with `-a arg_name=arg_value` when for example calling `kluctl deploy -t target_name`.
 
 Each entry has the following fields:
+
+## images
+This field specifies a list of fixed images to be used by [`images.get_image(...)`]({{< ref "docs/reference/deployments/images#imagesget_image" >}}).
+The format is identical to the [fixed images file](https://kluctl.io/docs/reference/deployments/images/#fixed-images-via-a-yaml-file).
+
+The fixed images specified in the [dynamic target config]({{< ref "docs/reference/kluctl-project/targets/dynamic-targets#images" >}})
+have higher priority.
 
 ### name
 The name of the argument.

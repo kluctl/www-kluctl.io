@@ -97,8 +97,7 @@ The final storage location for the sealed secret is:
 `<base_dir>/<rendered_output_pattern>/<relative_sealme_file_dir>/<file_name>`
 
 with:
-* `base_dir`: The base directory for sealed secrets is configured in the [.kluctl.yaml]({{< ref "docs/reference/kluctl-project/external-projects#sealedsecrets" >}}) config
-  file. If not specified, the base directory defaults to the subdirectory `.sealed-secrets` in the kluctl project root
+* `base_dir`: The base directory for sealed secrets, which defaults to to the subdirectory `.sealed-secrets` in the kluctl project root
   diretory.
 * `rendered_output_pattern`: The rendered outputPattern as described above.
 * `relative_sealme_file_dir`: The relative path from the deployment root directory.
