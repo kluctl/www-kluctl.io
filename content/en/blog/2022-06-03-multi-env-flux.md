@@ -4,6 +4,8 @@ title: "Multiple Environments with Flux and Kluctl"
 linkTitle: "Multiple Environments with Flux and Kluctl"
 date: 2022-06-03
 author: Alexander Block (@codablock)
+images:
+  - "/images/blog/multi-env-flux.jpg"
 ---
 
 ![multi-env-flux](/images/blog/multi-env-flux.jpg)
