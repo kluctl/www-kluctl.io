@@ -193,7 +193,7 @@ vars:
       path: secret/data/simple
 ```
 
-Before deploying or sealing please be sure that you have access to vault. You can do this for example by setting 
+Before deploying or sealing please make sure that you have access to vault. You can do this for example by setting 
 the environment variable `VAULT_TOKEN`.
 
 ### systemEnvVars
