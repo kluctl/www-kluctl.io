@@ -179,6 +179,23 @@ vars:
 The advantage of the latter is that the auto-generated suffix in the ARN (which might not be known at the time of
 writing the configuration) doesn't have to be specified.
 
+### vault
+
+[Vault by HashiCorp](https://www.vaultproject.io/) with [Tokens](https://www.vaultproject.io/docs/concepts/tokens) 
+authentication integration. The address and the path to the secret can be configured. 
+The implementation was tested with KV Secrets Engine.
+
+Example using vault:
+```yaml
+vars:
+  - vault:
+      address: http://localhost:8200
+      path: secret/data/simple
+```
+
+Before deploying or sealing please make sure that you have access to vault. You can do this for example by setting 
+the environment variable `VAULT_TOKEN`.
+
 ### systemEnvVars
 Load variables from environment variables. Children of `systemEnvVars` can be arbitrary yaml, e.g. dictionaries or lists.
 The leaf values are used to get a value from the system environment.
