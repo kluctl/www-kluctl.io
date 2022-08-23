@@ -63,7 +63,7 @@ helmChart:
   output: helm-rendered.yaml # this is optional
 ```
 
-When running the `helm-pull` command, it will recursively search for all `helm-chart.yaml` files and then pull the
+When running the `helm-pull` command, it will search for all `helm-chart.yaml` files in your project and then pull the
 chart from the specified repository with the specified version. The pull chart will then be located in the sub-directory
 `charts` below the same directory as the `helm-chart.yaml`
 
