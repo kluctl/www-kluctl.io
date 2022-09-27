@@ -16,8 +16,10 @@ These arguments are available for all commands.
 <!-- BEGIN SECTION "deploy" "Global arguments" true -->
 ```
 Global arguments:
-      --debug             Enable debug logging
-      --no-update-check   Disable update check on startup
+      --cpu-profile string   Enable CPU profiling and write the result to the given path
+      --debug                Enable debug logging
+      --no-color             Disable colored output
+      --no-update-check      Disable update check on startup
 
 ```
 <!-- END SECTION -->
@@ -32,7 +34,7 @@ They control where and how to load the kluctl project and deployment project.
 Project arguments:
   Define where and how to load the kluctl project and its components from.
 
-  -a, --arg strings                          Template argument in the form name=value
+  -a, --arg stringArray                      Template argument in the form name=value
       --cluster string                       DEPRECATED. Specify/Override cluster
       --git-cache-update-interval duration   Specify the time to wait between git cache updates. Defaults to not
                                              wait at all and always updating caches.
@@ -65,7 +67,7 @@ They control image versions requested by `images.get_image(...)` [calls]({{< ref
 Image arguments:
   Control fixed images and update behaviour.
 
-  -F, --fixed-image strings              Pin an image to a given version. Expects
+  -F, --fixed-image stringArray          Pin an image to a given version. Expects
                                          '--fixed-image=image<:namespace:deployment:container>=result'
       --fixed-images-file existingfile   Use .yaml file to pin image versions. See output of list-images
                                          sub-command or read the documentation for details about the output format
@@ -90,14 +92,15 @@ They control inclusion/exclusion based on tags and deployment item pathes.
 Inclusion/Exclusion arguments:
   Control inclusion/exclusion.
 
-      --exclude-deployment-dir strings   Exclude deployment dir. The path must be relative to the root deployment
-                                         project. Exclusion has precedence over inclusion, same as in --exclude-tag
-  -E, --exclude-tag strings              Exclude deployments with given tag. Exclusion has precedence over
-                                         inclusion, meaning that explicitly excluded deployments will always be
-                                         excluded even if an inclusion rule would match the same deployment.
-      --include-deployment-dir strings   Include deployment dir. The path must be relative to the root deployment
-                                         project.
-  -I, --include-tag strings              Include deployments with given tag.
+      --exclude-deployment-dir stringArray   Exclude deployment dir. The path must be relative to the root
+                                             deployment project. Exclusion has precedence over inclusion, same as
+                                             in --exclude-tag
+  -E, --exclude-tag stringArray              Exclude deployments with given tag. Exclusion has precedence over
+                                             inclusion, meaning that explicitly excluded deployments will always
+                                             be excluded even if an inclusion rule would match the same deployment.
+      --include-deployment-dir stringArray   Include deployment dir. The path must be relative to the root
+                                             deployment project.
+  -I, --include-tag stringArray              Include deployments with given tag.
 
 ```
 <!-- END SECTION -->

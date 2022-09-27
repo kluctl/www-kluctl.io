@@ -32,8 +32,11 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-      --force-reseal   Lets kluctl ignore secret hashes found in already sealed secrets and thus forces resealing
-                       of those.
+      --cert-file string     Use the given certificate for sealing instead of requesting it from the
+                             sealed-secrets controller
+      --force-reseal         Lets kluctl ignore secret hashes found in already sealed secrets and thus forces
+                             resealing of those.
+      --offline-kubernetes   Run seal in offline mode, meaning that it will not try to connect the target cluster
 
 ```
 <!-- END SECTION -->

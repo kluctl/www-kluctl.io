@@ -35,7 +35,7 @@ Misc arguments:
       --force-replace-on-error       Same as --replace-on-error, but also try to delete and re-create objects. See
                                      documentation for more details.
       --no-wait                      Don't wait for objects readiness'
-  -o, --output-format strings        Specify output format and target file, in the format 'format=path'. Format
+  -o, --output-format stringArray    Specify output format and target file, in the format 'format=path'. Format
                                      can either be 'text' or 'yaml'. Can be specified multiple times. The actual
                                      format for yaml is currently not documented and subject to change.
       --readiness-timeout duration   Maximum time to wait for object readiness. The timeout is meant per-object.

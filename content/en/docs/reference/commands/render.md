@@ -27,6 +27,9 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
+      --offline-kubernetes         Run render in offline mode, meaning that it will not try to connect the target
+                                   cluster
+      --print-all                  Write all rendered manifests to stdout
       --render-output-dir string   Specifies the target directory to render the project into. If omitted, a
                                    temporary directory is used.
 

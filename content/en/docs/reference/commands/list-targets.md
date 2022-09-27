@@ -22,7 +22,7 @@ The following arguments are available:
 Misc arguments:
   Command specific arguments.
 
-  -o, --output strings   Specify output target file. Can be specified multiple times
+  -o, --output stringArray   Specify output target file. Can be specified multiple times
 
 ```
 <!-- END SECTION -->
