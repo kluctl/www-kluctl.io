@@ -17,8 +17,11 @@ secretsConfig:
     - name: <name>
       vars:
         - ...
+  sealedSecrets: ...
 ...
 ```
+
+## secretSets
 
 Each `secretSets` entry has the following fields.
 
@@ -44,3 +47,27 @@ secrets:
       - b
 ...
 ```
+
+## sealedSecrets
+This field specifies the configuration for sealing. It has the following form:
+
+```yaml
+...
+secretsConfig:
+  secretSets: ...
+  sealedSecrets:
+    bootstrap: true
+    namespace: kube-system
+    controllerName: sealed-secrets-controller
+...
+```
+
+### bootstrap
+Controls whether kluctl should bootstrap the initial private key in case the controller is not yet installed on
+the target cluster. Defaults to `true`.
+
+### namespace
+Specifies the namespace where the sealed-secrets controller is installed. Defaults to "kube-system".
+
+### controllerName
+Specifies the name of the sealed-secrets controller. Defaults to "sealed-secrets-controller".

@@ -19,7 +19,8 @@ The Sealed Secrets integration relies on the [sealed-secrets operator](https://g
 being installed. Installing the operator is the responsibility of you (or whoever is managing/operating the cluster).
 
 Kluctl can however perform sealing of secrets without an existing sealed-secrets operator installation. This is solved
-by automatically pre-provisioning a key onto the cluster that is compatible with the operator.
+by automatically pre-provisioning a key onto the cluster that is compatible with the operator or by providing the
+public certificate via `certFile` in the targets [sealingConfig]({{< ref "docs/reference/kluctl-project/targets#certfile" >}}).
 
 ## Sealing of .sealme files
 
