@@ -83,20 +83,25 @@ targets:
 - name: <target_name>
   ...
   sealingConfig:
-    dynamicSealing: <true_or_false>
     args:
       arg1: <override_for_arg1>
+    certFile: <path-to-cert-file>
+    dynamicSealing: <true_or_false>
     secretSets:
       - <name_of_secrets_set>
 ```
 
-### dynamicSealing
-This field specifies weather sealing should happen per [dynamic target]({{< ref "./dynamic-targets" >}}) or only once. This
-field is optional and defaults to `true`.
-
 ### args
 This field allows adding extra arguments to the target args. These are only used while sealing and may override
 arguments which are already configured for the target.
+
+### certFile
+Optional path to a local (inside your project) public certificate used for sealing. Such a certificate can be fetched
+from the sealed-secrets controller using `kubeseal --fetch-cert`.
+
+### dynamicSealing
+This field specifies weather sealing should happen per [dynamic target]({{< ref "./dynamic-targets" >}}) or only once. This
+field is optional and defaults to `true`.
 
 ### secretSets
 This field specifies a list of secret set names, which all must exist in the [secretsConfig]({{< ref "../secrets-config" >}}).
