@@ -249,7 +249,12 @@ deployments:
 args:
   - name: environment
   - name: enable_debug
-    default: "false"
+    default: false
+  - name: complex_arg
+    default:
+      my:
+        nested1: arg1
+        nested2: arg2
 ```
 
 These arguments can then be used in templating, e.g. by using `{{ args.environment }}`.
@@ -264,6 +269,15 @@ The name of the argument.
 
 ### default
 If specified, the argument becomes optional and will use the given value as default when not specified.
+
+The default value can be an arbitrary yaml value, meaning that it can also be a nested dictionary. In that case, passing
+args in nested form will only set the nested value. With the above example of `complex_arg`, running:
+
+```
+kluctl deploy -t my-target -a my.nested1=override`
+```
+
+will only modify the value below `my.nested1` and keep the value of `my.nested2`.
 
 ## ignoreForDiff
 
