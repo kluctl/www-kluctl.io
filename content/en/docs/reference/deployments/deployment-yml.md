@@ -265,17 +265,6 @@ The name of the argument.
 ### default
 If specified, the argument becomes optional and will use the given value as default when not specified.
 
-## templateExcludes
-A list of file patterns to exclude from rendering/templating. This is important if you encounter issues with
-resources containing sequences of characters that are misinterpreted by the templating engine. An example would be a
-configuration file that includes Go templates, which will in most cases make templating fail.
-
-Recursive patterns can be specified with double-wildcards, e.g.:
-```yaml
-templateExcludes:
-  - path/to/excludes/**
-```
-
 ## ignoreForDiff
 
 A list of objects and fields to ignore while performing diffs. Consider the following example:
