@@ -19,7 +19,7 @@ An example .kluctl.yaml looks like this:
 targets:
   # test cluster, dev env
   - name: dev
-    cluster: test.example.com
+    context: test.example.com
     args:
       environment_name: dev
     sealingConfig:
@@ -27,7 +27,7 @@ targets:
         - non-prod
   # test cluster, test env
   - name: test
-    cluster: test.example.com
+    context: test.example.com
     args:
       environment_name: test
     sealingConfig:
@@ -35,7 +35,7 @@ targets:
         - non-prod
   # prod cluster, prod env
   - name: prod
-    cluster: prod.example.com
+    context: prod.example.com
     args:
       environment_name: prod
     sealingConfig:

@@ -19,7 +19,7 @@ Dynamic targets have the following form:
 targets:
 ...
   - name: <dynamic_target_name>
-    cluster: <cluster_name>
+    context: <cluster_name>
     args: ...
       arg1: <value1>
       arg2: <value2>
