@@ -24,7 +24,12 @@ file is the same as you would use in a `.gitignore` file.
 Standard Jinja2 [includes](https://jinja.palletsprojects.com/en/2.11.x/templates/#include) and
 [imports](https://jinja.palletsprojects.com/en/2.11.x/templates/#import) can be used in all templates.
 
-The path given to include/import is treated as relative to the template that is currently rendered.
+The path given to include/import is searched in the directory of the root template and all it's parent directories up
+until the project root. Please note that the search path is not altered in included templates, meaning that it will
+always search in the same directories even if an include happens inside a file that was included as well.
+
+To include/import a file relative to the currently rendered file (which is not necessarily the root template), prefix
+the path with `./`, e.g. use `{% include "./my-relative-file.j2" %}"`.
 
 ## Macros
 

@@ -17,7 +17,7 @@ Loads the given file into memory, renders it with the current Jinja2 context and
 {{ a }}
 ```
 
-The filename given to `load_template` is treated as relative to the template that is currently rendered.
+`load_template` uses the same path searching rules as described in [includes/imports]({{< ref "docs/reference/templating#includes-and-imports" >}}).
 
 ### load_sha256(file, digest_len)
 Loads the given file into memory, renders it and calculates the sha256 hash of the result.
