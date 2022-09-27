@@ -50,14 +50,6 @@ Misc arguments:
 ```
 <!-- END SECTION -->
 
-### --parallel
-kluctl runs deployments sequentially and in-order by default. This options allows kluctl to perform all deployments
-in parallel, which speeds up the deployment significantly.
-
-Due to the nature of parallel deployments, no guarantees can't be made in regard to deployment order. This means for
-example, that objects that are meant to be deployed into a namespace might be deployed before the namespace is deployed,
-resulting in failure.
-
 ### --force-apply
 kluctl implements deployments via [server-side apply](https://kubernetes.io/reference/using-api/server-side-apply/)
 and a custom automatic conflict resolution algorithm. This algurithm is an automatic implementation of the
