@@ -62,9 +62,14 @@ then overtaken by other managers (e.g. by operators). Always use this option wit
 before to ensure nothing unexpected gets overwritten.
 
 ### --replace-on-error
-In some situations, updating Kubernetes objects is not possible, for example when modified fields are read-only. Jobs
-are a good example where this might be the case. In such cases, you can use `--replace-on-error` to instruct kluctl to
-retry an update by deleting and then recreating the object.
+In some situations, patching Kubernetes objects might fail for different reasons. In such cases, you can try
+`--replace-on-error` to instruct kluctl to retry with an update operation.
+
+Please note that this will cause all fields to be overwritten, even if owned by other field managers.
+
+### --force-replace-on-error
+This flag will cause the same replacement attempt on failure as with `--replace-on-error`. In addition, it will fallback
+to a delete+recreate operation in case the replace also fails.
 
 Please note that this is a potentially risky operation, especially when an object carries some kind of important state.
 
