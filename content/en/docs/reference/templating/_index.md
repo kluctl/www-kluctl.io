@@ -7,12 +7,18 @@ description: >
 ---
 
 kluctl uses a Jinja2 Templating engine to pre-process/render every involved configuration file and resource before
-actually interpreting it. Only files that are explicitly excluded via [templateExcludes]({{< ref "docs/reference/deployments/deployment-yml#templateexcludes" >}})
+actually interpreting it. Only files that are explicitly excluded via [.templateignore files](#templateignore)
 are not rendered via Jinja2.
 
 Generally, everything that is possible with Jinja2 is possible in kluctl configuration/resources. Please
 read into the [Jinja2 documentation](https://jinja.palletsprojects.com/en/3.0.x/templates/) to understand what exactly
 is possible and how to use it.
+
+## .templateignore
+In some cases it is required to exclude specific files from templating, for example when the contents conflict with
+the used template engine (e.g. Go templates conflict with Jinja2 and cause errors). In such cases, you can place
+a `.templateignore` beside the excluded files or into a parent folder of it. The contents/format of the `.templateignore`
+file is the same as you would use in a `.gitignore` file.
 
 ## Includes and imports
 Standard Jinja2 [includes](https://jinja.palletsprojects.com/en/2.11.x/templates/#include) and
