@@ -20,7 +20,7 @@ deployments:
 - include: monitoring
 
 commonLabels:
-  my.prefix/environment: "{{ args.environment }}"
+  my.prefix/target: "{{ target.name }}"
   my.prefix/deployment-project: my-deployment-project
 
 args:
@@ -206,8 +206,8 @@ deployments:
   - include: sub-deployment1
 
 commonLabels:
+  my.prefix/target: {{ target.name }}
   my.prefix/deployment-name: my-deployment-project-name
-  my.prefix/environment-name: {{ args.environment }}
   my.prefix/label-1: value-1
   my.prefix/label-2: value-2
 ```
