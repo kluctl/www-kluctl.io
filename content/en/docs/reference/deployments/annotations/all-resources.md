@@ -12,6 +12,11 @@ The following annotations control the behavior of the `deploy` and related comma
 
 The following annotations control deploy behavior, especially in regard to conflict resolution.
 
+### kluctl.io/delete
+If set to "true", the resource will be deleted at deployment time. Kluctl will not emit an error in case the resource
+does not exist. A resource with this annotation does not have to be complete/valid as it is never sent to the Kubernetes
+api server.
+
 ### kluctl.io/force-apply
 If set to "true", the whole resource will be force-applied, meaning that all fields will be overwritten in case of
 field manager conflicts.
