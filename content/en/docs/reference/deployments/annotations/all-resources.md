@@ -89,35 +89,3 @@ Specifies a [JSON Path](https://goessner.net/articles/JsonPath/) for fields that
 diffs.
 
 If more than one field needs to be specified, add `-xxx` to the annotation key, where `xxx` is an arbitrary number.
-
-## Control downscale behavior
-
-The following annotations control how [downscale]({{< ref "docs/reference/commands/downscale" >}}) is behaving.
-
-### kluctl.io/downscale-patch
-Describes how a [downscale]({{< ref "docs/reference/commands/downscale" >}}) on a resource can be done via a json patch. This is useful on
-CRD based resources where no automatic downscale can be performed by kluctl.
-
-Example (filename job.yaml):
-```yaml
-apiVersion: kibana.k8s.elastic.co/v1
-kind: Kibana
-metadata:
-  name: kibana
-  annotations:
-    kluctl.io/downscale-patch: |
-      - op: replace
-        path: /spec/count
-        value: 0
-spec:
-  version: 7.14.1
-  count: 1
-```
-
-If more than one patch needs to be specified, add `-xxx` to the annotation key, where `xxx` is an arbitrary number.
-
-### kluctl.io/downscale-ignore
-If set to "true", the resource will be ignored while [downscale](./commands.md#downscale) is executed.
-
-### kluctl.io/downscale-delete
-If set to "true", the resource will be deleted while [downscale](./commands.md#downscale) is executed.
