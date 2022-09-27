@@ -58,12 +58,3 @@ secretsConfig:
 ## Allowed fields
 
 Please check the sub-sections of this section to see which fields are allowed at the root level of `.kluctl.yaml`.
-
-## Separating kluctl projects and deployment projects
-
-As seen in the `.kluctl.yaml` documentation, deployment projects can exist in other repositories then the kluctl project.
-This is a desired pattern in some circumstances, for example when you want to share a single deployment project with
-multiple teams that all manage their own clusters. This way each team can have its own minimalistic kluctl project which
-points to the deployment project and the teams clusters configuration.
-
-This way secret sources can also differ between teams and sharing can be reduced to a minimum if desired.
