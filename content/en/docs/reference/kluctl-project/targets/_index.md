@@ -26,7 +26,6 @@ targets:
       ...
     dynamicArgs:
       - name: <arg_name>
-        pattern: <regex_pattern>
       ...
     images:
       - image: my-image
@@ -69,9 +68,6 @@ have higher priority.
 
 ### name
 The name of the argument.
-
-### pattern
-This field is optional and specifies a regex pattern that the arguments value must match.
 
 ## sealingConfig
 This field configures how sealing is performed when the [seal command] ({{< ref "docs/reference/commands/seal" >}}) is invoked for this target.
