@@ -3,6 +3,7 @@
 command = "cd themes/docsy && git submodule update -f --init && cd ../.. && ./build.sh"
 
 [build.environment]
+GO_VERSION = "1.19.2"
 HUGO_VERSION = "0.95.0"
 
 [context.production]
