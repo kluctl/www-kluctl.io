@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -114,23 +114,37 @@ download_doc() {
 }
 
 {
-  # get kluctl cmd docs
+  # get kluctl docs
   setup_verify_os
   setup_verify_arch
 
   TMP="$(mktemp -d)"
   TMP_METADATA="$TMP/kluctl.json"
-  TMP_BIN="$TMP/kluctl.tar.gz"
 
   curl -f -o "${TMP_METADATA}" --retry 3 -sSfL "https://api.github.com/repos/kluctl/kluctl/releases/latest"
-  VERSION_KLUCTL=$(grep '"tag_name":' "${TMP_METADATA}" | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-)
+  VERSION_KLUCTL=$(cat $TMP_METADATA | jq -r '.tag_name')
   echo VERSION_KLUCTL=$VERSION_KLUCTL
 
-  curl -f -o "${TMP_BIN}" --retry 3 -sSfL "https://github.com/kluctl/kluctl/releases/download/v${VERSION_KLUCTL}/kluctl_v${VERSION_KLUCTL}_${OS}_${ARCH}.tar.gz"
-  tar xfz "${TMP_BIN}" -C "${TMP}"
+  if [[ $VERSION_KLUCTL == v2.15.* ]]; then
+    VERSION_KLUCTL=main
+  fi
 
-  export PATH=${TMP}:$PATH
-  go run ./replace-commands-help --docs-dir "${KLUCTL_DIR}"
+  git clone https://github.com/kluctl/kluctl.git $TMP/kluctl
+  (
+    set -e
+
+    cd $TMP/kluctl
+    git checkout $VERSION_KLUCTL
+    cd docs
+
+    # rename all README.md files to _index.md
+    for x in $(find . -name README.md); do
+      mv $x $(dirname $x)/_index.md
+    done
+  )
+
+  go run ./convert-md-to-hugo --docs-dir $TMP/kluctl/docs
+  cp -rv $TMP/kluctl/docs/* content/en/docs/
 
   rm -rf "$TMP"
 }
