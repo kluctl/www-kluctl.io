@@ -13,10 +13,6 @@ import (
 
 var docsDir = flag.String("docs-dir", "", "Path to documentation")
 
-type FrontMatter struct {
-	Title string `yaml:"title"`
-}
-
 func main() {
 	flag.Parse()
 
@@ -43,7 +39,6 @@ func processFile(path string) error {
 	}
 
 	lines := strings.Split(string(b), "\n")
-	found := false
 outer:
 	for i, l := range lines {
 		if l == "<!-- This comment is uncommented when auto-synced to www-kluctl.io" {
@@ -51,42 +46,53 @@ outer:
 				if lines[j] == "-->" {
 					lines[i] = ""
 					lines[j] = ""
-					found = true
 					break outer
 				}
 			}
 		}
 	}
-	if !found {
-		return fmt.Errorf("front-matter comment not found: %s", path)
-	}
 
-	var frontMatter string
+	var frontMatterStr string
 outer2:
 	for i, l := range lines {
 		if l == "---" {
 			for j := i + 1; j < len(lines); j++ {
 				if lines[j] == "---" {
-					frontMatter = strings.Join(lines[i:j], "\n")
+					frontMatterStr = strings.Join(lines[i+1:j], "\n")
+					lines = lines[j+1:]
 					break outer2
 				}
 			}
 		}
 	}
-	if frontMatter == "" {
+	if frontMatterStr == "" {
 		return fmt.Errorf("front-matter not found: %s", path)
 	}
-	d := yaml3.NewDecoder(strings.NewReader(frontMatter))
 
-	var fm FrontMatter
-	err = d.Decode(&fm)
+	var frontMatter map[string]any
+	err = yaml3.Unmarshal([]byte(frontMatterStr), &frontMatter)
 	if err != nil {
 		return err
+	}
+	title := frontMatter["title"]
+
+	// add github links
+	frontMatter["github_repo"] = "https://github.com/kluctl/kluctl"
+	if strings.HasSuffix(path, "_index.md") {
+		frontMatter["path_base_for_github_subdir"] = map[string]any{
+			"from": "content/en/docs/(.*/?)_index.md",
+			"to":   "docs/${1}README.md",
+		}
+	} else {
+		frontMatter["path_base_for_github_subdir"] = map[string]any{
+			"from": "content/en/docs/(.*)",
+			"to":   "docs/$1",
+		}
 	}
 
 	// remove unnecessary "# title"
 	for i, l := range lines {
-		if l == fmt.Sprintf("# %s", fm.Title) {
+		if l == fmt.Sprintf("# %s", title) {
 			lines[i] = ""
 			break
 		}
@@ -108,6 +114,13 @@ outer3:
 			}
 		}
 	}
+
+	frontMatterBytes, err := yaml3.Marshal(&frontMatter)
+	if err != nil {
+		return err
+	}
+	frontMatterStr = fmt.Sprintf("---\n%s---\n", string(frontMatterBytes))
+	lines = append(strings.Split(frontMatterStr, "\n"), lines...)
 
 	b = []byte(strings.Join(lines, "\n"))
 	err = os.WriteFile(path, b, 0o600)
