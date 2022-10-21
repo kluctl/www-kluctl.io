@@ -120,16 +120,28 @@ download_doc() {
 
   TMP="$(mktemp -d)"
   TMP_METADATA="$TMP/kluctl.json"
-  TMP_BIN="$TMP/kluctl.tar.gz"
 
   curl -f -o "${TMP_METADATA}" --retry 3 -sSfL "https://api.github.com/repos/kluctl/kluctl/releases/latest"
   VERSION_KLUCTL=$(grep '"tag_name":' "${TMP_METADATA}" | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-)
   echo VERSION_KLUCTL=$VERSION_KLUCTL
 
+  export VERSION_KLUCTL=docs
 
   git clone https://github.com/kluctl/kluctl.git $TMP/kluctl
-  (cd $TMP/kluctl && git checkout $VERSION_KLUCTL)
+  (
+    set -e
 
+    cd $TMP/kluctl
+    git checkout $VERSION_KLUCTL
+    cd docs
+
+    # rename all README.md files to _index.md
+    for x in $(find . -name README.md); do
+      mv $x $(dirname $x)/_index.md
+    done
+  )
+
+  go run ./convert-md-to-hugo --docs-dir $TMP/kluctl/docs
   cp -rv $TMP/kluctl/docs/* content/en/docs/
 
   rm -rf "$TMP"
