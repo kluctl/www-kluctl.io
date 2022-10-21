@@ -43,6 +43,7 @@ func processFile(path string) error {
 	}
 
 	lines := strings.Split(string(b), "\n")
+	found := false
 outer:
 	for i, l := range lines {
 		if l == "<!-- This comment is uncommented when auto-synced to www-kluctl.io" {
@@ -50,10 +51,14 @@ outer:
 				if lines[j] == "-->" {
 					lines[i] = ""
 					lines[j] = ""
+					found = true
 					break outer
 				}
 			}
 		}
+	}
+	if !found {
+		return fmt.Errorf("front-matter comment not found: %s", path)
 	}
 
 	var frontMatter string
@@ -68,21 +73,22 @@ outer2:
 			}
 		}
 	}
-	if frontMatter != "" {
-		d := yaml3.NewDecoder(strings.NewReader(frontMatter))
+	if frontMatter == "" {
+		return fmt.Errorf("front-matter not found: %s", path)
+	}
+	d := yaml3.NewDecoder(strings.NewReader(frontMatter))
 
-		var fm FrontMatter
-		err = d.Decode(&fm)
-		if err != nil {
-			return err
-		}
+	var fm FrontMatter
+	err = d.Decode(&fm)
+	if err != nil {
+		return err
+	}
 
-		// remove unnecessary "# title"
-		for i, l := range lines {
-			if l == fmt.Sprintf("# %s", fm.Title) {
-				lines[i] = ""
-				break
-			}
+	// remove unnecessary "# title"
+	for i, l := range lines {
+		if l == fmt.Sprintf("# %s", fm.Title) {
+			lines[i] = ""
+			break
 		}
 	}
 
