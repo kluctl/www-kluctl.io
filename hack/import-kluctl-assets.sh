@@ -114,7 +114,7 @@ download_doc() {
 }
 
 {
-  # get kluctl cmd docs
+  # get kluctl docs
   setup_verify_os
   setup_verify_arch
 
@@ -126,11 +126,11 @@ download_doc() {
   VERSION_KLUCTL=$(grep '"tag_name":' "${TMP_METADATA}" | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-)
   echo VERSION_KLUCTL=$VERSION_KLUCTL
 
-  curl -f -o "${TMP_BIN}" --retry 3 -sSfL "https://github.com/kluctl/kluctl/releases/download/v${VERSION_KLUCTL}/kluctl_v${VERSION_KLUCTL}_${OS}_${ARCH}.tar.gz"
-  tar xfz "${TMP_BIN}" -C "${TMP}"
 
-  export PATH=${TMP}:$PATH
-  go run ./replace-commands-help --docs-dir "${KLUCTL_DIR}"
+  git clone https://github.com/kluctl/kluctl.git $TMP/kluctl
+  (cd $TMP/kluctl && git checkout $VERSION_KLUCTL)
+
+  cp -rv $TMP/kluctl/docs/* content/en/docs/
 
   rm -rf "$TMP"
 }
