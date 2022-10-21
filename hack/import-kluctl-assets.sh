@@ -122,10 +122,12 @@ download_doc() {
   TMP_METADATA="$TMP/kluctl.json"
 
   curl -f -o "${TMP_METADATA}" --retry 3 -sSfL "https://api.github.com/repos/kluctl/kluctl/releases/latest"
-  VERSION_KLUCTL=$(grep '"tag_name":' "${TMP_METADATA}" | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-)
+  VERSION_KLUCTL=$(cat $TMP_METADATA | jq -r '.tag_name')
   echo VERSION_KLUCTL=$VERSION_KLUCTL
 
-  export VERSION_KLUCTL=docs
+  if [[ $VERSION_KLUCTL == v2.15.* ]]; then
+    VERSION_KLUCTL=main
+  fi
 
   git clone https://github.com/kluctl/kluctl.git $TMP/kluctl
   (
