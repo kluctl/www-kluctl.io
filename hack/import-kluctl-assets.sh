@@ -121,7 +121,7 @@ download_doc() {
   TMP="$(mktemp -d)"
   TMP_METADATA="$TMP/kluctl.json"
 
-  curl -f -o "${TMP_METADATA}" --retry 3 -sSfL "https://api.github.com/repos/kluctl/kluctl/releases/latest"
+  curl -u kluctlbot:$GITHUB_TOKEN -f -o "${TMP_METADATA}" --retry 3 -sSfL "https://api.github.com/repos/kluctl/kluctl/releases/latest"
   VERSION_KLUCTL=$(cat $TMP_METADATA | jq -r '.tag_name')
   echo VERSION_KLUCTL=$VERSION_KLUCTL
 
