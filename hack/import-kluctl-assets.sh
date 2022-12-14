@@ -113,29 +113,30 @@ download_doc() {
   download_doc "https://raw.githubusercontent.com/kluctl/flux-kluctl-controller/$KLUCTL_CONTROLLER_VER/docs/install.md" "$FLUX_KLUCTL_CONTROLLER_DIR/install.md"
 }
 
-{
-  # get kluctl docs
-  setup_verify_os
-  setup_verify_arch
+sync_docs() {
+  REPO="$1"
+  SOURCE="$2"
+  DEST="$3"
+  WITH_ROOT_README="$4"
 
   TMP="$(mktemp -d)"
-  TMP_METADATA="$TMP/kluctl.json"
+  TMP_LATEST="$TMP/latest.json"
 
-  curl -u kluctlbot:$GITHUB_TOKEN -f -o "${TMP_METADATA}" --retry 3 -sSfL "https://api.github.com/repos/kluctl/kluctl/releases/latest"
-  VERSION_KLUCTL=$(cat $TMP_METADATA | jq -r '.tag_name')
-  echo VERSION_KLUCTL=$VERSION_KLUCTL
+  VERSION=$(curl -u kluctlbot:$GITHUB_TOKEN -f -s "https://api.github.com/repos/$REPO/tags" | jq -r '.[] | .name' | sort -V | tail -n 1)
+  echo VERSION=$VERSION
 
-  if [[ $VERSION_KLUCTL == v2.15.* ]]; then
-    VERSION_KLUCTL=main
-  fi
-
-  git clone https://github.com/kluctl/kluctl.git $TMP/kluctl
+  git clone https://github.com/$REPO.git $TMP/repo
   (
     set -e
 
-    cd $TMP/kluctl
-    git checkout $VERSION_KLUCTL
-    cd docs
+    cd $TMP/repo
+    git checkout $VERSION
+
+    if [ "$WITH_ROOT_README" = "true" ]; then
+      cat README.md | sed "s|./$SOURCE/|./|g" > $SOURCE/README.md
+    fi
+
+    cd $SOURCE
 
     # rename all README.md files to _index.md
     for x in $(find . -name README.md); do
@@ -143,10 +144,23 @@ download_doc() {
     done
   )
 
-  go run ./convert-md-to-hugo --docs-dir $TMP/kluctl/docs
-  cp -rv $TMP/kluctl/docs/* content/en/docs/
+  go run ./convert-md-to-hugo --docs-dir $TMP/repo/$SOURCE --github-repo https://github.com/$REPO
+  cp -rv $TMP/repo/docs/* $DEST/
 
   rm -rf "$TMP"
+}
+
+{
+    setup_verify_os
+    setup_verify_arch
+
+    sync_docs kluctl/kluctl docs content/en/docs/kluctl false
+
+    # TODO remove this
+    cat content/en/docs/kluctl/_index.md | sed 's/^linkTitle: Docs/linkTitle: Kluctl/' | sed 's/^menu:/_menu:/' > content/en/docs/kluctl/_index.md.tmp
+    mv content/en/docs/kluctl/_index.md.tmp content/en/docs/kluctl/_index.md
+
+    sync_docs kluctl/template-controller docs content/en/docs/template-controller true
 }
 
 {

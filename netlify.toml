@@ -8,3 +8,25 @@ HUGO_VERSION = "0.95.0"
 
 [context.production]
   environment = { BASE_URL = "https://kluctl.io/" }
+
+[[redirects]]
+  from = "/docs/reference"
+  to = "/docs/kluctl/reference"
+[[redirects]]
+  from = "/docs/concepts"
+  to = "/docs/kluctl/concepts"
+[[redirects]]
+  from = "/docs/concepts"
+  to = "/docs/kluctl/concepts"
+[[redirects]]
+  from = "/docs/get-started"
+  to = "/docs/kluctl/get-started"
+[[redirects]]
+  from = "/docs/history"
+  to = "/docs/kluctl/history"
+[[redirects]]
+  from = "/docs/installation"
+  to = "/docs/kluctl/installation"
+[[redirects]]
+  from = "/docs/philosophy"
+  to = "/docs/kluctl/philosophy"
