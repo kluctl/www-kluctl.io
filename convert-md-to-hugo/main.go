@@ -12,6 +12,7 @@ import (
 )
 
 var docsDir = flag.String("docs-dir", "", "Path to documentation")
+var githubRepo = flag.String("github-repo", "", "Github repository")
 
 func main() {
 	flag.Parse()
@@ -66,18 +67,28 @@ outer2:
 		}
 	}
 	if frontMatterStr == "" {
-		return fmt.Errorf("front-matter not found: %s", path)
+		frontMatterFile := strings.TrimSuffix(path, ".md") + ".front-matter.yaml"
+		if _, err := os.Stat(frontMatterFile); err == nil {
+			b, err := os.ReadFile(frontMatterFile)
+			if err != nil {
+				return fmt.Errorf("failed to read front matter file %s: %w", frontMatterFile, err)
+			}
+			frontMatterStr = string(b)
+		} else {
+			return fmt.Errorf("front-matter not found: %s", path)
+		}
 	}
 
 	var frontMatter map[string]any
 	err = yaml3.Unmarshal([]byte(frontMatterStr), &frontMatter)
 	if err != nil {
+		os.Stderr.WriteString(frontMatterStr + "\n")
 		return err
 	}
 	title := frontMatter["title"]
 
 	// add github links
-	frontMatter["github_repo"] = "https://github.com/kluctl/kluctl"
+	frontMatter["github_repo"] = githubRepo
 	if strings.HasSuffix(path, "_index.md") {
 		frontMatter["path_base_for_github_subdir"] = map[string]any{
 			"from": "content/en/docs/(.*/?)_index.md",
@@ -93,6 +104,10 @@ outer2:
 	// remove unnecessary "# title"
 	for i, l := range lines {
 		if l == fmt.Sprintf("# %s", title) {
+			lines[i] = ""
+			break
+		}
+		if l == fmt.Sprintf("<h1>%s</h1>", title) {
 			lines[i] = ""
 			break
 		}
