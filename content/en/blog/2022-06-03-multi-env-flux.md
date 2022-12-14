@@ -57,7 +57,7 @@ tutorial as examples in this blog post.
 
 Kluctl works with the concept of "targets". A target is a named configuration that acts as the entry point for every
 further configuration required for your environment. As an example, look at the targets from
-[.kluctl.yaml]({{< ref "docs/reference/kluctl-project" >}}) of the microservices demo:
+[.kluctl.yaml]({{< ref "docs/kluctl/reference/kluctl-project" >}}) of the microservices demo:
 
 ```yaml
 targets:

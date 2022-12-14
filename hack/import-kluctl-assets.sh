@@ -154,7 +154,7 @@ sync_docs() {
     setup_verify_os
     setup_verify_arch
 
-    sync_docs kluctl/kluctl docs content/en/docs false
+    sync_docs kluctl/kluctl docs content/en/docs/kluctl false
     sync_docs kluctl/template-controller docs content/en/docs/template-controller true
 }
 

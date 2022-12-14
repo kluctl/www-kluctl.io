@@ -35,9 +35,9 @@ fashion as [Kustomizations](https://fluxcd.io/docs/components/kustomize/kustomiz
 
 Each [KluctlDeployment]({{< ref "docs/flux/kluctldeployment" >}}) specifies a source object
 (e.g. a [GitRepository](https://fluxcd.io/docs/components/source/gitrepositories/)),
-the [target]({{< ref "docs/reference/kluctl-project/targets" >}}) to be deployed and some information on how
+the [target]({{< ref "docs/kluctl/reference/kluctl-project/targets" >}}) to be deployed and some information on how
 to handle kubeconfigs. The controller then regularly reconciles the deployment, meaning that it will invoke
-[kluctl deploy]({{< ref "docs/reference/commands/deploy" >}}) whenever a change is detected in the deployment.
+[kluctl deploy]({{< ref "docs/kluctl/reference/commands/deploy" >}}) whenever a change is detected in the deployment.
 
 Sounds great? Then take a look at [this]({{< ref "docs/flux/controller" >}}) very simple example
 <div class="center">
@@ -70,7 +70,7 @@ way you like. For example, you could change the `local` target to set all replic
 support applications (e.g. monitoring infrastructure).
 
 This is possible in plain Kustomize as well, but requires you to solve it without the concept of
-[targets]({{< ref "docs/reference/kluctl-project/targets" >}}) and without templating. In Kustomize, multi-env
+[targets]({{< ref "docs/kluctl/reference/kluctl-project/targets" >}}) and without templating. In Kustomize, multi-env
 deployments must be solved with [overlays](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#bases-and-overlays),
 which does not necessary align with how you prefer your project structure.
 
