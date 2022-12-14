@@ -155,6 +155,11 @@ sync_docs() {
     setup_verify_arch
 
     sync_docs kluctl/kluctl docs content/en/docs/kluctl false
+
+    # TODO remove this
+    cat content/en/docs/kluctl/_index.md | sed 's/linkTitle: Docs/linkTitle: Kluctl/' | sed 's/menu: /_menu:/' > content/en/docs/kluctl/_index.md.tmp
+    mv content/en/docs/kluctl/_index.md.tmp content/en/docs/kluctl/_index.md
+
     sync_docs kluctl/template-controller docs content/en/docs/template-controller true
 }
 
