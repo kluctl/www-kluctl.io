@@ -1,4 +1,2 @@
-api.md
-kluctldeployment.md
-controller.md
-install.md
+*.md
+!_index.md
