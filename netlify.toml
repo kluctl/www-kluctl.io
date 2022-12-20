@@ -30,3 +30,7 @@ HUGO_VERSION = "0.95.0"
 [[redirects]]
   from = "/docs/philosophy"
   to = "/docs/kluctl/philosophy"
+
+[[redirects]]
+  from = "/docs/flux/controller"
+  to = "/docs/flux"
