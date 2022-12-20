@@ -30,16 +30,16 @@ and integrated into the Flux ecosystem.
 
 ## Introducing the Kluctl Flux Controller
 An alpha version of the [Kluctl Flux Controller]({{< ref "docs/flux" >}}) has just been released. It allows to
-create [KluctlDeployment]({{< ref "docs/flux/kluctldeployment" >}}) objects which are reconciled in a similar
+create [KluctlDeployment]({{< ref "docs/flux/spec/v1alpha1/kluctldeployment" >}}) objects which are reconciled in a similar
 fashion as [Kustomizations](https://fluxcd.io/docs/components/kustomize/kustomization/).
 
-Each [KluctlDeployment]({{< ref "docs/flux/kluctldeployment" >}}) specifies a source object
+Each [KluctlDeployment]({{< ref "docs/flux/spec/v1alpha1/kluctldeployment" >}}) specifies a source object
 (e.g. a [GitRepository](https://fluxcd.io/docs/components/source/gitrepositories/)),
 the [target]({{< ref "docs/kluctl/reference/kluctl-project/targets" >}}) to be deployed and some information on how
 to handle kubeconfigs. The controller then regularly reconciles the deployment, meaning that it will invoke
 [kluctl deploy]({{< ref "docs/kluctl/reference/commands/deploy" >}}) whenever a change is detected in the deployment.
 
-Sounds great? Then take a look at [this]({{< ref "docs/flux/controller" >}}) very simple example
+Sounds great? Then take a look at [this]({{< ref "docs/flux" >}}) very simple example
 <div class="center">
 <iframe src="https://giphy.com/embed/xjEmbSLychDd6JQFo0" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/disneychannelofficial-disney-channel-disneychannel-amphibia-xjEmbSLychDd6JQFo0">via GIPHY</a></p>
 </div>

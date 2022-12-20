@@ -2,14 +2,6 @@
 
 set -e
 
-FLUX_KLUCTL_CONTROLLER_DIR="content/en/docs/flux"
-KLUCTL_DIR="content/en/docs/reference/commands"
-
-if [ ! "$(command -v jq)" ]; then
-  echo "Please install 'jq'."
-  exit 1
-fi
-
 fatal() {
     echo '[ERROR] ' "$@" >&2
     exit 1
@@ -55,112 +47,13 @@ setup_verify_arch() {
     esac
 }
 
-
-controller_version() {
-  curl -u kluctlbot:$GITHUB_TOKEN -f -s "https://api.github.com/repos/kluctl/$1/releases" | jq -r '.[] | .tag_name' | sort -V | tail -n 1
-}
-
-download_doc() {
-  URL="$1"
-  DEST="$2"
-  HUGETABLE="$3"
-
-  TMP="$(mktemp)"
-  curl -f -# -Lf "$URL" > "$TMP"
-
-  # Ok, so this section is not pretty, but we have a number of issues we need to look at here:
-  #
-  # 1. Some lines start with editor instructions (<!-- line length, blah something .. -->)
-  # 2. Some title lines go <h1>Title is here</h1>
-  # 3. While others go     # Here is the title you're looking for...
-  #
-
-  FIRST_LINE="$(grep -vE "^<!--" "$TMP" | head -n1)"
-  if echo "$FIRST_LINE" | grep -q "<h1>" ; then
-    TITLE="$(echo "$FIRST_LINE" | cut -d'<' -f2 | cut -d'>' -f2 | sed 's/^\#\ //')"
-  elif echo "$FIRST_LINE" | grep -E "^# "; then
-    TITLE="$(echo "$FIRST_LINE" | sed 's/^\#\ //')"
-  else
-    echo "Don't know what to do with '$FIRST_LINE' in $TMP."
-    exit 1
-  fi
-
-  if [ -n "$TITLE" ]; then
-    {
-      echo "---"
-      echo "title: $TITLE"
-      echo "description: Flux Kluctl Controller documentation."
-      echo "importedDoc: true"
-      if [ -n "$HUGETABLE" ]; then
-        echo "hugeTable: true"
-      fi
-      echo "---"
-    } >> "$DEST"
-    grep -vE "^<!--" "$TMP" |sed '1d' >> "$DEST"
-    rm "$TMP"
-  else
-    mv "$TMP" "$DEST"
-  fi
-}
-
-{
-  # flux-kluctl-controller CRDs
-  KLUCTL_CONTROLLER_VER="$(controller_version flux-kluctl-controller)"
-  echo KLUCTL_CONTROLLER_VER=$KLUCTL_CONTROLLER_VER
-  download_doc "https://raw.githubusercontent.com/kluctl/flux-kluctl-controller/$KLUCTL_CONTROLLER_VER/docs/api/kluctldeployment.md" "$FLUX_KLUCTL_CONTROLLER_DIR/api.md"
-  download_doc "https://raw.githubusercontent.com/kluctl/flux-kluctl-controller/$KLUCTL_CONTROLLER_VER/README.md" "$FLUX_KLUCTL_CONTROLLER_DIR/controller.md"
-  download_doc "https://raw.githubusercontent.com/kluctl/flux-kluctl-controller/$KLUCTL_CONTROLLER_VER/docs/spec/v1alpha1/kluctldeployment.md" "$FLUX_KLUCTL_CONTROLLER_DIR/kluctldeployment.md" "HUGETABLE"
-  download_doc "https://raw.githubusercontent.com/kluctl/flux-kluctl-controller/$KLUCTL_CONTROLLER_VER/docs/install.md" "$FLUX_KLUCTL_CONTROLLER_DIR/install.md"
-}
-
-sync_docs() {
-  REPO="$1"
-  SOURCE="$2"
-  DEST="$3"
-  WITH_ROOT_README="$4"
-
-  TMP="$(mktemp -d)"
-  TMP_LATEST="$TMP/latest.json"
-
-  VERSION=$(curl -u kluctlbot:$GITHUB_TOKEN -f -s "https://api.github.com/repos/$REPO/tags" | jq -r '.[] | .name' | sort -V | tail -n 1)
-  echo VERSION=$VERSION
-
-  git clone https://github.com/$REPO.git $TMP/repo
-  (
-    set -e
-
-    cd $TMP/repo
-    git checkout $VERSION
-
-    if [ "$WITH_ROOT_README" = "true" ]; then
-      cat README.md | sed "s|./$SOURCE/|./|g" > $SOURCE/README.md
-    fi
-
-    cd $SOURCE
-
-    # rename all README.md files to _index.md
-    for x in $(find . -name README.md); do
-      mv $x $(dirname $x)/_index.md
-    done
-  )
-
-  go run ./convert-md-to-hugo --docs-dir $TMP/repo/$SOURCE --github-repo https://github.com/$REPO
-  cp -rv $TMP/repo/docs/* $DEST/
-
-  rm -rf "$TMP"
-}
-
 {
     setup_verify_os
     setup_verify_arch
 
-    sync_docs kluctl/kluctl docs content/en/docs/kluctl false
-
-    # TODO remove this
-    cat content/en/docs/kluctl/_index.md | sed 's/^linkTitle: Docs/linkTitle: Kluctl/' | sed 's/^menu:/_menu:/' > content/en/docs/kluctl/_index.md.tmp
-    mv content/en/docs/kluctl/_index.md.tmp content/en/docs/kluctl/_index.md
-
-    sync_docs kluctl/template-controller docs content/en/docs/template-controller true
+    go run ./sync-docs --repo kluctl/kluctl --subdir docs --hugo-path content/en/docs/kluctl --dest content/en/docs/kluctl
+    go run ./sync-docs --repo kluctl/flux-kluctl-controller --subdir docs --hugo-path content/en/docs/flux --dest content/en/docs/flux --with-root-readme --ref main
+    go run ./sync-docs --repo kluctl/template-controller --subdir docs --hugo-path content/en/docs/template-controller --dest content/en/docs/template-controller --with-root-readme
 }
 
 {

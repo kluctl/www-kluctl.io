@@ -139,12 +139,12 @@ Even for "prod", which in the above scenario is GitOps managed, can benefit from
 your local machine. Running a "kluctl diff -t prod" before promoting to "prod" can prevent some scary surprises.
 
 Kluctl implements GitOps via the [flux-kluctl-controller]({{< ref "blog/2022-05-11-introducing-kluctl-and-flux" >}}).
-It allows to create [`KluctlDeployment`]({{< ref "docs/flux/kluctldeployment" >}}) objects which refer to your Kluctl
+It allows to create [`KluctlDeployment`]({{< ref "docs/flux/spec/v1alpha1/kluctldeployment" >}}) objects which refer to your Kluctl
 project (which relies in Git) and the target to be deployed.
 
 ## Installing flux-kluctl-controller
 
-Before being able to create [`KluctlDeployment`]({{< ref "docs/flux/kluctldeployment" >}}) objects, the
+Before being able to create [`KluctlDeployment`]({{< ref "docs/flux/spec/v1alpha1/kluctldeployment" >}}) objects, the
 flux-kluctl-controller needs to be installed first. Please navigate to the
 [installation documentation](https://github.com/kluctl/flux-kluctl-controller/blob/main/docs/install.md)
 and follow the instructions found there.
@@ -166,7 +166,7 @@ spec:
     branch: main
 ```
 
-This will cause Flux to pull the source whenever it changes. A [`KluctlDeployment`]({{< ref "docs/flux/kluctldeployment" >}})
+This will cause Flux to pull the source whenever it changes. A [`KluctlDeployment`]({{< ref "docs/flux/spec/v1alpha1/kluctldeployment" >}})
 can then refer to the `GitRepository`:
 
 ```yaml
@@ -224,7 +224,7 @@ with multiple clusters, simply install the controller on another cluster and cre
 objects per cluster.
 
 As an alternative, you can have a central Flux (+flux-kluctl-controller) installation that deploys to multiple clusters.
-This can be achieved with the help of the [spec.kubeconfig and spec.serviceAccountName]({{< ref "docs/flux/kluctldeployment#kubeconfigs-and-rbac" >}})
+This can be achieved with the help of the [spec.kubeconfig and spec.serviceAccountName]({{< ref "docs/flux/spec/v1alpha1/kluctldeployment#kubeconfigs-and-rbac" >}})
 field of the `KluctlDeployment` object.
 
 Also, as the examples stem from the [microservices demo]({{< ref "docs/guides/tutorials/microservices-demo" >}}), they
