@@ -38,6 +38,53 @@ CRD. As the name implies, it also uses a templating engine, which is identical t
 [Kluctl](https://kluctl.io/docs/kluctl/reference/templating/), with the `ObjectTemplate's` input matrix available as
 global variables.
 
+## Preparation
+To try the examples provided in this blog post, you'll need to have a running cluster ready. You could for example use
+a local [kind](https://kind.sigs.k8s.io/) cluster:
+
+```shell
+$ kind create cluster
+Creating cluster "kind" ...
+ ✓ Ensuring node image (kindest/node:v1.25.3) 🖼 
+ ✓ Preparing nodes 📦  
+ ✓ Writing configuration 📜 
+ ✓ Starting control-plane 🕹️ 
+ ✓ Installing CNI 🔌 
+ ✓ Installing StorageClass 💾 
+Set kubectl context to "kind-kind"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-kind
+
+Thanks for using kind! 😊
+```
+
+Then, you will need the Template Controller installed into this cluster:
+
+```shell
+$ helm repo add kluctl http://kluctl.github.io/charts
+"kluctl" has been added to your repositories
+$ helm install -n kluctl-system --create-namespace template-controller kluctl/template-controller
+NAME: template-controller
+LAST DEPLOYED: Wed Dec 28 17:24:47 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+```
+
+You will also need the [Flux Kluctl Controller](https://github.com/kluctl/flux-kluctl-controller) installed for the
+examples. If you decide to use plain Flux deployments, you will need to [install Flux](https://fluxcd.io/flux/installation/) instead.
+
+```shell
+$ # we assume that you have the Helm repository installed already
+$ helm install -n kluctl-system --create-namespace flux-kluctl-controller kluctl/flux-kluctl-controller 
+NAME: flux-kluctl-controller
+LAST DEPLOYED: Wed Dec 28 17:27:53 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+```
+
 ## A few words on security
 The Template Controller can access and create any kind of Kubernetes resource. This makes it very powerful but also
 very dangerous. The Template Controller needs to run with a quite privileged service account but at the same time uses user
