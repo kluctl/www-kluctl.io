@@ -296,7 +296,7 @@ requests anymore after they have been closed/merged.
 The following is a very simple example of an `ObjectTemplate` that uses a `Secret` as input and simply transforms it
 into another secret.
 
-This can turn out to be quite useful if you need to re-use the same secret values multiple times
+This can turn out to be quite useful if you need to re-use the same secret value multiple times
 but in different forms. For example, if you have a secret that stores database credentials, you might also need the same
 username and password inside a JDBC url. Typically, you'd have to store the secret twice in both required forms.
 
