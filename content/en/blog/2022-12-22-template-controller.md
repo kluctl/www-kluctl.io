@@ -1,7 +1,7 @@
 
 ---
-title: "Building GitOps preview environments with the template-controller"
-linkTitle: "Building GitOps preview environments with the template-controller"
+title: "Building GitOps preview environments with the Template Controller"
+linkTitle: "Building GitOps preview environments with the Template Controller"
 slug: template-controller
 date: 2022-12-22
 author: Alexander Block (@codablock)
@@ -12,7 +12,7 @@ images:
 <!--![image](/images/blog/templating-and-diffs-with-kustomize.png)-->
 
 This blog post serves two purposes. The first one is to announce and present the 
-[template-controller](https://kluctl.io/docs/template-controller/) ([Source](https://github.com/kluctl/template-controller)).
+[Template Controller](https://kluctl.io/docs/template-controller/) ([Source](https://github.com/kluctl/template-controller)).
 The second purpose is to demonstrate it by setting up a simple GitOps based Kubernetes deployment with dynamic preview
 environments.
 
@@ -29,8 +29,9 @@ This makes the controller very extensible, as any type of input can be implement
 controllers which are not necessarily part of the project.
 
 When specifying the input objects, you'd also specify which part of the object to use as input. This is done by
-specifying a [JSON Path](https://goessner.net/articles/JsonPath/) that points into the object, e.g. `status.result`
-for a [GitProjector](https://kluctl.io/docs/template-controller/spec/v1alpha1/gitprojector/) or `data` for a ConfigMap.
+specifying a [JSON Path](https://goessner.net/articles/JsonPath/) that select the subfield of the object to use, e.g.
+`status.result` for a [GitProjector](https://kluctl.io/docs/template-controller/spec/v1alpha1/gitprojector/) or
+`data` for a ConfigMap.
 
 The Template Controller implements this functionality through the [ObjectTemplate](https://kluctl.io/docs/template-controller/spec/v1alpha1/objecttemplate/)
 CRD. As the name implies, it also uses a templating engine, which is identical to the one used in
@@ -51,7 +52,7 @@ permissions to that dedicated service account. This service account can then be 
 The following RBAC rules can be used when going through the examples in this blog post, it is however suggested to not
 blindly reuse them in your real deployments. You should carefully asses which permissions are really needed and limit
 the roles appropriately. Also pay attention when using the `cluster-admin` role or any other `ClusterRole`, as it easily
-allows privilege escalation and at least allows to deploy into other namespaces then the `ObjectTemplate's` namespace.
+allows privilege escalation and at least allows to deploy into other namespaces than the `ObjectTemplate's` namespace.
 
 ```yaml
 apiVersion: v1
@@ -86,10 +87,10 @@ subjects:
 
 ## Dynamic Preview Environments
 The initial use case and the main reason the Template Controller was created was to implement preview environments
-in a GitOps setup. Preview environments are dynamic environments that are spinned up and down on-demand, for example
+in a GitOps setup. Preview environments are dynamic environments that are spinned up and down on demand, for example
 when a pull request introduces changes that need to be tested before these are merged into the main branch.
 
-In a GitOps based setup, one would need to create the relevant custom resources per preview environment, for example
+In a GitOps-based setup, one would need to create the relevant custom resources per preview environment, for example
 a [Flux Kustomization](https://fluxcd.io/flux/components/kustomize/kustomization/),
 [Flux HelmRelease](https://fluxcd.io/flux/components/helm/helmreleases/) or a
 or [KluctlDeployment](https://kluctl.io/docs/flux/spec/v1alpha1/kluctldeployment/). The underlying GitOps controller
@@ -98,11 +99,11 @@ would then take over and perform the actual deployment.
 In the following examples we will concentrate on using `KluctlDeployments`. Changing it to use `Kustomizations` or
 `HelmReleases` should be self-explanatory, as the Template Controller treats all resource kinds equally.
 
-There are multiple options on how to define the desired existence and configuration of a preview environment, which will
+There are multiple options on how to define the desired pre-conditions and configuration of a preview environment, which will
 be described in the next chapters.
 
 ## Linking Preview Environments to Branches
-You can for example link Git branches to preview environments, so that for each new branch a preview environment is
+You can, for example, link Git branches to preview environments, so that for each new branch a preview environment is
 created, with configuration being read from a yaml file inside the branch. This can be achieved by using a
 [GitProjector](https://kluctl.io/docs/template-controller/spec/v1alpha1/gitprojector/), which will periodically
 clone the configured Git repository, scan for matching branches and files and project the result into the `GitProjector`
@@ -188,11 +189,11 @@ matrix input in the form of a variable, accessible via `matrix.<name>`, e.g. `ma
 the documentation of [GitProjector](https://kluctl.io/docs/template-controller/spec/v1alpha1/gitprojector/) to figure
 out what is available in `matrix.git`, which is basically just a copy of the individual `status.result` list items.
 
-## One Preview Environment per Pull Requests
-Another option is to use Pull Requests instead of the underlying Git branches to create preview environments. This might
+## One Preview Environment per pull requests
+Another option is to use pull requests instead of the underlying Git branches to create preview environments. This might
 be useful if you want to report the status of your preview environment to the pull request, e.g. by updating the
 commit status when the deployment turns green or red. One might also want to post complex status comments, for example
-the result of the deployment in the form of structured and nicely presented diff.
+the result of the deployment in the form of structured and beautiful diff.
 
 To achieve this, you can use the [ListGithubPullRequests](https://kluctl.io/docs/template-controller/spec/v1alpha1/listgithubpullrequests/)
 or the [ListGitlabMergeRequests](https://kluctl.io/docs/template-controller/spec/v1alpha1/listgitlabmergerequests/)
@@ -219,8 +220,8 @@ spec:
   #  key: github-token
 ```
 
-The above example will regularly (1m interval) query the GitHub API for PRs inside the kluctl-examples
-repository. It will filter for open PRs and for PRs against the main branch. The result of the query is then stored in
+The above example will regularly (1m interval) query the GitHub API for pull requests inside the kluctl-examples
+repository. It will filter for pull requests which are in the state "open" and are targeted against the "main" branch. The result of the query is then stored in
 the `status.pullRequests` field of the custom resource. The content of the pullRequests field basically matches what
 GitHub would return via the [Pulls API](https://docs.github.com/en/rest/pulls/pulls) (with some fields omitted to
 reduce the size).
@@ -284,8 +285,8 @@ replace the template `KluctlDeployment` with the appropriate resources and use t
 ## Shutting down preview environments
 All the above examples will result in pruning the whole deployment when the branch gets deleted. This works because
 after deletion of the branch, the `GitProjector` will not contain that branch in the `status.result` after the next
-reconciliation. This will lead to the `ObjectTemplate` not having the matrix input anymore, causing pruning of the
-`KluctlDeployment` object, which in turn causes complete pruning of the resources deployed by the Kluctl controller.
+reconciliation. This will lead to the `ObjectTemplate` not having the matrix input anymore, causing a prune of the
+`KluctlDeployment` object, which in turn causes deletion of all resources deployed by the Kluctl controller.
 
 For the pull request based examples, it will also prune the deployments when the pull request gets closed or merged,
 simply because the `ListGithubPullRequests` filters for open pull requests and thus will not list the pull
@@ -297,7 +298,7 @@ into another secret.
 
 This can turn out to be quite useful if you need to re-use the same secret values multiple times
 but in different forms. For example, if you have a secret that stores database credentials, you might also need the same
-username and password inside a JDBC url. Classically, you'd have to store the secret twice in both required forms.
+username and password inside a JDBC url. Typically, you'd have to store the secret twice in both required forms.
 
 This is however not an option if the secret is generated after the deployment, e.g. by the Zalando Postgres operator
 or by the AWS RDS operator. Using the [Mittwald Secret Generator](https://github.com/mittwald/kubernetes-secret-generator)
@@ -349,14 +350,14 @@ spec:
         password_with_different_key: "{{ matrix.secret.data.password | b64decode }}"
 ```
 
-I hope the example from above is self-explanatory. It simply transforms one secret into another, which is then in a form
+I hope the example above is self-explanatory. It simply transforms one secret into another, which is then in a form
 that can be consumed by a Java application for example that can only work with JDBC urls.
 
 ## What's next?
-I believe that there are much more use cases for the Template Controller and I hope that the community is able to figure
-these out and maybe post examples and ideas. Due to the flexible nature of the matrix inputs and template definition, a
-lot should be possible that I didn't even think of yet.
+I believe that there are much more use cases for the Template Controller, and I'm absolutely convinced that the community
+will invent completely new ones and maybe share them by posting examples and ideas. Due to the flexible nature of the
+matrix inputs and template definition, a lot is possible. Think big! 😸
 
 The Template Controller currently comes with a few additional custom resources 
 (e.g. `GitProjector` and `ListGithubPullRequests`) that are meant to be used as matrix inputs. I can imagine that
-other custom resources might be candidates to be included in the controller as well and I'm also open for ideas.
+other custom resources might be candidates to be included in the controller as well, and I'm also open for ideas.
