@@ -6,10 +6,10 @@ slug: template-controller
 date: 2022-12-28
 author: Alexander Block (@codablock)
 images:
-- "/images/blog/templating-and-diffs-with-kustomize.png"
+- "/images/blog/images/blog/template-controller.jpg"
 ---
 
-<!--![image](/images/blog/templating-and-diffs-with-kustomize.png)-->
+![image](/images/blog/template-controller.jpg)
 
 This blog post serves two purposes. The first one is to announce and present the 
 [Template Controller](https://kluctl.io/docs/template-controller/) ([Source](https://github.com/kluctl/template-controller)).
