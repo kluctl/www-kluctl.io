@@ -3,7 +3,7 @@
 title: "Building GitOps preview environments with the Template Controller"
 linkTitle: "Building GitOps preview environments with the Template Controller"
 slug: template-controller
-date: 2022-12-22
+date: 2022-12-28
 author: Alexander Block (@codablock)
 images:
 - "/images/blog/templating-and-diffs-with-kustomize.png"
