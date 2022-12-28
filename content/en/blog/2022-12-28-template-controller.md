@@ -1,7 +1,7 @@
 
 ---
-title: "Building GitOps Preview Environments with the Template Controller"
-linkTitle: "Building GitOps Preview Environments with the Template Controller"
+title: "Introducing the Template Controller and building GitOps Preview Environments"
+linkTitle: "Introducing the Template Controller and building GitOps Preview Environments"
 slug: template-controller
 date: 2022-12-28
 author: Alexander Block (@codablock)
