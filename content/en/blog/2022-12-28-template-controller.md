@@ -172,9 +172,8 @@ spec:
   # secretRef:
   #   name: git-credentials
   ref:
-    branch: .*
-    # you can also filter by prefix, e.g.:
-    # branch: preview-.*
+    # let's only take preview- branches into account
+    branch: preview-.*
 ```
 
 The following `ObjectTemplate` can then use the `GitProjetor's` `status.result` field to create one `KluctlDeployment`
@@ -207,7 +206,7 @@ spec:
         kind: KluctlDeployment
         metadata:
           # We can use the branch name as basis for the object name
-          name: preview-{{ matrix.git.ref.branch | slugify }}
+          name: "{{ matrix.git.ref.branch | slugify }}"
           namespace: default
         spec:
           interval: 1m
@@ -226,7 +225,7 @@ spec:
           args:
             # Look into the simple-helm example to figure out what the environment arg does. It basically sets the
             # namespace to use, but could theoretically do much more.
-            environment: "preview-{{ matrix.git.ref.branch | slugify }}"
+            environment: "{{ matrix.git.ref.branch | slugify }}"
           prune: true
 ```
 
@@ -260,7 +259,7 @@ spec:
   repo: kluctl-examples
   state: open
   base: main
-  head: kluctl-examples:.*
+  head: kluctl:preview-.*
   # in case you forked the repo into a private repo
   #tokenRef:
   #  secretName: git-credentials
@@ -268,7 +267,8 @@ spec:
 ```
 
 The above example will regularly (1m interval) query the GitHub API for pull requests inside the kluctl-examples
-repository. It will filter for pull requests which are in the state "open" and are targeted against the "main" branch. The result of the query is then stored in
+repository. It will filter for pull requests which are in the state "open" and are targeted against the "main" branch.
+The result of the query is then stored in
 the `status.pullRequests` field of the custom resource. The content of the pullRequests field basically matches what
 GitHub would return via the [Pulls API](https://docs.github.com/en/rest/pulls/pulls) (with some fields omitted to
 reduce the size).
@@ -302,7 +302,7 @@ spec:
         kind: KluctlDeployment
         metadata:
           # We can use the head branch name as basis for the object name
-          name: pr-preview-{{ matrix.pr.head.ref | slugify }}
+          name: pr-{{ matrix.pr.head.ref | slugify }}
           namespace: default
         spec:
           interval: 1m
@@ -321,7 +321,7 @@ spec:
           args:
             # Look into the simple-helm example to figure out what the environment arg does. It basically sets the
             # namespace to use, but could theoretically do much more.
-            environment: "pr-preview-{{ matrix.pr.head.ref | slugify }}"
+            environment: "pr-{{ matrix.pr.head.ref | slugify }}"
           prune: true
 ```
 
@@ -375,7 +375,7 @@ metadata:
   name: transformer-template
   namespace: default
 spec:
-  serviceAccountName: postgres-secret-transformer
+  serviceAccountName: template-controller
   prune: true
   matrix:
     - name: secret
