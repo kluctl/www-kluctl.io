@@ -1,0 +1,29 @@
+name: Adopter
+description: Create a request for adding your company to the adopters page
+body:
+  - type: input
+    id: company
+    attributes:
+      label: What is the name of your company?
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What does your company do and how do you use kluctl?
+    validations:
+      required: true
+  - type: input
+    id: logo
+    attributes:
+      label: URL to your company logo
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: authorization
+      description: By submitting this request, you agree that you are authorized to add the company to this page and that we can use your logo.
+      options:
+        - label: I agree to the statement above.
+          required: true
