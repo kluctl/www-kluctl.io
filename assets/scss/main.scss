@@ -17,6 +17,11 @@
   --td-bg-color-2: #f0f0f0;
 }
 
+.navbar-expand .navbar-nav {
+  @media screen and (min-width: 1024px) {
+    transform: translateX(15rem)
+  }
+}
 .td {
   &-section,
   &-page {
