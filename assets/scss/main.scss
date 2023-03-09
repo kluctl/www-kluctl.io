@@ -10,6 +10,13 @@
 
 // custom
 
+:root {
+  --theme-color: rgb(81, 166, 132);
+  --white-color: #fff;
+  --td-bg-color-1: #fafafa;
+  --td-bg-color-2: #f0f0f0;
+}
+
 .td {
   &-section,
   &-page {
@@ -19,6 +26,29 @@
       }
       .td-sidebar {
         margin-top: 1.5rem;
+      }
+    }
+
+    table {
+      border-collapse: initial;
+      width: 100%;
+    }
+
+    td, th {
+      padding: 0.5rem 1rem;
+    }
+
+    th {
+      background-color: var(--theme-color);
+      color: var(--white-color);
+    }
+
+    tr {
+      width: 100%;
+      --bg: var(--td-bg-color-2);
+      background-color: var(--bg);
+      &:nth-child(odd) {
+        --bg: var(--td-bg-color-1);
       }
     }
   }
