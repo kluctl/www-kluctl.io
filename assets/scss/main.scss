@@ -7,3 +7,19 @@
 @import "tabs";
 @import "styles_project";
 @import "blog";
+
+// custom
+
+.td {
+  &-section,
+  &-page {
+    @media screen and (max-width: 667px) {
+      > .td-outer {
+        margin-top: 1.5rem;
+      }
+      .td-sidebar {
+        margin-top: 1.5rem;
+      }
+    }
+  }
+}
