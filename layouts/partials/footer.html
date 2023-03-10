@@ -39,3 +39,10 @@
   {{ end }}
 </ul>
 {{ end }}
+
+{{ partialCached "sprites-code" . }}
+{{- $mainScriptPath := "js/code.js" }}
+{{- $main := resources.Get $mainScriptPath | resources.ExecuteAsTemplate $mainScriptPath . }}
+
+{{- $bundle := slice $main | resources.Concat "js/bundle.js" | resources.Fingerprint "sha512" }}
+<script src="{{ $bundle.Permalink }}"></script>
