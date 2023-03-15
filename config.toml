@@ -211,32 +211,6 @@ anonymizeIP = true
 [params.adopters]
 [params.adopters.set.0]
 [[params.adopters.set.0.adopter]]
-name = "Adopter"
-description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-logo = "/images/logo.svg"
-
-[[params.adopters.set.0.adopter]]
-name = "Adopter"
-description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-logo = "/images/logo.svg"
-
-[[params.adopters.set.0.adopter]]
-name = "Adopter"
-description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-logo = "/images/logo.svg"
-
-[[params.adopters.set.0.adopter]]
-name = "Adopter"
-description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-logo = "/images/logo.svg"
-
-[params.adopters.set.1]
-[[params.adopters.set.1.adopter]]
-name = "Adopter"
-description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-logo = "/images/logo.svg"
-
-[[params.adopters.set.1.adopter]]
-name = "Adopter"
-description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-logo = "/images/logo.svg"
+name = "KGS Software GmbH"
+description = "KGS Software creates an archive middleware with certified connections via SAP ArchiveLink, SAP ILM, SAP CMIS or for any other application via REST API. Before integrating kluctl, the process of deploying applications was a labor-intense task. Because of kluctl, its more accessible and understandable for Software Engineers, Consultants and Supporters."
+logo = "https://jochen-saalfeld.de/logo-kgs-secondary-fullcolor-positive.png"
