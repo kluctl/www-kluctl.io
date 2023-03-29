@@ -10,11 +10,8 @@ HUGO_VERSION = "0.95.0"
   environment = { BASE_URL = "https://kluctl.io/" }
 
 [[redirects]]
-  from = "/docs/reference"
-  to = "/docs/kluctl/reference"
-[[redirects]]
-  from = "/docs/concepts"
-  to = "/docs/kluctl/concepts"
+  from = "/docs/reference/*"
+  to = "/docs/kluctl/reference/:splat"
 [[redirects]]
   from = "/docs/concepts"
   to = "/docs/kluctl/concepts"
