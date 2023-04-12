@@ -15,6 +15,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+	"time"
 	"unicode"
 )
 
@@ -135,7 +136,7 @@ func doMain() error {
 			relDestPath = filepath.Join(filepath.Dir(relDestPath), "_index.md")
 		}
 
-		err = processFile(path, filepath.Join(*dest, relDestPath), relGitPath)
+		err = processFile(path, filepath.Join(*dest, relDestPath), repoDir, relGitPath)
 		if err != nil {
 			return fmt.Errorf("failed to process %s, %w", path, err)
 		}
@@ -157,7 +158,7 @@ func doMain() error {
 			return err
 		}
 
-		err = processFile(filepath.Join(repoDir, "README.md"), filepath.Join(*dest, "_index.md"), "README.md")
+		err = processFile(filepath.Join(repoDir, "README.md"), filepath.Join(*dest, "_index.md"), repoDir, "README.md")
 		if err != nil {
 			return err
 		}
@@ -166,7 +167,7 @@ func doMain() error {
 	return nil
 }
 
-func processFile(sourcePath string, destPath string, relGitPath string) error {
+func processFile(sourcePath string, destPath string, repoDir string, relGitPath string) error {
 	b, err := os.ReadFile(sourcePath)
 	if err != nil {
 		return err
@@ -227,6 +228,12 @@ outer2:
 		"to":   fmt.Sprintf("main/%s", relGitPath),
 	}
 
+	lastMod, err := getGitLastMod(repoDir, relGitPath)
+	if err != nil {
+		return err
+	}
+	frontMatter["lastmod"] = lastMod.Format(time.RFC3339)
+
 	// remove unnecessary "# title"
 	for i, l := range lines {
 		if l == fmt.Sprintf("# %s", title) {
@@ -272,4 +279,21 @@ outer3:
 	}
 
 	return nil
+}
+
+func getGitLastMod(repoDir string, relGitPath string) (time.Time, error) {
+	cmd := exec.Command("git", "log", "-1", "--pretty=format:%ci", relGitPath)
+	cmd.Dir = repoDir
+	stdoutBuf := bytes.NewBuffer(nil)
+	cmd.Stdout = stdoutBuf
+	cmd.Stderr = os.Stderr
+	err := cmd.Run()
+	if err != nil {
+		return time.Time{}, err
+	}
+	lastMod, err := time.Parse("2006-01-02 15:04:05 -0700", stdoutBuf.String())
+	if err != nil {
+		return time.Time{}, err
+	}
+	return lastMod, nil
 }
