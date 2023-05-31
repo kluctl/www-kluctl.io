@@ -51,9 +51,9 @@ setup_verify_arch() {
     setup_verify_os
     setup_verify_arch
 
-    go run ./sync-docs --repo kluctl/kluctl --subdir docs --hugo-path content/en/docs/kluctl --dest content/en/docs/kluctl
-    go run ./sync-docs --repo kluctl/flux-kluctl-controller --subdir docs --hugo-path content/en/docs/flux --dest content/en/docs/flux --with-root-readme --ref main
-    go run ./sync-docs --repo kluctl/template-controller --subdir docs --hugo-path content/en/docs/template-controller --dest content/en/docs/template-controller --with-root-readme
+    go run ./sync-docs --repo kluctl/kluctl --subdir docs --dest content/en/docs/kluctl
+    go run ./sync-docs --repo kluctl/flux-kluctl-controller --subdir docs --dest content/en/docs/flux --with-root-readme
+    go run ./sync-docs --repo kluctl/template-controller --subdir docs --dest content/en/docs/template-controller --with-root-readme
 }
 
 {

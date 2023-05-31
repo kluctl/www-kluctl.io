@@ -21,7 +21,6 @@ import (
 
 var repo = flag.String("repo", "", "")
 var subdir = flag.String("subdir", "", "")
-var hugoPath = flag.String("hugo-path", "", "")
 var dest = flag.String("dest", "", "")
 var withRootReadme = flag.Bool("with-root-readme", false, "")
 var ref = flag.String("ref", "", "")
@@ -102,7 +101,7 @@ func doMain() error {
 		return err
 	}
 
-	cmd = exec.Command("git", "checkout", version)
+	cmd = exec.Command("git", "checkout", version, "--")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	cmd.Dir = repoDir
