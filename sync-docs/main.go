@@ -17,6 +17,8 @@ import (
 	"strings"
 	"time"
 	"unicode"
+
+	cp "github.com/otiai10/copy"
 )
 
 var repo = flag.String("repo", "", "")
@@ -93,21 +95,37 @@ func doMain() error {
 
 	repoDir := filepath.Join(tmpDir, "repo")
 
-	cmd := exec.Command("git", "clone", fmt.Sprintf("https://github.com/%s.git", *repo), repoDir)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	err = cmd.Run()
-	if err != nil {
-		return err
-	}
+	localRepoPrefix := os.Getenv("LOCAL_REPO_PREFIX")
+	if localRepoPrefix != "" {
+		localRepoPath := filepath.Join(localRepoPrefix, *repo)
+		err = cp.Copy(localRepoPath, repoDir, cp.Options{
+			Skip: func(srcinfo os.FileInfo, src, dest string) (bool, error) {
+				if srcinfo.Name() == "node_modules" {
+					return true, nil
+				}
+				return false, nil
+			},
+		})
+		if err != nil {
+			return fmt.Errorf("failed to copy from LOCAL_REPO_PREFIX: %w", err)
+		}
+	} else {
+		cmd := exec.Command("git", "clone", fmt.Sprintf("https://github.com/%s.git", *repo), repoDir)
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		err = cmd.Run()
+		if err != nil {
+			return err
+		}
 
-	cmd = exec.Command("git", "checkout", version, "--")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	cmd.Dir = repoDir
-	err = cmd.Run()
-	if err != nil {
-		return err
+		cmd = exec.Command("git", "checkout", version, "--")
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+		cmd.Dir = repoDir
+		err = cmd.Run()
+		if err != nil {
+			return err
+		}
 	}
 
 	repoSubDir := filepath.Join(repoDir, *subdir)
@@ -292,7 +310,7 @@ func getGitLastMod(repoDir string, relGitPath string) (time.Time, error) {
 	}
 	lastMod, err := time.Parse("2006-01-02 15:04:05 -0700", stdoutBuf.String())
 	if err != nil {
-		return time.Time{}, err
+		return time.Time{}, nil
 	}
 	return lastMod, nil
 }
