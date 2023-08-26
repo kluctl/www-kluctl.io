@@ -46,5 +46,8 @@ HUGO_VERSION = "0.95.0"
   to = "/docs/kluctl"
 
 [[redirects]]
-  from = "/docs/kluctl/reference/gitops"
-  to = "/docs/gitops"
+  from = "/docs/kluctl/reference/gitops/*"
+  to = "/docs/gitops/:splat"
+[[redirects]]
+  from = "/docs/kluctl/reference/*"
+  to = "/docs/kluctl/:splat"
