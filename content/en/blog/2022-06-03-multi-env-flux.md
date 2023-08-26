@@ -10,6 +10,12 @@ images:
 
 ![multi-env-flux](/images/blog/multi-env-flux.jpg)
 
+{{< alert >}}
+Please note that the information in this blog post is outdated. Kluctl does
+not integrate into Flux anymore and instead provides an independent
+[Kluctl Controller]({{< ref "docs/gitops" >}}).
+{{< /alert >}}
+
 Most projects that have server-side components usually need to be deployed multiple times, at least if you don't want to
 break things for your users all the time. This means, that there is not only one single "prod" environment, but also something
 like "test" or "staging" environments. So usually, there is a minimum of two different environments.

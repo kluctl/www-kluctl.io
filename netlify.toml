@@ -30,4 +30,7 @@ HUGO_VERSION = "0.95.0"
 
 [[redirects]]
   from = "/docs/flux/controller"
-  to = "/docs/flux"
+  to = "/docs/gitops"
+[[redirects]]
+  from = "/docs/flux"
+  to = "/docs/gitops"
