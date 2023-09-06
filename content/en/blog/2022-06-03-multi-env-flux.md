@@ -10,6 +10,12 @@ images:
 
 ![multi-env-flux](/images/blog/multi-env-flux.jpg)
 
+{{< alert >}}
+Please note that the information in this blog post is outdated. Kluctl does
+not integrate into Flux anymore and instead provides an independent
+[Kluctl Controller]({{< ref "docs/gitops" >}}).
+{{< /alert >}}
+
 Most projects that have server-side components usually need to be deployed multiple times, at least if you don't want to
 break things for your users all the time. This means, that there is not only one single "prod" environment, but also something
 like "test" or "staging" environments. So usually, there is a minimum of two different environments.
@@ -57,7 +63,7 @@ tutorial as examples in this blog post.
 
 Kluctl works with the concept of "targets". A target is a named configuration that acts as the entry point for every
 further configuration required for your environment. As an example, look at the targets from
-[.kluctl.yaml]({{< ref "docs/kluctl/reference/kluctl-project" >}}) of the microservices demo:
+[.kluctl.yaml]({{< ref "docs/kluctl/kluctl-project" >}}) of the microservices demo:
 
 ```yaml
 targets:
@@ -139,12 +145,12 @@ Even for "prod", which in the above scenario is GitOps managed, can benefit from
 your local machine. Running a "kluctl diff -t prod" before promoting to "prod" can prevent some scary surprises.
 
 Kluctl implements GitOps via the [flux-kluctl-controller]({{< ref "blog/2022-05-11-introducing-kluctl-and-flux" >}}).
-It allows to create [`KluctlDeployment`]({{< ref "docs/flux/spec/v1alpha1/kluctldeployment" >}}) objects which refer to your Kluctl
+It allows to create `KluctlDeployment` objects which refer to your Kluctl
 project (which relies in Git) and the target to be deployed.
 
 ## Installing flux-kluctl-controller
 
-Before being able to create [`KluctlDeployment`]({{< ref "docs/flux/spec/v1alpha1/kluctldeployment" >}}) objects, the
+Before being able to create `KluctlDeployment` objects, the
 flux-kluctl-controller needs to be installed first. Please navigate to the
 [installation documentation](https://github.com/kluctl/flux-kluctl-controller/blob/main/docs/install.md)
 and follow the instructions found there.
@@ -166,7 +172,7 @@ spec:
     branch: main
 ```
 
-This will cause Flux to pull the source whenever it changes. A [`KluctlDeployment`]({{< ref "docs/flux/spec/v1alpha1/kluctldeployment" >}})
+This will cause Flux to pull the source whenever it changes. A `KluctlDeployment`
 can then refer to the `GitRepository`:
 
 ```yaml
@@ -224,7 +230,7 @@ with multiple clusters, simply install the controller on another cluster and cre
 objects per cluster.
 
 As an alternative, you can have a central Flux (+flux-kluctl-controller) installation that deploys to multiple clusters.
-This can be achieved with the help of the [spec.kubeconfig and spec.serviceAccountName]({{< ref "docs/flux/spec/v1alpha1/kluctldeployment#kubeconfigs-and-rbac" >}})
+This can be achieved with the help of the spec.kubeconfig and spec.serviceAccountName
 field of the `KluctlDeployment` object.
 
 Also, as the examples stem from the [microservices demo]({{< ref "docs/guides/tutorials/microservices-demo" >}}), they

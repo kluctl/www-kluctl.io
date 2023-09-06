@@ -13,6 +13,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
 	"time"
@@ -289,7 +290,13 @@ outer3:
 
 	_ = os.MkdirAll(filepath.Dir(destPath), 0o755)
 
+	r := regexp.MustCompile(`]\((\..*)/README\.md(#.*)?\)`)
+	for i, l := range lines {
+		lines[i] = r.ReplaceAllString(l, `]($1/$2)`)
+	}
+
 	b = []byte(strings.Join(lines, "\n"))
+
 	err = os.WriteFile(destPath, b, 0o600)
 	if err != nil {
 		return err

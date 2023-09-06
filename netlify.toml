@@ -29,5 +29,22 @@ HUGO_VERSION = "0.95.0"
   to = "/docs/kluctl/philosophy"
 
 [[redirects]]
-  from = "/docs/flux/controller"
-  to = "/docs/flux"
+  from = "/docs/flux/*"
+  to = "/docs/gitops"
+
+[[redirects]]
+  from = "/docs/kluctl/concepts"
+  to = "/docs/kluctl"
+[[redirects]]
+  from = "/docs/kluctl/history"
+  to = "/docs/kluctl"
+[[redirects]]
+  from = "/docs/kluctl/philosophy"
+  to = "/docs/kluctl"
+
+[[redirects]]
+  from = "/docs/kluctl/reference/gitops/*"
+  to = "/docs/gitops/:splat"
+[[redirects]]
+  from = "/docs/kluctl/reference/*"
+  to = "/docs/kluctl/:splat"

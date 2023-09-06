@@ -47,7 +47,7 @@ The reason to start with a fresh deployment is that we will later switch to diff
 
 ## Targets
 If we want to allow the deployment to be deployed multiple times, we first need multiple targets in our project. Let's
-add 2 [targets]({{< ref "docs/kluctl/reference/kluctl-project/targets" >}}) called `test` and `prod`. To do so, modify the
+add 2 [targets]({{< ref "docs/kluctl/kluctl-project/targets" >}}) called `test` and `prod`. To do so, modify the
 content of `.kluctl.yml` to contain:
 
 ```yaml
@@ -69,7 +69,7 @@ targets:
 You might notice that all targets point to the kind cluster at the moment. This is of course not how you would do it
 in a real project as you'd probably have at least one real production-ready cluster to target your deployments against.
 
-We've also introduced [`args`]({{< ref "docs/kluctl/reference/kluctl-project/targets#args" >}}) for each target, with each target
+We've also introduced [`args`]({{< ref "docs/kluctl/kluctl-project/targets#args" >}}) for each target, with each target
 having an `env_type` argument configured. This argument will later be used to change details of the deployment, depending
 on the value of it. For example, setting it to `local` might change the redis deployment into a single-node/standalone
 deployment.
@@ -79,7 +79,7 @@ One of the most obvious and also useful application of templates is making names
 that you want to deploy. This allows to deploy the same set of deployment/manifests multiple times, even to the same
 cluster.
 
-There are a few [predefined variables]({{< ref "docs/kluctl/reference/templating/predefined-variables" >}}) which are always available
+There are a few [predefined variables]({{< ref "docs/kluctl/templating/predefined-variables" >}}) which are always available
 in all deployments. One of these variables is the `target` dictionary which is a copy of the currently processed target.
 This means, we can use `{{ target.name }}` to insert the current target name through templating.
 
@@ -111,7 +111,7 @@ namespace: ms-demo-{{ target.name }}
 ```
 
 This is better than the naive solution, but still limited in a comparable (but not as bad) way. The most powerful and
-preferred solution is use [`overrideNamespace`]({{< ref "docs/kluctl/reference/deployments/deployment-yml#overridenamespace" >}})
+preferred solution is use [`overrideNamespace`]({{< ref "docs/kluctl/deployments/deployment-yml#overridenamespace" >}})
 in the root `deployment.yml`:
 
 ```yaml
@@ -151,7 +151,7 @@ Without this change, redis is going to be deployed successfully but will then fa
 references to the default namespace.
 
 ## Making commonLabels unique per target
-[`commonLabels`]({{< ref "docs/kluctl/reference/deployments/deployment-yml#commonlabels" >}}) in your root `deployment.yml` has
+[`commonLabels`]({{< ref "docs/kluctl/deployments/deployment-yml#commonlabels" >}}) in your root `deployment.yml` has
 a very special meaning which is important to understand and work with. The combination of all `commonLabels` MUST be unique
 between all supported targets on a cluster, including the ones that don't exist yet and are from other kluctl projects.
 
@@ -224,7 +224,7 @@ solution would obviously be to not deploy the prod target to your local cluster 
 However, for the sake of this tutorial, we'll instead try to introduce a few differences between targets so that they
 fit better onto the local cluster.
 
-To do so, let's introduce [variables files]({{< ref "docs/kluctl/reference/templating/variable-sources" >}}) that contain
+To do so, let's introduce [variables files]({{< ref "docs/kluctl/templating/variable-sources" >}}) that contain
 different sets of configuration for different environment types. These variables files are simply yaml files with
 arbitrary content, which is then available in future templating contexts.
 

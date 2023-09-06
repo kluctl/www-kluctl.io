@@ -24,7 +24,7 @@ from a list of generators (e.g. Git) and an `Application` template.
 
 The Template Controller uses a different approach, making it more flexible and independent of the GitOps system being
 used. It uses arbitrary Kubernetes objects as inputs and allows to create templated objects of any kind 
-(e.g. a Flux Helm Release or a [KluctlDeployment](https://kluctl.io/docs/flux/spec/v1alpha1/kluctldeployment/)).
+(e.g. a Flux Helm Release or a [KluctlDeployment]({{< ref "docs/gitops/spec/v1beta1/kluctldeployment" >}})).
 This makes the controller very extensible, as any type of input can be implemented with the help of additional
 controllers which are not necessarily part of the project.
 
@@ -140,7 +140,7 @@ when a pull request introduces changes that need to be tested before these are m
 In a GitOps-based setup, one would need to create the relevant custom resources per preview environment, for example
 a [Flux Kustomization](https://fluxcd.io/flux/components/kustomize/kustomization/),
 [Flux HelmRelease](https://fluxcd.io/flux/components/helm/helmreleases/) or a
-or [KluctlDeployment](https://kluctl.io/docs/flux/spec/v1alpha1/kluctldeployment/). The underlying GitOps controller
+or [KluctlDeployment]({{< ref "docs/gitops/spec/v1beta1/kluctldeployment" >}}). The underlying GitOps controller
 would then take over and perform the actual deployment.
 
 In the following examples we will concentrate on using `KluctlDeployments`. Changing it to use `Kustomizations` or
