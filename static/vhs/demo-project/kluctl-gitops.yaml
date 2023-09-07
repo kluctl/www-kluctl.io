@@ -1,0 +1,17 @@
+apiVersion: gitops.kluctl.io/v1beta1
+kind: KluctlDeployment
+metadata:
+  name: demo
+  namespace: kluctl-system
+spec:
+  interval: 1m
+  timeout: 1m
+  source:
+    url: https://github.com/kluctl/www-kluctl.io.git
+    path: static/vhs/demo-project
+    ref:
+      branch: demo-branch
+
+  target: test
+  context: default
+  prune: true

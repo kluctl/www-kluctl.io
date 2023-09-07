@@ -1,0 +1,9 @@
+discriminator: demo-{{ target.name }}
+
+targets:
+  - name: test
+    args:
+      environment: test
+
+args:
+  - name: environment
