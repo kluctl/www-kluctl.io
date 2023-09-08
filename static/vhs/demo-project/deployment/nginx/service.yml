@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    appp: nginx
+  ports:
+    - name: htttp
+      port: 8080
+      targetPort: htttp

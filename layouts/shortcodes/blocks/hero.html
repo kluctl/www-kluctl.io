@@ -34,6 +34,7 @@
           {{ with .Get "title" }}<h1 class="display-1">{{ $title := . }}{{ with $logo_image }}{{ $logo_image_resized := (.Fit (printf "70x70 %s" $logo_anchor)) }}<img class="td-hero-logo" src="{{ $logo_image_resized.RelPermalink }}" alt="{{ $title | html }} Logo">{{ end }}{{ $title | html }}</h1>{{ end }}
           {{ with .Get "subtitle" }}<p>{{ . | html }}</p>{{ end }}
       </div>
+
       <div class="row hero-details">
         <div class="col-md">
             {{ if eq .Page.File.Ext "md" }}
@@ -42,21 +43,24 @@
               {{ .Inner | htmlUnescape | safeHTML }}
             {{ end }}
 
+            <div class="col-md is-half is-hidden-touch col-video">
+                <div class="terminal">
+                    <pre class="terminal-content">
+                      <video id="video" autoplay="true" loop="true" muted="true">
+                            <source src="/vhs/demo-cut.mp4" type="video/mp4"/>
+                        </video>
+                    </pre>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center">
             {{ if ne $link_url "#" }}
-            <a class="btn btn-lg btn-info" href="{{ $link_url }}">{{ $link_title }} <div class="fas fa-arrow-right"></div></a>
+            <a class="btn btn-lg btn-info" href="{{ $link_url }}">{{ $link_title }}</a>
             {{ end }}
-        </div>
-
-        <div class="col-md is-half is-hidden-touch col-terminal">
-          <div class="terminal">
-            <div class="icons"><span></span></div>
-            <div class="terminal-title">Terminal</div>
-            <pre class="terminal-content">
-              <asciinema-player loop autoplay font-size="14px" rows=14 cols=75 speed=2 src="/asciinema/kluctl.cast"></asciinema-player>
-            </pre>
-          </div>
+            </div>
         </div>
 
       </div>
+
   </div>
+
 </section>

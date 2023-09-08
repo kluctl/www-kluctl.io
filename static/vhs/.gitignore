@@ -1,0 +1,5 @@
+recordings
+*.bak
+/demo-project/demo-cli.mp4
+demo-cli.mp4
+demo-webui.mp4

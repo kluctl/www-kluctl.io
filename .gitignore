@@ -6,3 +6,5 @@
 /node_modules
 
 /static/install.sh
+
+.DS_Store
