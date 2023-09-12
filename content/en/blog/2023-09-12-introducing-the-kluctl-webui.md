@@ -40,7 +40,7 @@ of all deployments is much more effective when done on a visual basis.
 
 ## Preparations
 
-Let's begin with installing Kluctl, creating a local cluster and creating/forking simple Kluctl project.
+Let's begin with installing Kluctl, creating a local cluster and creating/forking a simple Kluctl project.
 
 #### Installing Kluctl
 
@@ -151,7 +151,7 @@ tree icon on the bottom right of the card, you can examine the rendered deployme
 
 #### Perform some changes
 
-Now let's change something and re-deploy it. Use your favorite IDE/editor to perform whatever modification you like.
+Now let's change something and re-deploy it. Use your favourite IDE/editor to perform whatever modification you like.
 As an alternative, simply run the following commands to do some `yq` (which must be [installed](https://github.com/mikefarah/yq#install)) magic:
 
 ```
