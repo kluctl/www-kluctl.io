@@ -5,8 +5,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/Masterminds/semver/v3"
-	yaml3 "gopkg.in/yaml.v3"
 	"io"
 	"io/fs"
 	"net/http"
@@ -18,6 +16,9 @@ import (
 	"strings"
 	"time"
 	"unicode"
+
+	"github.com/Masterminds/semver/v3"
+	yaml3 "gopkg.in/yaml.v3"
 
 	cp "github.com/otiai10/copy"
 )
@@ -119,7 +120,7 @@ func doMain() error {
 			return err
 		}
 
-		cmd = exec.Command("git", "checkout", version, "--")
+		cmd = exec.Command("git", "checkout", "-b", fmt.Sprintf("%s-temp-branch", version), version)
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		cmd.Dir = repoDir
