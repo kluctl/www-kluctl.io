@@ -1,10 +1,26 @@
 {
-  "devDependencies": {
-    "autoprefixer": "^10.4.4",
-    "postcss": "^8.4.12",
-    "postcss-cli": "^9.1.0"
-  },
+  "name": "www-kluctl.io",
+  "version": "1.0.0",
+  "description": "Website for kluctl.io",
   "dependencies": {
-    "playwright": "^1.37.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-cp": "hugo server --baseURL https://${CODESPACE_NAME}-1313.app.github.dev/ --appendPort=false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kluctl/www-kluctl.io.git"
+  },
+  "keywords": [
+    "kluctl",
+    "kubernetes"
+  ],
+  "author": "Sid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kluctl/www-kluctl.io/issues"
+  },
+  "homepage": "https://github.com/kluctl/www-kluctl.io#readme"
 }
