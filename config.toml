@@ -1,4 +1,4 @@
-baseURL = "https://kluctl.io/"
+baseURL = "https://kluctl-hugo-new.netlify.app/"
 title = "kluctl.io"
 # Language settings
 contentDir = "content/en"
