@@ -1,12 +1,16 @@
 
 ---
 title: "Introducing the Template Controller and building GitOps Preview Environments"
-linkTitle: "Introducing the Template Controller and building GitOps Preview Environments"
+linkTitle: "Introducing the Template Controller"
 slug: template-controller
 date: 2022-12-28
 author: Alexander Block (@codablock)
 images:
-- "/images/blog/images/blog/template-controller.jpg"
+
+- "images/blog/template-controller.jpg"
+
+tags: ["Announcement"]
+description: "The template-controller is a Kubernetes controller that can create arbitrary objects based on dynamic templates and arbitrary input objects."
 ---
 
 ![image](/images/blog/template-controller.jpg)

@@ -5,7 +5,11 @@ linkTitle: "Introducing the Kluctl Webui"
 date: 2023-09-12
 author: Alexander Block (@codablock)
 images:
-- "/images/blog/images/blog/2023-02-12-managing-helm-with-kluctl-cover.jpg"
+
+- "images/blog/2023-09-12-introducing-the-kluctl-webui/title.png"
+
+tags: ["Announcement"]
+description : "Kluctl Webui, marks the next milestone in the Kluctl Ecosystem. It gives you visibility and control over your Kluctl deployments."
 ---
 
 ![image](/images/blog/2023-09-12-introducing-the-kluctl-webui/title.png)
