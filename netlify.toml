@@ -9,7 +9,7 @@ GO_VERSION = "1.21.3"
 HUGO_VERSION = "0.120.4"
 
 [context.production]
-  environment = { BASE_URL = "https://kluctl.io/" }
+  environment = { BASE_URL = "https://kluctl-hugo-new.netlify.app/" }
 
 [[redirects]]
   from = "/docs/reference/*"
