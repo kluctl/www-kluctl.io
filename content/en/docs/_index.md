@@ -1,9 +1,5 @@
 ---
 description: Docs
-linkTitle: Docs
-menu:
-    main:
-        weight: 20
 taxonomyCloud: []
 title: Documentation
 weight: 20
