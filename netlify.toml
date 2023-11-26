@@ -1,10 +1,12 @@
 [build]
-
-command = "cd themes/docsy && git submodule update -f --init && cd ../.. && ./build.sh"
+command = """
+  git submodule update --init --recursive &&
+  hugo --minify &&
+"""
 
 [build.environment]
-GO_VERSION = "1.19.2"
-HUGO_VERSION = "0.95.0"
+GO_VERSION = "1.21.3"
+HUGO_VERSION = "0.120.4"
 
 [context.production]
   environment = { BASE_URL = "https://kluctl.io/" }
