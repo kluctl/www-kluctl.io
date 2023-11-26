@@ -1,0 +1,56 @@
+{{- /*  Get started section (CTA) start  */ -}}
+
+<section id="Get-started">
+    <div class="get-started-wrapper">
+        <div class="container">
+            <div class="get-started-container">
+                <div class="get-started-content">
+                    {{ with .Site.Params.footer }}
+                    <h2>{{ .cta }}</h2>
+                    <div class="hero-btn">
+                        <a href="{{ .button_link }}">{{ .button_text }}</a>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{- /*  Get started section (CTA) end  */ -}}
+
+{{- /*  Footer section start  */ -}}
+
+<footer id="Footer">
+    <div class="footer-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="footer-about">
+                        {{- with resources.Get .Site.Params.footer.logo -}}
+                            <div class="footer-logo">
+                                <img height="40px" src="{{ .RelPermalink }}" alt="logo-light" />
+                            </div>
+                        {{- end -}}
+                        <p> {{ .Site.Params.footer.tagline }} </p>
+                    </div>
+                </div>
+                <div class="col-lg-7 pt-4 pt-md-0">
+                    <div class="footer-menu">
+                        <h6> {{ .Site.Params.footer.links_heading }} </h6>
+                        <ul class="footer-nav">
+                            {{ range .Site.Menus.footer }}
+                                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p> © {{ now.Format "2006" }} {{ .Site.Params.footer.copyright_text }} </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{{- /*  Footer section end  */ -}}
