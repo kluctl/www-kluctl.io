@@ -1,7 +1,7 @@
 [build]
 command = """
   git submodule update --init --recursive &&
-  hugo --minify &&
+  hugo --minify
 """
 
 [build.environment]
