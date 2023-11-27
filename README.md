@@ -8,11 +8,11 @@ This repository contains the source code for the Kluctl website. It uses the [Lo
 
 Ensure the following prerequisites are met.
 
-- **GO VERSION:** `1.21.3`
-- **HUGO EXTENDED VERSION:** `0.120.4`
+- [Go](https://go.dev/dl/) (Golang) version: `1.21.3`
+- [Hugo](https://gohugo.io/installation/) extended version: `0.120.4`
 
 > **Note**<br>
-The Hugo extended version is required to transform SCSS to CSS. Without it, you may encounter the following error message:
+The Hugo extended version is required for various purposes (like transforming SCSS to CSS, converting images to `webp` format). Without it, you may encounter the following error message:
 
 ```text
 error: failed to transform resource: TOCSS: failed to transform "scss/main.scss" (text/x-scss): this feature is not available in your current Hugo version 
