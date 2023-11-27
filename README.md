@@ -11,7 +11,7 @@ Ensure the following prerequisites are met.
 - [Go](https://go.dev/dl/) (Golang) version: `1.21.3`
 - [Hugo](https://gohugo.io/installation/) extended version: `0.120.4`
 
-> **Note**
+> **Note:**
 The Hugo extended version is required for various purposes (like transforming SCSS to CSS, converting images to `webp` format). Without it, you may encounter the following error message:
 
 ```text
