@@ -21,7 +21,7 @@ We release two set of binaries for technical reasons. The extended version is no
 
 ### Setup
 
-1. Clone the repository and checkout the `for-sid-lotus-docs`` branch
+1. Clone the repository and checkout the `for-sid-lotus-docs` branch
    ```bash
    git clone <repo url>
    cd <repo name>
