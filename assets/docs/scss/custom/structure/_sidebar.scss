@@ -115,7 +115,7 @@
                     width: 100%;
                     text-decoration: none;
                     position: relative;
-                    padding: 4px 35px 5px 10px;
+                    padding: 5px 10px;
                     margin: 4px 0 4px 0;
                     border: none;
                     letter-spacing: normal;
@@ -313,8 +313,7 @@
         .sidebar-menu li.current > a {
             font-weight: 600 !important;
             background-color: var(--sidebar-menu-active-bg);
-            border-right: 3px solid var(--primary);
-            border-radius: 4px 0 0 4px;
+            border-radius: 4px;
             margin: 4px 0 4px 0;
         }
 
