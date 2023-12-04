@@ -103,7 +103,7 @@ function activateMenu() {
 function activateSidebarMenu() {
     var current = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
     if (current !== "" && document.getElementById("sidebar")) {
-        var menuItems = document.querySelectorAll('#sidebar button');
+        var menuItems = document.querySelectorAll('#sidebar .btn');
         for (var i = 0, len = menuItems.length; i < len; i++) {
             if (menuItems[i].getAttribute("href").indexOf(current) !== -1) {
                 menuItems[i].parentElement.className += " active";
