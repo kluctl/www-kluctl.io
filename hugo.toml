@@ -208,7 +208,7 @@ github_project_repo = "https://github.com/kluctl/kluctl"
         lastMod         = true                                # enable 'Last modified' date on pages - default false
         lastModRelative = true                                # format 'Last modified' time as relative - default true
 
-        sidebarIcons    = true                                # enable sidebar icons? default false
+        sidebarIcons    = false                                # enable sidebar icons? default false
         breadcrumbs     = true                                # default is true
         backToTop       = true                                # enable back-to-top button? default true
 
