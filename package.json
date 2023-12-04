@@ -7,7 +7,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-cp": "hugo server --baseURL https://${CODESPACE_NAME}-1313.app.github.dev/ --appendPort=false"
+    "dev-cp": "hugo server --baseURL https://${CODESPACE_NAME}-1313.app.github.dev/ --appendPort=false",
+    "dev": "hugo server --navigateToChanged --gc"
   },
   "repository": {
     "type": "git",
