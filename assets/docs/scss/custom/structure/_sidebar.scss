@@ -243,6 +243,7 @@
                     display: none;
                     ul {
                         padding: 3px 0;
+                        border-left: var(--sidebar-menu-active-left-border);
                         li {
                             padding-left: 15px;
                             font-size: 14px;
