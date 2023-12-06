@@ -1,32 +1,49 @@
-//
-// _footer.scss
-//
-footer {
-    position: relative;
-    color: var(--text-muted);
-    background: var(--body-bg);
-    height: 58px;
-    .text-foot {
-        color: var(--gray-500);
-    }
-    .footer-head {
-        font-size: 18px !important;
-        letter-spacing: 1px;
-        font-weight: 500;
-    }
-    a {
-        color: var(--content-link-color);
-    }
-    a:hover {
-        color: var(--content-link-color);
-        text-decoration: underline 1.5px var(--primary-200);
-        text-underline-offset: 3px !important;
-        transition: 0s !important;
-    }
+/* Footer CSS Start */
+
+.footer-wrapper {
+	background: var(--primary-900, #0a332b);
 }
 
-.footnote-backref {
-    font-size: 1.1rem;
-    vertical-align: middle;
-    margin-left: 0.25rem;
+.footer-about {
+	max-width: 244px;
 }
+
+.footer-about p {
+	font-size: 18px;
+	line-height: 25.424px;
+	color: var(--light);
+	padding-top: 20px;
+}
+
+.footer-menu h6 {
+	font-size: 19px;
+	font-weight: 700;
+	margin-bottom: 8px;
+	color: var(--light);
+}
+
+.footer-nav {
+
+	padding: 0;
+
+	li {
+		padding: 8px 0;
+		list-style: none;
+	}
+}
+
+.footer-nav li a {
+	font-size: 18px;
+	color: var(--light);
+	text-decoration: underline;
+}
+
+.footer-copyright p {
+	font-size: 18px;
+	text-align: center;
+	padding-top: 30px;
+	margin: 0;
+	color: var(--light);
+}
+
+/* Footer CSS End */

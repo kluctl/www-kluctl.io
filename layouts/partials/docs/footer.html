@@ -1,0 +1,41 @@
+{{- /* ============================================== 
+File: layouts/partials/docs/footer.html
+Role: Render footer for docs section
+    ================================================= */ -}}
+
+{{- /*  Footer section start  */ -}}
+
+<footer>
+    <div class="footer-wrapper mt-5 py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="footer-about">
+                        {{ $home_link := .Site.Home.Permalink }}
+                        {{- with resources.Get .Site.Params.footer.logo -}}
+                            <a href="{{ $home_link }}">
+                                <img height="40px" src="{{ .RelPermalink }}" alt="logo-light" />
+                            </a>
+                        {{- end -}}
+                        <p> {{ .Site.Params.footer.tagline }} </p>
+                    </div>
+                </div>
+                <div class="col-lg-7 pt-md-0">
+                    <div class="footer-menu pt-5">
+                        <h6> {{ .Site.Params.footer.links_heading }} {{ .Layout }} </h6>
+                        <ul class="footer-nav">
+                            {{ range .Site.Menus.footer }}
+                                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p> © {{ now.Format "2006" }} {{ .Site.Params.footer.copyright_text }} </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{{- /*  Footer section end  */ -}}
