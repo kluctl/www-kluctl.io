@@ -156,7 +156,7 @@
                 a:hover,
                 &.sidebar-dropdown .btn:hover {
                     background-color: var(--sidebar-dropdown-hover-bg);
-                    border-radius: 4px 0 0 4px;
+                    border-radius: $sidebar-link-radius;
                     margin: 4px 0 4px 0;
                 }
                 &:hover,
@@ -313,7 +313,7 @@
         .sidebar-menu li.current > a {
             font-weight: 600 !important;
             background-color: var(--sidebar-menu-active-bg);
-            border-radius: .25rem;
+            border-radius: $sidebar-link-radius;
             margin: 4px 0 4px 0;
         }
 
