@@ -11,8 +11,12 @@ $font-family-secondary:  {{ .Site.Params.secondary_font | default "-apple-system
 $font-family-sans-serif: {{ .Site.Params.sans_serif_font | default "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Ubuntu'" }};
 $font-family-monospace:  {{ .Site.Params.mono_font | default "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" }};
 
-// Code Padding Variables
+// Code variables
 $code-block-padding-top: {{ if eq .Site.Params.docs.prism true -}}0{{ else }}1.25rem 0 0 0{{ end }};
+
+// Border radius variables
+$code-block-border-radius: .7rem;
+$sidebar-link-radius: .35rem;
 
 // Icon Fonts
 @import "custom/plugins/icons/google-material";
