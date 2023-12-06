@@ -1,6 +1,9 @@
 //
 // _helper.scss
 //
+.debug {
+    outline: 2px solid red;
+}
 .fw-medium {
     font-weight: var(--fw-medium);
 }
