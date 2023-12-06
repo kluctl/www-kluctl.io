@@ -12,15 +12,14 @@
 
 // Default Table
 table {
+    border-radius: .3rem;
+    outline: 1px solid #9e9e9e;
     td {
         border-top: 1px solid var(--card-border-color);
     }
     td, th {
         border-right: 1px solid var(--card-border-color);
         padding: 8px 12px;
-    }
-    td:last-child, th:last-child {
-        border-right: 0;
     }
 }
 
