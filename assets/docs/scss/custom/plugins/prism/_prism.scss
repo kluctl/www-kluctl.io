@@ -188,7 +188,7 @@ pre[data-line] {
      margin: 16px 0;
      padding-top: 1.25rem !important;
      background-color: var(--prism-code-bg);
-     border-radius: 4px;
+     border-radius: $code-block-border-radius;
  }
 
  div.prism-codeblock.hl_lines .code-toolbar {
