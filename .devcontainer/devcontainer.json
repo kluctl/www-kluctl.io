@@ -17,7 +17,7 @@
             ]
         }
     },
-    "postCreateCommand": "npm install",
+    "postCreateCommand": "git submodule update --init --recursive",
     "forwardPorts": [
         1313
     ]
