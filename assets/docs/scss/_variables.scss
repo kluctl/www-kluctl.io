@@ -317,6 +317,8 @@ $btn-link-hover-color:        var(--#{$prefix}link-hover-color);
 
     --sidebar-directory-icon: var(--dir-right);
     --sidebar-file-icon: var(--dash);
+
+    --logo-text-color: #3F4443;
 }
 
 [data-dark-mode] {
@@ -361,4 +363,5 @@ $btn-link-hover-color:        var(--#{$prefix}link-hover-color);
     --sidebar-icon-bg: #2b303b;
     --sidebar-light-icon: #f8f9fa;
     --sidebar-scrollbar-thumb-color: var(--gray-800);
+    --logo-text-color: #fff;
 }
