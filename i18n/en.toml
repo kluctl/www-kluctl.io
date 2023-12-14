@@ -1,86 +1,38 @@
-# UI strings. Buttons and similar.
+[lang_select_title]
+    other = "Select your language"
 
-[ui_pager_prev]
-other = "Previous"
+[search_title]
+    other = "Search"
 
-[ui_pager_next]
-other = "Next"
+[search_navigate]
+    other = "to navigate"
 
-[ui_read_more]
-other = "Read more"
+[search_select]
+    other = "to select"
 
-[ui_search]
-other = "Search this site…"
+[search_close]
+    other = "to close"
 
-# Used in sentences such as "Posted in News"
-[ui_in]
-other = "in"
+[search_cancel]
+    other = "Cancel"
 
-# Used in sentences such as "All Tags"
-[ui_all]
-other = "all"
+[search_no_results]
+    other = "No results for"
 
-# Footer text
-[footer_all_rights_reserved]
-other = "All Rights Reserved"
+[feedback_yes]
+    other = "Yes"
 
-[footer_privacy_policy]
-other = "Privacy Policy"
+[feedback_no]
+    other = "No"
 
+[feedback_helpful]
+    other = "Was this page helpful?"
 
-# Post (blog, articles etc.)
-[post_byline_by]
-other = "By"
-[post_created]
-other = "Created"
-[post_last_mod]
-other = "Last modified"
-[post_edit_this]
-other = "Edit this page"
-[post_view_this]
-other = "View page source"
-[post_create_child_page]
-other = "Create child page"
-[post_create_issue]
-other = "Create documentation issue"
-[post_create_project_issue]
-other = "Create project issue"
-[post_posts_in]
-other = "Posts in"
-[post_reading_time]
-other = "minute read"
-[post_less_than_a_minute_read]
-other = "less than a minute"
+[feedback_submit]
+    other = "Submit"
 
-# Print support
-[print_printable_section]
-other = "This is the multi-page printable view of this section."
-[print_click_to_print]
-other = "Click here to print"
-[print_show_regular]
-other = "Return to the regular view of this page"
-[print_entire_section]
-other = "Print entire section"
+[enable_light_mode]
+    other = "Enable light mode"
 
-# Community
-[community_join]
-other = "Join the {{ .Site.Title }} community"
-[community_introduce]
-other = "{{ .Site.Title }} is an open source project that anyone in the community can use, improve, and enjoy. We'd love you to join us! Here's a few ways to find out what's happening and get involved."
-[community_learn]
-other = "Learn and Connect"
-[community_using]
-other = "Using or want to use {{ .Site.Title }}? Find out more here:"
-[community_develop]
-other = "Develop and Contribute"
-[community_contribute]
-other = "If you want to get more involved by contributing to {{ .Site.Title }}, join us here:"
-[community_how_to]
-other = "You can find out how to contribute to these docs in our"
-[community_guideline]
-other = "Contribution Guidelines"
-
-# custom
-
-[copied]
-other = "Copied"
+[enable_dark_mode]
+    other = "Enable dark mode"
