@@ -29,8 +29,7 @@ precisely what is deployed in the future.
 
 Some visualized files/directories have links attached, follow them to get more information.
 
-<!-- markdown-link-check-disable -->
-<pre>
+```
 -- project-dir/
    |-- <a href="./deployment-yml">deployment.yaml</a>
    |-- .gitignore
@@ -60,8 +59,7 @@ Some visualized files/directories have links attached, follow them to get more i
    |       `-- ... subsubsub deployments
    `-- sub-deployment/
        `-- ...
-</pre>
-<!-- markdown-link-check-enable -->
+```
 
 ## Order of deployments
 Deployments are done in parallel, meaning that there are usually no order guarantees. The only way to somehow control

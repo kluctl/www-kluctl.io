@@ -6,7 +6,7 @@ slug: templating-and-diffs-with-kustomize
 date: 2022-11-17
 author: Alexander Block (@codablock)
 images:
-  - "/images/blog/templating-and-diffs-with-kustomize.png"
+  - "/images/blog/cover/Templating in Kustomize.png"
 ---
 
 ![image](/images/blog/templating-and-diffs-with-kustomize.png)

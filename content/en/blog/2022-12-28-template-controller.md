@@ -7,7 +7,7 @@ date: 2022-12-28
 author: Alexander Block (@codablock)
 images:
 
-- "images/blog/template-controller.jpg"
+- "images/blog/cover/Template Controller.png"
 
 tags: ["Announcement"]
 description: "The template-controller is a Kubernetes controller that can create arbitrary objects based on dynamic templates and arbitrary input objects."
