@@ -259,6 +259,11 @@ prism_syntax_highlighting = false
     links_heading = "Links"
     copyright_text = "The Kluctl Authors. All Rights Reserved."
 
+[params.author]
+    # default author for blog posts
+    name = "Alexander Block"
+    image = "images/authors/alexander.jpg" # relative to assets the folder
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
