@@ -169,7 +169,7 @@
 							{{ $images := . }}
 							{{ $image := index $images 0 }}
 
-							{{- $filter := images.Process "resize 368x230 webp q95" -}}
+							{{- $filter := images.Process "resize 438x230 webp q95" -}}
 
 							{{- with resources.Get $image -}}
 							{{- with . | images.Filter $filter -}}
