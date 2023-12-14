@@ -8,7 +8,7 @@ defaultContentLanguageInSubdir = false
 enableMissingTranslationPlaceholders = true
 
 enableRobotsTXT = true
-
+paginate = 5
 # Hugo allows theme composition (and inheritance). The precedence is from left to right.
 theme = ["lotusdocs"]
 
