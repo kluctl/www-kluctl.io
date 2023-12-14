@@ -2,15 +2,14 @@
 // sidebar.scss
 //
 .page-wrapper {
-    height: 100vh;
     .sidebar-wrapper {
         // box-shadow: $shadow;
         // border-right: 1px solid var(--sidebar-border-color);
         transition: all 0.3s ease;
-        width: 260px;
-        height: 100%;
-        max-height: 100%;
-        position: fixed;
+        width: 270px;
+        height: calc(100vh - 50px);
+        position: sticky;
+        float: left;
         top: 0;
         left: -300px;
         z-index: 999;
@@ -18,13 +17,8 @@
         @media (min-width: 1025px) {
             z-index: 1000;
         }
-
         @media  (max-width: 1024px) {
-            left: 0;
-        }
-
-        @media  (max-width: 425px) {
-            width: 260px;
+            display: none;
         }
         ul {
             list-style-type: none;
@@ -36,19 +30,16 @@
         }
         .sidebar-content {
             background: var(--sidebar-bg);
-            max-height: calc(100% - 30px);
-            height: calc(100% - 30px);
-            overflow: scroll;
+            padding-right: 10px;
+            height: calc(100% - 45px);
+            overflow: auto;
             overflow-x: hidden;
-            overflow-y: overlay;
             position: relative;
             &.desktop {
                 overflow-y: hidden;
             }
             border-right: 1px solid var(--sidebar-border-color);
 
-            scrollbar-width: thin;
-            scrollbar-color: var(--sidebar-bg) var(--sidebar-bg);
             // &::-webkit-scrollbar {
             //     display: none;
             // }
@@ -56,17 +47,7 @@
         .sidebar-content:hover {
             scrollbar-color: var(--sidebar-scrollbar-thumb-color) var(--sidebar-bg);
         }
-        .sidebar-content::-webkit-scrollbar {
-            width: 5px;
-            height: 8px;
-        }
-        .sidebar-content::-webkit-scrollbar-track {
-            background: var(--sidebar-bg);
-            display: none;
-        }
-        .sidebar-content:hover::-webkit-scrollbar-thumb {
-            background: var(--sidebar-scrollbar-thumb-color);
-        }
+
         .sidebar-brand {
             background: var(--sidebar-bg);
             padding: 10px 20px;
@@ -169,13 +150,6 @@
                     > a:before {
                     // content: "\e931" !important;
                     content: none !important;
-                    }
-
-                    > .btn {
-                        margin: 1px 0 1px 0;
-                        &:hover {
-                            margin: 1px 0 1px 0;
-                        }
                     }
                 }
             }
@@ -333,15 +307,23 @@
             .logo-light-mode {
                 display: inline-block;
             }
+            .kluctl_logo_text {
+                fill: var(--logo-text-color);
+            }
         }
     }
 
     .page-content {
         display: inline-block;
-        width: 100%;
+        width: calc( 100% - 270px );
         padding-left: 0px;
         // overflow-x: hidden;
         transition: all 0.3s ease;
+
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
+        
         .top-header {
             position: fixed;
             right: 0;
@@ -376,7 +358,7 @@
                             display: block;
                         }
                         svg {
-                            height: 22px;
+                            height: 31px;
                         }
                     }
                     .big {
@@ -409,7 +391,7 @@
     &.toggled {
         @media screen and (min-width: 1025px) {
             .page-content {
-                padding-left: 300px;
+                padding-left: 45px;
             }
         }
         .top-header {
