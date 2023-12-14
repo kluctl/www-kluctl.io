@@ -15,7 +15,12 @@
     --toc-mobile-menu-bg-color: var(--body-bg);
     --toc-mobile-link-hover-color: var(--primary-300);
 }
-
+.breadcrumb-container {
+    padding-left: 40px;
+    @media (max-width: 1199px) {
+        padding-left: 0px;
+    }
+}
 .docs-toc-mobile {
     position: sticky;
     // top: 71px; // important (must be set)
@@ -85,6 +90,10 @@
     scrollbar-width: thin;
     scrollbar-color: var(--simplebar-color) rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
 
+    a {
+        text-decoration: none;
+    }
+    
     // visually-hidden
     @media (max-width: 1199px) {
         position: absolute !important;
