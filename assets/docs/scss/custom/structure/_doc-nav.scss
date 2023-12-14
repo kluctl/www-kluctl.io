@@ -19,6 +19,10 @@
     .card-text {
         color: var(--text-muted);
     }
+
+    a {
+        text-decoration: none;
+    }
 }
 
 @media (max-width: 425px) {
