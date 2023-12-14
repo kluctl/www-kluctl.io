@@ -44,12 +44,12 @@ theme = ["lotusdocs"]
 
 [[menu.main]]
     name  = "Blog"
-    url = "blog/"
+    url = "/blog"
     weight = 20
 
 [[menu.main]]
     name  = "Community"
-    url = "community/"
+    url = "/community"
     weight = 30
 
 # Links in the footer
@@ -65,17 +65,17 @@ theme = ["lotusdocs"]
 
 [[menu.footer]]
     name  = "Blog"
-    url = "blog/"
+    url = "/blog"
     weight = 30
 
 [[menu.footer]]
     name  = "Community"
-    url = "community/"
+    url = "/community"
     weight = 40
 
 [[menu.footer]]
     name  = "Privacy policy"
-    url = "privacy/"
+    url = "/privacy"
     weight = 50
 
 # Will give values to .Lastmod etc.
