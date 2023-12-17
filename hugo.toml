@@ -256,7 +256,7 @@ prism_syntax_highlighting = false
 # Configurations for CTA and footer sections
 [params.footer]
     # CTA section
-    cta = "Ready to Solve Your Deployment Issues?"
+    cta = "Ready to Solve Your Kubernetes Deployment Issues?"
     button_text = "Get started"
     button_link = "/docs"
 
