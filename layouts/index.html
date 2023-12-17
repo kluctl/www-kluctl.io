@@ -49,8 +49,10 @@
 	{{ end }}{{/* Hero section end */}}
 
 
-	{{ with .Params.deploymentSection }}
+	{{- with .Params.deploymentSection -}}
 	{{/* Deployment section start */}}
+	{{- $enable := .enable -}}
+	{{- if $enable -}}
 	<section id="Deployment">
 		<div class="deployment-wrapper">
 			<div class="container">
@@ -92,7 +94,8 @@
 			</div>
 		</div>
 	</section>
-	{{- end -}}{{/* Deployment section end */}}
+	{{- end -}}{{/* if $enable end */}}
+	{{- end -}}{{/* with .Params.deploymentSection end */}}
 
 	{{- with .Params.featuresSection }}
 	{{/* Features section start */}}

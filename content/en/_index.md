@@ -11,7 +11,7 @@ publishdate: "2023-05-03T22:37:22+01:00"
 ################## Hero section ##################
 heroSection:
   title: Kluctl - Trust Your Deployments.
-  paragraph: Easily handle deployments of any size, complexity, and across various environments using Kluctl.
+  paragraph: Easily handle Kubernetes deployments of any size, complexity, and across various environments using Kluctl.
   button:
     link: docs/
     text: Get Started
@@ -24,7 +24,8 @@ heroSection:
 
 ################## Deployment section ##################
 deploymentSection:
-  title: Take Your Deployments to the Next Level
+  enable: false
+  title: Take Your Kubernetes Deployments to the Next Level
   paragraph: Kluctl is the missing glue to put together large Kubernetes deployments.
   image:
     url: images/home/deployment-img.png # relative to the assets folder
@@ -36,7 +37,7 @@ deploymentSection:
 ################## Features section ##################
 featuresSection:
   title: Features
-  paragraph: Don’t waste time switching between multiple tools to manage your deployments. Kluctl is one tool to rule them all.
+  paragraph: Don’t waste time switching between multiple tools to manage your Kubernetes deployments. Kluctl is one tool to rule them all.
   featureList:
     # feature list item 1
     - title : "Native Git support"
