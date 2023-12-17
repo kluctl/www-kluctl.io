@@ -37,46 +37,53 @@ theme = ["lotusdocs"]
 
 [menu]
 # Links in the header (main menu)
+# The page reference (pageRef) is useful for menu highlighting
+# When pageRef is set, setting `url` is optional; it will be used as a fallback if the page is not found.
 [[menu.main]]
     name  = "Home"
-    url = "/"
+    pageRef = "/"
     weight = 10
 
 [[menu.main]]
     name  = "Blog"
-    url = "/blog"
+    pageRef = "blog"
     weight = 20
 
 [[menu.main]]
     name  = "Community"
-    url = "/community"
+    pageRef = "community"
     weight = 30
 
 # Links in the footer
 [[menu.footer]]
     name  = "Home"
-    url = "/"
+    pageRef = "/"
     weight = 10
 
 [[menu.footer]]
     name  = "Docs"
-    url = "/docs"
+    pageRef = "docs"
     weight = 20
 
 [[menu.footer]]
     name  = "Blog"
-    url = "/blog"
+    pageRef = "blog"
     weight = 30
 
 [[menu.footer]]
     name  = "Community"
-    url = "/community"
+    pageRef = "community"
     weight = 40
 
 [[menu.footer]]
-    name  = "Privacy policy"
-    url = "/privacy"
+    name  = "Privacy"
+    pageRef = "privacy"
     weight = 50
+
+[[menu.footer]]
+    name  = "Impressum"
+    pageRef = "impressum"
+    weight = 60
 
 # Will give values to .Lastmod etc.
 enableGitInfo = true
@@ -189,7 +196,7 @@ github_project_repo = "https://github.com/kluctl/kluctl"
 # gcs_engine_id = "d72aa9b2712488cc3"
 
     [params.docs] # Parameters for the /docs 'template'
-        title           = "Lotus Docs Example Site"           # default html title for documentation pages/sections
+        title           = "Kluctl documentaion"           # default html title for documentation pages/sections
 
         # pathName        = "docs"                            # path name for documentation site | default "docs"
 
