@@ -1,5 +1,6 @@
 ---
 title: Impressum
+description: Impressum for Kluctl.io
 noindex: true
 ---
 <div class='impressum'><p>Angaben gemäß § 5 TMG</p>
