@@ -26,8 +26,8 @@ you will also gain some experience and feeling for to use kluctl.
 Let's start with a simple refactoring. Having all deployment items on the root level will easily get unmaintainable.
 
 kluctl allows you to structure your project in all kinds of fashions by leveraging sub-deployments. The
-[deployment items]({{< ref "docs/kluctl/deployments/deployment-yml#deployments" >}}) found in deployment projects
-allows specifying [includes]({{< ref "docs/kluctl/deployments/deployment-yml#includes" >}}) which point to sub-directory
+[deployment items]({{< ref "docs/kluctl/latest/deployments/deployment-yml#deployments" >}}) found in deployment projects
+allows specifying [includes]({{< ref "docs/kluctl/latest/deployments/deployment-yml#includes" >}}) which point to sub-directory
 with another `deployment.yml`.
 
 Let's split the deployment into third-party applications (currently only redis) and the project specific microservices.
@@ -76,7 +76,7 @@ To get an overview of these changes, look into [this commit](https://github.com/
 inside the example project belonging to this tutorial.
 
 If you deploy the new state of the project, you'll notice that only labels will change. These labels are automatically
-added to all resources and represent the [tags]({{< ref "docs/kluctl/deployments/tags" >}}) of the corresponding
+added to all resources and represent the [tags]({{< ref "docs/kluctl/latest/deployments/tags" >}}) of the corresponding
 deployment items.
 
 ## Some notes on project structure
@@ -91,10 +91,10 @@ already a large ecosystem of pre-created Kubernetes packages in the form of [Hel
 The redis deployment found in the microservices demo is a good example for this, especially as many available Helm Charts
 offer quite some functionality, for example high availability.
 
-kluctl allows the [integration]({{< ref "docs/kluctl/deployments/helm" >}}) of Helm Charts, which we will do now to
+kluctl allows the [integration]({{< ref "docs/kluctl/latest/deployments/helm" >}}) of Helm Charts, which we will do now to
 replace the self-crafted redis deployment with the [Bitname Redis Chart](https://artifacthub.io/packages/helm/bitnami/redis).
 
-First, create the file [`third-party/redis/helm-chart.yml`]({{< ref "docs/kluctl/deployments/helm#helm-chartyml" >}}) with the following content:
+First, create the file [`third-party/redis/helm-chart.yml`]({{< ref "docs/kluctl/latest/deployments/helm#helm-chartyml" >}}) with the following content:
 ```yaml
 helmChart:
   repo: https://charts.bitnami.com/bitnami
@@ -117,7 +117,7 @@ resources:
   - deploy.yml
 ```
 
-We now need some configuration for the redis chart, which is provides via `[`third-party/redis/helm-values.yml`]({{< ref "docs/kluctl/deployments/helm#helm-valuesyml" >}}):
+We now need some configuration for the redis chart, which is provides via `[`third-party/redis/helm-values.yml`]({{< ref "docs/kluctl/latest/deployments/helm#helm-valuesyml" >}}):
 ```yaml
 architecture: replication
 

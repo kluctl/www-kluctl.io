@@ -28,7 +28,7 @@ from a list of generators (e.g. Git) and an `Application` template.
 
 The Template Controller uses a different approach, making it more flexible and independent of the GitOps system being
 used. It uses arbitrary Kubernetes objects as inputs and allows to create templated objects of any kind 
-(e.g. a Flux Helm Release or a [KluctlDeployment]({{< ref "docs/gitops/spec/v1beta1/kluctldeployment" >}})).
+(e.g. a Flux Helm Release or a [KluctlDeployment]({{< ref "docs/gitops/latest/spec/v1beta1/kluctldeployment" >}})).
 This makes the controller very extensible, as any type of input can be implemented with the help of additional
 controllers which are not necessarily part of the project.
 
@@ -39,7 +39,7 @@ specifying a [JSON Path](https://goessner.net/articles/JsonPath/) that select th
 
 The Template Controller implements this functionality through the [ObjectTemplate](https://kluctl.io/docs/template-controller/spec/v1alpha1/objecttemplate/)
 CRD. As the name implies, it also uses a templating engine, which is identical to the one used in
-[Kluctl](https://kluctl.io/docs/kluctl/reference/templating/), with the `ObjectTemplate's` input matrix available as
+[Kluctl](https://kluctl.io/docs/kluctl/latest/reference/templating/), with the `ObjectTemplate's` input matrix available as
 global variables.
 
 ## Preparation
@@ -144,7 +144,7 @@ when a pull request introduces changes that need to be tested before these are m
 In a GitOps-based setup, one would need to create the relevant custom resources per preview environment, for example
 a [Flux Kustomization](https://fluxcd.io/flux/components/kustomize/kustomization/),
 [Flux HelmRelease](https://fluxcd.io/flux/components/helm/helmreleases/) or a
-or [KluctlDeployment]({{< ref "docs/gitops/spec/v1beta1/kluctldeployment" >}}). The underlying GitOps controller
+or [KluctlDeployment]({{< ref "docs/gitops/latest/spec/v1beta1/kluctldeployment" >}}). The underlying GitOps controller
 would then take over and perform the actual deployment.
 
 In the following examples we will concentrate on using `KluctlDeployments`. Changing it to use `Kustomizations` or
