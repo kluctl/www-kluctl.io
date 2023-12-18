@@ -16,22 +16,22 @@ command = """
 
 [[redirects]]
   from = "/docs/reference/*"
-  to = "/docs/kluctl/reference/:splat"
+  to = "/docs/kluctl/latest/reference/:splat"
 [[redirects]]
   from = "/docs/concepts"
-  to = "/docs/kluctl/concepts"
+  to = "/docs/kluctl/latest/concepts"
 [[redirects]]
   from = "/docs/get-started"
-  to = "/docs/kluctl/get-started"
+  to = "/docs/kluctl/latest/get-started"
 [[redirects]]
   from = "/docs/history"
-  to = "/docs/kluctl/history"
+  to = "/docs/kluctl/latest/history"
 [[redirects]]
   from = "/docs/installation"
-  to = "/docs/kluctl/installation"
+  to = "/docs/kluctl/latest/installation"
 [[redirects]]
   from = "/docs/philosophy"
-  to = "/docs/kluctl/philosophy"
+  to = "/docs/kluctl/latest/philosophy"
 
 [[redirects]]
   from = "/docs/flux/*"
@@ -39,13 +39,13 @@ command = """
 
 [[redirects]]
   from = "/docs/kluctl/concepts"
-  to = "/docs/kluctl"
+  to = "/docs/kluctl/latest"
 [[redirects]]
   from = "/docs/kluctl/history"
-  to = "/docs/kluctl"
+  to = "/docs/kluctl/latest"
 [[redirects]]
   from = "/docs/kluctl/philosophy"
-  to = "/docs/kluctl"
+  to = "/docs/kluctl/latest"
 
 [[redirects]]
   from = "/docs/kluctl/reference/gitops/*"
@@ -53,3 +53,19 @@ command = """
 [[redirects]]
   from = "/docs/kluctl/reference/*"
   to = "/docs/kluctl/:splat"
+
+[[redirects]]
+  from = "/docs/kluctl/commands/*"
+  to = "/docs/kluctl/latest/commands/:splat"
+[[redirects]]
+  from = "/docs/kluctl/deployments/*"
+  to = "/docs/kluctl/latest/deployments/:splat"
+[[redirects]]
+  from = "/docs/kluctl/kluctl-libraries/*"
+  to = "/docs/kluctl/latest/kluctl-libraries/:splat"
+[[redirects]]
+  from = "/docs/kluctl/kluctl-project/*"
+  to = "/docs/kluctl/latest/kluctl-project/:splat"
+[[redirects]]
+  from = "/docs/kluctl/templating/*"
+  to = "/docs/kluctl/latest/templating/:splat"
