@@ -2,12 +2,13 @@ package main
 
 import (
 	"bytes"
-	"encoding/json"
+	"context"
 	"flag"
 	"fmt"
-	"io"
+	"github.com/Masterminds/semver/v3"
+	"github.com/google/go-github/v57/github"
+	yaml3 "gopkg.in/yaml.v3"
 	"io/fs"
-	"net/http"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -16,77 +17,70 @@ import (
 	"strings"
 	"time"
 	"unicode"
-
-	"github.com/Masterminds/semver/v3"
-	yaml3 "gopkg.in/yaml.v3"
-
-	cp "github.com/otiai10/copy"
 )
 
-var repo = flag.String("repo", "", "")
-var subdir = flag.String("subdir", "", "")
-var dest = flag.String("dest", "", "")
-var withRootReadme = flag.Bool("with-root-readme", false, "")
-var ref = flag.String("ref", "", "")
+var argRepo = flag.String("repo", "", "")
+var argMinVersion = flag.String("min-version", "", "")
+var argSubdir = flag.String("subdir", "", "")
+var argDest = flag.String("dest", "", "")
+var argWithRootReadme = flag.Bool("with-root-readme", false, "")
 
 func main() {
 	flag.Parse()
 
-	err := doMain()
+	err := doMain(context.Background())
 	if err != nil {
 		panic(err)
 	}
 }
 
-func getLatestTag(repo string) (string, error) {
-	resp, err := http.Get(fmt.Sprintf("https://api.github.com/repos/%s/tags", repo))
-	if err != nil {
-		return "", err
-	}
-	if resp.StatusCode < 200 || resp.StatusCode > 299 {
-		return "", fmt.Errorf("get returned %d", resp.StatusCode)
+func getReleaseTags(ctx context.Context, owner string, repo string, minVersion string) (semver.Collection, error) {
+	client := github.NewClient(nil)
+
+	opt := github.ListOptions{
+		PerPage: 100,
 	}
 
-	respBytes, err := io.ReadAll(resp.Body)
+	minVersion2, err := semver.NewVersion(minVersion)
 	if err != nil {
-		return "", err
-	}
-
-	var tags []map[string]any
-	err = json.Unmarshal(respBytes, &tags)
-	if err != nil {
-		return "", err
+		return nil, err
 	}
 
 	var versions semver.Collection
-	for _, tag := range tags {
-		name, ok := tag["name"]
-		if !ok {
-			continue
-		}
-		nameStr, ok := name.(string)
-		if !ok {
-			continue
-		}
-		v, err := semver.NewVersion(nameStr)
+	for {
+		r, resp, err := client.Repositories.ListReleases(ctx, owner, repo, &opt)
 		if err != nil {
-			return "", err
+			return nil, err
 		}
-		versions = append(versions, v)
+		for _, x := range r {
+			v, err := semver.NewVersion(*x.TagName)
+			if err != nil {
+				continue
+			}
+			if v.LessThan(minVersion2) {
+				continue
+			}
+			versions = append(versions, v)
+		}
+		if resp.NextPage == 0 {
+			break
+		}
+		opt.Page = resp.NextPage
 	}
 	sort.Sort(versions)
 
-	return versions[len(versions)-1].Original(), nil
+	return versions, nil
 }
 
-func doMain() error {
-	version, err := getLatestTag(*repo)
-	if err != nil {
-		return err
+func doMain(ctx context.Context) error {
+	s := strings.Split(*argRepo, "/")
+	if len(s) != 2 {
+		return fmt.Errorf("unexpected repo %s", *argRepo)
 	}
 
-	if *ref != "" {
-		version = *ref
+	versions, err := getReleaseTags(ctx, s[0], s[1], *argMinVersion)
+	if err != nil {
+		return err
 	}
 
 	tmpDir, err := os.MkdirTemp("", "")
@@ -97,40 +91,53 @@ func doMain() error {
 
 	repoDir := filepath.Join(tmpDir, "repo")
 
-	localRepoPrefix := os.Getenv("LOCAL_REPO_PREFIX")
-	if localRepoPrefix != "" {
-		localRepoPath := filepath.Join(localRepoPrefix, *repo)
-		err = cp.Copy(localRepoPath, repoDir, cp.Options{
-			Skip: func(srcinfo os.FileInfo, src, dest string) (bool, error) {
-				if srcinfo.Name() == "node_modules" {
-					return true, nil
-				}
-				return false, nil
-			},
-		})
-		if err != nil {
-			return fmt.Errorf("failed to copy from LOCAL_REPO_PREFIX: %w", err)
-		}
-	} else {
-		cmd := exec.Command("git", "clone", fmt.Sprintf("https://github.com/%s.git", *repo), repoDir)
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		err = cmd.Run()
-		if err != nil {
-			return err
-		}
+	cmd := exec.Command("git", "clone", fmt.Sprintf("https://github.com/%s.git", *argRepo), repoDir)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	err = cmd.Run()
+	if err != nil {
+		return err
+	}
 
-		cmd = exec.Command("git", "checkout", "-b", fmt.Sprintf("%s-temp-branch", version), version)
-		cmd.Stdout = os.Stdout
-		cmd.Stderr = os.Stderr
-		cmd.Dir = repoDir
-		err = cmd.Run()
+	cmd = exec.Command("git", "config", "advice.detachedHead", "false")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Dir = repoDir
+	err = cmd.Run()
+	if err != nil {
+		return err
+	}
+
+	for _, version := range versions {
+		dest := filepath.Join(*argDest, "v"+version.String())
+		err = processRef(ctx, repoDir, *argSubdir, "v"+version.String(), dest, *argWithRootReadme)
 		if err != nil {
 			return err
 		}
 	}
 
-	repoSubDir := filepath.Join(repoDir, *subdir)
+	err = processRef(ctx, repoDir, *argSubdir, "v"+versions[len(versions)-1].String(), filepath.Join(*argDest, "latest"), *argWithRootReadme)
+	if err != nil {
+		return err
+	}
+	err = processRef(ctx, repoDir, *argSubdir, "main", filepath.Join(*argDest, "devel"), *argWithRootReadme)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func processRef(ctx context.Context, repoDir string, subdir string, ref string, dest string, withRootReadme bool) error {
+	cmd := exec.Command("git", "checkout", ref, "--")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Dir = repoDir
+	err := cmd.Run()
+	if err != nil {
+		return err
+	}
+
+	repoSubDir := filepath.Join(repoDir, subdir)
 	err = filepath.WalkDir(repoSubDir, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
@@ -155,7 +162,7 @@ func doMain() error {
 			relDestPath = filepath.Join(filepath.Dir(relDestPath), "_index.md")
 		}
 
-		err = processFile(path, filepath.Join(*dest, relDestPath), repoDir, relGitPath)
+		err = processFile(path, filepath.Join(dest, relDestPath), repoDir, relGitPath)
 		if err != nil {
 			return fmt.Errorf("failed to process %s, %w", path, err)
 		}
@@ -166,18 +173,18 @@ func doMain() error {
 		return err
 	}
 
-	if *withRootReadme {
+	if withRootReadme {
 		b, err := os.ReadFile(filepath.Join(repoDir, "README.md"))
 		if err != nil {
 			return err
 		}
-		b = bytes.ReplaceAll(b, []byte(fmt.Sprintf("./%s/", *subdir)), []byte("./"))
+		b = bytes.ReplaceAll(b, []byte(fmt.Sprintf("./%s/", subdir)), []byte("./"))
 		err = os.WriteFile(filepath.Join(repoDir, "README.md"), b, 0600)
 		if err != nil {
 			return err
 		}
 
-		err = processFile(filepath.Join(repoDir, "README.md"), filepath.Join(*dest, "_index.md"), repoDir, "README.md")
+		err = processFile(filepath.Join(repoDir, "README.md"), filepath.Join(dest, "_index.md"), repoDir, "README.md")
 		if err != nil {
 			return err
 		}
@@ -241,7 +248,7 @@ outer2:
 	title := frontMatter["title"]
 
 	// add github links
-	frontMatter["github_repo"] = fmt.Sprintf("https://github.com/%s", *repo)
+	frontMatter["github_repo"] = fmt.Sprintf("https://github.com/%s", *argRepo)
 	frontMatter["path_base_for_github_subdir"] = map[string]any{
 		"from": ".*",
 		"to":   fmt.Sprintf("main/%s", relGitPath),
@@ -252,6 +259,12 @@ outer2:
 		return err
 	}
 	frontMatter["lastmod"] = lastMod.Format(time.RFC3339)
+
+	lines = append([]string{
+		"<!-- WARNING WARNING WARNING -->",
+		fmt.Sprintf("<!-- DO NOT EDIT THIS FILE, IT IS AUTO SYNCED FROM github.com/%s -->", *argRepo),
+		"<!-- WARNING WARNING WARNING -->",
+	}, lines...)
 
 	// remove unnecessary "# title"
 	for i, l := range lines {

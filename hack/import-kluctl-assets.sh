@@ -51,10 +51,10 @@ setup_verify_arch() {
     setup_verify_os
     setup_verify_arch
 
-    go run ./sync-docs --repo kluctl/kluctl --subdir docs/kluctl --dest content/en/docs/kluctl
-    go run ./sync-docs --repo kluctl/kluctl --subdir docs/gitops --dest content/en/docs/gitops
-    go run ./sync-docs --repo kluctl/kluctl --subdir docs/webui --dest content/en/docs/webui
-    go run ./sync-docs --repo kluctl/template-controller --subdir docs --dest content/en/docs/template-controller --with-root-readme
+    go run ./sync-docs --repo kluctl/kluctl --subdir docs/kluctl --dest content/en/docs/kluctl --min-version=v2.21.0
+    go run ./sync-docs --repo kluctl/kluctl --subdir docs/gitops --dest content/en/docs/gitops --min-version=v2.21.0
+    go run ./sync-docs --repo kluctl/kluctl --subdir docs/webui --dest content/en/docs/webui --min-version=v2.21.0
+    go run ./sync-docs --repo kluctl/template-controller --subdir docs --dest content/en/docs/template-controller --with-root-readme --min-version=v0.7.1
 }
 
 {
