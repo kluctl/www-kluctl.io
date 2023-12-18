@@ -8,7 +8,7 @@
     --content-icon-color: var(--primary);
     --content-icon-bg: var(--sidebar-icon-bg);
     --content-icon-border: var(--sidebar-icon-bg);
-    --content-link-color: var(--primary);
+    --content-link-color: var(--primary-700);
 
     --ordered-list-bg: var(--gray-300);
     --ordered-list-color: var(--gray-800);
@@ -47,7 +47,7 @@
     font-weight: 600;
     color: var(--content-link-color);
     &:hover {
-        text-decoration: underline 2px var(--primary-200);
+        text-decoration: underline 2px var(--primary-400);
         text-underline-offset: 2.5px !important;
         transition: 0s !important;
     }
