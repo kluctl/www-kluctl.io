@@ -59,8 +59,5 @@ setup_verify_arch() {
 
 {
   # provide Kluctl install script
-  if [ ! -d static ]; then
-    mkdir static
-  fi
   curl -f -s -# -Lf https://raw.githubusercontent.com/kluctl/kluctl/main/install/kluctl.sh -o static/install.sh
 }
