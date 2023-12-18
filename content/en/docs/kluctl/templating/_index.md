@@ -1,13 +1,13 @@
 ---
 description: Templating Engine.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-08-26T09:38:51+02:00"
+lastmod: "2023-12-18T17:40:02+01:00"
 linkTitle: Templating
 path_base_for_github_subdir:
     from: .*
     to: main/docs/kluctl/templating/README.md
 title: Templating
-weight: 2
+weight: 40
 ---
 
 

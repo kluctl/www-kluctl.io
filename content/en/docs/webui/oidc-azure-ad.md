@@ -1,13 +1,13 @@
 ---
 description: Azure AD Integration
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-11-02T14:45:33+01:00"
+lastmod: "2023-12-18T17:40:02+01:00"
 linkTitle: Azure AD Integration
 path_base_for_github_subdir:
     from: .*
     to: main/docs/webui/oidc-azure-ad.md
 title: Azure AD Integration
-weight: 20
+weight: 30
 ---
 
 

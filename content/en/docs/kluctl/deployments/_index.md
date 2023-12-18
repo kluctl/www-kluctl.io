@@ -1,13 +1,13 @@
 ---
 description: Deployments and sub-deployments.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-17T00:30:26+02:00"
+lastmod: "2023-12-18T17:40:02+01:00"
 linkTitle: Deployments
 path_base_for_github_subdir:
     from: .*
     to: main/docs/kluctl/deployments/README.md
 title: Deployments
-weight: 2
+weight: 30
 ---
 
 
@@ -27,11 +27,9 @@ as you need.
 Each level in this structure recursively adds [tags](./tags.md) to each deployed resources, allowing you to control
 precisely what is deployed in the future.
 
-Some visualized files/directories have links attached, follow them to get more information.
-
 ```
 -- project-dir/
-   |-- <a href="./deployment-yml">deployment.yaml</a>
+   |-- deployment.yaml
    |-- .gitignore
    |-- kustomize-deployment1/
    |   |-- kustomization.yaml
@@ -47,7 +45,7 @@ Some visualized files/directories have links attached, follow them to get more i
    |   |   |-- resource2.yaml
    |   |   |-- patch1.yaml
    |   |   `-- ...
-   |   |-- <a href="./helm">kustomize-with-helm-deployment/</a>
+   |   |-- kustomize-with-helm-deployment
    |   |   |-- charts/
    |   |   |   `-- ...
    |   |   |-- kustomization.yaml

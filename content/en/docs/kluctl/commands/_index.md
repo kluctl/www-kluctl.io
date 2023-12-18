@@ -1,13 +1,13 @@
 ---
 description: Description of available commands.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-18T21:57:43+02:00"
+lastmod: "2023-12-18T17:40:02+01:00"
 linkTitle: Commands
 path_base_for_github_subdir:
     from: .*
     to: main/docs/kluctl/commands/README.md
 title: Commands
-weight: 10
+weight: 50
 ---
 
 
