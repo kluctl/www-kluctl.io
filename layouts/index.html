@@ -1,0 +1,216 @@
+{{ define "main" }}
+<main>
+	{{ with .Params.heroSection }}
+	{{/* Hero section start */}}
+	<section id="Hero">
+		<div class="hero-wrapper position-relative">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6">
+						<div class="hero-content">
+							<h1>{{ .title }}</h1>
+							<p>{{ .paragraph }}</p>
+							{{ with .button }}
+							<div class="hero-btn">
+								<a href="{{ .link }}">{{ .text }}</a>
+							</div>
+							{{ end }}
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="hero-img position-relative float-lg-end">
+							{{- $altText := .image.altText -}}
+
+							{{- $filter := images.Process "webp q95" -}}
+							{{- with .image.url -}}
+							{{- with resources.Get . -}}
+							{{- with . | images.Filter $filter -}}
+							<img src="{{ .RelPermalink }}" alt="{{ $altText }}">
+							{{- end -}}
+							{{- end -}}
+							{{- end -}}
+
+							{{- $altTextIcon := .icon.altText -}}
+							{{- with .icon.url -}}
+							{{- with resources.Get . -}}
+							<div class="hero-shape">
+								<img src="{{ .RelPermalink }}" alt="{{ $altTextIcon }}" />
+							</div>
+							{{- end -}}
+							{{- end -}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	{{ end }}{{/* Hero section end */}}
+
+
+	{{- with .Params.deploymentSection -}}
+	{{/* Deployment section start */}}
+	{{- $enable := .enable -}}
+	{{- if $enable -}}
+	<section id="Deployment">
+		<div class="deployment-wrapper">
+			<div class="container">
+				<div class="row flex-column-reverse flex-lg-row align-items-center">
+					<div class="col-lg-6 pe-lg-5">
+						<div class="deployment-img">
+							{{- $altText := .image.altText -}}
+
+							{{- $filter := images.Process "webp q95" -}}
+							{{- with .image.url -}}
+							{{- with resources.Get . -}}
+							{{- with . | images.Filter $filter -}}
+							<img src="{{ .RelPermalink }}" alt="{{ $altText }}">
+							{{- end -}}
+							{{- end -}}
+							{{- end -}}
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="deployment-content">
+							<h2>{{ .title }}</h2>
+							<p>{{ .paragraph }}</p>
+							<ul>
+								{{ range .featureList }}
+								<li class="d-flex">
+									<div class="check">
+										<i class="fa-solid fa-check"></i>
+									</div>
+									<p> {{ . | markdownify }} </p>
+								</li>
+								{{ end }}
+							</ul>
+							<div class="learn-more-btn mt-4">
+								<a href="docs/">Learn More  <i class="fa-solid fa-arrow-right-long"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	{{- end -}}{{/* if $enable end */}}
+	{{- end -}}{{/* with .Params.deploymentSection end */}}
+
+	{{- with .Params.featuresSection }}
+	{{/* Features section start */}}
+	<section id="Features">
+		<div class="features-wrapper">
+			<div class="container">
+				<div class="section-top">
+					<h2>{{ .title }}</h2>
+					<p>{{ .paragraph }}</p>
+				</div>
+				<div class="features-card-container">
+					{{- range .featureList }}
+					{{- $title := .title }}
+					<div class="features-card">
+						{{- with .icon -}}
+						{{- with resources.Get . -}}
+						<div class="features-card-icon">
+							<img src="{{ .RelPermalink }}" alt="{{ $title }} icon" />
+						</div>
+						{{- end -}}
+						{{- end -}}
+						<div class="features-card-content">
+							<h5>{{ $title }}</h5>
+							<p>{{ .description }}</p>
+						</div>
+					</div>
+					{{- end }}
+				</div>
+			</div>
+		</div>
+	</section>
+	{{- end -}}{{/* Features section end */}}
+
+
+	{{- with .Params.actionSection }}
+	{{/* Kluctl in action section start */}}
+	<section id="Action">
+		<div class="action-wrapper">
+			<div class="container">
+				<div class="section-top">
+					<h2>{{ .title }}</h2>
+				</div>
+				{{- with .video }}
+				<div class="action-video">
+					<video controls>
+						<source src="{{ . | relURL }}" type="video/mp4" />
+					</video>
+				</div>
+				{{- end }}
+			</div>
+		</div>
+	</section>
+	{{- end -}}{{/* Kluctl in action section end */}}
+
+	{{/* News and updates section start */}}
+	<section id="News">
+		<div class="news-wrapper">
+			<div class="container">
+				<div class="section-top">
+					<h2>{{ .Params.newsSection.title }} </h2>
+				</div>
+				<div class="row news-container">
+
+					{{/* Show 3 recent blog posts */}}
+					{{ $pagesToShow := where .Site.RegularPages "Type" "in" "blog" }}
+					{{ $sortedPosts := $pagesToShow.ByDate.Reverse }}
+					{{ $latestPosts := first 3 $sortedPosts }}
+					{{ range $i, $_ := $latestPosts }}
+					{{ $title := .Params.linkTitle }}
+					<a href="{{ .RelPermalink }}"
+						class="col-md-6 col-lg-4 pt-5 {{ if eq $i 2 }}pt-sm-5 pt-lg-0{{ else }}pt-md-0{{ end }}">
+						<article class="news-card">
+							{{ with .Params.images }}
+							{{ $images := . }}
+							{{ $image := index $images 0 }}
+
+							{{- $filter := images.Process "resize 438x230 webp q95" -}}
+
+							{{- with resources.Get $image -}}
+							{{- with . | images.Filter $filter -}}
+							<div class="news-card-img">
+								<img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+									alt="{{ $title }}">
+							</div>
+							{{- end -}}
+							{{- end -}}
+							{{- end -}}
+
+							<div class="news-card-content">
+								{{ with .Params.tags }}
+								{{- range . }}
+								<h6>{{ . }}</h6>
+								{{- end }}
+								{{- end }}
+								<h4>{{ $title }}</h4>
+								{{ with .Description }}
+								<p>{{ . }}</p>
+								{{ end }}
+								<div class="post-time d-flex justify-content-between align-items-center">
+									<div class="date d-flex align-items-center">
+										<i class="fa-regular fa-calendar"></i>
+										{{ $ISO_date := "2006-01-02T15:04:05Z0700" }}
+										{{ $dateFormat := "2 Jan 2006" }}
+										<time class="post-item-meta" datetime="{{ dateFormat $ISO_date .Date }}">
+											{{ time.Format $dateFormat .Date }}
+										</time>
+									</div>
+								</div>
+							</div>
+						</article>
+					</a>
+					{{ end }}
+				</div>
+			</div>
+		</div>
+	</section> {{/* News and updates section end */}}
+
+	{{ end }}

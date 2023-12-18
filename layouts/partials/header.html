@@ -1,0 +1,44 @@
+<header id="Navigation">
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+
+			{{- with resources.Get "icons/logo.svg" -}}
+			<a class="logo" aria-label="Home" href='{{ relLangURL "" }}'>
+				<img src="{{ .RelPermalink }}" alt="logo" />
+			</a>
+			{{- end -}}
+
+			<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="toggler-icon top-bar"></span>
+				<span class="toggler-icon middle-bar"></span>
+				<span class="toggler-icon bottom-bar"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav align-items-center pl-md-5 ms-auto">
+
+					{{ range .Site.Menus.main }}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ .URL }}">
+							{{ .Name }}
+						</a>
+					</li>
+					{{ end }}
+
+					{{- with resources.Get "icons/github-icon.svg" -}}
+					<li class="nav-item ps-xl-4">
+						<a class="nav-link" aria-label="GitHub link" href="https://github.com/kluctl/kluctl">
+							<img src="{{ .RelPermalink }}" alt="github-icon" />
+						</a>
+					</li>
+					{{- end -}}
+
+					<li class="nav-item docs-btn pt-3 pt-xl-0 ps-xl-2">
+						<a class="nav-link" href="/docs">Docs</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>

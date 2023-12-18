@@ -1,7 +1,5 @@
 ---
 title: "Kluctl Blog"
 linkTitle: "Blog"
-menu:
-  main:
-    weight: 50
+description: "Latest news, tips from Kluctl team."
 ---

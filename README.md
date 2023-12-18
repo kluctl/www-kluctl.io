@@ -1,24 +1,63 @@
-# kluctl.io website and documentation
+# Kluctl website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/02a02d5e-b26e-495c-be3d-946de035115b/deploy-status)](https://app.netlify.com/sites/kluctl/deploys)
+This repository contains the source code for the Kluctl website. It uses the [Lotusdocs](https://github.com/colinwilson/lotusdocs) theme. A development environment can be set up locally or by using GitHub Codespaces.
 
-Built with [Docsy](https://github.com/google/docsy)
+## Local Development
 
-# Launch website locally
+### Requirements
 
-requirements:
-- **[hugo](https://github.com/gohugoio/hugo/releases)** extended version
-  - We need to process SCSS or SASS to CSS in our Hugo project, 
-    you need the Hugo extended version, or else you may see this error message:
-    ```
-    error: failed to transform resource: TOCSS: failed to transform "scss/main.scss" (text/x-scss): this feature is not available in your current Hugo version 
-    We release two set of binaries for technical reasons. The extended version is not what you get by default for some installation methods. On the release page, look for archives with extended in the name. To build hugo-extended, use go install --tags extended
-    ```
-- **[npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)**
+Ensure the following prerequisites are met.
 
-```bash
-git clone git@github.com:kluctl/www-kluctl.io.git
-git submodule update --init --recursive
-npm install
-hugo server
+- [Go](https://go.dev/dl/) (Golang) version: `1.21.3`
+- [Hugo](https://gohugo.io/installation/) extended version: `0.120.4`
+
+> **Note:**
+The Hugo extended version is required for various purposes (like transforming SCSS to CSS, converting images to `webp` format). Without it, you may encounter the following error message:
+
+```text
+error: failed to transform resource: TOCSS: failed to transform "scss/main.scss" (text/x-scss): this feature is not available in your current Hugo version 
+We release two set of binaries for technical reasons. The extended version is not what you get by default for some installation methods. On the release page, look for archives with extended in the name. To build hugo-extended, use go install --tags extended
 ```
+
+### Setup
+
+1. Clone the repository and checkout the `for-sid-lotus-docs` branch
+   ```bash
+   git clone <repo url>
+   cd <repo name>
+   git checkout for-sid-lotus-docs
+   ```
+
+2. Load the theme (setup using submodules):
+   ```bash
+   git submodule update --init --recursive
+   ```
+
+3. Run Hugo server:
+   ```bash
+   hugo server
+   ```
+
+   Note: The first run might take a while as Hugo modules are fetched.
+
+4. Open your web browser and go to `http://localhost:1313` to preview the Kluctl website.
+
+## GitHub Codespaces
+
+For GitHub Codespaces, no additional setup is needed. Follow these steps:
+
+1. Start a codespace in the `for-sid-lotus-docs` branch using GitHub UI.
+
+2. Load the theme with submodules:
+   ```bash
+   git submodule update --init --recursive
+   ```
+
+3. Start the Hugo server using the following command:
+   ```bash
+   npm run dev-cp
+   ```
+
+   This will start the Hugo server. The server URL will be shown as a notification in codespace. It can also be found ny navigating to the PORTS section of the terminal pane.
+
+Feel free to explore and contribute to the Kluctl website. If you encounter any issues or have questions, please create an issue.

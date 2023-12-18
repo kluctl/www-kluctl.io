@@ -1,0 +1,60 @@
+<div class="row gy-lg-7 gy-5">
+    <article class="row d-flex align-items-center mb-7 mb-md-5">
+        <div class="col-lg-5 col-xl-5 col-md-12 col-12">
+			{{ $title := .Title }}
+			{{ $link  := .RelPermalink }}
+			{{ with .Params.images }}
+			   {{ $images := . }}
+			   {{ $image  := index $images 0 }}
+		 
+			   {{- $filter := images.Process "resize 1200x630 webp q95" -}}
+		 
+			   {{- with resources.Get $image -}}
+				  {{- with . | images.Filter $filter -}}
+				  <figure class="zoom-img">
+					 <a href="{{ $link }}">
+						<img src="{{ .RelPermalink }}" class="rounded-3 img-fluid" 
+						   width="{{ .Width }}" height="{{ .Height }}" alt="{{ $title }}">
+					 </a>
+				  </figure>
+				  {{- end -}}
+			   {{- end -}}
+			{{- end -}}
+        </div>
+        <div class="col-lg-7 col-xl-7 col-md-12 col-12">
+            <div class="ms-lg-4">
+				{{ with .Params.tags }}
+					{{- range . }}
+                	<a href="#!"
+                		class="mb-3 badge bg-primary-subtle text-primary-emphasis rounded-pill text-uppercase">{{ . }}</a>
+					{{- end }}
+				{{- end }}
+                <div class="mb-4">
+                    <h3 class="lh-base h4">
+                        <a href="{{ $link }}" class="text-reset">{{ $title }}</a>
+                    </h3>
+					{{ with .Description }}
+                    	<p> {{ . }} </p>
+					{{ end }}
+                </div>
+                <div class="d-md-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                        <div class="d-flex align-items-center">
+							{{ $author_name := .Site.Params.author.name }}
+							{{ with .Site.Params.author.image }}
+								{{ with resources.Get . }}
+									<img src="{{ .RelPermalink }}" 
+									alt="{{ $author_name }}" class="avatar avatar-xs rounded-circle">
+								{{ end }}
+							{{ end }}
+                            <div class="ms-2">
+                                <a href="#" class="text-reset fs-6">{{ $author_name }}</a>
+                            </div>
+                        </div>
+                        <div class="ms-3"><span class="fs-6"> {{ .Date | time.Format ":date_long" }}  </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>

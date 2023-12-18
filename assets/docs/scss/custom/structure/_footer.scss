@@ -1,0 +1,49 @@
+/* Footer CSS Start */
+
+.footer-wrapper {
+	background: var(--primary-900, #0a332b);
+}
+
+.footer-about {
+	max-width: 244px;
+}
+
+.footer-about p {
+	font-size: 18px;
+	line-height: 25.424px;
+	color: var(--light);
+	padding-top: 20px;
+}
+
+.footer-menu h6 {
+	font-size: 19px;
+	font-weight: 700;
+	margin-bottom: 8px;
+	color: var(--light);
+}
+
+.footer-nav {
+
+	padding: 0;
+
+	li {
+		padding: 8px 0;
+		list-style: none;
+	}
+}
+
+.footer-nav li a {
+	font-size: 18px;
+	color: var(--light);
+	text-decoration: underline;
+}
+
+.footer-copyright p {
+	font-size: 18px;
+	text-align: center;
+	padding-top: 30px;
+	margin: 0;
+	color: var(--light);
+}
+
+/* Footer CSS End */
