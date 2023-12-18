@@ -1,18 +1,18 @@
 ---
 description: Kluctl library project configuration, found in the .kluctl-library.yaml file.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-31T17:42:01+01:00"
-linkTitle: Kluctl Libraries
+lastmod: "2023-12-18T17:40:02+01:00"
+linkTitle: Kluctl Library Projects
 path_base_for_github_subdir:
     from: .*
     to: main/docs/kluctl/kluctl-libraries/README.md
-title: Kluctl Libraries
-weight: 1
+title: Kluctl Library Projects
+weight: 20
 ---
 
 
 
-# Kluctl Library Projects
+
 
 A library project is a Kluctl deployment that is meant to be included by other projects. It can be provided with
 configuration either via [args](#args) or via [vars in the include](../deployments/deployment-yml.md#vars-deployment-item).
