@@ -1,6 +1,7 @@
 ---
 title: Privacy
 description: Privacy policy for Kluctl.io
+noindex: true
 ---
 We collect usage data using google analytics for the purposes of visualizing the traffic on this website.
 
