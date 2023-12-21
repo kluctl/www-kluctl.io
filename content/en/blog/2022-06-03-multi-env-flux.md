@@ -13,7 +13,7 @@ images:
 {{< alert >}}
 Please note that the information in this blog post is outdated. Kluctl does
 not integrate into Flux anymore and instead provides an independent
-[Kluctl Controller]({{< ref "docs/gitops/latest" >}}).
+[Kluctl Controller]({{< ref "docs/latest/gitops" >}}).
 {{< /alert >}}
 
 Most projects that have server-side components usually need to be deployed multiple times, at least if you don't want to
@@ -63,7 +63,7 @@ tutorial as examples in this blog post.
 
 Kluctl works with the concept of "targets". A target is a named configuration that acts as the entry point for every
 further configuration required for your environment. As an example, look at the targets from
-[.kluctl.yaml]({{< ref "docs/kluctl/latest/kluctl-project" >}}) of the microservices demo:
+[.kluctl.yaml]({{< ref "docs/latest/kluctl/kluctl-project" >}}) of the microservices demo:
 
 ```yaml
 targets:

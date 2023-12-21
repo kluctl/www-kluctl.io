@@ -13,7 +13,7 @@ namespace and deploy a nginx. You can configure the name of the namespace by cha
 ## Prerequisites
 1) A running [kind](https://kind.sigs.k8s.io/) cluster with a context named `kind-kind`.
 2) Of course, you need to install kluctl. Please take a look at the 
-[installation guide]({{< ref "docs/kluctl/latest/installation" >}}), in case you need further information.
+[installation guide]({{< ref "docs/latest/kluctl/installation" >}}), in case you need further information.
 
 ## How to deploy
 ```bash

@@ -25,16 +25,16 @@ The Webui has been released as part of the [v2.21.0 release](https://github.com/
 In case this is the first time you heard about Kluctl, lets take a few steps back and first give a short introduction
 what Kluctl actually is. Kluctl is a tool that allows you to declaratively describe and define your Kubernetes
 deployments. Kluctl deployments are built from deployment items
-(e.g. [Helm Charts]({{< ref "docs/kluctl/latest/deployments/helm" >}}) or [Kustomize]({{< ref "docs/kluctl/latest/deployments/kustomize" >}})).
+(e.g. [Helm Charts]({{< ref "docs/latest/kluctl/deployments/helm" >}}) or [Kustomize]({{< ref "docs/latest/kluctl/deployments/kustomize" >}})).
 
-[Variable Sources]({{< ref "docs/kluctl/latest/templating/variable-sources" >}}) of all kinds (e.g. file, Git, Vault, K8s Secrets, ...)
-together with [templating]({{< ref "docs/kluctl/latest/templating" >}}) allow you to glue together everything and implement
+[Variable Sources]({{< ref "docs/latest/kluctl/templating/variable-sources" >}}) of all kinds (e.g. file, Git, Vault, K8s Secrets, ...)
+together with [templating]({{< ref "docs/latest/kluctl/templating" >}}) allow you to glue together everything and implement
 proper configuration and multi-environment + multi-cluster support.
 
 At the same time, it provides you with a unified interface to these deployments, based on
-[targets]({{< ref "docs/kluctl/latest/kluctl-project/targets" >}}).
+[targets]({{< ref "docs/latest/kluctl/kluctl-project/targets" >}}).
 
-Targets are deployed via the [command line]({{< ref "docs/kluctl/latest/commands/deploy" >}}) or via [GitOps]({{< ref "docs/gitops/latest" >}}).
+Targets are deployed via the [command line]({{< ref "docs/latest/kluctl/commands/deploy" >}}) or via [GitOps]({{< ref "docs/latest/gitops" >}}).
 
 ## Why a Webui?
 
@@ -49,7 +49,7 @@ Let's begin with installing Kluctl, creating a local cluster and creating/forkin
 #### Installing Kluctl
 
 You will of course need the Kluctl CLI to be installed. You can follow the instructions found
-[here]({{< ref "docs/kluctl/latest/installation" >}}) (only install the CLI for now).
+[here]({{< ref "docs/latest/kluctl/installation" >}}) (only install the CLI for now).
 
 #### Create the cluster
 Now, let's create a local cluster. We're going to use
@@ -99,7 +99,7 @@ All commands shown from now on are meant to be run in the `simple` sub-directory
 ## Starting the Webui
 
 The Webui can be run in different ways. The easiest way is to simply
-[run it locally]({{< ref "docs/webui/latest/running-locally" >}}):
+[run it locally]({{< ref "docs/latest/webui/running-locally" >}}):
 
 ```
 $ kluctl webui run
@@ -144,7 +144,7 @@ After the above command is finished, the Webui will update immediately and show 
 The first one represents the Git project. If you point your mouse curser on it, it will give you a few more details
 (e.g. URL and sub-directory).
 
-The second card represents the [target]({{< ref "docs/kluctl/latest/kluctl-project/targets" >}}). It is defined in the
+The second card represents the [target]({{< ref "docs/latest/kluctl/kluctl-project/targets" >}}). It is defined in the
 [`.kluctl.yaml`](https://github.com/kluctl/kluctl-examples/blob/main/simple/.kluctl.yml)
 of the project and named `simple`. You can click on this card to get some information about the target (this will get more
 interesting with GitOps).
@@ -208,7 +208,7 @@ Now let's introduce GitOps, so that our deployment is automatically deployed whe
 
 #### Install the Kluctl Controller
 
-Let's first [install]({{< ref "docs/gitops/latest/installation" >}}) the [Kluctl Controller]({{< ref "docs/gitops/latest" >}}) by
+Let's first [install]({{< ref "docs/latest/gitops/installation" >}}) the [Kluctl Controller]({{< ref "docs/latest/gitops" >}}) by
 invoking the `kluctl controller install` command:
 
 ```
@@ -222,7 +222,7 @@ New objects:
 ...
 ```
 
-You now have the controller running in the cluster, waiting for [KluctlDeployment]({{< ref "docs/gitops/latest/spec/v1beta1/kluctldeployment" >}})
+You now have the controller running in the cluster, waiting for [KluctlDeployment]({{< ref "docs/latest/gitops/spec/v1beta1/kluctldeployment" >}})
 custom resources to be deployed.
 
 At this point, you might need to restart the Kluctl Webui due to a minor bug, which prevents it to know about the
@@ -323,7 +323,7 @@ The next reconciliation attempt will reveal the now introduced drift:
 If you click on the target card, you'll see how exactly the deployment drifted (you'll see the `spec.replicas` changed).
 
 By default, the controller will not fix the drift until some source code changes. You can change this behaviour by
-setting [`spec.deployInterval`]({{< ref "docs/gitops/latest/spec/v1beta1/kluctldeployment#deployInterval" >}}) in the `KluctlDeployment`.
+setting [`spec.deployInterval`]({{< ref "docs/latest/gitops/spec/v1beta1/kluctldeployment#deployInterval" >}}) in the `KluctlDeployment`.
 
 To fix the drift without a source change, simply request a manual deployment through the actions menu.
 
@@ -333,9 +333,9 @@ In some situations, it is not desired to have fully automated deployments every 
 be different reasons for this, for example because timing of the deployment is important (e.g., not in business hours!).
 
 In that case, you can set a `KluctlDeployment` to be manual. Do this by setting the
-[`spec.manual`]({{< ref "docs/gitops/latest/spec/v1beta1/kluctldeployment#manual" >}}) field of the `KluctlDeployment` to `true`.
+[`spec.manual`]({{< ref "docs/latest/gitops/spec/v1beta1/kluctldeployment#manual" >}}) field of the `KluctlDeployment` to `true`.
 
-Let's introduce another `KluctlDeployment` that deploys a different [target]({{< ref "docs/kluctl/latest/kluctl-project/targets" >}})
+Let's introduce another `KluctlDeployment` that deploys a different [target]({{< ref "docs/latest/kluctl/kluctl-project/targets" >}})
 that is configured to be manual. Luckily, the [`.kluctl.yaml`](https://github.com/kluctl/kluctl-examples/blob/main/simple/.kluctl.yml)
 of the project already defines `another` target.
 
@@ -418,7 +418,7 @@ Also, multi-cluster support will be properly implemented in the future. The Webu
 clusters (use multiple `--context` arguments in `kluctl webui run`), but without proper grouping/filtering abilities.
 This will be improved in upcoming versions.
 
-The Webui has basic [OIDC support]({{< ref "docs/webui/latest/installation.md#oidc-integration" >}}) but misses RBAC style authorization.
+The Webui has basic [OIDC support]({{< ref "docs/latest/webui/installation.md#oidc-integration" >}}) but misses RBAC style authorization.
 Future versions of the Webui will allow to properly authorize individuals/groups for specific deployments and actions.
 
 I'm looking forward to the first users trying it out and giving feedback. I'm also happy to see people interested in

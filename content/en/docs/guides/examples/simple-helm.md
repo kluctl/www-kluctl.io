@@ -12,7 +12,7 @@ give a first impression how kluctl and Helm work together.
 ## Prerequisites
 1) A running [kind](https://kind.sigs.k8s.io/) cluster with a context named `kind-kind`.
 2) Of course, you need to install kluctl. Please take a look at the
-   [installation guide]({{< ref "docs/kluctl/latest/installation" >}}), if you need further information.
+   [installation guide]({{< ref "docs/latest/kluctl/installation" >}}), if you need further information.
 3) You also need to install [Helm](https://helm.sh/). Please take a look at the 
 [Helm installation guide](https://helm.sh/docs/intro/install/) for further information. 
 
