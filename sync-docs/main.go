@@ -23,6 +23,7 @@ var argRepo = flag.String("repo", "", "")
 var argMinVersion = flag.String("min-version", "", "")
 var argSubdir = flag.String("subdir", "", "")
 var argDest = flag.String("dest", "", "")
+var argDestSubdir = flag.String("dest-subdir", "", "")
 var argWithRootReadme = flag.Bool("with-root-readme", false, "")
 
 func main() {
@@ -109,18 +110,17 @@ func doMain(ctx context.Context) error {
 	}
 
 	for _, version := range versions {
-		dest := filepath.Join(*argDest, "v"+version.String())
-		err = processRef(ctx, repoDir, *argSubdir, "v"+version.String(), dest, *argWithRootReadme)
+		err = processRef(ctx, repoDir, *argSubdir, "v"+version.String(), filepath.Join(*argDest, "v"+version.String(), *argDestSubdir), *argWithRootReadme)
 		if err != nil {
 			return err
 		}
 	}
 
-	err = processRef(ctx, repoDir, *argSubdir, "v"+versions[len(versions)-1].String(), filepath.Join(*argDest, "latest"), *argWithRootReadme)
+	err = processRef(ctx, repoDir, *argSubdir, "v"+versions[len(versions)-1].String(), filepath.Join(*argDest, "latest", *argDestSubdir), *argWithRootReadme)
 	if err != nil {
 		return err
 	}
-	err = processRef(ctx, repoDir, *argSubdir, "main", filepath.Join(*argDest, "devel"), *argWithRootReadme)
+	err = processRef(ctx, repoDir, *argSubdir, "main", filepath.Join(*argDest, "devel", *argDestSubdir), *argWithRootReadme)
 	if err != nil {
 		return err
 	}
