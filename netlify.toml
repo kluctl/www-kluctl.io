@@ -16,22 +16,22 @@ command = """
 
 [[redirects]]
   from = "/docs/reference/*"
-  to = "/docs/kluctl/latest/reference/:splat"
+  to = "/docs/latest/kluctl/reference/:splat"
 [[redirects]]
   from = "/docs/concepts"
-  to = "/docs/kluctl/latest/concepts"
+  to = "/docs/latest/kluctl/concepts"
 [[redirects]]
   from = "/docs/get-started"
-  to = "/docs/kluctl/latest/get-started"
+  to = "/docs/latest/kluctl/get-started"
 [[redirects]]
   from = "/docs/history"
-  to = "/docs/kluctl/latest/history"
+  to = "/docs/latest/kluctl/history"
 [[redirects]]
   from = "/docs/installation"
-  to = "/docs/kluctl/latest/installation"
+  to = "/docs/latest/kluctl/installation"
 [[redirects]]
   from = "/docs/philosophy"
-  to = "/docs/kluctl/latest/philosophy"
+  to = "/docs/latest/kluctl/philosophy"
 
 [[redirects]]
   from = "/docs/flux/*"
@@ -39,33 +39,33 @@ command = """
 
 [[redirects]]
   from = "/docs/kluctl/concepts"
-  to = "/docs/kluctl/latest"
+  to = "/docs/latest/kluctl"
 [[redirects]]
   from = "/docs/kluctl/history"
-  to = "/docs/kluctl/latest"
+  to = "/docs/latest/kluctl"
 [[redirects]]
   from = "/docs/kluctl/philosophy"
-  to = "/docs/kluctl/latest"
+  to = "/docs/latest/kluctl"
 
 [[redirects]]
   from = "/docs/kluctl/reference/gitops/*"
-  to = "/docs/gitops/:splat"
+  to = "/docs/latest/gitops/:splat"
 [[redirects]]
   from = "/docs/kluctl/reference/*"
-  to = "/docs/kluctl/:splat"
+  to = "/docs/latest/kluctl/:splat"
 
 [[redirects]]
   from = "/docs/kluctl/commands/*"
-  to = "/docs/kluctl/latest/commands/:splat"
+  to = "/docs/latest/kluctl/commands/:splat"
 [[redirects]]
   from = "/docs/kluctl/deployments/*"
-  to = "/docs/kluctl/latest/deployments/:splat"
+  to = "/docs/latest/kluctl/deployments/:splat"
 [[redirects]]
   from = "/docs/kluctl/kluctl-libraries/*"
-  to = "/docs/kluctl/latest/kluctl-libraries/:splat"
+  to = "/docs/latest/kluctl/kluctl-libraries/:splat"
 [[redirects]]
   from = "/docs/kluctl/kluctl-project/*"
-  to = "/docs/kluctl/latest/kluctl-project/:splat"
+  to = "/docs/latest/kluctl/kluctl-project/:splat"
 [[redirects]]
   from = "/docs/kluctl/templating/*"
-  to = "/docs/kluctl/latest/templating/:splat"
+  to = "/docs/latest/kluctl/templating/:splat"
