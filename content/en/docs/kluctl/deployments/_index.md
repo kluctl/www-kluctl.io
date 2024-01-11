@@ -1,7 +1,7 @@
 ---
 description: Deployments and sub-deployments.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-12-18T17:40:02+01:00"
+lastmod: "2024-01-05T11:52:13+01:00"
 linkTitle: Deployments
 path_base_for_github_subdir:
     from: .*

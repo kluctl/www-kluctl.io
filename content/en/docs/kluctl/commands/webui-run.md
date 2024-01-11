@@ -1,7 +1,7 @@
 ---
 description: webui command
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-30T18:06:26+01:00"
+lastmod: "2024-01-08T12:11:52+01:00"
 linkTitle: webui run
 path_base_for_github_subdir:
     from: .*
@@ -34,6 +34,7 @@ Misc arguments:
                                       'localhost' when run locally and to all hosts when run in-cluster.
       --in-cluster                    This enables in-cluster functionality. This also enforces authentication.
       --in-cluster-context string     The context to use fo in-cluster functionality.
+      --kubeconfig existingfile       Overrides the kubeconfig to use.
       --only-api                      Only serve API without the actual UI.
       --port int                      Port to bind to. (default 8080)
 
