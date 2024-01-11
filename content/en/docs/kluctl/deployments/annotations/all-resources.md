@@ -1,7 +1,7 @@
 ---
 description: Annotations on all resources
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-09-27T11:33:53+02:00"
+lastmod: "2023-12-12T14:52:32+01:00"
 linkTitle: All resources
 path_base_for_github_subdir:
     from: .*
@@ -72,6 +72,10 @@ If set to "true", the annotated resource will not be deleted when [delete](../..
 This tag is especially useful and required on resources that would otherwise cause cascaded deletions of resources that
 do not match the specified inclusion/exclusion tags. Namespaces are the most prominent example of such resources, as
 they most likely don't match exclusion tags, but cascaded deletion would still cause deletion of the excluded resources.
+
+### kluctl.io/force-managed
+If set to "true", Kluctl will always treat the annotated resource as being managed by Kluctl, meaning that it will
+consider it for deletion and pruning even if a foreign field manager resets/removes the Kluctl field manager.
 
 ## Control diff behavior
 

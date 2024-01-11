@@ -1,7 +1,7 @@
 ---
 description: Common arguments
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-17T00:30:26+02:00"
+lastmod: "2024-01-08T12:11:52+01:00"
 linkTitle: Common Arguments
 path_base_for_github_subdir:
     from: .*
@@ -58,6 +58,7 @@ Project arguments:
                                                --context will override the currently active context.
       --git-cache-update-interval duration     Specify the time to wait between git cache updates. Defaults to not
                                                wait at all and always updating caches.
+      --kubeconfig existingfile                Overrides the kubeconfig to use.
       --local-git-group-override stringArray   Same as --local-git-override, but for a whole group prefix instead
                                                of a single repository. All repositories that have the given prefix
                                                will be overridden with the given local path and the repository

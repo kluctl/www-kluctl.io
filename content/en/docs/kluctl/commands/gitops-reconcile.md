@@ -1,7 +1,7 @@
 ---
 description: webui command
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-30T18:06:26+01:00"
+lastmod: "2024-01-08T12:11:52+01:00"
 linkTitle: gitops reconcile
 path_base_for_github_subdir:
     from: .*
@@ -34,6 +34,7 @@ GitOps arguments:
 
       --context string                   Override the context to use.
       --controller-namespace string      The namespace where the controller runs in. (default "kluctl-system")
+      --kubeconfig existingfile          Overrides the kubeconfig to use.
   -l, --label-selector string            If specified, KluctlDeployments are searched and filtered by this label
                                          selector.
       --local-source-override-port int   Specifies the local port to which the source-override client should
