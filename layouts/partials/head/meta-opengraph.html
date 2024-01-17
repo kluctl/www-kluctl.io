@@ -78,19 +78,36 @@
 
 {{- /* 1.4 Fetch OG/meta image
 
-       The OG image is fetched in the following priority:
+    The OG image is fetched in the following priority:
 
-        1. If a custom OG image is defined in the frontmatter (`.Params.metaImage`), it is used.
-        2. If no custom OG image is set, the site's default meta image (`.Site.Params.meta.image`)
-           specified in the config file (hugo.toml) is used. */ -}}
+        If the page is in blog section:
+            1. Get the image from frontmatter (`.Params.images`).
+            If it is not specified, use the site's default meta image.
 
-{{- with .Params.metaImage -}}
-    {{- $ogImage = . | absURL -}}
-{{- else -}}
-    {{- with .Site.Params.meta.image -}} 
-        {{- $ogImage = . | absURL -}}
+        If the page is not in blog section:
+            1. If a custom OG image is defined in the frontmatter (`.Params.metaImage`), it is used.
+            2. If no custom OG image is set, the site's default meta image (`.Site.Params.meta.image`)
+            specified in the config file (hugo.toml) is used. */ -}}
+
+{{- if eq .Section "blog" -}}
+    {{- with .Params.images -}}
+        {{- $images := . -}}
+        {{- $image  := index $images 0 -}}
+        {{- $ogImage = $image | absURL -}}
+    {{- else -}}
+        {{- with .Site.Params.meta.image -}} 
+            {{- $ogImage = . | absURL -}}
+        {{- end -}}
     {{- end -}}
-{{- end -}}
+{{ else }} {{- /* If .Section in not "blog" */ -}}
+    {{- with .Params.metaImage -}}
+        {{- $ogImage = . | absURL -}}
+    {{- else -}}
+        {{- with .Site.Params.meta.image -}} 
+            {{- $ogImage = . | absURL -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}} {{- /* End if eq .Section "blog" */ -}}
 
 {{- /* 1.5 Fetch author
 
