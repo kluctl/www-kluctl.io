@@ -194,6 +194,17 @@ github_project_repo = "https://github.com/kluctl/kluctl"
 
 # Google Custom Search Engine ID. Remove or comment out to disable search.
 # gcs_engine_id = "d72aa9b2712488cc3"
+    [params.meta]
+        # default values used in meta tags
+        description = "Large Kubernetes deployments made simple"
+        keywords = ["Kluctl", "Kubernetes", "deployments"]
+        image = "images/meta_image.jpg" # relative to ststic directory
+
+    [params.author]
+        # default author for blog posts
+        name = "Alexander Block"
+        image = "images/authors/alexander.jpg" # relative to assets the folder
+
 
     [params.docs] # Parameters for the /docs 'template'
         title           = "Kluctl documentaion"           # default html title for documentation pages/sections
@@ -265,11 +276,6 @@ prism_syntax_highlighting = false
     tagline = "Kluctl is the missing glue to put together large Kubernetes deployments."
     links_heading = "Links"
     copyright_text = "The Kluctl Authors. All Rights Reserved."
-
-[params.author]
-    # default author for blog posts
-    name = "Alexander Block"
-    image = "images/authors/alexander.jpg" # relative to assets the folder
 
 [markup]
   [markup.goldmark]
