@@ -37,7 +37,6 @@ deploymentSection:
 ################## Features section ##################
 featuresSection:
   title: Features
-  paragraph: Don’t waste time switching between multiple tools to manage your Kubernetes deployments. Kluctl is one tool to rule them all.
   featureList:
     - title: "Multiple environments"
       icon: "images/home/icons/environment-icon.svg"
