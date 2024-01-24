@@ -9,6 +9,8 @@ kluctl.io is an open source project that anyone in the community can use, improv
 
 Using or want to use kluctl.io? Find out more on [Twitter](https://twitter.com/kluctl). Follow us on Twitter to get the latest news!
 
+We are also active on the [CNCF Slack](https://slack.cncf.io/), just join the **#kluctl** channel there.
+
 ## Develop and Contribute
 
 If you want to get more involved by contributing to kluctl.io, join us on [GitHub](https://github.com/kluctl/kluctl).
