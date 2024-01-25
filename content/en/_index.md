@@ -37,39 +37,29 @@ deploymentSection:
 ################## Features section ##################
 featuresSection:
   title: Features
-  paragraph: Don’t waste time switching between multiple tools to manage your Kubernetes deployments. Kluctl is one tool to rule them all.
   featureList:
-    # feature list item 1
-    - title : "Native Git support"
-      icon : "images/home/icons/git-icon.svg"
-      description : "Easily deploy remote Kluctl projects or externalize parts of your Kluctl project."
-    # feature list item 2
-    - title : "Multiple environments"
-      icon : "images/home/icons/environment-icon.svg"
-      description : "Deploy to multiple environments (dev, test, prod etc.) with different configurations."
-    # feature list item 3
-    - title : "Multiple clusters"
-      icon : "images/home/icons/clusters-icon.svg"
-      description : "Manage multiple target clusters (in multiple clouds or bare-metal)."
-    # feature list item 4
-    - title : "Configuration and templating"
-      icon : "images/home/icons/settings-icon.svg"
-      description : "Kluctl allows to use templating in nearly all places, making it easy to have dynamic configuration."
-    # feature list item 5
-    - title : "Helm and Kustomize"
-      icon : "images/home/icons/kustomize-icon.svg"
-      description : "The Helm and Kustomize integrations reuse of 3rd party charts & Kustomisation."
-    # feature list item 6
-    - title : "Know what went wrong"
-      icon : "images/home/icons/wrong-icon.svg"
-      description : "Kluctl will show you what part of your deployment failed and why."
+    - title: "Multiple environments"
+      icon: "images/home/icons/environment-icon.svg"
+      description: "Deploy to multiple environments (dev, test, prod etc.) and/or clusters with different configurations."
+    - title: "Configuration and templating"
+      icon: "images/home/icons/settings-icon.svg"
+      description: "Kluctl allows to use templating in nearly all places, making it easy to have dynamic configuration."
+    - title: "Helm and Kustomize"
+      icon: "images/home/icons/kustomize-icon.svg"
+      description: "The Helm and Kustomize integrations allow to reuse any 3rd party charts & Kustomisation."
+    - title: "Diffs and Dry-Runs"
+      icon: "images/home/icons/diff-icon.svg"
+      description: "Diffs and dry-runs allow you to always know what will happen and what actually happened."
+    - title: "Kluctl GitOps"
+      icon: "images/home/icons/gitops-icon.svg"
+      description: "Use a GitOps workflow when required, while always being able to go back to a push based workflow."
+    - title: "Kluctl Webui"
+      icon: "images/home/icons/webui-icon.svg"
+      description: "Use the optional Webui for more visibility and control of your GitOps and CLI based deployments."
 
 ################## See Kluctl in action section ##################
 actionSection:
   title: See Kluctl in Action
   video: "video/Kluctl demo video.mp4" # relative to the static folder
 
-################## News and updates section ##################
-newsSection:
-  title: News and Updates
 ---

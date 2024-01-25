@@ -26,11 +26,7 @@ theme = ["lotusdocs"]
     [[module.mounts]]
         source = 'assets'
         target = 'assets'
-    
-    [[module.mounts]]
-        source = 'static/images/blog'
-        target = 'assets/images/blog'
-    
+
     [[module.mounts]]
         source = 'static/images/webui'
         target = 'assets/images/webui'
@@ -46,7 +42,7 @@ theme = ["lotusdocs"]
 
 [[menu.main]]
     name  = "Blog"
-    pageRef = "blog"
+    url = "https://blog.kluctl.io"
     weight = 20
 
 [[menu.main]]
@@ -67,7 +63,7 @@ theme = ["lotusdocs"]
 
 [[menu.footer]]
     name  = "Blog"
-    pageRef = "blog"
+    url = "https://blog.kluctl.io"
     weight = 30
 
 [[menu.footer]]

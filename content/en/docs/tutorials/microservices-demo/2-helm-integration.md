@@ -5,7 +5,7 @@ weight: 2
 ---
 
 ## Introduction
-The [first tutorial]({{< ref "docs/guides/tutorials/microservices-demo/1-basic-project-setup" >}}) in this series demonstrated how
+The [first tutorial]({{< ref "docs/tutorials/microservices-demo/1-basic-project-setup" >}}) in this series demonstrated how
 to setup a simple kluctl project that is able to deploy the [GCP Microservices Demo](https://github.com/GoogleCloudPlatform/microservices-demo)
 to a local kind cluster.
 

@@ -1,0 +1,1 @@
+Icons are taken from https://lucide.dev/icons, using a stroke width of 2.5

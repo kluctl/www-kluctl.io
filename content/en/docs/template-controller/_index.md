@@ -7,7 +7,7 @@ path_base_for_github_subdir:
     from: .*
     to: main/README.md
 title: Template Controller
-weight: 200
+weight: 40
 ---
 
 
@@ -33,7 +33,7 @@ Template Controller has many use case. Some are for example:
 
 Reference documentation is available [here](./spec/v1alpha1).
 
-The [announcement blog post](https://kluctl.io/blog/2022/12/28/template-controller/) also contains valuable explanations
+The [announcement blog post](https://blog.kluctl.io/introducing-the-template-controller-and-building-gitops-preview-environments-2cce4041406a) also contains valuable explanations
 and examples.
 
 ## Installation
