@@ -7,7 +7,7 @@ path_base_for_github_subdir:
     from: .*
     to: main/README.md
 title: Template Controller
-weight: 200
+weight: 40
 ---
 
 
