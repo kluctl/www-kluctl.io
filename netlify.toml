@@ -53,3 +53,25 @@ command = """
 [[redirects]]
   from = "/docs/kluctl/reference/*"
   to = "/docs/kluctl/:splat"
+
+[[redirects]]
+  from = "/blog/2023/09/12/introducing-the-kluctl-webui"
+  to = "https://blog.kluctl.io/introducing-the-kluctl-webui-bcd3ea4b264d"
+[[redirects]]
+  from = "/blog/2023/02/28/managing-many-helm-charts-with-kluctl"
+  to = "https://blog.kluctl.io/managing-many-helm-charts-with-kluctl-210d3f75ab64"
+[[redirects]]
+  from = "/blog/2022/12/28/template-controller"
+  to = "https://blog.kluctl.io/introducing-the-template-controller-and-building-gitops-preview-environments-2cce4041406a"
+[[redirects]]
+  from = "/blog/2022/11/17/templating-and-diffs-with-kustomize"
+  to = "https://blog.kluctl.io/templating-in-kustomize-with-kluctl-style-deploy-and-diff-87ff0454d5f9"
+[[redirects]]
+  from = "/blog/2022/06/03/multiple-environments-with-flux-and-kluctl"
+  to = "https://blog.kluctl.io/multiple-environments-with-flux-and-kluctl-199f8a00a950"
+[[redirects]]
+  from = "/blog/2022/05/16/rethinking-kubernetes-configuration-management"
+  to = "https://medium.com/kluctl/rethinking-kubernetes-configuration-management-7bc81fff5816"
+[[redirects]]
+  from = "/blog/2022/05/11/kluctl-and-flux"
+  to = "https://blog.kluctl.io/kluctl-and-flux-278e75c7a828"
