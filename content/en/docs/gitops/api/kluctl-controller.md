@@ -7,7 +7,7 @@ path_base_for_github_subdir:
     from: .*
     to: main/docs/gitops/api/kluctl-controller.md
 title: Kluctl Controller API reference
-weight: 300
+weight: 11
 ---
 
 
