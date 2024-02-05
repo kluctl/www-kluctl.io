@@ -4,7 +4,7 @@ linkTitle: "Advanced configuration"
 weight: 30
 ---
 
-This receipt will try to give best practices on how to achieve advanced configuration that keeps being maintainable.
+This recipe will try to give best practices on how to achieve advanced configuration that keeps being maintainable.
 
 ## Args as entrypoint
 

@@ -4,7 +4,7 @@ linkTitle: "Deploying multiple times"
 weight: 20
 ---
 
-This receipt will guide you on how to deploy the same deployment multiple times to the same (via namespaces) or
+This recipe will guide you on how to deploy the same deployment multiple times to the same (via namespaces) or
 different clusters.
 
 ## Use specific targets
@@ -20,7 +20,7 @@ on each target, so that you can't accidentally deploy the `prod` target to the `
 
 `args` should be minimalistic to avoid bloating up the `.kluctl.yaml`. It should be used as the "entrypoint" into
 the actual configuration, which is then loaded from inside the root [deployment.yaml]({{< ref "docs/kluctl/deployments/deployment-yml" >}})
-via `vars`. See [advanced configuration]({{< ref "docs/receipts/advanced-configuration" >}}) for details on this.
+via `vars`. See [advanced configuration]({{< ref "docs/recipes/advanced-configuration" >}}) for details on this.
 
 Example targets definition:
 
