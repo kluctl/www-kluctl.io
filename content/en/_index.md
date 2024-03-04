@@ -57,6 +57,26 @@ featuresSection:
       icon: "images/home/icons/webui-icon.svg"
       description: "Use the optional Webui for more visibility and control of your GitOps and CLI based deployments."
 
+adoptersSection:
+  title: Adopters
+  featureList:
+    - icon: "images/home/hero-img.png"
+      description: "Company A. DevOps for SaaS"
+      testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit scelerisque in dictum."
+      author: 'John Doe, CTO'
+    - icon: "images/home/icons/webui-icon.svg"
+      description: "Company B. DevOps for SaaS"
+      testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      author: 'John Doe, Senior Engineer'
+    - icon: "images/home/icons/settings-icon.svg"
+      description: "Company C. DevOps for SaaS"
+      testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In fermentum posuere urna nec tincidunt praesent semper feugiat nibh."
+      author: 'John Doe, Chief Infra Strategist'
+    - icon: "images/home/icons/kustomize-icon.svg"
+      description: "Company D. DevOps for SaaS"
+      testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      author: 'John Doe'
+
 ################## See Kluctl in action section ##################
 actionSection:
   title: See Kluctl in Action
