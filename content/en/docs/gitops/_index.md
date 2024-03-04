@@ -1,7 +1,7 @@
 ---
 description: Kluctl Controller documentation.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-18T14:23:12+02:00"
+lastmod: "2024-02-06T10:34:27+01:00"
 linkTitle: Kluctl GitOps
 path_base_for_github_subdir:
     from: .*
@@ -78,7 +78,7 @@ The API design of the controller can be found at [kluctldeployment.gitops.kluctl
 ## Example
 
 After installing the Kluctl Controller, we can create a `KluctlDeployment` that automatically deploys the
-[Microservices Demo](https://kluctl.io/docs/guides/tutorials/microservices-demo/3-templating-and-multi-env/).
+[Microservices Demo](https://kluctl.io/docs/tutorials/microservices-demo/3-templating-and-multi-env/).
 
 Create a KluctlDeployment that uses the demo project source to deploy the `test` target to the same cluster that the
 controller runs on.

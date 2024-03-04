@@ -1,7 +1,7 @@
 ---
 description: Available functions.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-08-26T09:38:51+02:00"
+lastmod: "2024-03-04T11:12:24+01:00"
 linkTitle: Functions
 path_base_for_github_subdir:
     from: .*
@@ -15,7 +15,7 @@ weight: 4
 
 
 In addition to the provided
-[builtin global functions](https://jinja.palletsprojects.com/en/2.11.x/templates/#list-of-global-functions),
+[builtin global functions](https://jinja.palletsprojects.com/en/3.1.x/templates/#list-of-global-functions),
 kluctl also provides a few global functions:
 
 ### load_template(file)
@@ -26,6 +26,11 @@ Loads the given file into memory, renders it with the current Jinja2 context and
 ```
 
 `load_template` uses the same path searching rules as described in [includes/imports](../templating#includes-and-imports).
+
+Please note that there is a limitation in this (and other) functions in regard to loop variables. You can currently not
+use loop variables directly as they are not accessible inside Jinja2 extensions/filters. There is an open issue in 
+that regard [here](https://github.com/pallets/jinja/issues/1478). For a workaround, perform the same as in
+[get_var](#getvarfieldpath-default).
 
 ### load_sha256(file, digest_len)
 Loads the given file into memory, renders it and calculates the sha256 hash of the result.
@@ -60,6 +65,18 @@ The `field_path` parameter can also be a list of pathes, which are then tried on
 result that gives a value that is not None. For example, `{{ get_var(['non.existing.var', my.deep.var'], 'my-default') }}`
 would also return `value`.
 
+Please note that there is a limitation in this (and other) functions in regard to loop variables. You can currently not
+use loop variables directly as they are not accessible inside Jinja2 global functions or filters. There is an open issue in
+that regard [here](https://github.com/pallets/jinja/issues/1478). For a workaround, assign the loop variable to a local variable:
+
+```
+{% set list=[{x: "a"}, {x: "b"}, {x: "c"}] %}
+{% for e in list %}
+{% set e=e %} <-- this is the workaround
+{{ get_var('e.x') }}
+{% endfor %}
+```
+
 ### merge_dict(d1, d2)
 Clones d1 and then recursively merges d2 into it and returns the result. Values inside d2 will override values in d1.
 
@@ -68,6 +85,18 @@ Same as `merge_dict`, but merging is performed in-place into d1.
 
 ### raise(msg)
 Raises a python exception with the given message. This causes the current command to abort.
+
+### render(template)
+Renders the input string with the current Jinja2 context. Example:
+```
+{% set a="{{ my_var }}" %}
+{{ render(a) }}
+```
+
+Please note that there is a limitation in this (and other) functions in regard to loop variables. You can currently not
+use loop variables directly as they are not accessible inside Jinja2 global functions or filters. There is an open issue in
+that regard [here](https://github.com/pallets/jinja/issues/1478). For a workaround, perform the same as in
+[get_var](#getvarfieldpath-default).
 
 ### debug_print(msg)
 Prints a line to stderr.

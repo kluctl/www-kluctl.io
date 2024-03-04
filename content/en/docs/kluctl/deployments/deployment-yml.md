@@ -1,7 +1,7 @@
 ---
 description: Structure of deployment.yaml.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-01-08T12:11:52+01:00"
+lastmod: "2024-02-06T10:34:27+01:00"
 linkTitle: Deployments
 path_base_for_github_subdir:
     from: .*
@@ -314,7 +314,7 @@ arguments into [Kluctl Library Projects](../kluctl-libraries/).
 
 ### when
 Each deployment item can be conditional with the help of the `when` field. It must be set to a
-[Jinja2 based expression](https://jinja.palletsprojects.com/en/latest/templates/#expressions)
+[Jinja2 based expression](https://jinja.palletsprojects.com/en/3.1.x/templates/#expressions)
 that evaluates to a boolean.
 
 Example:

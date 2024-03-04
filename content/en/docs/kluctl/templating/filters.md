@@ -1,7 +1,7 @@
 ---
 description: Available filters.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-08-26T09:38:51+02:00"
+lastmod: "2024-03-04T11:05:56+01:00"
 linkTitle: Filters
 path_base_for_github_subdir:
     from: .*
@@ -14,7 +14,7 @@ weight: 3
 
 
 
-In addition to the [builtin Jinja2 filters](https://jinja.palletsprojects.com/en/2.11.x/templates/#list-of-builtin-filters),
+In addition to the [builtin Jinja2 filters](https://jinja.palletsprojects.com/en/3.1.x/templates/#list-of-builtin-filters),
 kluctl provides a few additional filters:
 
 ### b64encode
@@ -81,11 +81,8 @@ The required indention filter is the part that makes this error-prone and hard t
 whenever you can.
 
 ### render
-Renders the input string with the current Jinja2 context. Example:
-```
-{% set a="{{ my_var }}" %}
-{{ a | render }}
-```
+Same as the global [render function](./functions.md#rendertemplate), but deprecated now. `render` being a filter turned out to
+not work well with local variables, as these are not accessible in filters. Please only use the global function.
 
 ### sha256(digest_len)
 Calculates the sha256 digest of the input string. Example:

@@ -1,7 +1,7 @@
 ---
 description: Get Started with Kluctl.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-01-05T11:52:13+01:00"
+lastmod: "2024-02-06T10:34:27+01:00"
 linkTitle: Get Started
 path_base_for_github_subdir:
     from: .*
@@ -131,5 +131,5 @@ You should need 2 instances of the nginx POD running now.
 
 ## Where to continue?
 
-Continue by reading through the [tutorials](https://kluctl.io/docs/guides/tutorials/) and by consulting
-the [reference documentation](./).
+Continue by reading through the [recipes](https://kluctl.io/docs/recipes/) and [tutorials](https://kluctl.io/docs/tutorials/).
+Also, consult the [reference documentation](./) for details about specifics.

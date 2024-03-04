@@ -1,7 +1,7 @@
 ---
 description: Annotations on all resources
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-12-12T14:52:32+01:00"
+lastmod: "2024-01-24T13:36:13+01:00"
 linkTitle: All resources
 path_base_for_github_subdir:
     from: .*
@@ -75,7 +75,8 @@ they most likely don't match exclusion tags, but cascaded deletion would still c
 
 ### kluctl.io/force-managed
 If set to "true", Kluctl will always treat the annotated resource as being managed by Kluctl, meaning that it will
-consider it for deletion and pruning even if a foreign field manager resets/removes the Kluctl field manager.
+consider it for deletion and pruning even if a foreign field manager resets/removes the Kluctl field manager or if
+foreign controllers add `ownerReferences` even though they do not really own the resources.
 
 ## Control diff behavior
 

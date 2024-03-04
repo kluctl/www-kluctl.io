@@ -1,7 +1,7 @@
 ---
 description: Templating Engine.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-01-05T11:52:13+01:00"
+lastmod: "2024-02-06T10:34:27+01:00"
 linkTitle: Templating
 path_base_for_github_subdir:
     from: .*
@@ -17,7 +17,7 @@ actually interpreting it. Only files that are explicitly excluded via [.template
 are not rendered via Jinja2.
 
 Generally, everything that is possible with Jinja2 is possible in kluctl configuration/resources. Please
-read into the [Jinja2 documentation](https://jinja.palletsprojects.com/en/3.0.x/templates/) to understand what exactly
+read into the [Jinja2 documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/) to understand what exactly
 is possible and how to use it.
 
 ## .templateignore
@@ -27,8 +27,8 @@ a `.templateignore` beside the excluded files or into a parent folder of it. The
 file is the same as you would use in a `.gitignore` file.
 
 ## Includes and imports
-Standard Jinja2 [includes](https://jinja.palletsprojects.com/en/2.11.x/templates/#include) and
-[imports](https://jinja.palletsprojects.com/en/2.11.x/templates/#import) can be used in all templates.
+Standard Jinja2 [includes](https://jinja.palletsprojects.com/en/3.1.x/templates/#include) and
+[imports](https://jinja.palletsprojects.com/en/3.1.x/templates/#import) can be used in all templates.
 
 The path given to include/import is searched in the directory of the root template and all it's parent directories up
 until the project root. Please note that the search path is not altered in included templates, meaning that it will
@@ -39,7 +39,7 @@ the path with `./`, e.g. use `{% include "./my-relative-file.j2" %}"`.
 
 ## Macros
 
-[Jinja2 macros](https://jinja.palletsprojects.com/en/2.11.x/templates/#macros) are fully supported. When writing
+[Jinja2 macros](https://jinja.palletsprojects.com/en/3.1.x/templates/#macros) are fully supported. When writing
 macros that produce yaml resources, you must use the `---` yaml separator in case you want to produce multiple resources
 in one go.
 
