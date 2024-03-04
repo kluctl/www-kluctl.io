@@ -1,7 +1,7 @@
 ---
 description: Available variable sources.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-01-04T14:33:47+01:00"
+lastmod: "2024-02-28T09:24:41+01:00"
 linkTitle: Variable Sources
 path_base_for_github_subdir:
     from: .*
@@ -314,7 +314,7 @@ vars:
       name: my-vars
       namespace: my-namespace
       key: value
-      targetPath: deep.nested.path
+    targetPath: deep.nested.path
 ```
 
 ### clusterSecret
@@ -357,7 +357,7 @@ vars:
       name: my-object
       namespace: my-namespace
       path: status
-      targetPath: my.custom.object.status
+    targetPath: my.custom.object.status
 ```
 
 The following properties are supported for clusterObject sources:

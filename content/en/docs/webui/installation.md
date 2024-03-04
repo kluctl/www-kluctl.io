@@ -1,7 +1,7 @@
 ---
 description: Installing the Kluctl Webui
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-01-15T14:19:23+01:00"
+lastmod: "2024-03-04T14:47:38+01:00"
 linkTitle: Installation
 path_base_for_github_subdir:
     from: .*
@@ -23,7 +23,7 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/webui
       ref:
-        tag: v2.23.3
+        tag: v2.23.5
 ```
 
 ## Login
@@ -69,7 +69,7 @@ deployments:
     vars:
       - values:
           args:
-            kluctl_version: v2.23.3
+            kluctl_version: v2.23.5
 ```
 
 ### Passing arguments
@@ -82,7 +82,7 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/webui
       ref:
-        tag: v2.23.3
+        tag: v2.23.5
     vars:
       - values:
           webui_args:

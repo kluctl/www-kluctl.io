@@ -1,7 +1,7 @@
 ---
 description: Installation documentation
 github_repo: https://github.com/kluctl/template-controller
-lastmod: "2023-12-19T16:16:34+01:00"
+lastmod: "2024-02-27T11:06:16+01:00"
 path_base_for_github_subdir:
     from: .*
     to: main/docs/install.md
@@ -17,7 +17,7 @@ The Template Controller can currently only be installed via kustomize:
 
 ```sh
 kubectl create ns kluctl-system
-kustomize build "https://github.com/kluctl/template-controller/config/install?ref=v0.8.1" | kubectl apply -f-
+kustomize build "https://github.com/kluctl/template-controller/config/install?ref=v0.8.3" | kubectl apply -f-
 ```
 
 ## Helm
