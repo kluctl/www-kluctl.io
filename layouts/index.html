@@ -149,48 +149,9 @@
 	</section>
 	{{- end -}}{{/* Kluctl in action section end */}}
 
-	{{- with .Params.adoptersSection }}
-	{{/* Adopters section start */}}
-	<section id="Adopters">
-		<div class="adopters-wrapper">
-			<div class="container">
-				<div class="section-top">
-					<h2>{{ .title }}</h2>
-				</div>
-				<div class="adopters-card-container">
-					{{- range .featureList }}
-					{{- $title := .title }}
-					<div class="adopters-card">
-						{{- with .icon -}}
-						{{- with resources.Get . -}}
-						<div class="adopters-card-icon">
-							<img src="{{ .RelPermalink }}" alt="{{ $title }} icon" />
-						</div>
-						{{- end -}}
-						{{- end -}}
-						<div class="adopters-card-content">
-							<p class='adopters-card-description'>{{ .description }}</p>
-                                                        <blockquote>
-                                                                <p
-                                                                class='adopters-card-testimonial'>
-                                                                        <span>
-                                                                                <span>“</span>
-                                                                        </span>
-                                                                        {{ .testimonial }}
-                                                                        <span>
-                                                                                <span>”</span>
-                                                                        </span>
-                                                                </p>
-                                                                <footer class='adopters-card-author'>- {{ .author }}</footer>
-                                                        </blockquote>
-						</div>
-					</div>
-					{{- end }}
-				</div>
-			</div>
-		</div>
-	</section>
-	{{- end -}}{{/* Adopters section end */}}
+
+        {{- partial "adopters" -}}
+
 
 	<!--{{/* News and updates section start */}}
 	<section id="News">
