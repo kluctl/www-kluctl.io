@@ -5,10 +5,11 @@ list:
     url: https://www.kgs-software.com/
     testimonial: "Before integrating kluctl, the process of deploying applications was heavily dependent on manual work and maintaining test-environments was a labor-intense task. With the ability of templating helm-values or k8s-yamls we were able to deploy new clusters faster and reduced the work in labor on the task and understanding the process immensely."
     author: 'Jochen Saalfeld, Lead IT Operations Engineer'
-  - logo: "images/home/icons/webui-icon.svg"
-    description: "Company B. DevOps for SaaS"
-    testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    author: 'John Doe, Senior Engineer'
+  - logo: "images/adopters/billrush.jpeg"
+    description: "Bill Rush – From Bill To Bank"
+    url: https://billrush.co.nz
+    testimonial: "We use Kluctl as a core deployment tool with components that we love being the Helm Integration, Secrets Transformer, Deployment Diffs, flexible Deployment Targets and the Templating with Jinja Vars Substitution."
+    author: 'Mark Cupitt, Head of Global Operations and Engineering'
   - logo: "images/home/icons/settings-icon.svg"
     description: "Company C. DevOps for SaaS"
     testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In fermentum posuere urna nec tincidunt praesent semper feugiat nibh."
