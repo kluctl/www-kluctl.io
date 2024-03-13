@@ -3,7 +3,7 @@ list:
   - logo: "images/adopters/kgs.png"
     description: "KGS Software GmbH"
     url: https://www.kgs-software.com/
-    testimonial: "Before integrating kluctl, the process of deploying applications was heavily dependent on manual work and maintaining test-environments was a labor-intense task. With the ability of templating helm-values or k8s-yamls we were able to deploy new clusters faster and reduced the work in labor on the task and understanding the process immensely."
+    testimonial: "Before integrating kluctl, the process of deploying applications was heavily dependent on manual work and maintaining test-environments was a labor-intense task. With the ability of templating helm-values or k8s-yamls we were able to deploy new clusters faster and massively reduces the workload within the process and substantially increases the understanding."
     author: 'Jochen Saalfeld, Lead IT Operations Engineer'
   - logo: "images/adopters/billrush.jpeg"
     description: "Bill Rush – From Bill To Bank"
