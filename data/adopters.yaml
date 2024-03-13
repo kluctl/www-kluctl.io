@@ -1,9 +1,9 @@
 title: Adopters
 list:
-  - icon: "images/home/hero-img.png"
-    description: "Company A. DevOps for SaaS"
-    testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit scelerisque in dictum."
-    author: 'John Doe, CTO'
+  - icon: "images/adopters/kgs.png"
+    description: "KGS Software GmbH"
+    testimonial: "Before integrating kluctl, the process of deploying applications was heavily dependent on manual work and maintaining test-environments was a labor-intense task. With the ability of templating helm-values or k8s-yamls we were able to deploy new clusters faster and reduced the work in labor on the task and understanding the process immensely."
+    author: 'Jochen Saalfeld, Lead IT Operations Engineer'
   - icon: "images/home/icons/webui-icon.svg"
     description: "Company B. DevOps for SaaS"
     testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
