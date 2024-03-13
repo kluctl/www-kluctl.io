@@ -25,6 +25,14 @@ body:
     validations:
       required: true
   - type: textarea
+    id: testimonial
+    attributes:
+      label: |
+        Please provide a short testimonial describing how and why Kluctl solves something for you.
+        Check the existing list of adopters for real world examples.
+    validations:
+      required: true
+  - type: textarea
     id: description
     attributes:
       label: |
