@@ -4,21 +4,35 @@ body:
   - type: input
     id: company
     attributes:
-      label: What is the name of your company?
+      label: |
+        Please provide the name of your company with am optional and very short description of what you do.
+        For example, "Super Duper Corp, your consultancy buddy"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: |
+        Provide an optional URL to link to. The link will be used on the company name and logo.
+    validations:
+      required: false
+  - type: input
+    id: logo
+    attributes:
+      label: |
+        Provide an URL to your company logo. It will be part of the adopters list.
+        Please use a logo that works well on white background (check the existing adopters list).
     validations:
       required: true
   - type: textarea
     id: description
     attributes:
-      label: What does your company do and how do you use kluctl?
+      label: |
+        Optionally describe what your company does and maybe how you found out about Kluctl.
+        This will not be part of the adopters list, but helps us a lot to understand where adopters come from and why
+        they ended up using Kluctl.
     validations:
-      required: true
-  - type: input
-    id: logo
-    attributes:
-      label: URL to your company logo
-    validations:
-      required: true
+      required: false
   - type: checkboxes
     id: terms
     attributes:
