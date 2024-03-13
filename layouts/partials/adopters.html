@@ -10,7 +10,7 @@
                                 {{- range .list }}
                                 {{- $title := .title }}
                                 <div class="adopters-card">
-                                        {{- with .icon -}}
+                                        {{- with .logo -}}
                                         {{- with resources.Get . -}}
                                         <div class="adopters-card-icon">
                                                 <img src="{{ .RelPermalink }}" alt="{{ $title }} icon" />
