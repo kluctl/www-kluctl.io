@@ -13,7 +13,7 @@ heroSection:
   title: Kluctl - Trust Your Deployments.
   paragraph: Easily handle Kubernetes deployments of any size, complexity, and across various environments using Kluctl.
   button:
-    link: docs/
+    link: docs/kluctl
     text: Get Started
   image:
     url: images/home/hero-img.png # relative to the assets folder
