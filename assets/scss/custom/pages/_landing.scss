@@ -456,6 +456,107 @@ nav.navbar {
 /* News Section CSS End */
 
 
+/* Adopters Section CSS start */
+
+.adopters-wrapper {
+	padding: 32px 0 90px;
+}
+
+.adopters-card-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 36px 28px;
+	padding-top: 110px;
+}
+
+.adopters-card {
+    border: 1px solid var(--primary-100);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+	border-radius: 7px;
+    padding-top: 32px;
+	padding: 32px 8px 8px;
+    @media (hover: hover) and (any-pointer: fine) {
+        transition: box-shadow 0.25s ease-in;
+        &:hover {
+            box-shadow: 0 0 12px -7px var(--primary-300);
+        }
+    }
+}
+
+.adopters-card-content {
+	background: var(--primary-100);
+    width: 100%;
+    flex: 1;
+    border-radius: 7px;
+    padding: 12px 16px;
+}
+
+.adopters-card-content h5 {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 25.424px;
+	padding: 20px 0;
+	margin-bottom: 0;
+	color: var(--gray);
+    padding-top: 0;
+}
+
+.adopters-card-content blockquote {
+    margin-bottom: 0;
+}
+
+.adopters-card-description {
+    font-size: 14px;
+    line-height: 1.5;
+    padding-bottom: 14px;
+    margin-bottom: 0;
+    color: #646464;
+    text-align: left;
+    font-weight: 700;
+}
+
+.adopters-card-testimonial {
+	font-size: 16px;
+	line-height: 25.424px;
+    margin-bottom: 0;
+	color: var(--gray);
+    text-align: center;
+    padding-bottom: 12px;
+    & > span {
+        position: relative;
+        display:inline-block;
+        width: 16px;
+        height: 16px;
+        & > span {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            color: var(--primary-700);
+        }
+    }
+}
+
+.adopters-card-author {
+    font-size: 14px;
+    text-align: right;
+    color: #333;
+    font-weight: 700;
+}
+
+.adopters-card-icon img {
+    width: 100%;
+    height: auto;
+    max-height: 64px;
+    min-height: 64px;
+}
+
+/* Adopters section CSS end */
+
+
 /* Responsive styles */
 
 /* Min Width 1200px and Max Width 1399px */
@@ -471,6 +572,10 @@ nav.navbar {
 	}
 
 	.features-card-container {
+		column-gap: 70px;
+	}
+
+	.adopters-card-container {
 		column-gap: 70px;
 	}
 }
@@ -495,6 +600,10 @@ nav.navbar {
 	}
 
 	.features-card-container {
+		gap: 44px;
+	}
+
+	.adopters-card-container {
 		gap: 44px;
 	}
 
@@ -533,6 +642,10 @@ nav.navbar {
 		gap: 44px;
 	}
 
+	.adopters-card-container {
+		gap: 44px;
+	}
+
 	.news-card {
 		padding: 22px 24px 80px;
 	}
@@ -554,6 +667,11 @@ nav.navbar {
 	}
 
 	.features-card-container {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 44px;
+	}
+
+	.adopters-card-container {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 44px;
 	}
@@ -618,6 +736,10 @@ nav.navbar {
 		gap: 44px;
 	}
 
+	.adopters-card-container {
+		gap: 44px;
+	}
+
 	.news-card {
 		padding: 22px 24px 80px;
 	}
@@ -639,6 +761,12 @@ nav.navbar {
 	}
 
 	.features-card-container {
+		grid-template-columns: repeat(1, 1fr);
+		gap: 32px;
+		padding-top: 32px;
+	}
+
+	.adopters-card-container {
 		grid-template-columns: repeat(1, 1fr);
 		gap: 32px;
 		padding-top: 32px;
