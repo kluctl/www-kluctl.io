@@ -10,12 +10,3 @@ list:
     url: https://billrush.co.nz
     testimonial: "We use Kluctl as a core deployment tool with components that we love being the Helm Integration, Secrets Transformer, Deployment Diffs, flexible Deployment Targets and the Templating with Jinja Vars Substitution."
     author: 'Mark Cupitt, Head of Global Operations and Engineering'
-  - logo: "images/home/icons/settings-icon.svg"
-    description: "Company C. DevOps for SaaS"
-    testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In fermentum posuere urna nec tincidunt praesent semper feugiat nibh."
-    author: 'John Doe, Chief Infra Strategist'
-  - logo: "images/home/icons/kustomize-icon.svg"
-    description: "Company D. DevOps for SaaS"
-    testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    author: 'John Doe'
-
