@@ -32,6 +32,14 @@ body:
         Check the existing list of adopters for real world examples.
     validations:
       required: true
+  - type: input
+    id: author
+    attributes:
+      label: |
+        What is your name and title at your company? This will be shown in the adopters section.
+        Example: "John Doe, CTO at Super Duper Corp."
+    validations:
+      required: true
   - type: textarea
     id: description
     attributes:

@@ -1,19 +1,17 @@
-title: Adopters
+title: Who trusts in Kluctl?
 list:
-  - icon: "images/home/hero-img.png"
-    description: "Company A. DevOps for SaaS"
-    testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit aliquam etiam erat velit scelerisque in dictum."
-    author: 'John Doe, CTO'
-  - icon: "images/home/icons/webui-icon.svg"
-    description: "Company B. DevOps for SaaS"
-    testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    author: 'John Doe, Senior Engineer'
-  - icon: "images/home/icons/settings-icon.svg"
-    description: "Company C. DevOps for SaaS"
-    testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In fermentum posuere urna nec tincidunt praesent semper feugiat nibh."
-    author: 'John Doe, Chief Infra Strategist'
-  - icon: "images/home/icons/kustomize-icon.svg"
-    description: "Company D. DevOps for SaaS"
-    testimonial: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    author: 'John Doe'
-
+  - logo: "images/adopters/kgs.png"
+    description: "KGS Software GmbH"
+    url: https://www.kgs-software.com/
+    testimonial: "Since we integrated Kluctl, we were able to reduce the manual workloads massively. With templating of Helm-values and k8s-yamls, we can now easily maintain multiple envrironments with much less technical and mental overhead."
+    author: 'Jochen Saalfeld, Lead IT Operations Engineer'
+  - logo: "images/adopters/billrush.jpeg"
+    description: "Bill Rush – From Bill To Bank"
+    url: https://billrush.co.nz
+    testimonial: "We use Kluctl as a core deployment tool with components that we love being the Helm Integration, Secrets Transformer, Deployment Diffs, flexible Deployment Targets and the Templating with Jinja Vars Substitution."
+    author: 'Mark Cupitt, Head of Global Operations and Engineering'
+  - logo: "images/adopters/e3dc.svg"
+    description: "E3DC, a Hagerenergy GmbH company, the all-in-one energy storage solution"
+    url: https://e3dc.com
+    testimonial: "Easy and straight forward kubernetes deployments which makes our live in the GitOps and DevOps daily business much more easy and reliable."
+    author: 'Timo Roewekamp, IT Systems Engineer'

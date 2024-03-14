@@ -9,11 +9,14 @@
                         <div class="adopters-card-container">
                                 {{- range .list }}
                                 {{- $title := .title }}
+                                {{- $url := .url }}
                                 <div class="adopters-card">
-                                        {{- with .icon -}}
+                                        {{- with .logo -}}
                                         {{- with resources.Get . -}}
                                         <div class="adopters-card-icon">
+                                                {{ if $url }}<a href="{{ $url }}" target="_blank">{{ end }}
                                                 <img src="{{ .RelPermalink }}" alt="{{ $title }} icon" />
+                                                {{ if $url }}</a>{{ end }}
                                         </div>
                                         {{- end -}}
                                         {{- end -}}
