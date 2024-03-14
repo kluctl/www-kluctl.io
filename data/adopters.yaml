@@ -10,3 +10,8 @@ list:
     url: https://billrush.co.nz
     testimonial: "We use Kluctl as a core deployment tool with components that we love being the Helm Integration, Secrets Transformer, Deployment Diffs, flexible Deployment Targets and the Templating with Jinja Vars Substitution."
     author: 'Mark Cupitt, Head of Global Operations and Engineering'
+  - logo: "images/adopters/e3dc.svg"
+    description: "E3DC, a Hagerenergy GmbH company, the all-in-one energy storage solution"
+    url: https://e3dc.com
+    testimonial: "Easy and straight forward kubernetes deployments which makes our live in the GitOps and DevOps daily business much more easy and reliable."
+    author: 'Timo Roewekamp, IT Systems Engineer'
