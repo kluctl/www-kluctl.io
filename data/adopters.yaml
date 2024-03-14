@@ -1,9 +1,9 @@
-title: Who trusts in Kluctl?
+title: Who trusts Kluctl
 list:
   - logo: "images/adopters/kgs.png"
     description: "KGS Software GmbH"
     url: https://www.kgs-software.com/
-    testimonial: "Since we integrated Kluctl, we were able to reduce the manual workloads massively. With templating of Helm-values and k8s-yamls, we can now easily maintain multiple envrironments with much less technical and mental overhead."
+    testimonial: "Since we integrated Kluctl, we are able to reduce the manual workloads massively. With templating of Helm-values and k8s-yamls, we can now easily maintain multiple envrironments with much less technical and mental overhead."
     author: 'Jochen Saalfeld, Lead IT Operations Engineer'
   - logo: "images/adopters/billrush.jpeg"
     description: "Bill Rush – From Bill To Bank"
@@ -13,5 +13,5 @@ list:
   - logo: "images/adopters/e3dc.svg"
     description: "Hagerenergy GmbH - all-in-one energy solutions"
     url: https://e3dc.com
-    testimonial: "Easy and straight forward kubernetes deployments which makes our live in the GitOps and DevOps daily business much more easy and reliable."
+    testimonial: "Easy and straight forward Kubernetes deployments which makes our life in the GitOps and DevOps daily business much more easy and reliable."
     author: 'Timo Roewekamp, IT Systems Engineer'
