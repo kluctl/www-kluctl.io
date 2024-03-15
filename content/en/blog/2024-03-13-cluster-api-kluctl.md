@@ -24,18 +24,18 @@ The next step was obvious in hindsight, but still a surprise for me personally: 
 Having something in the form of a Custom Resource also means that it becomes a regular Kubernetes Resource that can be managed with all available tooling in the Kubernetes ecosystem. It can be managed with plain Kubectl, but also with more advances tools like [Helm](https://helm.sh/), [Flux](https://fluxcd.io/), [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) or [Kluctl](https://kluctl.io).
 
 # So, why Kluctl?
-Kluctl is general purpose deployment tool for Kubernetes. It allows you to define Kubernetes deployments of any complexity and manage them via a [unified CLI](https://kluctl.io/docs/kluctl/commands/) and/or an optional [GitOps controller](https://kluctl.io/docs/gitops/). Here a are a few features that make Kluctl interesting for the management of Cluster API based clusters.
+Kluctl is general purpose deployment tool for Kubernetes. It allows you to define Kubernetes deployments of any complexity and manage them via a [unified CLI]({{< ref "docs/kluctl/commands" >}}) and/or an optional [GitOps controller]({{< ref "docs/gitops" >}}). Here a are a few features that make Kluctl interesting for the management of Cluster API based clusters.
 
-1. [Targets](https://kluctl.io/docs/kluctl/kluctl-project/targets/) allow you to manage multiple workload clusters with the same Kluctl deployment project.
-2. [Templating](https://kluctl.io/docs/kluctl/templating/) allows you to follow a natural project structure, without the need to use overlays and patching to meet simple requirements.
-3. [Deployment projects](https://kluctl.io/docs/kluctl/deployments/deployment-yml/) allow you to reuse parametrised and templated subcomponents without copy-paste.
-4. [Variable sources](https://kluctl.io/docs/kluctl/templating/variable-sources/) give you easy to understand and structured configuration for the workload clusters.
-5. The [Kluctl diff](https://kluctl.io/docs/kluctl/commands/diff/) command will always tell you if you're good or not when you change things (because it's based on a server-side dry-run).
-6. [GitOps](https://kluctl.io/docs/gitops/) is fully supported but also optional. It can even be [mixed](https://kluctl.io/docs/kluctl/commands/gitops-deploy/) with a classical push style CLI.
+1. [Targets]({{< ref "docs/kluctl/kluctl-project/targets" >}}) allow you to manage multiple workload clusters with the same Kluctl deployment project.
+2. [Templating]({{< ref "docs/kluctl/templating" >}}) allows you to follow a natural project structure, without the need to use overlays and patching to meet simple requirements.
+3. [Deployment projects]({{< ref "docs/kluctl/deployments/deployment-yml" >}}) allow you to reuse parametrised and templated subcomponents without copy-paste.
+4. [Variable sources]({{< ref "docs/kluctl/templating/variable-sources" >}}) give you easy to understand and structured configuration for the workload clusters.
+5. The [Kluctl diff]({{< ref "docs/kluctl/commands/diff" >}}) command will always tell you if you're good or not when you change things (because it's based on a server-side dry-run).
+6. [GitOps]({{< ref "docs/gitops" >}}) is fully supported but also optional. It can even be [mixed]({{< ref "docs/kluctl/commands/gitops-deploy" >}}) with a classical push style CLI.
 
 # Installing Kluctl
 
-For this tutorial, you'll need the Kluctl CLI installed. Please follow the instructions [here](https://kluctl.io/docs/kluctl/installation/#installing-the-cli). There is no need to install the GitOps contoller or the Webui, but feel free to try these out as well after the tutorial.
+For this tutorial, you'll need the Kluctl CLI installed. Please follow the instructions [here]({{< ref "docs/kluctl/installation#installing-the-cli" >}}). There is no need to install the GitOps contoller or the Webui, but feel free to try these out as well after the tutorial.
 
 # Let's setup cluster-api
 In this tutorial, we'll work completely locally without any cloud resources being involved. This means, we're using [Kind](https://kind.sigs.k8s.io/) and the CAPD (Cluster API Docker) infrastructure provider. In the real world, you'll need to adapt the principles learned here to a proper Cluster API infrastructure provider.
@@ -102,7 +102,7 @@ Let's talk about the basic Kluctl project structure that we'll follow for this t
 
 The root directory will contain 2 files.
 
-The first one is the [.kluctl.yaml](https://kluctl.io/docs/kluctl/kluctl-project/) file, which specifies which [targets](https://kluctl.io/docs/kluctl/kluctl-project/targets/) exists. A target defines where/what to deploy with a Kluctl project and can be anything you want. In a classical application deployment, it would be the target environment. In this case, a target represents a Cluster API workload cluster, deployed to a Cluster API management cluster (our Kind cluster). It serves as the entrypoint to configuration management and will later allow us to load cluster specific configuration.
+The first one is the [.kluctl.yaml]({{< ref "docs/kluctl/kluctl-project" >}}) file, which specifies which [targets]({{< ref "docs/kluctl/kluctl-project/targets" >}}) exists. A target defines where/what to deploy with a Kluctl project and can be anything you want. In a classical application deployment, it would be the target environment. In this case, a target represents a Cluster API workload cluster, deployed to a Cluster API management cluster (our Kind cluster). It serves as the entrypoint to configuration management and will later allow us to load cluster specific configuration.
 
 ```yaml
 # content of .kluctl.yaml
@@ -117,7 +117,7 @@ discriminator: capi-{{ target.name }}
 
 You can also see the first use of templating here in the discriminator. The discriminator is later used to differentiate resources that have been applied to the cluster before. This is useful for cleanup tasks like pruning or deletion.
 
-The second file is the [deployment.yaml](https://kluctl.io/docs/kluctl/deployments/deployment-yml/), which defines the actual deployment project. It includes Kustomize deployments, Helm Charts and other sub-deployment projects.
+The second file is the [deployment.yaml]({{< ref "docs/kluctl/deployments/deployment-yml" >}}), which defines the actual deployment project. It includes Kustomize deployments, Helm Charts and other sub-deployment projects.
 
 ```yaml
 # content of deployment.yaml
@@ -128,7 +128,7 @@ commonAnnotations:
   kluctl.io/force-managed: "true"
 ````
 
-This will include a sub-deployment in the directory "clusters". Inside this directory, there must be another deployment.yaml. The annotation found in [commonAnnotations](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#commonannotations) will cause Kluctl to [always consider](https://kluctl.io/docs/kluctl/deployments/annotations/all-resources/#kluctlioforce-managed) resources as managed by Kluctl. This is required because Cluster API [claims ownership of resources](https://github.com/kubernetes-sigs/cluster-api/issues/5487#issuecomment-950824947) even though it is not in control of those.
+This will include a sub-deployment in the directory "clusters". Inside this directory, there must be another deployment.yaml. The annotation found in [commonAnnotations]({{< ref "docs/kluctl/deployments/deployment-yml#commonannotations" >}}) will cause Kluctl to [always consider]({{< ref "docs/kluctl/deployments/annotations/all-resources#kluctlioforce-managed" >}}) resources as managed by Kluctl. This is required because Cluster API [claims ownership of resources](https://github.com/kubernetes-sigs/cluster-api/issues/5487#issuecomment-950824947) even though it is not in control of those.
 
 ```yaml
 # content of clusters/deployment.yaml
@@ -136,7 +136,7 @@ deployments:
   - path: {{ target.name }}
 ````
 
-This will include a [Kustomize](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#kustomize-deployments) deployment from the directory that is resolved via the template `{{ target.name }}`. "target" is a global variable that is always present and it allows you to access the properties used in the current target, defined in the `.kluctl.yaml` from above. This means, if you later deploy the target "demo-1", Kluctl will load the Kustomize deployment found in the "clusters/demo-1" folder.
+This will include a [Kustomize]({{< ref "docs/kluctl/deployments/deployment-yml#kustomize-deployments" >}}) deployment from the directory that is resolved via the template `{{ target.name }}`. "target" is a global variable that is always present and it allows you to access the properties used in the current target, defined in the `.kluctl.yaml` from above. This means, if you later deploy the target "demo-1", Kluctl will load the Kustomize deployment found in the "clusters/demo-1" folder.
 
 # Creating a workload cluster
 Now, create the following files in the clusters/demo-1 directory:
@@ -150,7 +150,7 @@ resources:
   - workers.yaml
 ```
 
-The above file is a regular `kustomization.yaml` that includes the actual resources. Kluctl fully supports [Kustomize](https://kluctl.io/docs/kluctl/deployments/kustomize/) and all its features. You can also omit the `kustomization.yaml` in most cases, causing Kluctl to [auto-generate](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#simple-deployments) the kustomization.yaml. In this case however, this is not recommended as the order is important here: The namespace must be deployed before anything else.
+The above file is a regular `kustomization.yaml` that includes the actual resources. Kluctl fully supports [Kustomize]({{< ref "docs/kluctl/deployments/kustomize" >}}) and all its features. You can also omit the `kustomization.yaml` in most cases, causing Kluctl to [auto-generate]({{< ref "docs/kluctl/deployments/deployment-yml#simple-deployments" >}}) the kustomization.yaml. In this case however, this is not recommended as the order is important here: The namespace must be deployed before anything else.
 
 ```yaml
 # contents clusters/demo-1/namespace.yaml
@@ -302,7 +302,7 @@ The above file describes everything needed to create a pool of nodes. This inclu
 
 # Deploying the workload cluster
 
-We now have a working Kluctl Deployment Project that can be deployed via the [Kluctl CLI](https://kluctl.io/docs/kluctl/commands/) (we will later also explore GitOps). Execute the following command:
+We now have a working Kluctl Deployment Project that can be deployed via the [Kluctl CLI]({{< ref "docs/kluctl/commands" >}}) (we will later also explore GitOps). Execute the following command:
 
 ```bash
 $ kluctl deploy -t demo-1
@@ -339,8 +339,7 @@ You can now try to modify something in the workload cluster manifests.
 
 Lets increase the workers `MachineDeployment` replicas to 2. You can do this by editing `clusters/demo-1/workers.yaml` with your favorite editor, search for the `MashineDeployment` resource and replace `replicas: 1` with `replicas: 2`.
 
-
-Now, let's [deploy](https://kluctl.io/docs/kluctl/commands/deploy/) this change. We will now start to see the first benefits from Kluctl, specifically the dry-run and diff that happens before we deploy something. You will need to confirm the deployment by pressing `y`.
+Now, let's [deploy]({{< ref "docs/kluctl/commands/deploy" >}}) this change. We will now start to see the first benefits from Kluctl, specifically the dry-run and diff that happens before we deploy something. You will need to confirm the deployment by pressing `y`.
 
 ```bash
 $ kluctl deploy -t demo-1
@@ -395,7 +394,7 @@ demo-1-md-0-mtcpn-wnb8v      Ready      <none>          12h   v1.29.0
 # Add and remove node pools
 You can also try more types of modifications. It gets especially interesting when you start to add or remove resources, for example if you add another node pool by copying `workers.yaml` to `workers-2.yaml` (don't forget to also update `kustomization.yaml`) and replace all occurrences of `md-0` with `md-1`. When you deploy this, Kluctl will show you that new resources will be created and actually create these after confirmation.
 
-If you tried this, also try to delete `workers-2.yaml` again and then see what `kluctl deploy -t demo-1` will do. It will inform you about the orphaned resources, which you then can [prune](https://kluctl.io/docs/kluctl/commands/prune/) via `kluctl prune -t demo-1`. Pruning can also be combined with deploying via `kluctl deploy -t demo-1 --prune`. We won't get into more detail at this point, because this will get more clear and powerful when we combine this with templating in the next section.
+If you tried this, also try to delete `workers-2.yaml` again and then see what `kluctl deploy -t demo-1` will do. It will inform you about the orphaned resources, which you then can [prune]({{< ref "docs/kluctl/commands/prune" >}}) via `kluctl prune -t demo-1`. Pruning can also be combined with deploying via `kluctl deploy -t demo-1 --prune`. We won't get into more detail at this point, because this will get more clear and powerful when we combine this with templating in the next section.
 
 # Introducing templating
 So far, we've only used very static manifests. To introduce new clusters, or even node pools, we'd have to do a lot of copy-paste while replacing names everywhere. This is of course not considered best practice and we should seek for a better way. Cluster API has an experimental feature called [cluster classes](https://cluster-api.sigs.k8s.io/tasks/experimental-features/cluster-class/) which tries to solve this problem. We'll however not use these in this tutorial and instead rely on Kluctl's templating functionality to solve the same requirements. A later section will also explain why templating is a viable alternative to ClusterClass.
@@ -407,18 +406,18 @@ We will now introduce two reusable and templated Kustomize deployments for the c
 
 Let's start by moving `kustomization.yaml`, `namespace.yaml`, `cluster.yaml` and `control-plane.yaml` into `templates/cluster/`. Also remove `workers.yaml` from the resources list in `kustomization.yaml`. This will be the cluster deployment.
 
-Now, replace all occurrences of `demo-1` with `{{ cluster.name }}` in all the manifests found in the `templates/cluster` directory. Also, in the `KubeadmControlPlane` inside `control-plane.yaml`, replace `replicas: 1` with `{{ cluster.replicas }}`. This introduces some simple [Jinja2 templating](https://kluctl.io/docs/kluctl/templating/) to inject the cluster name. The global `cluster` variable seen here will be introduced later.
+Now, replace all occurrences of `demo-1` with `{{ cluster.name }}` in all the manifests found in the `templates/cluster` directory. Also, in the `KubeadmControlPlane` inside `control-plane.yaml`, replace `replicas: 1` with `{{ cluster.replicas }}`. This introduces some simple [Jinja2 templating]({{< ref "docs/kluctl/templating" >}}) to inject the cluster name. The global `cluster` variable seen here will be introduced later.
 
-Next, move the `workers.yaml` manifest into `templates/workers`. This time, there is no need for a `kustomization.yaml` as we don't care about deployment order here (there is no namespace involved here), which means we can allow Kluctl to [auto-generate](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#simple-deployments) it. Then, replace all occurences of `demo-1` with `{{ cluster.name }}` and all occurrences of `md-0` with `{{ workers.name }}`. Finally, find `replicas: 1` (or whatever you set it to before) and replace it with `replicas: {{ workers.replicas }}`.
+Next, move the `workers.yaml` manifest into `templates/workers`. This time, there is no need for a `kustomization.yaml` as we don't care about deployment order here (there is no namespace involved here), which means we can allow Kluctl to [auto-generate]({{< ref "docs/kluctl/deployments/deployment-yml#simple-deployments" >}}) it. Then, replace all occurences of `demo-1` with `{{ cluster.name }}` and all occurrences of `md-0` with `{{ workers.name }}`. Finally, find `replicas: 1` (or whatever you set it to before) and replace it with `replicas: {{ workers.replicas }}`.
 
 Please note that this tutorial keeps the amount of configuration possible in these deployments to a minimum. You can maybe imagine that a lot can be achieved via templating here. For example, AWS or Azure instance types could be configured via `{{ workers.instanceType }}`.
 
-Also, a real world example might consider putting the cluster/worker templates in seprate git repositories and including them via [git](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#git-includes) or [oci](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#oci-includes) includes. Both will allow you to implement versioning and other best practices for the templates.
+Also, a real world example might consider putting the cluster/worker templates in seprate git repositories and including them via [git]({{< ref "docs/kluctl/deployments/deployment-yml#git-includes" >}}) or [oci]({{< ref "docs/kluctl/deployments/deployment-yml#oci-includes" >}}) includes. Both will allow you to implement versioning and other best practices for the templates.
 
 # Using the templated deployments
 The previously prepared templated deployments can now be included as often as you want, with different configuration.
 
-For this to work, we must however change the `clusters/demo-1` Kustomize deployment to become an [included sub-deployment](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#includes). Replace `path` with `include` inside `clusters/deployment.yaml`:
+For this to work, we must however change the `clusters/demo-1` Kustomize deployment to become an [included sub-deployment]({{< ref "docs/kluctl/deployments/deployment-yml#includes" >}}). Replace `path` with `include` inside `clusters/deployment.yaml`:
 
 ```yaml
 # content of clusters/deployment.yaml
@@ -455,7 +454,7 @@ deployments:
 
 The above sub-deployment defines some global configuration (e.g. `cluster.name`) and includes the two previously prepared Kustomize deployments. The cluster level configuration is loaded on sub-deployment level so that all items in `deployments` have access to the configuration found there. The worker specific configuration is specified in-line as part of the deployment item itself. This way, each workers item can have its own configuration (e.g. own name and replicas), which is also demonstrated here by introducing a new node pool.
 
-You'll also find a [barrier](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#barriers) in the list of deployment items. This barrier ensures that Kluctl does not continue deploying worker resources before the cluster resources are applied already.
+You'll also find a [barrier]({{< ref "docs/kluctl/deployments/deployment-yml#barriers" >}}) in the list of deployment items. This barrier ensures that Kluctl does not continue deploying worker resources before the cluster resources are applied already.
 
 # Deploying the refactored workload cluster
 
@@ -498,7 +497,7 @@ Diff for object Namespace/cluster-demo-1
 ...
 ```
 
-You'll see a lot of changes in regard to [tags](https://kluctl.io/docs/kluctl/deployments/tags/) and the `kluctl.io/deployment-item-dir` annotation. These are happening due to the movement of manifests and can be ignored for this tutorial. Simply confirm and let it deploy it.
+You'll see a lot of changes in regard to [tags]({{< ref "docs/kluctl/deployments/tags" >}}) and the `kluctl.io/deployment-item-dir` annotation. These are happening due to the movement of manifests and can be ignored for this tutorial. Simply confirm and let it deploy it.
 
 You should also see that the new workers are being created. You could now try to experiment a little bit by adding more workers or removing old ones. Kluctl will always support you by showing what is new and what got orphaned, allowing you to prune these either via `kluctl prune -t demo-1` or via `kluctl deploy -t demo-1 --prune`.
 
@@ -508,7 +507,7 @@ Adding more clusters is hopefully self-explanatory at this point. It's basically
 
 # Introducing GitOps
 
-If you prefer to manage your workload clusters via GitOps, the same Kluctl project can be re-used via a simple [KluctlDeployment](https://kluctl.io/docs/gitops/spec/v1beta1/kluctldeployment/) pointing to your Git repository. We won't go into more detail about GitOps here, but feel free to read the documentation and try it on your own. Moving to GitOps doesn't mean that you have to do a full buy-in, as you'll always be able to mix non-GitOp related workflows with GitOps workflows. For example, a `kluctl diff` / `kluctl gitops diff` can always be used even if the same deplyoment is already managed via GitOps.
+If you prefer to manage your workload clusters via GitOps, the same Kluctl project can be re-used via a simple [KluctlDeployment]({{< ref "docs/gitops/spec/v1beta1/kluctldeployment" >}}) pointing to your Git repository. We won't go into more detail about GitOps here, but feel free to read the documentation and try it on your own. Moving to GitOps doesn't mean that you have to do a full buy-in, as you'll always be able to mix non-GitOp related workflows with GitOps workflows. For example, a `kluctl diff` / `kluctl gitops diff` can always be used even if the same deplyoment is already managed via GitOps.
 
 # Kluctl vs. ClusterClass
 
@@ -524,7 +523,7 @@ I also believe that it's very likely that you will end up using at least some ad
 
 With ClusterClass, you can only glue together Cluster API related resources. A cluster might however need much more, for example an instance of [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler). With ClusterClass, the only option you have is to use a [ClusterResourceSet](https://cluster-api.sigs.k8s.io/tasks/experimental-features/cluster-resource-set) that deploys plain manifests to the workload cluster. These CRSs are however not templated, which will limit you quite a bit in what can be achieved. Also, you must use plain manifests and can't use Helm Charts, which means that the burden of keeping manifests up-to-date is on you. Also, CRSs only allow to deploy additional resource to the workload cluster, but not into the management cluster itself.
 
-With Kluctl, you can use whatever resources you want for the cluster and/or worker templates. Adding Cluster Autoscaler becomes as easy as adding a [Helm Chart](https://kluctl.io/docs/kluctl/deployments/helm/) with proper Helm values (which can also use the `cluster` configuration via templating).
+With Kluctl, you can use whatever resources you want for the cluster and/or worker templates. Adding Cluster Autoscaler becomes as easy as adding a [Helm Chart]({{< ref "docs/kluctl/deployments/helm" >}}) with proper Helm values (which can also use the `cluster` configuration via templating).
 
 #### Migrations/Modifications to cluster templates
 
@@ -534,6 +533,6 @@ With Kluctl, you can use whatever resources you want for the cluster and/or work
 
 If you want to try out the results of this tutorial without copy-pasing all the YAML, simply clone https://github.com/kluctl/cluster-api-demo and follow the instructions in the README.md.
 
-For a more generic explanation of what Kluctl can do, watch [this live demo](https://www.youtube.com/watch?v=fJgLOyEHmN8) at the [Rawkode Academy](https://www.youtube.com/@RawkodeAcademy) YouTube channel. The documentation at https://kluctl.io/docs is also worthwile to read.
+For a more generic explanation of what Kluctl can do, watch [this live demo](https://www.youtube.com/watch?v=fJgLOyEHmN8) at the [Rawkode Academy](https://www.youtube.com/@RawkodeAcademy) YouTube channel. The documentation at {{< ref "docs" >}} is also worthwhile to read.
 
 You can also join the projects #kluctl channel in the [CNCF Slack](https://cloud-native.slack.com/) and get in contact with existing users and maintainers.
