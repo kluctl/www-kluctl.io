@@ -56,7 +56,7 @@ command = """
 
 [[redirects]]
   from = "/managing-cluster-api-with-kluctl*"
-  to = "/blog/2024/04/13/cluster-api-kluctl"
+  to = "/blog/2024/03/13/cluster-api-kluctl"
 [[redirects]]
   from = "/introducing-the-kluctl-webui*"
   to = "/blog/2023/09/12/introducing-the-kluctl-webui"
@@ -76,5 +76,5 @@ command = """
   from = "/rethinking-kubernetes-configuration-management*"
   to = "/blog/2022/05/16/rethinking-kubernetes-configuration-management"
 [[redirects]]
-  from = "/kluctl-and-flux-278e75c7a828"
+  from = "/kluctl-and-flux*"
   to = "/blog/2022/05/11/kluctl-and-flux"
