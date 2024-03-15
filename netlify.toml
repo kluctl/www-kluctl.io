@@ -55,27 +55,26 @@ command = """
   to = "/docs/kluctl/:splat"
 
 [[redirects]]
-  from = "/blog/2023/09/12/introducing-the-kluctl-webui"
-  to = "https://blog.kluctl.io/introducing-the-kluctl-webui-bcd3ea4b264d"
+  from = "/managing-cluster-api-with-kluctl*"
+  to = "/blog/2024/03/13/cluster-api-kluctl"
 [[redirects]]
-  from = "/blog/2023/02/28/managing-many-helm-charts-with-kluctl"
-  to = "https://blog.kluctl.io/managing-many-helm-charts-with-kluctl-210d3f75ab64"
+  from = "/introducing-the-kluctl-webui*"
+  to = "/blog/2023/09/12/introducing-the-kluctl-webui"
 [[redirects]]
-  from = "/blog/2022/12/28/template-controller"
-  to = "https://blog.kluctl.io/introducing-the-template-controller-and-building-gitops-preview-environments-2cce4041406a"
+  from = "/managing-many-helm-charts-with-kluctl*"
+  to = "/blog/2023/02/28/managing-many-helm-charts-with-kluctl"
 [[redirects]]
-  from = "/blog/2022/11/17/templating-and-diffs-with-kustomize"
-  to = "https://blog.kluctl.io/templating-in-kustomize-with-kluctl-style-deploy-and-diff-87ff0454d5f9"
+  from = "/introducing-the-template-controller-and-building-gitops-preview-environments*"
+  to = "/blog/2022/12/28/template-controller"
 [[redirects]]
-  from = "/blog/2022/06/03/multiple-environments-with-flux-and-kluctl"
-  to = "https://blog.kluctl.io/multiple-environments-with-flux-and-kluctl-199f8a00a950"
+  from = "/templating-in-kustomize-with-kluctl-style-deploy-and-diff*"
+  to = "/blog/2022/11/17/templating-and-diffs-with-kustomize"
 [[redirects]]
-  from = "/blog/2022/05/16/rethinking-kubernetes-configuration-management"
-  to = "https://medium.com/kluctl/rethinking-kubernetes-configuration-management-7bc81fff5816"
+  from = "/multiple-environments-with-flux-and-kluctl*"
+  to = "/blog/2022/06/03/multiple-environments-with-flux-and-kluctl"
 [[redirects]]
-  from = "/blog/2022/05/11/kluctl-and-flux"
-  to = "https://blog.kluctl.io/kluctl-and-flux-278e75c7a828"
-
+  from = "/rethinking-kubernetes-configuration-management*"
+  to = "/blog/2022/05/16/rethinking-kubernetes-configuration-management"
 [[redirects]]
-  from = "/docs/receipts"
-  to = "/docs/recipes"
+  from = "/kluctl-and-flux*"
+  to = "/blog/2022/05/11/kluctl-and-flux"

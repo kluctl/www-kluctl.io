@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+<div class="py-xl-9 py-4">
+    <div class="container">
+       <div class="row">
+          <article class="col-lg-8 docs-content offset-lg-2">
+            <header>
+               {{ $title := .Title }}
+				<h1> {{ $title }} </h1>
+				<div class="d-flex align-items-center mt-lg-6 mt-4">
+					<div class="me-5">
+					<span class="fs-6">Written by</span>
+					<div class="d-flex align-items-center mt-2">
+						{{/*  Author  */}}
+						{{ $name := .Site.Params.author.name }}
+						{{ with .Site.Params.author.image }}
+							{{ with resources.Get . }}
+							<img src="{{ .RelPermalink }}" alt="{{ $name }}" class="avatar avatar-xs rounded-circle">
+							{{ end }}
+						{{ end }}
+						<div class="ms-2">
+							<p class="text-reset fs-6">{{ $name }}</p>
+						</div>
+					</div>
+					</div>
+					<div>
+					<span class="fs-6">Published on</span>
+					<div class="mt-2 text-dark">
+						<span class="fs-6">{{ .Date | time.Format ":date_long" }}</span>
+					</div>
+					</div>
+				</div>
+            </header>
+
+             <div class="blog-content main-content mt-5">
+                {{ .Content }}
+             </div>
+
+          </article>
+       </div>
+    </div>
+ </div>
+
+
+ {{ $slice := slice -}}
+
+
+    {{ $prism := resources.Get (printf "/%s/%s" "docs" "js/prism.js") }}
+    {{- $opts := dict
+        "params" (dict "langPath" (urls.JoinPath .Site.BaseURL "docs/js/components/"))
+    -}}
+    {{ $prism := $prism | js.Build $opts -}}
+    {{ $slice = $slice | append $prism -}}
+
+
+{{ $js := $slice | resources.Concat (printf "/%s/%s" "blog" "js/bundle.js") -}}
+
+{{- if not .Site.IsServer }}
+    {{- $js := $js | minify | fingerprint }}
+    <script type="text/javascript" src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
+{{- else }}
+    <script type="text/javascript" src="{{ $js.Permalink }}" defer></script>
+{{- end }}
+
+{{ end }}
