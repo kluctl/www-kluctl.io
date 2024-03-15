@@ -4,6 +4,9 @@ title: "Kluctl and Flux"
 linkTitle: "Kluctl and Flux"
 date: 2022-05-11
 author: Alexander Block (@codablock)
+description: "Outdated announcement"
+tags:
+- Announcement
 ---
 
 {{< alert >}}
@@ -66,7 +69,7 @@ same deployment, including the necessary configuration to let them talk to each 
 To see how different a Kluctl deployment is compared to classic Kustomize/Helm + Flux, you can compare the
 [flux2-kustomize-helm-example](https://github.com/fluxcd/flux2-kustomize-helm-example) and the
 [Kluctl Microservices Demo](https://github.com/kluctl/kluctl-examples/tree/main/microservices-demo/3-templating-and-multi-env)
-([here]({{< ref "docs/guides/tutorials/microservices-demo">}}) is tutorial for the demo).
+([here]({{< ref "docs/tutorials/microservices-demo">}}) is tutorial for the demo).
 
 ## Native multi-env support
 Kluctl allows you to natively create deployment projects that can be deployed multiple times to different

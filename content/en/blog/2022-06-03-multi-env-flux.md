@@ -4,8 +4,12 @@ title: "Multiple Environments with Flux and Kluctl"
 linkTitle: "Multiple Environments with Flux and Kluctl"
 date: 2022-06-03
 author: Alexander Block (@codablock)
+description: "Outdated tutorial"
+tags:
+- Announcement
+- Tutorial
 images:
-  - "/images/blog/cover/Multiple Environments with Flux and Kluctl.png"
+- "/images/blog/multi-env-flux.jpg"
 ---
 
 ![multi-env-flux](/images/blog/multi-env-flux.jpg)
@@ -55,7 +59,7 @@ a solution that is as easy to learn and use and so flexible at the same time.
 
 ## Fully working multi-env example
 
-I suggest to open the [microservices demo]({{< ref "docs/guides/tutorials/microservices-demo" >}})
+I suggest to open the [microservices demo]({{< ref "docs/tutorials/microservices-demo" >}})
 in another tab and look into it at least briefly (especially the third part). I will from now on pick stuff from this
 tutorial as examples in this blog post.
 
@@ -125,7 +129,7 @@ deployments:
 ```
 
 I hope the above snippets give you a feeling about how multi-env deplyoments can be solved via Kluctl. As already
-mentioned, I suggest to read through the [microservices demo]({{< ref "docs/guides/tutorials/microservices-demo" >}})
+mentioned, I suggest to read through the [microservices demo]({{< ref "docs/tutorials/microservices-demo" >}})
 tutorial to get an even better understanding. The first two parts will describe some Kluctl basics while the third
 part enters multi-env deployments.
 
@@ -233,7 +237,7 @@ As an alternative, you can have a central Flux (+flux-kluctl-controller) install
 This can be achieved with the help of the spec.kubeconfig and spec.serviceAccountName
 field of the `KluctlDeployment` object.
 
-Also, as the examples stem from the [microservices demo]({{< ref "docs/guides/tutorials/microservices-demo" >}}), they
+Also, as the examples stem from the [microservices demo]({{< ref "docs/tutorials/microservices-demo" >}}), they
 use the `kind-kind` context names. In a more realistic setup, you would use the real cluster/context names here. This
 also assumes that all developers will then use the same context names to refer to the same clusters. If this is honored,
 you gain 100% compatibility between the GitOps based deployments and CLI based deployments.

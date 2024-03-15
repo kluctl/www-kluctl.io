@@ -5,8 +5,11 @@ linkTitle: "Templating in Kustomize with Kluctl style deploy and diff"
 slug: templating-and-diffs-with-kustomize
 date: 2022-11-17
 author: Alexander Block (@codablock)
+description: "Learn how to use Kluctl to template simple Kustomize deployments."
+tags:
+- Tutorial
 images:
-  - "/images/blog/cover/Templating in Kustomize.png"
+- "/images/blog/templating-and-diffs-with-kustomize.png"
 ---
 
 ![image](/images/blog/templating-and-diffs-with-kustomize.png)

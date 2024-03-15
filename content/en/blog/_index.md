@@ -1,5 +1,5 @@
 ---
 title: "Kluctl Blog"
 linkTitle: "Blog"
-description: "Latest news, tips from Kluctl team."
+description: "Latest news, articles and tips from the Kluctl team."
 ---

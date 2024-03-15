@@ -4,12 +4,11 @@ title: "Managing many Helm Charts with Kluctl"
 linkTitle: "Managing many Helm Charts with Kluctl"
 date: 2023-02-28
 author: Alexander Block (@codablock)
-images:
-
-- "images/blog/cover/Helm Charts with Kluctl.png"
-
-tags: ["Tutorial"]
 description: "Learn how easy it is to manage multiple Helm Charts from one deployment project using Kluctl."
+tags:
+- Tutorial
+images:
+- "/images/blog/2023-02-28-managing-helm-with-kluctl-cover.jpg"
 ---
 
 ![image](/images/blog/2023-02-28-managing-helm-with-kluctl-cover.jpg)

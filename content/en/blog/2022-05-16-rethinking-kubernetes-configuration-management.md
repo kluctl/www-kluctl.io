@@ -4,6 +4,8 @@ title: "Rethinking Kubernetes Configuration Management"
 linkTitle: "Rethinking Kubernetes Configuration Management"
 date: 2022-05-16
 author: Alexander Block (@codablock)
+tags:
+- Article
 ---
 One of the big advantages of Kubernetes is its declarative nature when it comes to deployed resources.
 You define what state you expect, apply it to Kubernetes and then let it figure out how to get to that state.
