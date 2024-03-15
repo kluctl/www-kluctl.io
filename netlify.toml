@@ -75,7 +75,3 @@ command = """
 [[redirects]]
   from = "/blog/2022/05/11/kluctl-and-flux"
   to = "https://blog.kluctl.io/kluctl-and-flux-278e75c7a828"
-
-[[redirects]]
-  from = "/docs/receipts"
-  to = "/docs/recipes"
