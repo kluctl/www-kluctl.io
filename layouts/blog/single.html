@@ -6,21 +6,6 @@
           <article class="col-lg-8 docs-content offset-lg-2">
             <header>
                {{ $title := .Title }}
-				{{ with .Params.images }}
-					{{ $images := . }}
-					{{ $image  := index $images 0 }}
-			
-					{{- $filter := images.Process "resize 1200x630 webp q95" -}}
-			
-					{{- with resources.Get $image -}}
-					{{- with . | images.Filter $filter -}}
-					<figure class="zoom-img">
-						<img src="{{ .RelPermalink }}" class="rounded-3 img-fluid" 
-								width="{{ .Width }}" height="{{ .Height }}" alt="{{ $title }}">
-					</figure>
-					{{- end -}}
-					{{- end -}}
-				{{- end -}}
 				<h1> {{ $title }} </h1>
 				<div class="d-flex align-items-center mt-lg-6 mt-4">
 					<div class="me-5">
