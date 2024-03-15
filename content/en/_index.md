@@ -62,4 +62,7 @@ actionSection:
   title: See Kluctl in Action
   video: "video/Kluctl demo video.mp4" # relative to the static folder
 
+################## News and updates section ##################
+newsSection:
+  title: News and Updates
 ---
