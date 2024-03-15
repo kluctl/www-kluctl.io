@@ -26,7 +26,7 @@
 					<div>
 					<span class="fs-6">Published on</span>
 					<div class="mt-2 text-dark">
-						<span class="fs-6">3 Oct, 2023</span>
+						<span class="fs-6">{{ .Date | time.Format ":date_long" }}</span>
 					</div>
 					</div>
 				</div>
