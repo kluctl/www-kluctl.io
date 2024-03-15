@@ -39,7 +39,11 @@
                                                                 </span>
                                                         </p>
                                                         <footer class="adopters-card-author">
-                                                                - {{ .author }}
+                                                                {{ .author }}
+                                                                {{- if .authorTitle -}}
+                                                                <br/>
+                                                                {{ .authorTitle }}
+                                                                {{- end -}}
                                                         </footer>
                                                 </blockquote>
                                         </div>
