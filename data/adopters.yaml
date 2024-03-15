@@ -15,3 +15,8 @@ list:
     url: https://e3dc.com
     testimonial: "Easy and straight forward Kubernetes deployments which makes our life in the GitOps and DevOps daily business much more easy and reliable."
     author: 'Timo Roewekamp, IT Systems Engineer'
+  - logo: "images/adopters/hellmann.jpg"
+    description: "Hellmann Worldwide Logistics, a large international logistics provider"
+    url: https://hellmann.com
+    testimonial: "We use Kluctl for managing clusters and GitOps across multiple environments, streamlining development to production with templating, Helm charts, and Kustomize. It's key to our developer platform, offering oversight and blueprints for teams."
+    author: 'Mathias Gebbe, Team Lead Developer Experience Platform Team at Hellmann Worldwide Logistics'
