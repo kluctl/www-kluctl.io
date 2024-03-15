@@ -35,7 +35,7 @@ Kluctl is general purpose deployment tool for Kubernetes. It allows you to defin
 
 # Installing Kluctl
 
-For this tutorial, you'll need the Kluctl CLI installed. Please follow the instructions [here]({{< ref "docs/kluctl/installation#installing-the-cli" >}}). There is no need to install the GitOps contoller or the Webui, but feel free to try these out as well after the tutorial.
+For this tutorial, you'll need the Kluctl CLI installed. Please follow the instructions [here]({{< ref "docs/kluctl/installation#installing-the-cli" >}}). There is no need to install the GitOps controller or the Webui, but feel free to try these out as well after the tutorial.
 
 # Let's setup cluster-api
 In this tutorial, we'll work completely locally without any cloud resources being involved. This means, we're using [Kind](https://kind.sigs.k8s.io/) and the CAPD (Cluster API Docker) infrastructure provider. In the real world, you'll need to adapt the principles learned here to a proper Cluster API infrastructure provider.
@@ -136,7 +136,7 @@ deployments:
   - path: {{ target.name }}
 ````
 
-This will include a [Kustomize]({{< ref "docs/kluctl/deployments/deployment-yml#kustomize-deployments" >}}) deployment from the directory that is resolved via the template `{{ target.name }}`. "target" is a global variable that is always present and it allows you to access the properties used in the current target, defined in the `.kluctl.yaml` from above. This means, if you later deploy the target "demo-1", Kluctl will load the Kustomize deployment found in the "clusters/demo-1" folder.
+This will include a [Kustomize]({{< ref "docs/kluctl/deployments/deployment-yml#kustomize-deployments" >}}) deployment from the directory that is resolved via the template `{{ target.name }}`. "target" is a global variable that is always present, and it allows you to access the properties used in the current target, defined in the `.kluctl.yaml` from above. This means, if you later deploy the target "demo-1", Kluctl will load the Kustomize deployment found in the "clusters/demo-1" folder.
 
 # Creating a workload cluster
 Now, create the following files in the clusters/demo-1 directory:
@@ -507,11 +507,11 @@ Adding more clusters is hopefully self-explanatory at this point. It's basically
 
 # Introducing GitOps
 
-If you prefer to manage your workload clusters via GitOps, the same Kluctl project can be re-used via a simple [KluctlDeployment]({{< ref "docs/gitops/spec/v1beta1/kluctldeployment" >}}) pointing to your Git repository. We won't go into more detail about GitOps here, but feel free to read the documentation and try it on your own. Moving to GitOps doesn't mean that you have to do a full buy-in, as you'll always be able to mix non-GitOp related workflows with GitOps workflows. For example, a `kluctl diff` / `kluctl gitops diff` can always be used even if the same deplyoment is already managed via GitOps.
+If you prefer to manage your workload clusters via GitOps, the same Kluctl project can be re-used via a simple [KluctlDeployment]({{< ref "docs/gitops/spec/v1beta1/kluctldeployment" >}}) pointing to your Git repository. We won't go into more detail about GitOps here, but feel free to read the documentation and try it on your own. Moving to GitOps doesn't mean that you have to do a full buy-in, as you'll always be able to mix non-GitOp related workflows with GitOps workflows. For example, a `kluctl diff` / `kluctl gitops diff` can always be used even if the same deployment is already managed via GitOps.
 
 # Kluctl vs. ClusterClass
 
-You might ask why one would use Kluctl instead of simply relying on [ClusterClass](https://cluster-api.sigs.k8s.io/tasks/experimental-features/cluster-class/), which is a cluster-api native way of achieving reusability. There are multiple reasons why I believe that Kluctl is a good alternative to CluksterClass, let's go through a few of them.
+You might ask why one would use Kluctl instead of simply relying on [ClusterClass](https://cluster-api.sigs.k8s.io/tasks/experimental-features/cluster-class/), which is a cluster-api native way of achieving reusability. There are multiple reasons why I believe that Kluctl is a good alternative to ClusterClass, let's go through a few of them.
 
 #### Generic solution
 
