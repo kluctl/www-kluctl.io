@@ -1,16 +1,13 @@
 <head>
-    <meta charset="utf-8" />
-    <title>{{- .Site.Title }}</title>
     {{- if not hugo.IsProduction }}
     <meta name="robots" content="noindex">
+    {{- else if .Params.noindex }}
+    <meta name="robots" content="noindex">
     {{- end }}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Lightweight, Modern Documentation Theme for Hugo" />
-    <meta name="keywords" content="Documentation, Hugo, Hugo Theme, Bootstrap" />
-    <meta name="author" content="Colin Wilson - Lotus Labs" />
-    <meta name="email" content="support@aigis.uk" />
-    <meta name="website" content="https://lotusdocs.dev" />
-    <meta name="Version" content="v0.1.0" />
+
+    {{/* Set title tag, meta tags & OG tags.  */}}
+    {{ partial "head/meta-opengraph.html" . }}
+
     <!-- favicon -->
     {{ block "head/favicon" . }}{{ partialCached "head/favicon.html" . }}{{ end }}
     <!-- Google Fonts -->
@@ -36,17 +33,8 @@
         {{ $js = $js | fingerprint "sha384" }}
     {{ end }}
         <script src="{{ $js.RelPermalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end -}} defer></script>
-    <!-- Image Compare Viewer -->
-    {{ if .Site.Data.landing.image_compare.enable }}
-        {{ $imagecompare := resources.Get "js/image-compare-viewer.min.js" }}
-        {{- if not .Site.IsServer }}
-            {{- $js := (slice $imagecompare) | resources.Concat "/js/image-compare.js" | minify | fingerprint "sha384" }}
-            <script type="text/javascript" src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}"></script>
-        {{- else }}
-            {{- $js := (slice $imagecompare) | resources.Concat "/js/image-compare.js" }}
-            <script type="text/javascript" src="{{ $js.Permalink }}" {{ if hugo.IsProduction }}integrity="{{ $js.Data.Integrity }}"{{ end }}></script>
-        {{- end }}
-    {{- end }}
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <!-- Plausible Analytics Config -->
     {{- if not .Site.IsServer }}
     {{ if and (.Site.Params.plausible.scriptURL) (.Site.Params.plausible.dataDomain) -}}
