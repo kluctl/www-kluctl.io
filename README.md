@@ -21,39 +21,28 @@ We release two set of binaries for technical reasons. The extended version is no
 
 ### Setup
 
-1. Clone the repository and checkout the `for-sid-lotus-docs` branch
+1. Clone the repository
    ```bash
-   git clone <repo url>
-   cd <repo name>
-   git checkout for-sid-lotus-docs
+   git clone git@github.com:kluctl/www-kluctl.io.git
+   cd www-kluctl.io
    ```
 
-2. Load the theme (setup using submodules):
-   ```bash
-   git submodule update --init --recursive
-   ```
-
-3. Run Hugo server:
+2. Run Hugo server:
    ```bash
    hugo server
    ```
 
    Note: The first run might take a while as Hugo modules are fetched.
 
-4. Open your web browser and go to `http://localhost:1313` to preview the Kluctl website.
+3. Open your web browser and go to `http://localhost:1313` to preview the Kluctl website.
 
 ## GitHub Codespaces
 
 For GitHub Codespaces, no additional setup is needed. Follow these steps:
 
-1. Start a codespace in the `for-sid-lotus-docs` branch using GitHub UI.
+1. Start a codespace in the `main` branch using GitHub UI.
 
-2. Load the theme with submodules:
-   ```bash
-   git submodule update --init --recursive
-   ```
-
-3. Start the Hugo server using the following command:
+2. Start the Hugo server using the following command:
    ```bash
    npm run dev-cp
    ```
