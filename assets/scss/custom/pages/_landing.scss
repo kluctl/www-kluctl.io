@@ -463,10 +463,8 @@ nav.navbar {
 }
 
 .adopters-card-container {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 36px 28px;
 	padding-top: 110px;
+    display: flex;
 }
 
 .adopters-card {
@@ -478,6 +476,7 @@ nav.navbar {
 	border-radius: 7px;
     padding-top: 32px;
 	padding: 32px 8px 8px;
+    height: auto;
     @media (hover: hover) and (any-pointer: fine) {
         transition: box-shadow 0.25s ease-in;
         &:hover {

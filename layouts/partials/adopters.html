@@ -1,30 +1,35 @@
 {{- with site.Data.adopters }}
-{{/* Adopters section start */}}
 <section id="Adopters">
         <div class="adopters-wrapper">
                 <div class="container">
                         <div class="section-top">
                                 <h2>{{ .title }}</h2>
                         </div>
-                        <div class="adopters-card-container">
-                                {{- range .list }}
-                                {{- $title := .title }}
-                                {{- $url := .url }}
-                                <div class="adopters-card">
-                                        {{- with .logo -}}
-                                        {{- with resources.Get . -}}
+                        <swiper-container
+                                class="adopters-card-container"
+                                css-mode="true"
+                                loop="true"
+                                autoplay-delay="7000"
+                                init="false"
+                        >
+                                {{- range .list }} {{- $title := .title }} {{- $url := .url }}
+                                <swiper-slide class="adopters-card">
+                                        {{- with .logo -}} {{- with resources.Get . -}}
                                         <div class="adopters-card-icon">
-                                                {{ if $url }}<a href="{{ $url }}" target="_blank">{{ end }}
-                                                <img src="{{ .RelPermalink }}" alt="{{ $title }} icon" />
-                                                {{ if $url }}</a>{{ end }}
+                                                {{ if $url }}<a href="{{ $url }}" target="_blank"
+                                                        >{{ end }}
+                                                        <img
+                                                                src="{{ .RelPermalink }}"
+                                                                alt="{{ $title }} icon"
+                                                        />
+                                                        {{ if $url }}</a
+                                                >{{ end }}
                                         </div>
-                                        {{- end -}}
-                                        {{- end -}}
+                                        {{- end -}} {{- end -}}
                                         <div class="adopters-card-content">
-                                                <p class='adopters-card-description'>{{ .description }}</p>
+                                                <p class="adopters-card-description">{{ .description }}</p>
                                                 <blockquote>
-                                                        <p
-                                                        class='adopters-card-testimonial'>
+                                                        <p class="adopters-card-testimonial">
                                                                 <span>
                                                                         <span>“</span>
                                                                 </span>
@@ -33,14 +38,41 @@
                                                                         <span>”</span>
                                                                 </span>
                                                         </p>
-                                                        <footer class='adopters-card-author'>- {{ .author }}</footer>
+                                                        <footer class="adopters-card-author">
+                                                                - {{ .author }}
+                                                        </footer>
                                                 </blockquote>
                                         </div>
-                                </div>
+                                </swiper-slide>
                                 {{- end }}
-                        </div>
+                        </swiper-container>
                 </div>
         </div>
 </section>
-{{- end -}}{{/* Adopters section end */}}
+{{- end -}}
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+<script>
+          document.addEventListener("DOMContentLoaded", () => {
+                  const swiperEl = document.querySelector("swiper-container");
+
+                  const params = {
+                          slidesPerView: 1,
+                          breakpoints: {
+                                  768: {
+                                          slidesPerView: 2,
+                                          spaceBetween: 16,
+                                  },
+                                  1280: {
+                                          slidesPerView: 3,
+                                          spaceBetween: 16,
+                                  }
+
+                          },
+                  };
+
+                  Object.assign(swiperEl, params);
+                  swiperEl.initialize();
+          });
+</script>
