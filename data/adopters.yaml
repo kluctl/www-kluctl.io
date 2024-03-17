@@ -4,14 +4,23 @@ list:
     description: "KGS Software GmbH"
     url: https://www.kgs-software.com/
     testimonial: "Since we integrated Kluctl, we are able to reduce the manual workloads massively. With templating of Helm-values and k8s-yamls, we can now easily maintain multiple envrironments with much less technical and mental overhead."
-    author: 'Jochen Saalfeld, Lead IT Operations Engineer'
+    author: Jochen Saalfeld
+    authorTitle: Lead IT Operations Engineer
   - logo: "images/adopters/billrush.jpeg"
     description: "Bill Rush – From Bill To Bank"
     url: https://billrush.co.nz
     testimonial: "We use Kluctl as a core deployment tool with components that we love being the Helm Integration, Secrets Transformer, Deployment Diffs, flexible Deployment Targets and the Templating with Jinja Vars Substitution."
-    author: 'Mark Cupitt, Head of Global Operations and Engineering'
+    author: Mark Cupitt
+    authorTitle: Head of Global Operations and Engineering
   - logo: "images/adopters/e3dc.svg"
     description: "Hagerenergy GmbH - all-in-one energy solutions"
     url: https://e3dc.com
     testimonial: "Easy and straight forward Kubernetes deployments which makes our life in the GitOps and DevOps daily business much more easy and reliable."
-    author: 'Timo Roewekamp, IT Systems Engineer'
+    author: Timo Roewekamp
+    authorTitle: IT Systems Engineer
+  - logo: "images/adopters/hellmann.jpg"
+    description: "Hellmann Worldwide Logistics"
+    url: https://hellmann.com
+    testimonial: "We use Kluctl for managing clusters and GitOps across multiple environments, streamlining development to production with templating, Helm charts, and Kustomize. It's key to our developer platform, offering oversight and blueprints for teams."
+    author: Mathias Gebbe
+    authorTitle: Team Lead Developer Experience Platform Team

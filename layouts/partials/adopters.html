@@ -9,7 +9,7 @@
                                 class="adopters-card-container"
                                 css-mode="true"
                                 loop="true"
-                                autoplay-delay="7000"
+                                autoplay-delay="5000"
                                 init="false"
                         >
                                 {{- range .list }} {{- $title := .title }} {{- $url := .url }}
@@ -39,7 +39,11 @@
                                                                 </span>
                                                         </p>
                                                         <footer class="adopters-card-author">
-                                                                - {{ .author }}
+                                                                {{ .author }}
+                                                                {{- if .authorTitle -}}
+                                                                <br/>
+                                                                {{ .authorTitle }}
+                                                                {{- end -}}
                                                         </footer>
                                                 </blockquote>
                                         </div>
@@ -74,5 +78,11 @@
 
                   Object.assign(swiperEl, params);
                   swiperEl.initialize();
+
+                  setTimeout(function (){
+                          // slide to random adopter
+                          let idx = Math.random() * {{ len site.Data.adopters.list }};
+                          swiperEl.swiper.slideTo(idx);
+                  }, 1)
           });
 </script>
