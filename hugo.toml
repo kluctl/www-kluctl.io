@@ -160,7 +160,7 @@ copyright = "The Kluctl Authors"
 privacy_policy = "https://kluctl.io/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
-images = ["images/card.png"]
+images = ["images/meta_image.png"]
 
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
@@ -198,7 +198,7 @@ github_project_repo = "https://github.com/kluctl/kluctl"
         # default values used in meta tags
         description = "Large Kubernetes deployments made simple"
         keywords = ["Kluctl", "Kubernetes", "deployments"]
-        image = "images/meta_image.jpg" # relative to ststic directory
+        image = "images/meta_image.png" # relative to static directory
 
     [params.author]
         # default author for blog posts

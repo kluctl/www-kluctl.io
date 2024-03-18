@@ -3,7 +3,7 @@
 {{ if not $featured }}{{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}{{ end }}
 {{ if not $featured }}
     {{ $featured = resources.Get "/opengraph/card-base-2.png" }}
-    {{ $font := resources.Get "/opengraph/poppins-bold.ttf" }}
+    {{ $font := resources.Get "/opengraph/Roboto-Bold.ttf" }}
     {{ $descPadding := 0 }}
 
     {{ $title := $.LinkTitle }}
@@ -25,7 +25,7 @@
 
     {{ $filters := slice (images.Text $textTitle $textTitleOptions) }}
 
-    {{ $logo := resources.Get "images/logos/logo.png" }}
+    {{ $logo := resources.Get "images/logos/Kluctl_logo_800h.jpg" }}
     {{ with $logo }}
         {{ $logo = $logo.Resize "x60" }}
         {{ $logoFilter := (images.Overlay $logo 65 110) }}
