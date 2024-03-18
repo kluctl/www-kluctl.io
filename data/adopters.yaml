@@ -24,3 +24,10 @@ list:
     testimonial: "We use Kluctl for managing clusters and GitOps across multiple environments, streamlining development to production with templating, Helm charts, and Kustomize. It's key to our developer platform, offering oversight and blueprints for teams."
     author: Mathias Gebbe
     authorTitle: Team Lead Developer Experience Platform Team
+  - logo: "images/adopters/comanu.svg"
+    logoWidth: 300px
+    description: "Comanu GmbH"
+    url: https://www.comanu.de
+    testimonial: "Thanks to the native multi-environment support, Kluctl helps us to easily test things locally as if they were deployed to production."
+    author: Marco Tissen
+    authorTitle: Software Developer
