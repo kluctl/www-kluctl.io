@@ -12,20 +12,21 @@
                                 autoplay-delay="5000"
                                 init="false"
                         >
-                                {{- range .list }} {{- $title := .title }} {{- $url := .url }}
+                                {{- range .list }}
+                                {{- $logo := resources.Get .logo }}
                                 <swiper-slide class="adopters-card">
-                                        {{- with .logo -}} {{- with resources.Get . -}}
                                         <div class="adopters-card-icon">
-                                                {{ if $url }}<a href="{{ $url }}" target="_blank"
+                                                {{ if .url }}<a href="{{ .url }}" target="_blank"
                                                         >{{ end }}
                                                         <img
-                                                                src="{{ .RelPermalink }}"
-                                                                alt="{{ $title }} icon"
+                                                                src="{{ $logo.RelPermalink }}"
+                                                                alt="{{ .title }} icon"
+                                                                {{ if .logoWidth }}
+                                                                style="width: {{ .logoWidth }};"
+                                                                {{ end }}
                                                         />
-                                                        {{ if $url }}</a
-                                                >{{ end }}
+                                                {{ if .url }}</a>{{ end }}
                                         </div>
-                                        {{- end -}} {{- end -}}
                                         <div class="adopters-card-content">
                                                 <p class="adopters-card-description">{{ .description }}</p>
                                                 <blockquote>
