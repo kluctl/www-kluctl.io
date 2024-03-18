@@ -37,3 +37,9 @@ list:
     testimonial: "Thanks to Kluctl, we successfully transitioned our non-cloud-native applications onto Kubernetes using GitOps. Its templating engine facilitated the creation of essential configurations for our applications."
     author: Robert Zeppik
     authorTitle: Senior Lead Cloud Engineer
+  - logo: "images/adopters/senselabs.svg"
+    description: "SenseLabs GmbH"
+    url: https://senselabs.de
+    testimonial: "Without Kluctl, we’d be unable to iterate as fast as we do today. We can dry-run against real-world environments without causing any interruptions while having the confidence that it will work when merged and deployed."
+    author: Lukas Panhirsch
+    authorTitle: DevOps Engineer
