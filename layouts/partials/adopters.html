@@ -62,31 +62,44 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
 <script>
-          document.addEventListener("DOMContentLoaded", () => {
-                  const swiperEl = document.querySelector("swiper-container");
+        function shuffleArray(array) {
+                for (var i = array.length - 1; i > 0; i--) {
+                        var j = Math.floor(Math.random() * (i + 1));
+                        var temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
+                }
+                return array;
+        }
 
-                  const params = {
-                          slidesPerView: 1,
-                          breakpoints: {
-                                  768: {
-                                          slidesPerView: 2,
-                                          spaceBetween: 16,
-                                  },
-                                  1280: {
-                                          slidesPerView: 3,
-                                          spaceBetween: 16,
-                                  }
+        document.addEventListener("DOMContentLoaded", () => {
+                const swiperEl = document.querySelector("swiper-container");
 
-                          },
-                  };
+                var elementsArray = Array.prototype.slice.call(swiperEl.getElementsByClassName('adopters-card'));
+                elementsArray.forEach(function (element) {
+                        swiperEl.removeChild(element);
+                })
+                shuffleArray(elementsArray);
+                elementsArray.forEach(function (element) {
+                        swiperEl.appendChild(element);
+                })
 
-                  Object.assign(swiperEl, params);
-                  swiperEl.initialize();
+                const params = {
+                        slidesPerView: 1,
+                        breakpoints: {
+                                768: {
+                                        slidesPerView: 2,
+                                        spaceBetween: 16,
+                                },
+                                1280: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 16,
+                                }
 
-                  setTimeout(function (){
-                          // slide to random adopter
-                          let idx = Math.random() * {{ len site.Data.adopters.list }};
-                          swiperEl.swiper.slideTo(idx);
-                  }, 1)
-          });
+                        },
+                };
+
+                Object.assign(swiperEl, params);
+                swiperEl.initialize();
+        });
 </script>
