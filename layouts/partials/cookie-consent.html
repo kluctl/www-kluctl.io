@@ -30,23 +30,21 @@ functionality and user experience of this website.</span>
 
     <!-- Matomo -->
     {{ if hugo.IsProduction | or (eq .Site.Params.env "production") }}
-    if (window.location.hostname === "kluctl.io") {
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['requireCookieConsent']);
-        if(readCookie('cookie-notice-option')=='true') {
-            _paq.push(['setCookieConsentGiven']);
-        }
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="https://kluctl.matomo.cloud/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src='https://cdn.matomo.cloud/kluctl.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['requireCookieConsent']);
+    if(readCookie('cookie-notice-option')=='true') {
+        _paq.push(['setCookieConsentGiven']);
     }
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="https://kluctl.matomo.cloud/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src='https://cdn.matomo.cloud/kluctl.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
     {{ end }}
 
     if(readCookie('cookie-notice-option')=='true') {
@@ -69,3 +67,8 @@ functionality and user experience of this website.</span>
         location.reload();
     });
 </script>
+<noscript>
+    <!-- Matomo Image Tracker-->
+    <img referrerpolicy="no-referrer-when-downgrade" src="https://kluctl.matomo.cloud/matomo.php?idsite=1&amp;rec=1" style="border:0" alt="" />
+    <!-- End Matomo -->
+</noscript>
