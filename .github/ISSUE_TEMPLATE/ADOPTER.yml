@@ -5,7 +5,7 @@ body:
     id: company
     attributes:
       label: |
-        Please provide the name of your company with am optional and very short description of what you do.
+        Please provide the name of your company with an optional and very short (max. 5 words) description or slogan.
         For example, "Super Duper Corp, your consultancy buddy"
     validations:
       required: true

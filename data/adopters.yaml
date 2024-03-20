@@ -31,3 +31,9 @@ list:
     testimonial: "Thanks to the native multi-environment support, Kluctl helps us to easily test things locally as if they were deployed to production."
     author: Marco Tissen
     authorTitle: Software Developer
+  - logo: "images/adopters/sita.svg"
+    description: "SITA - leading in air transport communications and IT"
+    url: https://www.sita.aero/
+    testimonial: "Thanks to Kluctl, we successfully transitioned our non-cloud-native applications onto Kubernetes using GitOps. Its templating engine facilitated the creation of essential configurations for our applications."
+    author: Robert Zeppik
+    authorTitle: Senior Lead Cloud Engineer
