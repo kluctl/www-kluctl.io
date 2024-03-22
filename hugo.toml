@@ -281,3 +281,7 @@ prism_syntax_highlighting = false
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[params.remark42]
+    siteID = "kluctl.io"
+    remarkURL = "https://remark42.kluctl.io"

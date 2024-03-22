@@ -35,8 +35,11 @@
              <div class="blog-content main-content mt-5">
                 {{ .Content }}
              </div>
+			  {{ if .Site.Params.remark42.siteID }}
+			  <div id="remark42"></div>
+			  {{ end }}
+		  </article>
 
-          </article>
        </div>
     </div>
  </div>

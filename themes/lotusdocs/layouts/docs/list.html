@@ -3,6 +3,11 @@
 <div data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-error="">
     {{ .Content }}
 </div>
+
+{{ if .Site.Params.remark42.siteID }}
+<div id="remark42"></div>
+{{ end }}
+
 <br>
 <hr>
     <div class="row flex-xl-wrap">
