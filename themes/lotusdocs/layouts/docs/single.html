@@ -5,6 +5,10 @@
         {{ .Content }}
     </div>
 
+    {{ if .Site.Params.remark42.siteID }}
+    <div id="remark42"></div>
+    {{ end }}
+
     {{ if and .GitInfo .Site.Params.docs.repoURL -}}
         {{ partial (printf "%s/%s" ($.Scratch.Get "pathName") "gitinfo") . }}
     {{ end -}}
