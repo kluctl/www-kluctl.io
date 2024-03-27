@@ -33,9 +33,6 @@ functionality and user experience of this website.</span>
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
     _paq.push(['requireCookieConsent']);
-    if(readCookie('cookie-notice-option')=='true') {
-        _paq.push(['setCookieConsentGiven']);
-    }
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
@@ -51,6 +48,7 @@ functionality and user experience of this website.</span>
     if(readCookie('cookie-notice-option')=='true') {
         {{ if hugo.IsProduction | or (eq .Site.Params.env "production") }}
                 localStorage.setItem("doNotTrack", "0");
+                _paq.push(['setCookieConsentGiven']);
         {{ end }}
     } else if (readCookie('cookie-notice-option')!='false'){
         document.getElementById('cookie-notice').style.display = 'block';
@@ -59,13 +57,17 @@ functionality and user experience of this website.</span>
     document.getElementById('cookie-notice-accept').addEventListener("click",function() {
         createCookie('cookie-notice-option','true',31);
         document.getElementById('cookie-notice').style.display = 'none';
-        location.reload();
+        {{ if hugo.IsProduction | or (eq .Site.Params.env "production") }}
+        _paq.push(['setCookieConsentGiven']);
+        {{ end }}
     });
 
     document.getElementById('cookie-notice-deny').addEventListener("click",function() {
         createCookie('cookie-notice-option','false',31);
         document.getElementById('cookie-notice').style.display = 'none';
-        location.reload();
+        {{ if hugo.IsProduction | or (eq .Site.Params.env "production") }}
+        _paq.push(['forgetCookieConsentGiven']);
+        {{ end }}
     });
 </script>
 <noscript>
