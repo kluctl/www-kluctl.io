@@ -58,7 +58,7 @@ $ kluctl deploy -t local
 ```
 
 ## Setting up the kluctl project
-The first thing you need is an empty project directory and the [`.kluctl.yml`]({{< ref "docs/kluctl/kluctl-project" >}}) project configuration:
+The first thing you need is an empty project directory and the [`.kluctl.yml`]({{% ref "docs/kluctl/kluctl-project" %}}) project configuration:
 
 ```shell
 $ mkdir -p microservices-demo/1-basic-setup
@@ -85,8 +85,8 @@ $ kind create cluster
 After this, you should have a local cluster setup and your kubeconfig prepared with a new context named `kind-kind`.
 
 ## Setting up a minimal deployment project
-Inside the kluctl project, you will now have to create a minimal [deployment project]({{< ref "docs/kluctl/deployments" >}}).
-The deployment project starts with the root [`deployment.yml`]({{< ref "docs/kluctl/deployments/deployment-yml" >}}).
+Inside the kluctl project, you will now have to create a minimal [deployment project]({{% ref "docs/kluctl/deployments" %}}).
+The deployment project starts with the root [`deployment.yml`]({{% ref "docs/kluctl/deployments/deployment-yml" %}}).
 
 The location of this `deployment.yml` is the same as the `.kluctl.yml`. Create the file with following content:
 ```yaml
@@ -98,9 +98,9 @@ commonLabels:
 ```
 
 This minimal deployment project contains two elements:
-1. The list of [deployment items]({{< ref "docs/kluctl/deployments/deployment-yml#deployments" >}}), which currently
+1. The list of [deployment items]({{% ref "docs/kluctl/deployments/deployment-yml#deployments" %}}), which currently
 only consists of the upcoming redis deployment. The next chapter will explain this deployment.
-2. The [commonLabels]({{< ref "docs/kluctl/deployments/deployment-yml#commonlabels" >}}), which is a map of common
+2. The [commonLabels]({{% ref "docs/kluctl/deployments/deployment-yml#commonlabels" %}}), which is a map of common
 labels and values. These labels are applied to all deployed resources and are later used by kluctl to identify resources
 that belong to this kluctl deployment.
 

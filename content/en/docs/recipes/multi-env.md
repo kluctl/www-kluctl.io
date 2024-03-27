@@ -9,18 +9,18 @@ different clusters.
 
 ## Use specific targets
 
-The easiest way to achieve this is to define [targets]({{< ref "docs/kluctl/kluctl-project/targets" >}}) in
-your `.kluctl.yaml`. Each target should then use [args]({{< ref "docs/kluctl/kluctl-project/targets#args" >}}) to define
+The easiest way to achieve this is to define [targets]({{% ref "docs/kluctl/kluctl-project/targets" %}}) in
+your `.kluctl.yaml`. Each target should then use [args]({{% ref "docs/kluctl/kluctl-project/targets#args" %}}) to define
 a small set configuration values for the specific target.
 
 Each target should relate to the target environment and/or cluster that it needs to be deployed to. For example, one
 could be named `prod` while another is named `test`, meaning that you can either deploy to the `prod` or to the `test`
-environment. It's also useful to set the [context]({{< ref "docs/kluctl/kluctl-project/targets#context" >}}) field
+environment. It's also useful to set the [context]({{% ref "docs/kluctl/kluctl-project/targets#context" %}}) field
 on each target, so that you can't accidentally deploy the `prod` target to the `test` cluster.
 
 `args` should be minimalistic to avoid bloating up the `.kluctl.yaml`. It should be used as the "entrypoint" into
-the actual configuration, which is then loaded from inside the root [deployment.yaml]({{< ref "docs/kluctl/deployments/deployment-yml" >}})
-via `vars`. See [advanced configuration]({{< ref "docs/recipes/advanced-configuration" >}}) for details on this.
+the actual configuration, which is then loaded from inside the root [deployment.yaml]({{% ref "docs/kluctl/deployments/deployment-yml" %}})
+via `vars`. See [advanced configuration]({{% ref "docs/recipes/advanced-configuration" %}}) for details on this.
 
 Example targets definition:
 
@@ -62,8 +62,8 @@ to global resources, create unique ingresses, and so on.
 
 If such an argument is introduced, you would then invoke the CLI with the argument being set.
 
-Another thing to take into account is the required uniqueness of [discriminators]({{< ref "docs/kluctl/kluctl-project/targets#discriminator" >}})
-to make [delete]({{< ref "docs/kluctl/commands/delete" >}}) and [prune]({{< ref "docs/kluctl/commands/prune" >}}) work
+Another thing to take into account is the required uniqueness of [discriminators]({{% ref "docs/kluctl/kluctl-project/targets#discriminator" %}})
+to make [delete]({{% ref "docs/kluctl/commands/delete" %}}) and [prune]({{% ref "docs/kluctl/commands/prune" %}}) work
 properly. If you miss this crucial part or make a mistake, you might end up deleting resources that were not meant to
 be deleted. The uniqueness must be ensured inside the boundaries of individual clusters.
 
