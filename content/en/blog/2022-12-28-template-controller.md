@@ -15,7 +15,7 @@ images:
 ![image](/images/blog/template-controller.jpg)
 
 This blog post serves two purposes. The first one is to announce and present the 
-[Template Controller](https://kluctl.io/docs/template-controller/) ([Source](https://github.com/kluctl/template-controller)).
+[Template Controller]({{< ref "docs/template-controller" >}}) ([Source](https://github.com/kluctl/template-controller)).
 The second purpose is to demonstrate it by setting up a simple GitOps based Kubernetes deployment with dynamic preview
 environments.
 
@@ -33,12 +33,12 @@ controllers which are not necessarily part of the project.
 
 When specifying the input objects, you'd also specify which part of the object to use as input. This is done by
 specifying a [JSON Path](https://goessner.net/articles/JsonPath/) that select the subfield of the object to use, e.g.
-`status.result` for a [GitProjector](https://kluctl.io/docs/template-controller/spec/v1alpha1/gitprojector/) or
+`status.result` for a [GitProjector]({{< ref "docs/template-controller/spec/v1alpha1/gitprojector" >}}) or
 `data` for a ConfigMap.
 
-The Template Controller implements this functionality through the [ObjectTemplate](https://kluctl.io/docs/template-controller/spec/v1alpha1/objecttemplate/)
+The Template Controller implements this functionality through the [ObjectTemplate]({{< ref "docs/template-controller/spec/v1alpha1/objecttemplate" >}})
 CRD. As the name implies, it also uses a templating engine, which is identical to the one used in
-[Kluctl](https://kluctl.io/docs/kluctl/reference/templating/), with the `ObjectTemplate's` input matrix available as
+[Kluctl]({{< ref "docs/kluctl/templating" >}}), with the `ObjectTemplate's` input matrix available as
 global variables.
 
 ## Preparation
@@ -155,7 +155,7 @@ be described in the next chapters.
 ## Linking Preview Environments to Branches
 You can, for example, link Git branches to preview environments, so that for each new branch a preview environment is
 created, with configuration being read from a yaml file inside the branch. This can be achieved by using a
-[GitProjector](https://kluctl.io/docs/template-controller/spec/v1alpha1/gitprojector/), which will periodically
+[GitProjector]({{< ref "docs/template-controller/spec/v1alpha1/gitprojector" >}}), which will periodically
 clone the configured Git repository, scan for matching branches and files and project the result into the `GitProjector`
 status. The status is then available as matrix input inside the `ObjectTemplate`.
 
@@ -235,7 +235,7 @@ spec:
 Please note the use of templating variables and filters inside the actual template under `spec.templates`. Each template
 will be rendered once per matrix input, which in this case means once per branch. The templates can use the current
 matrix input in the form of a variable, accessible via `matrix.<name>`, e.g. `matrix.git` in this case. Please read
-the documentation of [GitProjector](https://kluctl.io/docs/template-controller/spec/v1alpha1/gitprojector/) to figure
+the documentation of [GitProjector]({{< ref "docs/template-controller/spec/v1alpha1/gitprojector" >}}) to figure
 out what is available in `matrix.git`, which is basically just a copy of the individual `status.result` list items.
 
 ## One Preview Environment per pull requests
@@ -244,8 +244,8 @@ be useful if you want to report the status of your preview environment to the pu
 commit status when the deployment turns green or red. One might also want to post complex status comments, for example
 the result of the deployment in the form of structured and beautiful diff.
 
-To achieve this, you can use the [ListGithubPullRequests](https://kluctl.io/docs/template-controller/spec/v1alpha1/listgithubpullrequests/)
-or the [ListGitlabMergeRequests](https://kluctl.io/docs/template-controller/spec/v1alpha1/listgitlabmergerequests/)
+To achieve this, you can use the [ListGithubPullRequests]({{< ref "docs/template-controller/spec/v1alpha1/listgithubpullrequests" >}})
+or the [ListGitlabMergeRequests]({{< ref "docs/template-controller/spec/v1alpha1/listgitlabmergerequests" >}})
 custom resource, which are also provided by the Template Controller.
 
 Consider the following example:

@@ -130,9 +130,9 @@ first step now.
 ## Setting up the basic project structure
 
 Let's first create some basic project structure. A Kluctl deployment project starts with a root
-[deployment.yaml](https://kluctl.io/docs/kluctl/deployments/deployment-yml/) which usually just includes more
-[deployment projects](https://kluctl.io/docs/kluctl/deployments/) and
-[items](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#deployments).
+[deployment.yaml]({{< ref "docs/kluctl/deployments/deployment-yml" >}}) which usually just includes more
+[deployment projects]({{< ref "docs/kluctl/deployments" >}}) and
+[items]({{< ref "docs/kluctl/deployments/deployment-yml#deployments" >}}).
 
 A deployment item is a collection of Kubernetes manifests, either directly provided or generated from Kustomize or Helm.
 
@@ -153,7 +153,7 @@ deployments:
 ```
 
 This tells Kluctl that a deployment item at the location `./base/cilium` should be deployed. The referenced folder
-can contain plain manifests, a [Kustomize deploymnet](https://kluctl.io/docs/kluctl/deployments/kustomize/)
+can contain plain manifests, a [Kustomize deploymnet]({{< ref "docs/kluctl/deployments/kustomize" >}})
 or a reference to a Helm Chart and the necessary Helm Values.
 
 In this case, it will be a Helm Chart.
@@ -309,7 +309,7 @@ deployments:
 ```
 
 This example will cause `a`, `b` and `c` to be deployed in parallel. If you want `b` and `c` to be deployed after `a`
-has been deployed, simply put a [barrier](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#barriers)
+has been deployed, simply put a [barrier]({{< ref "docs/kluctl/deployments/deployment-yml#barriers" >}})
 between `a` and `b`:
 
 ```yaml
@@ -336,7 +336,7 @@ deployments:
   - path: cert-manager
 ```
 
-The [barrier](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#barriers) is important here, as noted
+The [barrier]({{< ref "docs/kluctl/deployments/deployment-yml#barriers" >}}) is important here, as noted
 in the previous section. It will ensure that all Cilium components are deployed before Kluctl continues with cert-manager.
 
 Now, add `./base/cert-manager/helm-chart.yaml` with the following content:
@@ -487,13 +487,13 @@ these. The `extraPortMappings` of the [kind configuration](#setting-up-a-local-c
 the ingress controller via localhost, or via `http://my-ingress.127.0.0.1.nip.io:8080` (see https://nip.io).
 
 The `waitReadiness: true` in the `deployment.yaml` means that Kluctl should not just deploy the resources of the
-deployment item, but also wait for [readiness](https://kluctl.io/docs/kluctl/deployments/readiness/) of
+deployment item, but also wait for [readiness]({{< ref "docs/kluctl/deployments/readiness" >}}) of
 each resource.
 
 ## Deploy it again
 
 Simply run `kluctl deploy` again and confirm it with `y`. You should see how Kluctl deploys all resources, runs
-[hooks](https://kluctl.io/docs/kluctl/deployments/hooks/) and waits for readiness.
+[hooks]({{< ref "docs/kluctl/deployments/hooks" >}}) and waits for readiness.
 
 ## Add the podinfo application
 
@@ -654,8 +654,8 @@ What you have seen so far is just showcasing how Kluctl deployment projects are 
 This alone is already very powerful, as it allows you to structure large and complex deployments in a way that mirrors
 your intent, without too much complexity or boilerplate.
 
-The next step would be to introduce [templating](https://kluctl.io/docs/kluctl/reference/templating/) and
-[Kluctl targets](https://kluctl.io/docs/kluctl/kluctl-project/targets/). This will then allow you to make
+The next step would be to introduce [templating]({{< ref "docs/kluctl/templating" >}}) and
+[Kluctl targets]({{< ref "docs/kluctl/kluctl-project/targets" >}}). This will then allow you to make
 your deployment multi-environment and multi-cluster capable.
 
 These topics will however require another post, as it would be too much to be covered in this post as well.
@@ -665,7 +665,7 @@ These topics will however require another post, as it would be too much to be co
 This post has shown the "push" flow of Kluctl by simply calling Kluctl from your local machine. The same flow can be
 adapted to a pipeline based CI/CD system, e.g. Github Actions or Gitlab CI.
 
-Kluctl also offers a pull based flow, implemented through the [Kluctl controller](https://kluctl.io/docs/flux/)
+Kluctl also offers a pull based flow, implemented through the [Kluctl controller]({{< ref "docs/gitops" >}})
 (GitHub repository is located [here](https://github.com/kluctl/flux-kluctl-controller)). This is comparable to how Flux
 does it, you deploy a `KluctlDeployment` custom resource and the controller handles reconciliation via periodic
 deployments.
@@ -686,7 +686,7 @@ These Custom Resources are then handled by different Flux Controllers which perf
 This in turn means that you make yourself dependent on the Custom Resources being applied on the cluster and the
 controller processing them. This also means, you can't easily try out things locally, as the only available command to
 do this is [flux diff kustomization](https://fluxcd.io/flux/cmd/flux_diff_kustomization/) which is much harder to use
-then [kluctl diff](https://kluctl.io/docs/kluctl/reference/commands/diff/) and unable to handle Helm Charts.
+then [kluctl diff]({{< ref "docs/kluctl/commands/diff" >}}) and unable to handle Helm Charts.
 
 You will also never be able to mix GitOps with non-GitOps flows, e.g. "deploy from your laptop" for development
 environments and GitOps for "real" environments. Being able to mix these flows would allow you to move extremely fast
@@ -724,6 +724,6 @@ Helmfile currently has no GitOps style controller available. From what I can fin
 
 The project that we created in this post is only partially useful, as it is not ready for multi-environment and
 multi-cluster deployments. In an upcoming post, I will describe how to add
-[targets](https://kluctl.io/docs/kluctl/kluctl-project/targets/) and use templating to allow different
+[targets]({{< ref "docs/kluctl/kluctl-project/targets" >}}) and use templating to allow different
 flavors to be deployed. I will also describe how to properly split up projects, for example so that you have a
 cluster-base deployment with Cilium and ingress-nginx and multiple application specific deployments.
