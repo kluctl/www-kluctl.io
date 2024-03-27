@@ -17,7 +17,7 @@ images:
 {{% alert context="warning" %}}
 Please note that the information in this blog post is outdated. Kluctl does
 not integrate into Flux anymore and instead provides an independent
-[Kluctl Controller]({{< ref "docs/gitops" >}}).
+[Kluctl Controller]({{% ref "docs/gitops" %}}).
 {{% /alert %}}
 
 Most projects that have server-side components usually need to be deployed multiple times, at least if you don't want to
@@ -50,7 +50,7 @@ disable advanced monitoring on "dev" environments and enable mocking services as
 
 There are multiple tools available that allow you to implement a multi-env/multi-cluster deployment that is completely
 automated and completely "as code". Helm and Kustomize are currently the first tools that will pop up when you try to
-look for such tools. As written in my [previous blog post]({{< ref "blog/2022-05-16-rethinking-kubernetes-configuration-management" >}}),
+look for such tools. As written in my [previous blog post]({{% ref "blog/2022-05-16-rethinking-kubernetes-configuration-management" %}}),
 I believe that these tools are the best option for the things that they do very good, but a sub-optimal choice when it
 comes to configuration management.
 
@@ -59,7 +59,7 @@ a solution that is as easy to learn and use and so flexible at the same time.
 
 ## Fully working multi-env example
 
-I suggest to open the [microservices demo]({{< ref "docs/tutorials/microservices-demo" >}})
+I suggest to open the [microservices demo]({{% ref "docs/tutorials/microservices-demo" %}})
 in another tab and look into it at least briefly (especially the third part). I will from now on pick stuff from this
 tutorial as examples in this blog post.
 
@@ -67,7 +67,7 @@ tutorial as examples in this blog post.
 
 Kluctl works with the concept of "targets". A target is a named configuration that acts as the entry point for every
 further configuration required for your environment. As an example, look at the targets from
-[.kluctl.yaml]({{< ref "docs/kluctl/kluctl-project" >}}) of the microservices demo:
+[.kluctl.yaml]({{% ref "docs/kluctl/kluctl-project" %}}) of the microservices demo:
 
 ```yaml
 targets:
@@ -129,7 +129,7 @@ deployments:
 ```
 
 I hope the above snippets give you a feeling about how multi-env deplyoments can be solved via Kluctl. As already
-mentioned, I suggest to read through the [microservices demo]({{< ref "docs/tutorials/microservices-demo" >}})
+mentioned, I suggest to read through the [microservices demo]({{% ref "docs/tutorials/microservices-demo" %}})
 tutorial to get an even better understanding. The first two parts will describe some Kluctl basics while the third
 part enters multi-env deployments.
 
@@ -148,7 +148,7 @@ developer is done with the changes, GitOps can take over on the another (e.g. "t
 Even for "prod", which in the above scenario is GitOps managed, can benefit from the possibility to run Kluctl from
 your local machine. Running a "kluctl diff -t prod" before promoting to "prod" can prevent some scary surprises.
 
-Kluctl implements GitOps via the [flux-kluctl-controller]({{< ref "blog/2022-05-11-introducing-kluctl-and-flux" >}}).
+Kluctl implements GitOps via the [flux-kluctl-controller]({{% ref "blog/2022-05-11-introducing-kluctl-and-flux" %}}).
 It allows to create `KluctlDeployment` objects which refer to your Kluctl
 project (which relies in Git) and the target to be deployed.
 
@@ -237,7 +237,7 @@ As an alternative, you can have a central Flux (+flux-kluctl-controller) install
 This can be achieved with the help of the spec.kubeconfig and spec.serviceAccountName
 field of the `KluctlDeployment` object.
 
-Also, as the examples stem from the [microservices demo]({{< ref "docs/tutorials/microservices-demo" >}}), they
+Also, as the examples stem from the [microservices demo]({{% ref "docs/tutorials/microservices-demo" %}}), they
 use the `kind-kind` context names. In a more realistic setup, you would use the real cluster/context names here. This
 also assumes that all developers will then use the same context names to refer to the same clusters. If this is honored,
 you gain 100% compatibility between the GitOps based deployments and CLI based deployments.

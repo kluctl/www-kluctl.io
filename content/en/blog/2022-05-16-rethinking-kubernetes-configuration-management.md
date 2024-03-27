@@ -174,7 +174,7 @@ and GitOps. This means you can deploy to a playground environment from your loca
 other deployments, adhering to the GitOps principles.
 
 ## Learning Kluctl
-If you want to learn about Kluctl, go to [kluctl.io](https://kluctl.io) and read the documentation. Best is actually
+If you want to learn about Kluctl, go to [kluctl.io]({{% ref "/" %}}) and read the documentation. Best is actually
 to start with the Microservices Demo Tutorial, as it tries to introduce you to the Kluctl concepts step by step.
 
 After you’ve finished the tutorial, you should be able to understand how projects are structured, how Kustomize and

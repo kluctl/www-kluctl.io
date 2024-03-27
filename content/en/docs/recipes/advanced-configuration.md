@@ -9,11 +9,11 @@ This recipe will try to give best practices on how to achieve advanced configura
 ## Args as entrypoint
 
 Kluctl offers multiple ways to introduce configuration args into your deployment. These are all accessible via
-[templating]({{< ref "docs/kluctl/templating" >}}) by referencing the global `args` variable, e.g. `{{ args.my_arg }}`.
+[templating]({{% ref "docs/kluctl/templating" %}}) by referencing the global `args` variable, e.g. `{{ args.my_arg }}`.
 
-Args can be passed via [command line arguments]({{< ref "docs/kluctl/commands/common-arguments#project-arguments" >}}),
-[target definitions]({{< ref "docs/kluctl/kluctl-project/targets#args" >}}) and GitOps
-[KluctlDeployment spec]({{< ref "docs/gitops/spec/v1beta1/kluctldeployment#args" >}}).
+Args can be passed via [command line arguments]({{% ref "docs/kluctl/commands/common-arguments#project-arguments" %}}),
+[target definitions]({{% ref "docs/kluctl/kluctl-project/targets#args" %}}) and GitOps
+[KluctlDeployment spec]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment#args" %}}).
 
 It might however be tempting to provide all necessary configuration via args, which can easily end up clogging things up
 in a very unmaintainable way.
@@ -21,7 +21,7 @@ in a very unmaintainable way.
 ## Combining args with vars sources
 
 The better and much more maintainable approach is to combine `args` with 
-[variable sources]({{< ref "docs/kluctl/templating/variable-sources" >}}). You could for example
+[variable sources]({{% ref "docs/kluctl/templating/variable-sources" %}}). You could for example
 introduce an arg that is later used to load further configuration from YAML files or even external vars sources (e.g. git).
 
 Consider the following example:
@@ -84,8 +84,8 @@ At the same time, Kluctl allows to use templating with the previously loaded con
 vars source. This means, that configuration that was loaded by a vars item before the current one can already be used
 in the current one.
 
-All [deployment items]({{< ref "docs/kluctl/deployments/deployment-yml#deployments" >}}) will then be provided with the
-final merged configuration. If deployment items also define [vars]({{< ref "docs/kluctl/deployments/deployment-yml#vars-deployment-item" >}}),
+All [deployment items]({{% ref "docs/kluctl/deployments/deployment-yml#deployments" %}}) will then be provided with the
+final merged configuration. If deployment items also define [vars]({{% ref "docs/kluctl/deployments/deployment-yml#vars-deployment-item" %}}),
 these are merged as well, but only for the context of the specific deployment item.
 
 Consider the following example:
@@ -124,11 +124,11 @@ environments will have it set to `false`.
 
 ## Putting configuration into the target cluster
 
-Kluctl supports many different [variable sources]({{< ref "docs/kluctl/templating/variable-sources" >}}), which means
+Kluctl supports many different [variable sources]({{% ref "docs/kluctl/templating/variable-sources" %}}), which means
 you are not forced to store all configuration in files which are part of the project.
 
 You can also store configuration inside the target cluster and access this configuration via the
-[clusterConfigMap or clusterSecret]({{< ref "docs/kluctl/templating/variable-sources#clusterconfigmap" >}}) variable
+[clusterConfigMap or clusterSecret]({{% ref "docs/kluctl/templating/variable-sources#clusterconfigmap" %}}) variable
 sources. This configuration could for example be part of the cluster provisioning stage and contain information about
 networking info, cloud info, DNS info, and so on, so that this can then be re-used wherever needed (e.g. in ingresses).
 

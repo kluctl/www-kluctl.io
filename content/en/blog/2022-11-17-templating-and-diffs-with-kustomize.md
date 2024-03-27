@@ -59,20 +59,20 @@ But...Kustomize doesn't support templating, right?
 
 ## Bringing templating to Kustomize
 
-[Kluctl](https://kluctl.io) builds a large set of its features and promised advantages on top of
-[templating](https://kluctl.io/docs/kluctl/reference/templating/). The
-[Kustomize integration](https://kluctl.io/docs/kluctl/deployments/kustomize/) also allows templating in all
+[Kluctl]({{% ref "/" %}}) builds a large set of its features and promised advantages on top of
+[templating]({{% ref "docs/kluctl/templating" %}}). The
+[Kustomize integration]({{% ref "docs/kluctl/deployments/kustomize" %}}) also allows templating in all
 involved resources, including the `kustomization.yaml` itself and all referenced manifests.
 
 Configuration can be provided in different ways:
-1. Via [CLI arguments](https://kluctl.io/docs/kluctl/reference/commands/common-arguments/#project-arguments), e.g. `--arg` or `--args-from-file`.
-2. Via [Targets](https://kluctl.io/docs/kluctl/kluctl-project/targets/#args), meaning that you can define named targets with fixed args.
-3. Via [vars](https://kluctl.io/docs/kluctl/deployments/deployment-yml/#vars-deployment-project) in Kluctl deployments.
-4. Via [Environment variables](https://kluctl.io/docs/kluctl/reference/commands/environment-variables/#environment-variables-as-arguments) (through `KLUCTL_ARG_XXX`).
+1. Via [CLI arguments]({{% ref "docs/kluctl/commands/common-arguments#project-arguments" %}}), e.g. `--arg` or `--args-from-file`.
+2. Via [Targets]({{% ref "docs/kluctl/kluctl-project/targets#args" %}}), meaning that you can define named targets with fixed args.
+3. Via [vars]({{% ref "docs/kluctl/deployments/deployment-yml#vars-deployment-project" %}}) in Kluctl deployments.
+4. Via [Environment variables]({{% ref "docs/kluctl/commands/environment-variables#environment-variables-as-arguments" %}}) (through `KLUCTL_ARG_XXX`).
 
 In this blog post, we'll focus on the first option for simplicity. The second and third options are much more
-powerful, but require more boilerplate to set up a [Kluctl project](https://kluctl.io/docs/kluctl/kluctl-project/)
-and [Kluctl deployments](https://kluctl.io/docs/kluctl/deployments/deployment-yml). The first option also works with
+powerful, but require more boilerplate to set up a [Kluctl project]({{% ref "docs/kluctl/kluctl-project" %}})
+and [Kluctl deployments]({{% ref "docs/kluctl/deployments/deployment-yml" %}}). The first option also works with
 plain Kustomize deployments, which is what I'm going to demonstrate.
 
 Whatever option is used, all "args" are then available in every place by simply using
@@ -103,7 +103,7 @@ Thanks for using kind! 😊
 ```
 
 Ensure that you are on the correct Kubernetes context by calling `kubectl config current-context` and verify that it
-points to `kind-kind`. Without using [Kluctl Targets](https://kluctl.io/docs/kluctl/kluctl-project/targets/) with
+points to `kind-kind`. Without using [Kluctl Targets]({{% ref "docs/kluctl/kluctl-project/targets" %}}) with
 fixed contexts, Kluctl behaves the same as any other tool in the Kubernetes space when it comes to the current context,
 meaning that you have to watch out to not deploy to prod by accident! :)
 
@@ -295,7 +295,7 @@ $ kluctl deploy -a entry_replicas=3 -a hat_enabled=false
 ```
 
 If you deploy with a hat and then with `hat_enabled=false`, Kluctl will not delete/prune the previously deployed hat.
-If you want to have pruning support, you must create a [Kluctl deployment](https://kluctl.io/docs/kluctl/deployments/)
+If you want to have pruning support, you must create a [Kluctl deployment]({{% ref "docs/kluctl/deployments" %}})
 with `commonLabels` enabled, so that Kluctl knows how to identify related objects.
 
 ## Using vars files instead of arguments
@@ -322,18 +322,18 @@ $ kluctl diff --args-from-file=prod-args.yaml
 ```
 
 Based on that, you can easily implement multi-environment deployments. This is however still a poor-mans solution to
-multi-environment deployments, with the use of [Kluctl projects](https://kluctl.io/docs/kluctl/kluctl-project/)
-being the better solution. Said Kluctl projects allow you to define named [targets](https://kluctl.io/docs/kluctl/kluctl-project/targets/)
+multi-environment deployments, with the use of [Kluctl projects]({{% ref "docs/kluctl/kluctl-project" %}})
+being the better solution. Said Kluctl projects allow you to define named [targets]({{% ref "docs/kluctl/kluctl-project/targets" %}})
 which are fixed in their configuration, so that you only have to invoke `kluctl deploy -t test` without needing to
 know what the internal details are.
 
 ## What's next?
 
 This article has shown how Kluctl can be used on simple/plain Kustomize deployments. The next thing you should consider
-is using [Kluctl projects](https://kluctl.io/docs/kluctl/kluctl-project/) and
-[Kluctl deployments](https://kluctl.io/docs/kluctl/deployments/) around your Kustomize deployments. It will allow you
+is using [Kluctl projects]({{% ref "docs/kluctl/kluctl-project" %}}) and
+[Kluctl deployments]({{% ref "docs/kluctl/deployments" %}}) around your Kustomize deployments. It will allow you
 to have much more flexible and powerful ways of configuration management. It will also allow you to use the GitOps style
 [flux-kluctl-controller](https://github.com/kluctl/flux-kluctl-controller).
 
-Upcoming blog posts will show why the [Helm Integration](https://kluctl.io/docs/kluctl/deployments/helm/) is a good
+Upcoming blog posts will show why the [Helm Integration]({{% ref "docs/kluctl/deployments/helm" %}}) is a good
 thing with many advantages and also describe why one would choose Kluctl over plain Helm.

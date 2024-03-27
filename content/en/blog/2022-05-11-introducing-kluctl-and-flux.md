@@ -12,7 +12,7 @@ tags:
 {{% alert context="warning" %}}
 Please note that the information in this blog post is outdated. Kluctl does
 not integrate into Flux anymore and instead provides an independent
-[Kluctl Controller]({{< ref "docs/gitops" >}}).
+[Kluctl Controller]({{% ref "docs/gitops" %}}).
 {{% /alert %}}
 
 We're very happy to announce that Kluctl can from now on be used together with [Flux](https://fluxcd.io/). This
@@ -44,17 +44,17 @@ fashion as [Kustomizations](https://fluxcd.io/docs/components/kustomize/kustomiz
 
 Each KluctlDeployment specifies a source object
 (e.g. a [GitRepository](https://fluxcd.io/docs/components/source/gitrepositories/)),
-the [target]({{< ref "docs/kluctl/kluctl-project/targets" >}}) to be deployed and some information on how
+the [target]({{% ref "docs/kluctl/kluctl-project/targets" %}}) to be deployed and some information on how
 to handle kubeconfigs. The controller then regularly reconciles the deployment, meaning that it will invoke
-[kluctl deploy]({{< ref "docs/kluctl/commands/deploy" >}}) whenever a change is detected in the deployment.
+[kluctl deploy]({{% ref "docs/kluctl/commands/deploy" %}}) whenever a change is detected in the deployment.
 
-Sounds great? Then take a look at [this]({{< ref "docs/gitops" >}}) very simple example
+Sounds great? Then take a look at [this]({{% ref "docs/gitops" %}}) very simple example
 <div class="center">
 <iframe src="https://giphy.com/embed/xjEmbSLychDd6JQFo0" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/disneychannelofficial-disney-channel-disneychannel-amphibia-xjEmbSLychDd6JQFo0">via GIPHY</a></p>
 </div>
 
 ## Kustomize/Helm vs Kluctl
-If you've already read through the [Kluctl documentation]({{< ref "docs" >}}), you've probably noticed
+If you've already read through the [Kluctl documentation]({{% ref "docs" %}}), you've probably noticed
 that Kluctl internally uses Kustomize and Helm extensively.
 
 This might raise the question: Why not use plain Kustomize and/or Helm if Flux is already involved?
@@ -69,7 +69,7 @@ same deployment, including the necessary configuration to let them talk to each 
 To see how different a Kluctl deployment is compared to classic Kustomize/Helm + Flux, you can compare the
 [flux2-kustomize-helm-example](https://github.com/fluxcd/flux2-kustomize-helm-example) and the
 [Kluctl Microservices Demo](https://github.com/kluctl/kluctl-examples/tree/main/microservices-demo/3-templating-and-multi-env)
-([here]({{< ref "docs/tutorials/microservices-demo">}}) is tutorial for the demo).
+([here]({{% ref "docs/tutorials/microservices-demo" %}}) is tutorial for the demo).
 
 ## Native multi-env support
 Kluctl allows you to natively create deployment projects that can be deployed multiple times to different
@@ -79,7 +79,7 @@ way you like. For example, you could change the `local` target to set all replic
 support applications (e.g. monitoring infrastructure).
 
 This is possible in plain Kustomize as well, but requires you to solve it without the concept of
-[targets]({{< ref "docs/kluctl/kluctl-project/targets" >}}) and without templating. In Kustomize, multi-env
+[targets]({{% ref "docs/kluctl/kluctl-project/targets" %}}) and without templating. In Kustomize, multi-env
 deployments must be solved with [overlays](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/#bases-and-overlays),
 which does not necessary align with how you prefer your project structure.
 

@@ -10,7 +10,7 @@ This guide is for developers, devops engineers, SREs and everyone else who wants
 to Kubernetes and are looking for specific recipe on how to achieve some common use cases and tasks.
 
 {{% alert %}}
-Please make sure you've completed the [getting started guide]({{< ref "docs/kluctl/installation" >}}) first.
+Please make sure you've completed the [getting started guide]({{% ref "docs/kluctl/installation" %}}) first.
 {{% /alert %}}
 
 {{% alert %}}
