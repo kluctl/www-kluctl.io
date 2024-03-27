@@ -13,6 +13,23 @@ command = """
 """
 
 [[redirects]]
+  from = "/categories"
+  to = "/categories/index.xml"
+  status = 200
+[[redirects]]
+  from = "/categories/*"
+  to = "/categories/:splat/index.xml"
+  status = 200
+[[redirects]]
+  from = "/tags"
+  to = "/tags/index.xml"
+  status = 200
+[[redirects]]
+  from = "/tags/*"
+  to = "/tags/:splat/index.xml"
+  status = 200
+
+[[redirects]]
   from = "/docs/reference/*"
   to = "/docs/kluctl/reference/:splat"
 [[redirects]]
