@@ -71,25 +71,24 @@ functionality and user experience of this website.</span>
         {{ end }}
     });
 </script>
-<noscript>
-    {{ if hugo.IsProduction | or (eq .Site.Params.env "production") }}
-    <!-- Matomo Image Tracker-->
-    {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-    {{- $title := "" }}
-    {{- if eq $url "/" }}
-        {{- $title = .Site.Title }}
-    {{- else }}
-        {{- if .Params.heading }}
-            {{ $title = .Params.heading }}
-        {{ else }}
-            {{- if eq .Title .Site.Title }}
-                {{- $title = .Title }}
-            {{- else }}
-                {{- $title = printf "%s | %s" .Title (.Site.Params.docs.Title | default (.Site.Title)) }}
-            {{- end }}
+
+{{ if hugo.IsProduction | or (eq .Site.Params.env "production") }}
+<!-- Matomo Image Tracker-->
+{{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+{{- $title := "" }}
+{{- if .IsHome -}}
+    {{- $title = .Title -}}
+{{- else -}}
+    {{- with .Params.metaTitle -}}
+        {{- $title = . -}}
+    {{- else -}}
+        {{- if eq .Title .Site.Title }}
+            {{- $title = .Title }}
+        {{- else }}
+            {{- $title = printf "%s | %s" .Title (.Site.Params.docs.Title | default (.Site.Title)) }}
         {{- end }}
     {{- end -}}
-    <img referrerpolicy="no-referrer-when-downgrade" src="https://klutomo.kluctl.io/klutomo.php?idsite=1&amp;rec=1&amp;_action_name={{ urlquery $title }}&amp;url={{ urlquery .Permalink }}" style="border:0" alt="" />
-    <!-- End Matomo -->
-    {{ end }}
-</noscript>
+{{- end -}}
+<img referrerpolicy="no-referrer-when-downgrade" src="https://klutomo.kluctl.io/klutomo.php?idsite=1&amp;rec=1&amp;_action_name={{ urlquery $title }}&amp;url={{ urlquery .Permalink }}" style="border:0" alt="" />
+<!-- End Matomo -->
+{{ end }}
