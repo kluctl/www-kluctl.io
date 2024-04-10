@@ -1,7 +1,7 @@
 ---
 description: deploy command
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-18T23:57:46+02:00"
+lastmod: "2024-03-05T11:33:50+01:00"
 linkTitle: deploy
 path_base_for_github_subdir:
     from: .*
@@ -39,6 +39,7 @@ Misc arguments:
   Command specific arguments.
 
       --abort-on-error               Abort deploying when an error occurs instead of trying the remaining deployments
+      --discriminator string         Override the target discriminator.
       --dry-run                      Performs all kubernetes API calls in dry-run mode.
       --force-apply                  Force conflict resolution when applying. See documentation for details
       --force-replace-on-error       Same as --replace-on-error, but also try to delete and re-create objects. See

@@ -1,7 +1,7 @@
 ---
 description: diff command
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-17T00:30:26+02:00"
+lastmod: "2024-03-15T09:25:45+01:00"
 linkTitle: diff
 path_base_for_github_subdir:
     from: .*
@@ -38,10 +38,12 @@ In addition, the following arguments are available:
 Misc arguments:
   Command specific arguments.
 
+      --discriminator string        Override the target discriminator.
       --force-apply                 Force conflict resolution when applying. See documentation for details
       --force-replace-on-error      Same as --replace-on-error, but also try to delete and re-create objects. See
                                     documentation for more details.
       --ignore-annotations          Ignores changes in annotations when diffing
+      --ignore-kluctl-metadata      Ignores changes in Kluctl related metadata (e.g. tags, discriminators, ...)
       --ignore-labels               Ignores changes in labels when diffing
       --ignore-tags                 Ignores changes in tags when diffing
       --no-obfuscate                Disable obfuscation of sensitive/secret data

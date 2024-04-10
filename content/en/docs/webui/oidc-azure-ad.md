@@ -1,7 +1,7 @@
 ---
 description: Azure AD Integration
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-03-04T14:47:38+01:00"
+lastmod: "2024-04-10T10:16:51+02:00"
 linkTitle: Azure AD Integration
 path_base_for_github_subdir:
     from: .*
@@ -63,7 +63,7 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/webui
       ref:
-         tag: v2.23.5
+         tag: v2.24.0
     vars:
       - values:
           args:
