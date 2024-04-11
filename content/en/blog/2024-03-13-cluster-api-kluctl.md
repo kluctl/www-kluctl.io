@@ -12,7 +12,7 @@ images:
 - "/images/blog/2024-03-13-cluster-api-kluctl.jpg"
 ---
 
-![image](/images/blog/2024-03-13-cluster-api-kluctl.png)
+![image](/images/blog/2024-03-13-cluster-api-kluctl.jpg)
 
 Kubernetes started as a very promising container orchestrator and in my opinion it was very clear at day one that it would establish itself and take the market. What was not so obvious to me, was that Kubernetes would also morph into some kind of "API Platform".
 
