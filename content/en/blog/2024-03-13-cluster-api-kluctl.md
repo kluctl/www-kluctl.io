@@ -9,7 +9,7 @@ description: |
 tags:
 - Tutorial
 images:
-- "/images/blog/2024-03-13-cluster-api-kluctl.png"
+- "/images/blog/2024-03-13-cluster-api-kluctl.jpg"
 ---
 
 ![image](/images/blog/2024-03-13-cluster-api-kluctl.png)
