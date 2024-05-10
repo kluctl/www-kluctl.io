@@ -59,6 +59,7 @@
     var remark_config = {
         host: '{{ .Site.Params.remark42.remarkURL }}',
         site_id: '{{ .Site.Params.remark42.siteID }}',
+        url: 'https://kluctl.io' + window.location.pathname,
         components: ['embed', 'last-comments'],
         max_shown_comments: 100,
         theme: 'light',
