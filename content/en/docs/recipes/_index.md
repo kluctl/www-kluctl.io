@@ -1,13 +1,15 @@
 
 ---
-title: "Recipes"
-linkTitle: "Recipes"
-weight: 80
-description: Recipes
+title: "Kluctl Recipes"
+linkTitle: "Kluctl Recipes"
+weight: 30
+description: Kluctl Recipes
 ---
 
-This guide is for developers, devops engineers, SREs and everyone else who wants to use Kluctl to deploy their workloads
-to Kubernetes and are looking for specific recipe on how to achieve some common use cases and tasks.
+This is a collection of recipes, targeted at developers, devops engineers, SREs and everyone else who wants to use
+Kluctl to deploy their workloads to Kubernetes.
+
+These recipes try to describe how to implement common use cases tasks.
 
 {{% alert %}}
 Please make sure you've completed the [getting started guide]({{% ref "docs/kluctl/get-started" %}}) first.
