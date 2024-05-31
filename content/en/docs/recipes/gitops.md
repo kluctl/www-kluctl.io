@@ -263,6 +263,20 @@ spec:
   delete: true
 ```
 
+### Git/Helm/OCI authentication
+
+Please note that the above example deployments do not require authentication. It's very likely that you'd need
+authentication for Git repositories, Helm repositories or OCI registries in your own setup, simply because not
+everything is public and/or Open Source.
+
+To add authentication for the `KluctlDeployment`s, fill the
+[credentials]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment/#credentials" %}}) field in the spec of the
+`KluctlDeployment`s. These `credentials` refer to `Secret`s which also need to be deployed to the cluster.
+
+You can either provide these secrets manually (should be avoided), via [SOPS]({{% ref "docs/kluctl/deployments/sops" %}})
+encrypted `Secret`s (which can then be part of the GitOps deployment project itself) or via
+[External Secrets](https://external-secrets.io/).
+
 ### Managing the GitOps deployment project
 
 Please ensure that you have committed and pushed all required files before you bootstrap the GitOps deployment.
