@@ -1,7 +1,7 @@
 ---
 description: Get Started with Kluctl.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-02-06T10:34:27+01:00"
+lastmod: "2024-05-31T15:40:39+02:00"
 linkTitle: Get Started
 path_base_for_github_subdir:
     from: .*
@@ -72,8 +72,8 @@ Then try to modify something inside the Kustomize deployment and retry the `kluc
 For more advanced examples, check out the Kluctl example projects.
 Clone the example project found at https://github.com/kluctl/kluctl-examples
 
-```sh
-git clone https://github.com/kluctl/kluctl-examples.git
+```shell
+$ git clone https://github.com/kluctl/kluctl-examples.git
 ```
 
 ## Choose one of the examples
@@ -81,16 +81,16 @@ git clone https://github.com/kluctl/kluctl-examples.git
 You can choose whatever example you like from the cloned repository. We will however continue this guide by referring
 to the `simple-helm` example found in that repository. Change the current directory:
 
-```sh
-cd kluctl-examples/simple-helm
+```shell
+$ cd kluctl-examples/simple-helm
 ```
 
 ## Create your local cluster
 
 Create a local cluster with [kind](https://kind.sigs.k8s.io):
 
-```sh
-kind create cluster
+```shell
+$ kind create cluster
 ```
 
 This will update your kubeconfig to contain a context with the name `kind-kind`. By default, all examples will use
@@ -100,15 +100,15 @@ the currently active context.
 
 Now run the following command to deploy the example:
 
-```sh
-kluctl deploy -t simple-helm
+```shell
+$ kluctl deploy -t simple-helm
 ```
 
 Kluctl will perform a diff first and then ask for your confirmation to deploy it. In this case, you should only see
 some objects being newly deployed.
 
-```sh
-kubectl -n simple-helm get pod
+```shell
+$ kubectl -n simple-helm get pod
 ```
 
 ## Change something and re-deploy
@@ -116,15 +116,15 @@ kubectl -n simple-helm get pod
 Now change something inside the deployment project. You could for example add `replicaCount: 2` to `deployment/nginx/helm-values.yml`.
 After you have saved your changes, run the deploy command again:
 
-```sh
-kluctl deploy -t simple-helm
+```shell
+$ kluctl deploy -t simple-helm
 ```
 
 This time it should show your modifications in the diff. Confirm that you want to perform the deployment and then verify
 it:
 
-```sh
-kubectl -n simple-helm get pod
+```shell
+$ kubectl -n simple-helm get pod
 ```
 
 You should need 2 instances of the nginx POD running now.
