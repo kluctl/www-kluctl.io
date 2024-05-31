@@ -1,7 +1,7 @@
 ---
 description: KluctlDeployment documentation
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-05-31T16:42:52+02:00"
+lastmod: "2024-05-31T16:49:33+02:00"
 linkTitle: KluctlDeployment
 path_base_for_github_subdir:
     from: .*
@@ -325,19 +325,19 @@ by using the [`kluctl gitops`](../../../kluctl/commands/) sub-commands.
 On-demand reconciliation example:
 
 ```bash
-kluctl gitops deploy --namespace my-namespace --name my-deployment
+$ kluctl gitops deploy --namespace my-namespace --name my-deployment
 ```
 
 You can also perform manual requests while temporarily overriding deployment configurations, e.g.:
 
 ```bash
-kluctl gitops deploy --namespace my-namespace --name my-deployment --force-apply
+$ kluctl gitops deploy --namespace my-namespace --name my-deployment --force-apply
 ```
 
 Local source overrides are also possible, allowing you to test changes before pushing them:
 
 ```bash
-kluctl gitops diff --namespace my-namespace --name my-deployment --local-git-override=github.com/exaple-org/example-project=/local/path/to/modified/repo
+$ kluctl gitops diff --namespace my-namespace --name my-deployment --local-git-override=github.com/exaple-org/example-project=/local/path/to/modified/repo
 ```
 
 When `--namespace` and `--name` are omitted, the CLI will try to auto-detect the deployment on the current cluster
@@ -760,7 +760,7 @@ status:
 You can wait for the controller to complete a reconciliation with:
 
 ```bash
-kubectl wait kluctldeployment/backend --for=condition=ready
+$ kubectl wait kluctldeployment/backend --for=condition=ready
 ```
 
 A failed reconciliation sets the ready condition to `false`:

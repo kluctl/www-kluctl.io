@@ -1,7 +1,7 @@
 ---
 description: Installing kluctl.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-05-31T15:40:39+02:00"
+lastmod: "2024-05-31T16:49:33+02:00"
 linkTitle: Installation
 path_base_for_github_subdir:
     from: .*
@@ -51,20 +51,20 @@ The install script does the following:
 Clone the repository:
 
 ```bash
-git clone https://github.com/kluctl/kluctl
-cd kluctl
+$ git clone https://github.com/kluctl/kluctl
+$ cd kluctl
 ```
 
 Build the `kluctl` binary (requires go >= 1.19):
 
 ```bash
-make build
+$ make build
 ```
 
 Run the binary:
 
 ```bash
-./bin/kluctl -h
+$ ./bin/kluctl -h
 ```
 
 

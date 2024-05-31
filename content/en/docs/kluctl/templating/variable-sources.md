@@ -1,7 +1,7 @@
 ---
 description: Available variable sources.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-02-28T09:24:41+01:00"
+lastmod: "2024-05-31T16:49:33+02:00"
 linkTitle: Variable Sources
 path_base_for_github_subdir:
     from: .*
@@ -514,10 +514,10 @@ vars:
 SDK [azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) supports `az login`
 or Environment Variables
 ```bash
-  export AZURE_CLIENT_ID="__CLIENT_ID__"
-  export AZURE_CLIENT_SECRET="__CLIENT_SECRET__"
-  export AZURE_TENANT_ID="__TENANT_ID__"
-  export AZURE_SUBSCRIPTION_ID="__SUBSCRIPTION_ID__"
+$ export AZURE_CLIENT_ID="__CLIENT_ID__"
+$ export AZURE_CLIENT_SECRET="__CLIENT_SECRET__"
+$ export AZURE_TENANT_ID="__TENANT_ID__"
+$ export AZURE_SUBSCRIPTION_ID="__SUBSCRIPTION_ID__"
 ```
 
 ### vault
