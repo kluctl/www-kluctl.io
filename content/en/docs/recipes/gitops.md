@@ -272,7 +272,7 @@ Git version.
 To bootstrap the GitOps deployment project, simply perform a `kluctl deploy`:
 
 ```shell
-$ cd my-gitops-deployment
+$ cd gitops-deployment
 $ kluctl deploy -a cluster_name=test.example.com
 ```
 
