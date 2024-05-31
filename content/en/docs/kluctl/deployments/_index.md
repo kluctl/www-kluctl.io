@@ -1,7 +1,7 @@
 ---
 description: Deployments and sub-deployments.
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-01-05T11:52:13+01:00"
+lastmod: "2024-05-31T15:38:09+02:00"
 linkTitle: Deployments
 path_base_for_github_subdir:
     from: .*
@@ -12,7 +12,7 @@ weight: 30
 
 
 
-A deployment project is collection of deployment items and sub-deployments. Deployment items are usually
+A deployment project is a collection of deployment items and sub-deployments. Deployment items are usually
 [Kustomize](./kustomize.md) deployments, but can also integrate [Helm Charts](./helm.md).
 
 ## Basic structure
