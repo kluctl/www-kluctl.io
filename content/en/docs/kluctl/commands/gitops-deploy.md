@@ -1,11 +1,12 @@
 ---
 description: webui command
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-01-08T12:11:52+01:00"
 linkTitle: gitops deploy
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/gitops-deploy.md
+    to: docs/kluctl/commands/gitops-deploy.md
 title: gitops deploy
 weight: 10
 ---

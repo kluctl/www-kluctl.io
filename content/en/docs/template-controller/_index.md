@@ -1,11 +1,12 @@
 ---
 description: Template Controller documentation.
+github_branch: main
 github_repo: https://github.com/kluctl/template-controller
 lastmod: "2022-12-29T10:41:22+01:00"
 linkTitle: Template Controller
 path_base_for_github_subdir:
     from: .*
-    to: main/README.md
+    to: README.md
 title: Template Controller
 weight: 40
 ---

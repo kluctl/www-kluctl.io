@@ -1,11 +1,12 @@
 ---
 description: Running the Kluctl Webui locally
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-01-05T11:52:13+01:00"
 linkTitle: Running locally
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/webui/running-locally.md
+    to: docs/webui/running-locally.md
 title: Running locally
 weight: 20
 ---

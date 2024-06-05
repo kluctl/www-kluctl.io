@@ -1,11 +1,12 @@
 ---
 description: How Helm is integrated into Kluctl.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-10-17T00:30:26+02:00"
 linkTitle: Helm Integration
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/deployments/helm.md
+    to: docs/kluctl/deployments/helm.md
 title: Helm Integration
 weight: 4
 ---

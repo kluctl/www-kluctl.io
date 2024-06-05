@@ -1,11 +1,12 @@
 ---
 description: Available functions.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-03-04T11:12:24+01:00"
 linkTitle: Functions
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/templating/functions.md
+    to: docs/kluctl/templating/functions.md
 title: Functions
 weight: 4
 ---

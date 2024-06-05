@@ -1,11 +1,12 @@
 ---
 description: Installing kluctl.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-05-31T16:49:33+02:00"
 linkTitle: Installation
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/installation.md
+    to: docs/kluctl/installation.md
 title: Installation
 weight: 5
 ---

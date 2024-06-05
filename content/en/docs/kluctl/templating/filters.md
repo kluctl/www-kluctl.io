@@ -1,11 +1,12 @@
 ---
 description: Available filters.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-03-04T11:05:56+01:00"
 linkTitle: Filters
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/templating/filters.md
+    to: docs/kluctl/templating/filters.md
 title: Filters
 weight: 3
 ---

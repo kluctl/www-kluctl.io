@@ -1,11 +1,12 @@
 ---
 description: gitops.kluctl.io/v1beta1 documentation
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-10-17T00:30:26+02:00"
 linkTitle: v1beta1 specs
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/gitops/spec/v1beta1/README.md
+    to: docs/gitops/spec/v1beta1/README.md
 title: v1beta1 specs
 weight: 10
 ---

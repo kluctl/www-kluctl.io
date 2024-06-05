@@ -1,11 +1,12 @@
 ---
 description: GitlabComment documentation
+github_branch: main
 github_repo: https://github.com/kluctl/template-controller
 lastmod: "2023-01-16T13:44:24+01:00"
 linkTitle: GitlabComment
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/spec/v1alpha1/gitlabcomment.md
+    to: docs/spec/v1alpha1/gitlabcomment.md
 title: GitlabComment
 weight: 30
 ---

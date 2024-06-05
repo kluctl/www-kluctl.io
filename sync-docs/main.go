@@ -242,9 +242,10 @@ outer2:
 
 	// add github links
 	frontMatter["github_repo"] = fmt.Sprintf("https://github.com/%s", *repo)
+	frontMatter["github_branch"] = "main"
 	frontMatter["path_base_for_github_subdir"] = map[string]any{
 		"from": ".*",
-		"to":   fmt.Sprintf("main/%s", relGitPath),
+		"to":   fmt.Sprintf("%s", relGitPath),
 	}
 
 	lastMod, err := getGitLastMod(repoDir, relGitPath)

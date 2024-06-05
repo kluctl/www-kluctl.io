@@ -1,11 +1,12 @@
 ---
 description: deploy command
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-03-05T11:33:50+01:00"
 linkTitle: deploy
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/deploy.md
+    to: docs/kluctl/commands/deploy.md
 title: deploy
 weight: 10
 ---

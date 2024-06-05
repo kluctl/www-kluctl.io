@@ -1,11 +1,12 @@
 ---
 description: Kluctl Controller documentation.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-05-31T15:37:47+02:00"
 linkTitle: Kluctl GitOps
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/gitops/README.md
+    to: docs/gitops/README.md
 title: Kluctl GitOps
 weight: 20
 ---

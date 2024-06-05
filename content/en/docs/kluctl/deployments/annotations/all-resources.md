@@ -1,11 +1,12 @@
 ---
 description: Annotations on all resources
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-04-10T11:31:10+02:00"
 linkTitle: All resources
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/deployments/annotations/all-resources.md
+    to: docs/kluctl/deployments/annotations/all-resources.md
 title: All resources
 weight: 1
 ---

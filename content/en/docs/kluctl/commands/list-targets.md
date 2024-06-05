@@ -1,11 +1,12 @@
 ---
 description: list-targets command
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-08-26T09:38:51+02:00"
 linkTitle: list-targets
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/list-targets.md
+    to: docs/kluctl/commands/list-targets.md
 title: list-targets
 weight: 10
 ---

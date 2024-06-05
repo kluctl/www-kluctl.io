@@ -1,10 +1,11 @@
 ---
 description: 'Use Case: Transformation of Secrets/Objects'
+github_branch: main
 github_repo: https://github.com/kluctl/template-controller
 lastmod: "2022-12-14T17:07:28+01:00"
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/use-case-transformation.md
+    to: docs/use-case-transformation.md
 title: 'Use Case: Transformation of Secrets/Objects'
 weight: 50
 ---

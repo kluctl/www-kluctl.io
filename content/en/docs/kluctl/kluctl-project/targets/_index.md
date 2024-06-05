@@ -1,11 +1,12 @@
 ---
 description: Required, defines targets for this kluctl project.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-10-06T10:25:27+02:00"
 linkTitle: targets
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/kluctl-project/targets/README.md
+    to: docs/kluctl/kluctl-project/targets/README.md
 title: targets
 weight: 4
 ---

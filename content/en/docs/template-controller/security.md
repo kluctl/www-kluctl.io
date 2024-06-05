@@ -1,10 +1,11 @@
 ---
 description: Security documentation.
+github_branch: main
 github_repo: https://github.com/kluctl/template-controller
 lastmod: "2022-12-14T16:47:29+01:00"
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/security.md
+    to: docs/security.md
 title: Security
 weight: 20
 ---

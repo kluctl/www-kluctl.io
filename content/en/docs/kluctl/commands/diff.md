@@ -1,11 +1,12 @@
 ---
 description: diff command
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-03-15T09:25:45+01:00"
 linkTitle: diff
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/diff.md
+    to: docs/kluctl/commands/diff.md
 title: diff
 weight: 10
 ---

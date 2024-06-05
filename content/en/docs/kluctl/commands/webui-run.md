@@ -1,11 +1,12 @@
 ---
 description: webui command
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-01-08T12:11:52+01:00"
 linkTitle: webui run
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/webui-run.md
+    to: docs/kluctl/commands/webui-run.md
 title: webui run
 weight: 10
 ---

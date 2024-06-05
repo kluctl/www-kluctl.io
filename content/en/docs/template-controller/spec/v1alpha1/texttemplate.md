@@ -1,11 +1,12 @@
 ---
 description: TextTemplate documentation
+github_branch: main
 github_repo: https://github.com/kluctl/template-controller
 lastmod: "2023-01-16T13:44:24+01:00"
 linkTitle: TextTemplate
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/spec/v1alpha1/texttemplate.md
+    to: docs/spec/v1alpha1/texttemplate.md
 title: TextTemplate
 weight: 30
 ---

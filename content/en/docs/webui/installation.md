@@ -1,11 +1,12 @@
 ---
 description: Installing the Kluctl Webui
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-04-10T16:43:56+02:00"
 linkTitle: Installation
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/webui/installation.md
+    to: docs/webui/installation.md
 title: Installation
 weight: 10
 ---

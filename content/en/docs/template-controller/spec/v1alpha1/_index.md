@@ -1,11 +1,12 @@
 ---
 description: templates.kluctl.io/v1alpha1 documentation
+github_branch: main
 github_repo: https://github.com/kluctl/template-controller
 lastmod: "2023-01-16T13:44:24+01:00"
 linkTitle: v1alpha1 specs
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/spec/v1alpha1/README.md
+    to: docs/spec/v1alpha1/README.md
 title: v1alpha1 specs
 weight: 10
 ---

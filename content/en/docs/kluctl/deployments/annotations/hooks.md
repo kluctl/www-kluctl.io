@@ -1,11 +1,12 @@
 ---
 description: Annotations on hooks
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-09-15T15:13:22+02:00"
 linkTitle: Hooks
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/deployments/annotations/hooks.md
+    to: docs/kluctl/deployments/annotations/hooks.md
 title: Hooks
 weight: 2
 ---

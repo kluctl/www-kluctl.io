@@ -1,11 +1,12 @@
 ---
 description: ListGithubPullRequests documentation
+github_branch: main
 github_repo: https://github.com/kluctl/template-controller
 lastmod: "2023-01-16T13:44:24+01:00"
 linkTitle: ListGithubPullRequests
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/spec/v1alpha1/listgithubpullrequests.md
+    to: docs/spec/v1alpha1/listgithubpullrequests.md
 title: ListGithubPullRequests
 weight: 30
 ---

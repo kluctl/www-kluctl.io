@@ -1,11 +1,12 @@
 ---
 description: Kluctl hooks.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-08-26T09:38:51+02:00"
 linkTitle: Hooks
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/deployments/hooks.md
+    to: docs/kluctl/deployments/hooks.md
 title: Hooks
 weight: 6
 ---

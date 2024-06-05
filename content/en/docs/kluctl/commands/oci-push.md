@@ -1,11 +1,12 @@
 ---
 description: oci push command
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-10-25T15:43:45+02:00"
 linkTitle: oci push
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/oci-push.md
+    to: docs/kluctl/commands/oci-push.md
 title: oci push
 weight: 10
 ---

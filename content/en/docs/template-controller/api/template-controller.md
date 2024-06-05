@@ -1,11 +1,12 @@
 ---
 description: Template Controller API reference
+github_branch: main
 github_repo: https://github.com/kluctl/template-controller
 lastmod: "2023-01-16T13:44:24+01:00"
 linkTitle: Template Controller API
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/api/template-controller.md
+    to: docs/api/template-controller.md
 title: Template Controller API reference
 weight: 300
 ---
