@@ -1,11 +1,12 @@
 ---
 description: Annotations on the kustomization.yaml resource
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-09-15T15:13:22+02:00"
 linkTitle: Kustomize
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/deployments/annotations/kustomization.md
+    to: docs/kluctl/deployments/annotations/kustomization.md
 title: Kustomize
 weight: 4
 ---

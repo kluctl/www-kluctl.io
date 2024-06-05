@@ -1,10 +1,11 @@
 ---
 description: Installation documentation
+github_branch: main
 github_repo: https://github.com/kluctl/template-controller
 lastmod: "2024-02-27T11:06:16+01:00"
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/install.md
+    to: docs/install.md
 title: Installation
 weight: 10
 ---

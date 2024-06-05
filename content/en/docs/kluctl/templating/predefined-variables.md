@@ -1,11 +1,12 @@
 ---
 description: Available predefined variables.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-08-26T09:38:51+02:00"
 linkTitle: Predefined Variables
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/templating/predefined-variables.md
+    to: docs/kluctl/templating/predefined-variables.md
 title: Predefined Variables
 weight: 1
 ---

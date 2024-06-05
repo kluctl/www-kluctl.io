@@ -1,11 +1,12 @@
 ---
 description: Description of available commands.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-01-05T11:52:13+01:00"
 linkTitle: Commands
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/README.md
+    to: docs/kluctl/commands/README.md
 title: Commands
 weight: 50
 ---

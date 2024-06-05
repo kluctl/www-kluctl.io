@@ -1,11 +1,12 @@
 ---
 description: KluctlDeployment documentation
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-08-26T07:53:39+02:00"
 linkTitle: KluctlDeployment Controller Metrics
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/gitops/metrics/v1beta1/kluctldeployment_controller.md
+    to: docs/gitops/metrics/v1beta1/kluctldeployment_controller.md
 title: Metrics of the KluctlDeployment Controller
 weight: 20
 ---

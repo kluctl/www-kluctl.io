@@ -1,11 +1,12 @@
 ---
 description: Kluctl Webui documentation.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-09-05T15:34:19+02:00"
 linkTitle: Kluctl Webui
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/webui/README.md
+    to: docs/webui/README.md
 title: Kluctl Webui
 weight: 30
 ---

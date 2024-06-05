@@ -1,11 +1,12 @@
 ---
 description: Kluctl Controller API reference
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-10-29T22:30:02+01:00"
 linkTitle: Kluctl Controller API
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/gitops/api/kluctl-controller.md
+    to: docs/gitops/api/kluctl-controller.md
 title: Kluctl Controller API reference
 weight: 300
 ---

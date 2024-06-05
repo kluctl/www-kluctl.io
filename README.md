@@ -1,6 +1,6 @@
 # Kluctl website
 
-This repository contains the source code for the Kluctl website. It uses the [Lotusdocs](https://github.com/colinwilson/lotusdocs) theme. A development environment can be set up locally or by using GitHub Codespaces.
+This repository contains the source code for the Kluctl website. It uses the [docsy](https://www.docsy.dev/) theme. A development environment can be set up locally or by using GitHub Codespaces.
 
 ## Local Development
 

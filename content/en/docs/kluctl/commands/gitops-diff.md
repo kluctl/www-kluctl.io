@@ -1,11 +1,12 @@
 ---
 description: webui command
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-02-28T09:26:42+01:00"
 linkTitle: gitops diff
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/gitops-diff.md
+    to: docs/kluctl/commands/gitops-diff.md
 title: gitops diff
 weight: 10
 ---

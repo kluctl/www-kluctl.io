@@ -1,11 +1,12 @@
 ---
 description: Installing the Kluctl Controller
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-04-10T16:43:56+02:00"
 linkTitle: Installation
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/gitops/installation.md
+    to: docs/gitops/installation.md
 title: Installation
 weight: 10
 ---

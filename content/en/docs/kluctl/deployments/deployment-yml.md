@@ -1,11 +1,12 @@
 ---
 description: Structure of deployment.yaml.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-03-22T09:44:34+01:00"
 linkTitle: Deployments
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/deployments/deployment-yml.md
+    to: docs/kluctl/deployments/deployment-yml.md
 title: Deployments
 weight: 1
 ---

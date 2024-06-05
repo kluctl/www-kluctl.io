@@ -1,10 +1,11 @@
 ---
 description: 'Use Case: Dynamic environments for Pull Requests'
+github_branch: main
 github_repo: https://github.com/kluctl/template-controller
 lastmod: "2022-12-14T17:07:28+01:00"
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/use-case-dynamic-environments.md
+    to: docs/use-case-dynamic-environments.md
 title: 'Use Case: Dynamic environments for Pull Requests'
 weight: 40
 ---

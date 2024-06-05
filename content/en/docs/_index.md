@@ -1,8 +1,7 @@
 ---
-description: Docs
-taxonomyCloud: []
 title: Documentation
-weight: 20
+linkTitle: Docs
+menu: {main: {weight: 20, pre: "<i class='fas fa-book pr-2'></i>"}}
 ---
 
 

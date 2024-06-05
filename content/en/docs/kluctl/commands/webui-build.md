@@ -1,11 +1,12 @@
 ---
 description: webui command
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-08-26T09:38:51+02:00"
 linkTitle: webui build
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/webui-build.md
+    to: docs/kluctl/commands/webui-build.md
 title: webui build
 weight: 10
 ---

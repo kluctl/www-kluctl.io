@@ -1,11 +1,12 @@
 ---
 description: Get Started with Kluctl.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-05-31T15:40:39+02:00"
 linkTitle: Get Started
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/get-started.md
+    to: docs/kluctl/get-started.md
 title: Get Started
 weight: 1
 ---

@@ -1,11 +1,12 @@
 ---
 description: Templating Engine.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-02-06T10:34:27+01:00"
 linkTitle: Templating
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/templating/README.md
+    to: docs/kluctl/templating/README.md
 title: Templating
 weight: 40
 ---

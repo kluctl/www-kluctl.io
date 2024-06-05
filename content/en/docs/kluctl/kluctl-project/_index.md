@@ -1,11 +1,12 @@
 ---
 description: Kluctl project configuration, found in the .kluctl.yaml file.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-01-05T11:52:13+01:00"
 linkTitle: Kluctl Projects
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/kluctl-project/README.md
+    to: docs/kluctl/kluctl-project/README.md
 title: Kluctl Projects
 weight: 10
 ---

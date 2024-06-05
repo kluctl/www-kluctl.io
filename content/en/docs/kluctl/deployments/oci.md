@@ -1,11 +1,12 @@
 ---
 description: OCI Support in Kluctl
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-10-17T00:30:26+02:00"
 linkTitle: OCI Support
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/deployments/oci.md
+    to: docs/kluctl/deployments/oci.md
 title: OCI Support
 weight: 4
 ---

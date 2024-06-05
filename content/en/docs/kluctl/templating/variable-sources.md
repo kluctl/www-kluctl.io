@@ -1,11 +1,12 @@
 ---
 description: Available variable sources.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-05-31T16:49:33+02:00"
 linkTitle: Variable Sources
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/templating/variable-sources.md
+    to: docs/kluctl/templating/variable-sources.md
 title: Variable Sources
 weight: 2
 ---

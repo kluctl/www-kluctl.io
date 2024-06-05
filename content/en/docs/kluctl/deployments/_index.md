@@ -1,11 +1,12 @@
 ---
 description: Deployments and sub-deployments.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-05-31T15:38:09+02:00"
 linkTitle: Deployments
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/deployments/README.md
+    to: docs/kluctl/deployments/README.md
 title: Deployments
 weight: 30
 ---

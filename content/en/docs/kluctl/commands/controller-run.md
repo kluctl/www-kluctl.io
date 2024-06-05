@@ -1,11 +1,12 @@
 ---
 description: controller command
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-10-30T18:06:26+01:00"
 linkTitle: controller run
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/controller-run.md
+    to: docs/kluctl/commands/controller-run.md
 title: controller run
 weight: 10
 ---

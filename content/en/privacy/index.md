@@ -1,9 +1,10 @@
 ---
 title: Privacy Policy
 description: Privacy policy for Kluctl.io
-noindex: true
 ---
-
+<br/>
+<br/>
+<br/>
 Type of website: News, Blog, Documentation
 
 Effective date: 17 day of March, 2024

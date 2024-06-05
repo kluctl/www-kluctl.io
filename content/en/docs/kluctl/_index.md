@@ -1,12 +1,13 @@
 ---
 description: |
     Kluctl Documentation
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-10-31T17:42:01+01:00"
 linkTitle: Kluctl
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/README.md
+    to: docs/kluctl/README.md
 title: Kluctl
 weight: 10
 ---

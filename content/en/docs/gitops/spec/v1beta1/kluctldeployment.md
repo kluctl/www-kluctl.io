@@ -1,11 +1,12 @@
 ---
 description: KluctlDeployment documentation
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2024-05-31T16:49:33+02:00"
 linkTitle: KluctlDeployment
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/gitops/spec/v1beta1/kluctldeployment.md
+    to: docs/gitops/spec/v1beta1/kluctldeployment.md
 title: KluctlDeployment
 weight: 20
 ---

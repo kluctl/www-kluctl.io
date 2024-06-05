@@ -1,11 +1,12 @@
 ---
 description: gitops.kluctl.io/v1beta1 metrics
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-08-26T07:53:39+02:00"
 linkTitle: v1beta1 metrics
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/gitops/metrics/v1beta1/README.md
+    to: docs/gitops/metrics/v1beta1/README.md
 title: v1beta1 metrics
 weight: 10
 ---

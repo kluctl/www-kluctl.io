@@ -1,11 +1,12 @@
 ---
 description: Dynamic configuration of container images.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-08-26T09:38:51+02:00"
 linkTitle: Container Images
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/deployments/images.md
+    to: docs/kluctl/deployments/images.md
 title: Container Images
 weight: 3
 ---

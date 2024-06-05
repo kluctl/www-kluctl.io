@@ -1,11 +1,12 @@
 ---
 description: Definition of readiness.
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-09-27T11:33:53+02:00"
 linkTitle: Readiness
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/deployments/readiness.md
+    to: docs/kluctl/deployments/readiness.md
 title: Readiness
 weight: 7
 ---

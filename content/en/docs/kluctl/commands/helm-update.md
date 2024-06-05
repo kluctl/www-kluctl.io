@@ -1,11 +1,12 @@
 ---
 description: helm-update command
+github_branch: main
 github_repo: https://github.com/kluctl/kluctl
 lastmod: "2023-10-17T00:30:26+02:00"
 linkTitle: helm-update
 path_base_for_github_subdir:
     from: .*
-    to: main/docs/kluctl/commands/helm-update.md
+    to: docs/kluctl/commands/helm-update.md
 title: helm-update
 weight: 10
 ---
