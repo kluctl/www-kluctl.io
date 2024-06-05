@@ -1,5 +1,6 @@
 .idea
 
+/_vendor
 /resources
 /public
 .hugo_build.lock

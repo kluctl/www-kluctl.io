@@ -1,0 +1,35 @@
+
+$primary: #ffffff !default;
+$secondary: #115748 !default;
+$success: #3772ff !default;
+$info: #c0e0de !default;
+$warning: #ed6a5a !default;
+$danger: #ed6a5a !default;
+$light: #d3f3ee !default; // TODO: consider using BS value
+$dark: #115748 !default;  // TODO: consider using BS value
+
+$navbar-dark-color:         #187a66;
+$navbar-dark-hover-color:   rgba(0, 0, 0, 0.7);
+$navbar-dark-active-color:  rgba(0, 0, 0, 0.7);
+
+$link-color:                              $secondary !default;
+$link-decoration:                         underline !default;
+$link-shade-percentage:                   20% !default;
+$link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
+$link-hover-decoration:                   null !default;
+
+$td-enable-google-fonts: true;
+$google_font_name: 'Roboto';
+$google_font_family: 'Roboto:300,300i,400,400i,700,700i';
+
+
+// disable text after logo
+.td-navbar .navbar-brand__name {
+  display: none;
+}
+
+.highlight {
+    border-radius: .7rem;
+}
+
+@import "./_landing.scss"

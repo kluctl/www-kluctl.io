@@ -1,8 +1,10 @@
 ---
 title: Impressum
 description: Impressum for Kluctl.io
-noindex: true
 ---
+<br/>
+<br/>
+<br/>
 <div class='impressum'><p>Angaben gemäß § 5 TMG</p>
     <p>codablock UG (haftungsbeschränkt) <br>
         Krahenbrink 25a<br>

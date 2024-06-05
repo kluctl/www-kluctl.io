@@ -1,3 +1,8 @@
 User-agent: *
 
+Disallow: /impressum
+Disallow: /impressum/
+Disallow: /privacy
+Disallow: /privacy/
+
 Sitemap: {{ .Site.BaseURL }}sitemap.xml

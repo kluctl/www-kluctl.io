@@ -1,12 +1,10 @@
 ---
 weight: 100
-date: "2023-05-03T22:37:22+01:00"
 draft: false
 author: "Alexander Block"
 title: "Kluctl homepage"
 toc: true
 description: "Kluctl is the missing glue to put together large Kubernetes deployments"
-publishdate: "2023-05-03T22:37:22+01:00"
 
 ################## Hero section ##################
 heroSection:
@@ -18,9 +16,9 @@ heroSection:
   image:
     url: images/home/hero-img.png # relative to the assets folder
     altText: Kluctl CLI
-  icon:
-    url: images/home/icons/hero-shape.svg # relative to the assets folder
-    altText: CI/CD icon
+  #icon:
+  #  url: images/home/icons/hero-shape.svg # relative to the assets folder
+  #  altText: CI/CD icon
 
 ################## Deployment section ##################
 deploymentSection:
