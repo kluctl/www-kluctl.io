@@ -1,9 +1,30 @@
+
+{{ if .Site.Params.remark42.siteID }}
+<script>
+    var remark_config = {
+        host: '{{ .Site.Params.remark42.remarkURL }}',
+        site_id: '{{ .Site.Params.remark42.siteID }}',
+        url: 'https://kluctl.io' + window.location.pathname,
+        components: ['embed'],
+        max_shown_comments: 100,
+        theme: 'light',
+        page_title: '{{ .Title }}',
+        locale: '{{ .Site.Language.Lang }}',
+        show_email_subscription: false,
+        simple_view: true,
+        no_footer: false
+    };
+</script>
+<script>!function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);</script>
+{{ end }}
+
 <div id="cookie-notice">
-<span>We would like to use third party cookies and scripts to improve the
-functionality and user experience of this website.</span>
-<a id="cookie-notice-accept" class="btn btn-primary btn-sm">Approve</a>
-<a id="cookie-notice-deny" class="btn btn-primary btn-sm">Deny</a>
-<a href="/privacy/" class="btn btn-primary btn-sm">More info</a></div>
+    <span>We would like to use third party cookies and scripts to improve the
+    functionality and user experience of this website.</span>
+    <a id="cookie-notice-accept" class="btn btn-primary btn-sm">Approve</a>
+    <a id="cookie-notice-deny" class="btn btn-primary btn-sm">Deny</a>
+    <a href="/privacy/" class="btn btn-primary btn-sm">More info</a>
+</div>
 <script>
     function createCookie(name,value,days) {
         var expires = "";
