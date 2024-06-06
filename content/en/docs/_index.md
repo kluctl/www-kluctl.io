@@ -1,7 +1,6 @@
 ---
 title: Documentation
-linkTitle: Docs
-menu: {main: {weight: 20, pre: "<i class='fas fa-book pr-2'></i>"}}
+# linkTitle, weight and icon are set via hugo.yaml to allow overriding the link to /docs/kluctl
 ---
 
 
