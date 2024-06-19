@@ -2,7 +2,7 @@
 description: Kluctl Webui documentation.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-09-05T15:34:19+02:00"
+lastmod: "2024-06-18T10:00:22+02:00"
 linkTitle: Kluctl Webui
 path_base_for_github_subdir:
     from: .*
@@ -17,7 +17,7 @@ weight: 30
 
 The Kluctl Webui is a powerful UI which allows you to monitor and control your Kluctl GitOps deployments.
 
-You can [run it locally](./running-locally.md) or [install](installation.md) it to your Kubernetes cluster.
+You can [run it locally](./running-locally.md) or [install](./installation.md) it to your Kubernetes cluster.
 
 ## State of the Webui
 

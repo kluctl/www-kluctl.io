@@ -2,7 +2,7 @@
 description: Installing the Kluctl Webui
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-04-10T16:43:56+02:00"
+lastmod: "2024-06-19T13:47:56+02:00"
 linkTitle: Installation
 path_base_for_github_subdir:
     from: .*
@@ -24,7 +24,7 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/webui
       ref:
-        tag: v2.24.1
+        tag: v2.25.0
 ```
 
 ## Login
@@ -56,6 +56,23 @@ For an example of an OIDC provider configurations, see [Azure AD Integration](./
 
 ## Customization
 
+### Serving under a different path
+
+By default, the webui is served under the `/`path. To change the path, pass the `--prefix-path` argument to the webui:
+
+```yaml
+deployments:
+  - git:
+      url: https://github.com/kluctl/kluctl.git
+      subDir: install/webui
+      ref:
+        tag: v2.25.0
+    vars:
+      - values:
+          webui_args:
+            - --path-prefix=/my-custom-prefix
+```
+
 ### Overriding the version
 
 The image version of the Webui can be overriden with the `kluctl_version` arg:
@@ -70,7 +87,7 @@ deployments:
     vars:
       - values:
           args:
-            kluctl_version: v2.24.1
+            kluctl_version: v2.25.0
 ```
 
 ### Passing arguments
@@ -83,7 +100,7 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/webui
       ref:
-        tag: v2.24.1
+        tag: v2.25.0
     vars:
       - values:
           webui_args:

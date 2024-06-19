@@ -2,7 +2,7 @@
 description: webui command
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-01-08T12:11:52+01:00"
+lastmod: "2024-06-18T17:31:07+02:00"
 linkTitle: webui run
 path_base_for_github_subdir:
     from: .*
@@ -37,6 +37,9 @@ Misc arguments:
       --in-cluster-context string     The context to use fo in-cluster functionality.
       --kubeconfig existingfile       Overrides the kubeconfig to use.
       --only-api                      Only serve API without the actual UI.
+      --path-prefix string            Specify the prefix of the path to serve the webui on. This is required when
+                                      using a reverse proxy, ingress or gateway that serves the webui on another
+                                      path than /. (default "/")
       --port int                      Port to bind to. (default 8080)
 
 ```

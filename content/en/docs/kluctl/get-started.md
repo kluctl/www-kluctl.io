@@ -2,7 +2,7 @@
 description: Get Started with Kluctl.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-05-31T15:40:39+02:00"
+lastmod: "2024-06-18T10:00:22+02:00"
 linkTitle: Get Started
 path_base_for_github_subdir:
     from: .*
@@ -52,7 +52,7 @@ for a given cluster.
 
 ## Install Kluctl
 
-The `kluctl` command-line interface (CLI) is required to perform deployments. Read the [installation instructions](installation.md)
+The `kluctl` command-line interface (CLI) is required to perform deployments. Read the [installation instructions](./installation.md)
 to figure out how to install it.
 
 ## Use Kluctl with a plain Kustomize deployment
