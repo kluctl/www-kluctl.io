@@ -2,7 +2,7 @@
 description: gitops.kluctl.io/v1beta1 metrics
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-08-26T07:53:39+02:00"
+lastmod: "2024-06-18T10:00:22+02:00"
 linkTitle: v1beta1 metrics
 path_base_for_github_subdir:
     from: .*
@@ -21,4 +21,4 @@ controller is based on [controller-runtime](https://github.com/kubernetes-sigs/c
 the [default metrics](https://book.kubebuilder.io/reference/metrics-reference.html) as well as the
 following controller-specific custom metrics are exported:
 
-- [kluctldeployment_controller](kluctldeployment_controller.md)
+- [kluctldeployment_controller](./kluctldeployment_controller.md)

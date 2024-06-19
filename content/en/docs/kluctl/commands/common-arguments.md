@@ -2,7 +2,7 @@
 description: Common arguments
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-01-08T12:11:52+01:00"
+lastmod: "2024-06-18T11:20:42+02:00"
 linkTitle: Common Arguments
 path_base_for_github_subdir:
     from: .*
@@ -31,6 +31,7 @@ Global arguments:
       --gops-agent-addr string   Specify the address:port to use for the gops agent (default "127.0.0.1:0")
       --no-color                 Disable colored output
       --no-update-check          Disable update check on startup
+      --use-system-python        Use the system Python instead of the embedded Python.
 
 ```
 <!-- END SECTION -->

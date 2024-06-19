@@ -2,7 +2,7 @@
 description: Available functions.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-03-04T11:12:24+01:00"
+lastmod: "2024-06-19T10:40:07+02:00"
 linkTitle: Functions
 path_base_for_github_subdir:
     from: .*
@@ -49,6 +49,35 @@ data:
 ```
 
 `digest_len` is an optional parameter that allows to limit the length of the returned hex digest.
+
+### load_base64(file, width)
+Loads the given file into memory and returns the base64 representation of the binary data.
+The width parameter is optional and causes `load_base64` to wrap the base64 string into a multiline string.
+
+The filename given to `load_base64` is treated the same as in `load_template`.
+
+This function is useful if you need to include binary data in your deployment. For example:
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-secret
+data:
+  binarySecret: "{{ load_base64("secret.bin") }}"
+```
+
+To use wrapped base64, use:
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-secret
+data:
+  binarySecret: |
+    "{{ load_base64("large-secret.bin") | indent(4) }}"
+```
 
 ### get_var(field_path, default)
 Convenience method to navigate through the current context variables via a

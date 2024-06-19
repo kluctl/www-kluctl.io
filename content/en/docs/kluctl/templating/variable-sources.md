@@ -2,7 +2,7 @@
 description: Available variable sources.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-05-31T16:49:33+02:00"
+lastmod: "2024-06-18T10:00:46+02:00"
 linkTitle: Variable Sources
 path_base_for_github_subdir:
     from: .*
@@ -99,7 +99,7 @@ vars:
 
 After which all included deployments and sub-deployments can use the jinja2 variables from `vars1.yaml`.
 
-Kluctl also supports variable files encrypted with [SOPS](https://github.com/mozilla/sops). See the
+Kluctl also supports variable files encrypted with [SOPS](https://github.com/getsops/sops). See the
 [sops integration](../deployments/sops.md) integration for more details.
 
 ### values
@@ -160,7 +160,7 @@ vars:
 
 The ref field has the same format at found in [Git includes](../deployments/deployment-yml.md#git-includes)
 
-Kluctl also supports variable files encrypted with [SOPS](https://github.com/mozilla/sops). See the
+Kluctl also supports variable files encrypted with [SOPS](https://github.com/getsops/sops). See the
 [sops integration](../deployments/sops.md) integration for more details.
 
 ### gitFiles

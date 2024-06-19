@@ -2,7 +2,7 @@
 description: Kluctl Controller documentation.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-05-31T15:37:47+02:00"
+lastmod: "2024-06-18T10:00:22+02:00"
 linkTitle: Kluctl GitOps
 path_base_for_github_subdir:
     from: .*
@@ -78,7 +78,7 @@ Deletion and pruning is based on the [discriminator](../kluctl/kluctl-project/#d
 A `KluctlDeployment` can be [suspended](./spec/v1beta1/kluctldeployment.md#suspend). While suspended, the controller
 will skip reconciliation, including deletion and pruning.
 
-The API design of the controller can be found at [kluctldeployment.gitops.kluctl.io/v1beta1](./spec/v1beta1).
+The API design of the controller can be found at [kluctldeployment.gitops.kluctl.io/v1beta1](./spec/v1beta1/).
 
 ## Example
 

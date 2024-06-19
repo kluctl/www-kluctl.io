@@ -2,7 +2,7 @@
 description: Installing the Kluctl Controller
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-04-10T16:43:56+02:00"
+lastmod: "2024-06-19T13:47:56+02:00"
 linkTitle: Installation
 path_base_for_github_subdir:
     from: .*
@@ -33,5 +33,5 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/controller
       ref:
-        tag: v2.24.1
+        tag: v2.25.0
 ```
