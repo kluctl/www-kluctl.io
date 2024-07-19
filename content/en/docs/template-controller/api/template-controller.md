@@ -2,7 +2,7 @@
 description: Template Controller API reference
 github_branch: main
 github_repo: https://github.com/kluctl/template-controller
-lastmod: "2023-01-16T13:44:24+01:00"
+lastmod: "2024-07-13T22:29:38+02:00"
 linkTitle: Template Controller API
 path_base_for_github_subdir:
     from: .*
@@ -990,8 +990,7 @@ SecretRef
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.GithubCommentSpec">GithubCommentSpec</a>, 
-<a href="#templates.kluctl.io/v1alpha1.PullRequestRefHolder">PullRequestRefHolder</a>)
+<a href="#templates.kluctl.io/v1alpha1.GithubCommentSpec">GithubCommentSpec</a>)
 </p>
 <div class="md-typeset__scrollwrap">
 <div class="md-typeset__table">
@@ -1022,7 +1021,7 @@ GithubProject
 <td>
 <code>pullRequestId</code><br>
 <em>
-int
+k8s.io/apimachinery/pkg/util/intstr.IntOrString
 </em>
 </td>
 <td>
@@ -1245,8 +1244,7 @@ string
 </h3>
 <p>
 (<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.GitlabCommentSpec">GitlabCommentSpec</a>, 
-<a href="#templates.kluctl.io/v1alpha1.PullRequestRefHolder">PullRequestRefHolder</a>)
+<a href="#templates.kluctl.io/v1alpha1.GitlabCommentSpec">GitlabCommentSpec</a>)
 </p>
 <div class="md-typeset__scrollwrap">
 <div class="md-typeset__table">
@@ -1277,7 +1275,7 @@ GitlabProject
 <td>
 <code>mergeRequestId</code><br>
 <em>
-int
+k8s.io/apimachinery/pkg/util/intstr.IntOrString
 </em>
 </td>
 <td>
@@ -1309,11 +1307,12 @@ int
 <td>
 <code>project</code><br>
 <em>
-string
+k8s.io/apimachinery/pkg/util/intstr.IntOrString
 </em>
 </td>
 <td>
-<p>Project specifies the Gitlab group and project (separated by slash) to use</p>
+<p>Project specifies the Gitlab group and project (separated by slash) to
+use, or the numeric project id</p>
 </td>
 </tr>
 <tr>
@@ -1341,141 +1340,6 @@ SecretRef
 <td>
 <em>(Optional)</em>
 <p>TokenRef specifies a secret and key to load the Gitlab API token from</p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.Handler">Handler
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.ObjectHandlerSpec">ObjectHandlerSpec</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>pullRequestComment</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommentReporter">
-PullRequestCommentReporter
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>pullRequestApprove</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestApproveReporter">
-PullRequestApproveReporter
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>pullRequestCommand</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommandHandler">
-PullRequestCommandHandler
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.HandlerStatus">HandlerStatus
-</h3>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>key</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>error</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>pullRequestComment</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommentReporterStatus">
-PullRequestCommentReporterStatus
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>pullRequestApprove</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestApproveReporterStatus">
-PullRequestApproveReporterStatus
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>pullRequestCommand</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommandHandlerStatus">
-PullRequestCommandHandlerStatus
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
 </td>
 </tr>
 </tbody>
@@ -2120,6 +1984,10 @@ string
 </div>
 <h3 id="templates.kluctl.io/v1alpha1.MatrixEntry">MatrixEntry
 </h3>
+<p>
+(<em>Appears on:</em>
+<a href="#templates.kluctl.io/v1alpha1.ObjectTemplateSpec">ObjectTemplateSpec</a>)
+</p>
 <div class="md-typeset__scrollwrap">
 <div class="md-typeset__table">
 <table>
@@ -2235,212 +2103,12 @@ when used in combination with <code>jsonPath</code></p>
 </table>
 </div>
 </div>
-<h3 id="templates.kluctl.io/v1alpha1.ObjectHandler">ObjectHandler
-</h3>
-<p>ObjectHandler is the Schema for the objecthandlers API</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>metadata</code><br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#objectmeta-v1-meta">
-Kubernetes meta/v1.ObjectMeta
-</a>
-</em>
-</td>
-<td>
-Refer to the Kubernetes API documentation for the fields of the
-<code>metadata</code> field.
-</td>
-</tr>
-<tr>
-<td>
-<code>spec</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.ObjectHandlerSpec">
-ObjectHandlerSpec
-</a>
-</em>
-</td>
-<td>
-<br/>
-<br/>
-<table>
-<tr>
-<td>
-<code>interval</code><br>
-<em>
-<a href="https://godoc.org/k8s.io/apimachinery/pkg/apis/meta/v1#Duration">
-Kubernetes meta/v1.Duration
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>forObject</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.ObjectRef">
-ObjectRef
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>handlers</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.Handler">
-[]Handler
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<code>status</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.ObjectHandlerStatus">
-ObjectHandlerStatus
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.ObjectHandlerSpec">ObjectHandlerSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.ObjectHandler">ObjectHandler</a>)
-</p>
-<p>ObjectHandlerSpec defines the desired state of ObjectHandler</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>interval</code><br>
-<em>
-<a href="https://godoc.org/k8s.io/apimachinery/pkg/apis/meta/v1#Duration">
-Kubernetes meta/v1.Duration
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>forObject</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.ObjectRef">
-ObjectRef
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>handlers</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.Handler">
-[]Handler
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.ObjectHandlerStatus">ObjectHandlerStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.ObjectHandler">ObjectHandler</a>)
-</p>
-<p>ObjectHandlerStatus defines the observed state of ObjectHandler</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>conditions</code><br>
-<em>
-<a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#condition-v1-meta">
-[]Kubernetes meta/v1.Condition
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>handlerStatus</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.*github.com/kluctl/template-controller/api/v1alpha1.HandlerStatus">
-[]*github.com/kluctl/template-controller/api/v1alpha1.HandlerStatus
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <h3 id="templates.kluctl.io/v1alpha1.ObjectRef">ObjectRef
 </h3>
 <p>
 (<em>Appears on:</em>
 <a href="#templates.kluctl.io/v1alpha1.AppliedResourceInfo">AppliedResourceInfo</a>, 
 <a href="#templates.kluctl.io/v1alpha1.MatrixEntryObject">MatrixEntryObject</a>, 
-<a href="#templates.kluctl.io/v1alpha1.ObjectHandlerSpec">ObjectHandlerSpec</a>, 
 <a href="#templates.kluctl.io/v1alpha1.TextTemplateInputObject">TextTemplateInputObject</a>)
 </p>
 <div class="md-typeset__scrollwrap">
@@ -2591,8 +2259,8 @@ bool
 <td>
 <code>matrix</code><br>
 <em>
-<a href="#templates.kluctl.io/v1alpha1.*github.com/kluctl/template-controller/api/v1alpha1.MatrixEntry">
-[]*github.com/kluctl/template-controller/api/v1alpha1.MatrixEntry
+<a href="#templates.kluctl.io/v1alpha1.MatrixEntry">
+[]MatrixEntry
 </a>
 </em>
 </td>
@@ -2702,8 +2370,8 @@ bool
 <td>
 <code>matrix</code><br>
 <em>
-<a href="#templates.kluctl.io/v1alpha1.*github.com/kluctl/template-controller/api/v1alpha1.MatrixEntry">
-[]*github.com/kluctl/template-controller/api/v1alpha1.MatrixEntry
+<a href="#templates.kluctl.io/v1alpha1.MatrixEntry">
+[]MatrixEntry
 </a>
 </em>
 </td>
@@ -2764,456 +2432,6 @@ bool
 <em>
 <a href="#templates.kluctl.io/v1alpha1.AppliedResourceInfo">
 []AppliedResourceInfo
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.PullRequestApproveReporter">PullRequestApproveReporter
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.Handler">Handler</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>PullRequestRefHolder</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestRefHolder">
-PullRequestRefHolder
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>PullRequestRefHolder</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>missingReadyConditionIsError</code><br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.PullRequestApproveReporterStatus">PullRequestApproveReporterStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.HandlerStatus">HandlerStatus</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>approved</code><br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.PullRequestCommandHandler">PullRequestCommandHandler
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.Handler">Handler</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>PullRequestRefHolder</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestRefHolder">
-PullRequestRefHolder
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>PullRequestRefHolder</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>postHelpComment</code><br>
-<em>
-bool
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>commands</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommandHandlerCommandSpec">
-[]PullRequestCommandHandlerCommandSpec
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.PullRequestCommandHandlerActionAnnotateSpec">PullRequestCommandHandlerActionAnnotateSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommandHandlerActionSpec">PullRequestCommandHandlerActionSpec</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>annotation</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>value</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.PullRequestCommandHandlerActionSpec">PullRequestCommandHandlerActionSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommandHandlerCommandSpec">PullRequestCommandHandlerCommandSpec</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>annotate</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommandHandlerActionAnnotateSpec">
-PullRequestCommandHandlerActionAnnotateSpec
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>jsonPatch</code><br>
-<em>
-[]k8s.io/apimachinery/pkg/runtime.RawExtension
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.PullRequestCommandHandlerCommandSpec">PullRequestCommandHandlerCommandSpec
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommandHandler">PullRequestCommandHandler</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>name</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<code>description</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>actions</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommandHandlerActionSpec">
-[]PullRequestCommandHandlerActionSpec
-</a>
-</em>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.PullRequestCommandHandlerStatus">PullRequestCommandHandlerStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.HandlerStatus">HandlerStatus</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>lastProcessedCommentTime</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>helpNoteId</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>helpNoteBodyHash</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.PullRequestCommentReporter">PullRequestCommentReporter
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.Handler">Handler</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>PullRequestRefHolder</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestRefHolder">
-PullRequestRefHolder
-</a>
-</em>
-</td>
-<td>
-<p>
-(Members of <code>PullRequestRefHolder</code> are embedded into this type.)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.PullRequestCommentReporterStatus">PullRequestCommentReporterStatus
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.HandlerStatus">HandlerStatus</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>lastPostedStatusHash</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>noteId</code><br>
-<em>
-string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<h3 id="templates.kluctl.io/v1alpha1.PullRequestRefHolder">PullRequestRefHolder
-</h3>
-<p>
-(<em>Appears on:</em>
-<a href="#templates.kluctl.io/v1alpha1.PullRequestApproveReporter">PullRequestApproveReporter</a>, 
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommandHandler">PullRequestCommandHandler</a>, 
-<a href="#templates.kluctl.io/v1alpha1.PullRequestCommentReporter">PullRequestCommentReporter</a>)
-</p>
-<div class="md-typeset__scrollwrap">
-<div class="md-typeset__table">
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>gitlab</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.GitlabMergeRequestRef">
-GitlabMergeRequestRef
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-</td>
-</tr>
-<tr>
-<td>
-<code>github</code><br>
-<em>
-<a href="#templates.kluctl.io/v1alpha1.GithubPullRequestRef">
-GithubPullRequestRef
 </a>
 </em>
 </td>
@@ -3460,16 +2678,16 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>The name of the Kubernetes service account to impersonate
-when reconciling this TextTemplate. If omitted, the &ldquo;default&rdquo; service account is used.</p>
+<p>ServiceAccountName specifies the name of the Kubernetes service account to impersonate
+when reconciling this TextTemplate. If omitted, the &ldquo;default&rdquo; service account is used</p>
 </td>
 </tr>
 <tr>
 <td>
 <code>inputs</code><br>
 <em>
-<a href="#templates.kluctl.io/v1alpha1.*github.com/kluctl/template-controller/api/v1alpha1.TextTemplateInput">
-[]*github.com/kluctl/template-controller/api/v1alpha1.TextTemplateInput
+<a href="#templates.kluctl.io/v1alpha1.TextTemplateInput">
+[]TextTemplateInput
 </a>
 </em>
 </td>
@@ -3522,6 +2740,10 @@ TextTemplateStatus
 </div>
 <h3 id="templates.kluctl.io/v1alpha1.TextTemplateInput">TextTemplateInput
 </h3>
+<p>
+(<em>Appears on:</em>
+<a href="#templates.kluctl.io/v1alpha1.TextTemplateSpec">TextTemplateSpec</a>)
+</p>
 <div class="md-typeset__scrollwrap">
 <div class="md-typeset__table">
 <table>
@@ -3640,16 +2862,16 @@ string
 </td>
 <td>
 <em>(Optional)</em>
-<p>The name of the Kubernetes service account to impersonate
-when reconciling this TextTemplate. If omitted, the &ldquo;default&rdquo; service account is used.</p>
+<p>ServiceAccountName specifies the name of the Kubernetes service account to impersonate
+when reconciling this TextTemplate. If omitted, the &ldquo;default&rdquo; service account is used</p>
 </td>
 </tr>
 <tr>
 <td>
 <code>inputs</code><br>
 <em>
-<a href="#templates.kluctl.io/v1alpha1.*github.com/kluctl/template-controller/api/v1alpha1.TextTemplateInput">
-[]*github.com/kluctl/template-controller/api/v1alpha1.TextTemplateInput
+<a href="#templates.kluctl.io/v1alpha1.TextTemplateInput">
+[]TextTemplateInput
 </a>
 </em>
 </td>
