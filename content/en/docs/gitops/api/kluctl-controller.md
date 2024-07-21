@@ -2,7 +2,7 @@
 description: Kluctl Controller API reference
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-29T22:30:02+01:00"
+lastmod: "2024-07-08T13:05:44+02:00"
 linkTitle: Kluctl Controller API
 path_base_for_github_subdir:
     from: .*
@@ -1255,7 +1255,7 @@ string
 <td>
 <code>projectKey</code><br>
 <em>
-github.com/kluctl/kluctl/v2/pkg/types/result.ProjectKey
+github.com/kluctl/kluctl/lib/git/types.ProjectKey
 </em>
 </td>
 <td>
@@ -1956,7 +1956,7 @@ DEPRECATED this field is deprecated and will be removed in the next API version 
 <td>
 <code>ref</code><br>
 <em>
-github.com/kluctl/kluctl/v2/pkg/types.GitRef
+github.com/kluctl/kluctl/lib/git/types.GitRef
 </em>
 </td>
 <td>
@@ -2047,7 +2047,7 @@ use spec.credentials.git to specify those.</p>
 <td>
 <code>ref</code><br>
 <em>
-github.com/kluctl/kluctl/v2/pkg/types.GitRef
+github.com/kluctl/kluctl/lib/git/types.GitRef
 </em>
 </td>
 <td>
@@ -2226,7 +2226,7 @@ string
 <td>
 <code>repoKey</code><br>
 <em>
-github.com/kluctl/kluctl/v2/pkg/types.RepoKey
+github.com/kluctl/kluctl/lib/git/types.RepoKey
 </em>
 </td>
 <td>
