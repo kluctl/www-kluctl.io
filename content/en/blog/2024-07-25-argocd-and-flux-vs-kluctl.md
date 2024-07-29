@@ -32,7 +32,7 @@ comment feature or create an issue or pull request to notify us about things tha
 [Kubernetes Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) (CRs) are used to extend the Kubernetes API with custom resources and custom behavior. CustomResourceDefinitions define
 the new API types while Custom Resources (e.g. a Kustomization, HelmRelease or Application) represent single instances
 of these new types. A controller watches for changes of a certain type and acts accordingly, e.g. by applying the desired state to the
-cluster to move the actual state closer to the desired stated (reconciliation).
+cluster to move the actual state closer to the desired state (reconciliation).
 
 ### ArgoCD and Flux
 
@@ -89,7 +89,7 @@ mix these in the same project. Please read the [chapter](#Use-of-Custom-Resource
 why this is possible in Kluctl.
 
 Push-based GitOps is implemented via the [Kluctl CLI]({{% ref "docs/kluctl/commands/" %}}), which you can run from
-your local machine or from a continuous delivery pipeline. Pull-based GitOps is implemented via
+your local machine or from a continuous delivery pipeline. Pull based GitOps is implemented via
 the [Kluctl Controller]({{% ref "docs/gitops/" %}}), which takes
 a [KluctlDeployment]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment/" %}}) as input and then performs periodic
 reconciliation. In the end, both strategies end up using your Git source to perform exactly the same deployment actions.
@@ -167,7 +167,7 @@ daily business.
 ### Kluctl
 
 By default, Kluctl does only re-apply resources when the involved source code changes. This somewhat mimics what
-classical push based continues delivery is doing. In practice this means that if you change something on the cluster (
+classical push based continuous delivery is doing. In practice this means that if you change something on the cluster (
 e.g. via kubectl or k9s), the change/drift stays intact until something gets changed in the source (usually via a
 commit + push or merge). This behaviour can be changed in the KluctlDeployment CR to also perform unconditional periodic
 re-apply.
