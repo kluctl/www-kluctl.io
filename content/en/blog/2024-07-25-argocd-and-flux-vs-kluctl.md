@@ -112,11 +112,14 @@ To start with GitOps, some components must usually be installed into the cluster
 
 ### ArgoCD
 
-Multiple options exist for both solutions. For ArgoCD, you can apply
+For ArgoCD, you can apply
 some [static manifests](https://argo-cd.readthedocs.io/en/stable/getting_started/) and install the `argocd` CLI. After
 that, you can either use the UI or the CLI to
 add [Applications](https://argo-cd.readthedocs.io/en/stable/user-guide/application-specification/) or even additional
-clusters. It's common to have one ArgoCD instance manage multiple clusters.
+clusters.
+
+It's common to have one ArgoCD instance manage multiple clusters.
+
 The [App of Apps](https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/) pattern allows you to
 hand over most operations to Git, reducing the amount configuration required in the UI or via the CLI.
 
@@ -124,8 +127,14 @@ hand over most operations to Git, reducing the amount configuration required in 
 
 Flux requires a process called [bootstrapping](https://fluxcd.io/flux/get-started/#install-flux-onto-your-cluster) to
 pre-create all necessary Kubernetes manifests in your Git repository and perform an initial apply, resulting in the Flux
-controllers to start up and then take over reconciliation of that same repository. In Flux, it's common to have one set
-of controller on every cluster, while Git repositories might be shared (using different subdirectories).
+controllers to start up and then take over reconciliation of that same repository.
+
+As an alternative, the [flux-operator](https://fluxcd.control-plane.io/operator/) can be used to install Flux controllers
+into your cluster. It will take over and manage the complete lifecycle of your Flux controllers and also
+handle updates. The operator itself must be installed via other means (e.g. plain Helm or static manifests).
+
+In Flux, it's common to have one set
+of controllers on every cluster, while Git repositories might be shared (using different subdirectories).
 
 ### Kluctl
 
@@ -140,7 +149,7 @@ so on.
 
 This bootstrap deployment is then simply deployed via `kluctl deploy --context my-cluster`.
 
-## Reconciliationn and Drift
+## Reconciliation and Drift
 
 Kubernetes controllers typically implement a reconciliation loop that reconciles the actual/current state towards the
 desired state (defined by a CR). GitOps controllers do the same, with the difference that the CR actually references a
