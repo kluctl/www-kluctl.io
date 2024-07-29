@@ -76,8 +76,9 @@ reliably ensures that drift is being fixed whenever it occurs.
 
 ### ArgoCD and Flux
 
-Both ways implement GitOps as a pull strategy. ArgoCD also natively supports manual synchronization, meaning that you can
-disable periodic reconciliation and instead rely on manual syncs via the UI.
+Both implement GitOps as a pull strategy. ArgoCD also natively supports manual synchronization, meaning that you can
+disable periodic reconciliation and instead rely on manual syncs via the UI. Flux allows to manually suspend and resume
+reconciliation via the CLI, allowing you to get some control over the timing of reconciliations.
 
 Push based GitOps is not possible in ArgoCD or Flux, this is however not considered a downside but a strict design
 choice. At the same time, it would be very hard to implement due the strict reliance on Custom Resources for core
