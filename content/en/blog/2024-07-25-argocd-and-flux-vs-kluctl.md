@@ -65,7 +65,7 @@ cases why you might consider mixing GitOps with other strategies. Please read th
 ## Pull vs. Push
 
 GitOps can be implemented in two different strategies. One is the push strategy, which is actually what has been done
-reliably for years in classical continues delivery, e.g. via Jenkins, Gitlab pipelines or GitHub workflows. The way it
+reliably for years in classical continuous delivery, e.g. via Jenkins, Gitlab pipelines or GitHub workflows. The way it
 is usually implemented however has some disadvantages, for example the possibility of a growing drift between the state in
 Git and the state in the cluster.
 
