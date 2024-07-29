@@ -21,7 +21,7 @@ This makes Kluctl comparable to [ArgoCD](https://argo-cd.readthedocs.io/en/stabl
 these projects also implement the GitOps strategy.
 
 This comparison assumes that you already know Flux and/or ArgoCD to some degree, or at least have heard of them, so it
-will not go too deep into comparing these againt each other. If you want a deeper dive into ArgoCD vs Flux, read
+will not go too deep into comparing these against each other. If you want a deep dive into ArgoCD vs Flux, read
 the [Comparison: Flux vs Argo CD](https://earthly.dev/blog/flux-vs-argo-cd/) blog post from Earthly.
 
 This post is meant to be updated over its lifetime when things change in any of the projects. Feel free to use the
@@ -29,26 +29,25 @@ comment feature or create an issue or pull request to notify us about things tha
 
 ## Use of Custom Resources
 
-[Kubernetes Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) (
-CRs) are used to extend the Kubernetes API with custom resources and custom behavior. CustomResourceDefinitions define
+[Kubernetes Custom Resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) (CRs) are used to extend the Kubernetes API with custom resources and custom behavior. CustomResourceDefinitions define
 the new API types while Custom Resources (e.g. a Kustomization, HelmRelease or Application) represent single instances
-of these new types. Controller watch for changes on these and act accordingly, e.g. by applying the desired state to the
+of these new types. A controller watches for changes of a certain type and acts accordingly, e.g. by applying the desired state to the
 cluster to move the actual state closer to the desired stated (reconciliation).
 
 ### ArgoCD and Flux
 
-Both ArgoCD and Flux heavily use and depend on CRs and Controllers to implement reconciliation and deployments. To
-implement more complex deployments, you usually have to use and very often even chain multiple Custom Resources (e.g.
+Both, ArgoCD and Flux heavily use and depend on CRs and Controllers to implement reconciliation and deployments. To
+implement more complex deployments, you usually have to use multiple Custom Resources together. Sometimes you have to even chain them (e.g.
 Kustomization -> Kustomization -> HelmRelease). Please note that each Kustomization (the CRs) in this chain also might
 imply a `kustomization.yaml` that can also use overlays and components which might lead to even longer chains of CRs. A
-HelmRelease could potentially also deploy Kustomizations or other HelmReleases when dynamic configuration via templating
+HelmRelease could potentially also deploy Kustomizations or other HelmReleases, when dynamic configuration via templating
 is desired.
 
-Following and fully understaning these chains can become quite challenging when the project size and complexity grows.
+Following and fully understaning these chains can become quite challenging, when the project size and complexity grows.
 
-Another implication of this reliance on CRs is that your deployments become 100% dependent on the controllers running
+Another implication of using CRs is that your deployments become 100% dependent on the controllers running
 inside Kubernetes, because in-cluster reconciliation is the only way to process the CRs. This means, you can not fully
-test or verify your deployments before pushing them to git. The only way to reliably prevent killing your production
+test or verify your deployments before pushing them to your Git repository. The only way to reliably prevent killing your production
 environment is to introduce testing/staging environments, adding even more complexity to your depoyments and processes.
 
 ### Kluctl
@@ -67,16 +66,16 @@ cases why you might consider mixing GitOps with other strategies. Please read th
 
 GitOps can be implemented in two different strategies. One is the push strategy, which is actually what has been done
 reliably for years in classical continues delivery, e.g. via Jenkins, Gitlab pipelines or GitHub workflows. The way it
-is usually implemented however has some disadvantages, for example the possibility of growing drift between the state in
+is usually implemented however has some disadvantages, for example the possibility of a growing drift between the state in
 Git and the state in the cluster.
 
 The other is the pull strategy, implemented via controllers running inside your target cluster. These controllers
-usually pull the Git repository in some defined interval and then (re-)apply all resources again and again. This
+usually pull the Git repository in some defined interval and then (re-)apply all resources continuously. This
 reliably ensures that drift is being fixed whenever it occurs.
 
 ### ArgoCD and Flux
 
-Both implement GitOps in the pull strategy. ArgoCD also natively supports manual synchronization, meaning that you can
+Both ways implement GitOps as a pull strategy. ArgoCD also natively supports manual synchronization, meaning that you can
 disable periodic reconciliation and instead rely on manual syncs via the UI.
 
 Push based GitOps is not possible in ArgoCD or Flux, this is however not considered a downside but a strict design
@@ -85,12 +84,12 @@ features.
 
 ### Kluctl
 
-Kluctl allows you to choose between the push and the pull based strategy. It even allows you to switch back and forth or
+Kluctl allows you to choose between the push and the pull-based strategy. It even allows you to switch back and forth or
 mix these in the same project. Please read the [chapter](#Use-of-Custom-Resources) about Custom Resources to understand
 why this is possible in Kluctl.
 
-Push based GitOps is implemented via the [Kluctl CLI]({{% ref "docs/kluctl/commands/" %}}), which you can run from
-your local machine or from a continues delivery pipeline. Pull based GitOps is implemented via
+Push-based GitOps is implemented via the [Kluctl CLI]({{% ref "docs/kluctl/commands/" %}}), which you can run from
+your local machine or from a continuous delivery pipeline. Pull-based GitOps is implemented via
 the [Kluctl Controller]({{% ref "docs/gitops/" %}}), which takes
 a [KluctlDeployment]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment/" %}}) as input and then performs periodic
 reconciliation. In the end, both strategies end up using your Git source to perform exactly the same deployment actions.
@@ -100,9 +99,9 @@ There are many use-cases where mixing is useful.
 One simple example: Running [diffs]({{% ref "docs/kluctl/commands/diff" %}}) against production, because a diff is
 actually implemented as a [server-side](https://kubernetes.io/docs/reference/using-api/server-side-apply/) dry-run apply
 with the diff happening on current/real state vs. simulated/dry-run state. This means, you can locally implement a
-hot-fix for your burning production system and verify correctness of the fix by running a diff against production.
+hot-fix for your production system and verify correctness of the fix by running a diff against production.
 
-Another example is using pull based GitOps for production and the push based CLI for development/test environments,
+Another example is using pull-based GitOps for production and the push-based CLI for development/test environments,
 allowing you to perform very fast cycles of modify and test iterations, without the need to commit and push your changes
 just to find out if your change applies successfully.
 
@@ -144,13 +143,13 @@ This bootstrap deployment is then simply deployed via `kluctl deploy --context m
 
 Kubernetes controllers typically implement a reconciliation loop that reconciles the actual/current state towards the
 desired state (defined by a CR). GitOps controllers do the same, with the difference that the CR actually references a
-source (usually Git) repository which then contains the desired state (instead of putting it directly into the CR).
+source repository (usually Git) which then contains the desired state (instead of putting it directly into the CR).
 
 ### ArgoCD
 
 ArgoCD supports periodic synchronization and manual synchronization. This means, that the reconciliation loop will do
 different things depending on how the Application CR is configured. This allows you to adapt different strategies, for
-example to perform automatic sync for test/staging and only allow manual sync on prod, or vice versa. Sync windows allow
+example to perform automatic sync for test/staging and only allows manual sync on prod, or vice versa. Sync windows allow
 you to further customize the behavior. Drift detection is performed in all cases and drift is properly shown in the UI
 even if syncs are not performed.
 
@@ -189,7 +188,7 @@ get into trouble long-term.
 
 ### ArgoCD and Flux
 
-Both projects follow the same strategy. They both perform some form of bookkeeping (e.g. by storing lists in the CRs
+Both projects follow the same strategy. They perform some form of bookkeeping (e.g. by storing lists in the CRs
 status sub-resource) to remember which resources were applied in the past. This allows them to figure out which
 resources got removed from the source code and thus need to be pruned.
 
@@ -270,7 +269,7 @@ template-free and instead relies on overlays and patches to implement configurab
 
 ### ArgoCD
 
-ArgoCD natively supports Kustomize. You can either point your Application to Git repository containing a self-contained
+ArgoCD natively supports Kustomize. You can either point your Application to a Git repository containing a self-contained
 Kustomization project, inline some Kustomize directives into the Application or even mix both approaches.
 
 ### Flux
@@ -300,8 +299,8 @@ This also makes the Kustomizations incompatible to native Kustomize, but still a
 
 ## Dependency management and ordering
 
-Kubernetes manifests are declarative and in most cases the order in which they are applies does not matter, because
-constant reconciliation will eventually fix all issues that arise in-between. This however has limits and does not
+Kubernetes manifests are declarative and in most cases the order in which they are applied does not matter, because
+constant reconciliation will eventually fix all issues that arise in-between. This, however, has limits and does not
 always work. The most prominent examples are CRDs and Namespaces. You can't apply a CR before the corresponding CRD is
 applied and you can't apply namespaced resources before the namespace is applied.
 
