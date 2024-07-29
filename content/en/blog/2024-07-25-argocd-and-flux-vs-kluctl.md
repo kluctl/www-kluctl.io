@@ -22,7 +22,8 @@ these projects also implement the GitOps strategy.
 
 This comparison assumes that you already know Flux and/or ArgoCD to some degree, or at least have heard of them, so it
 will not go too deep into comparing these against each other. If you want a deep dive into ArgoCD vs Flux, read
-the [Comparison: Flux vs Argo CD](https://earthly.dev/blog/flux-vs-argo-cd/) blog post from Earthly.
+the [Comparison: Flux vs Argo CD](https://earthly.dev/blog/flux-vs-argo-cd/) blog post from Earthly. Please note however,
+that this post is not fully up-to-date anymore, for example in regard to Flux's Helm drift detection features.
 
 This post is meant to be updated over its lifetime when things change in any of the projects. Feel free to use the
 comment feature or create an issue or pull request to notify us about things that need to be changed.
