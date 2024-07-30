@@ -1,5 +1,8 @@
 User-agent: *
 
+# disallow all urls with query strings.
+Disallow: /*?*
+
 Disallow: /impressum
 Disallow: /impressum/
 Disallow: /privacy
