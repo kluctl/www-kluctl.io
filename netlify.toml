@@ -95,6 +95,12 @@ command = """
   from = "/kluctl-and-flux*"
   to = "https://kluctl.io/blog/2022/05/11/kluctl-and-flux"
 
+# try to make google search console shut up about these
+[[redirects]]
+  from = "https://blog.kluctl.io/robots.txt"
+  to = "https://kluctl.io/robots.old-blog-subdomain.txt"
+  status = 200
+  force = true
 [[redirects]]
   from = "http://blog.kluctl.io/*"
   to = "https://kluctl.io/blog/"

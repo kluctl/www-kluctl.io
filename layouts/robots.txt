@@ -7,7 +7,7 @@ Disallow: /privacy/
 
 Disallow: /offline-search-index*
 
-# no idea why Google things these need to be followed...
+# no idea why Google thinks these need to be followed...
 Disallow: /*my-relative-file.j2
 
 Sitemap: {{ .Site.BaseURL }}sitemap.xml
