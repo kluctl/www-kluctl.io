@@ -94,3 +94,14 @@ command = """
 [[redirects]]
   from = "/kluctl-and-flux*"
   to = "https://kluctl.io/blog/2022/05/11/kluctl-and-flux"
+
+[[redirects]]
+  from = "http://blog.kluctl.io/*"
+  to = "https://kluctl.io/blog/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://blog.kluctl.io/*"
+  to = "https://kluctl.io/blog/"
+  status = 301
+  force = true
