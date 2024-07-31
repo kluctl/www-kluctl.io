@@ -111,3 +111,8 @@ command = """
   to = "https://kluctl.io/blog/"
   status = 301
   force = true
+
+# fixed a typo
+[[redirects]]
+from = "/blog/2024/07/31/argcd-and-flux-vs-kluctl/"
+to = "https://kluctl.io/blog/2024/07/31/argocd-and-flux-vs-kluctl/"

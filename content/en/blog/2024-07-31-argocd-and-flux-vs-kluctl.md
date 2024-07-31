@@ -1,7 +1,7 @@
 ---
 title: "ArgoCD/Flux vs Kluctl"
 linkTitle: "ArgoCD/Flux vs Kluctl"
-slug: argcd-and-flux-vs-kluctl
+slug: argocd-and-flux-vs-kluctl
 date: 2024-07-31
 author: Alexander Block (@codablock)
 description: |
