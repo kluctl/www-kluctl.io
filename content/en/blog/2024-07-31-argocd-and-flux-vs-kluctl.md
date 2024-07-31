@@ -2,14 +2,14 @@
 title: "ArgoCD/Flux vs Kluctl"
 linkTitle: "ArgoCD/Flux vs Kluctl"
 slug: argcd-and-flux-vs-kluctl
-date: 2024-07-25
+date: 2024-07-31
 author: Alexander Block (@codablock)
 description: |
   A comparison of ArgoCD/Flux vs Kluctl
 tags:
 - Other
 images:
-- "/images/blog/2024-03-13-cluster-api-kluctl.jpg"
+- "/images/blog/2024-07-25-argocd-and-flux-vs-kluctl.jpg"
 ---
 
 ![image](/images/blog/2024-07-25-argocd-and-flux-vs-kluctl.jpg)
