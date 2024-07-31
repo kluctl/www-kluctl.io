@@ -44,23 +44,26 @@ imply a `kustomization.yaml` that can also use overlays and components which mig
 HelmRelease could potentially also deploy Kustomizations or other HelmReleases, when dynamic configuration via templating
 is desired.
 
-Following and fully understaning these chains can become quite challenging, when the project size and complexity grows.
+Following and fully understanding these chains can become quite challenging, when the project size and complexity grows.
 
-Another implication of using CRs is that your deployments become 100% dependent on the controllers running
-inside Kubernetes, because in-cluster reconciliation is the only way to process the CRs. This means, you can not fully
+Another implication of using chained CRs is that your deployments become 100% dependent on the controllers running
+inside Kubernetes, because in-cluster reconciliation is the only way to process the full chain of CRs. This means, you can not fully
 test or verify your deployments before pushing them to your Git repository. The only way to reliably prevent killing your production
-environment is to introduce testing/staging environments, adding even more complexity to your depoyments and processes.
+environment is to introduce testing/staging environments, adding even more complexity to your deployments and processes.
+
+ArgoCD and Flux both offer diff commands via the CLI that allow you to run a dry-run apply + diff for a single CR, these
+do however not follow potential chains of CRs.
 
 ### Kluctl
 
 Kluctl also uses CRs ([KluctlDeployment]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment/" %}}), but only as a
 bridge between Kluctl deployment projects and GitOps. The actual project structure is solely defined via the Kluctl
 project and deployment YAML files found inside your Git repository. The KluctlDeployment CR does not add anything
-special to the deployment project itself, meaning that you never get fully dependent on in-cluster reconciliation.
+special to the deployment project itself, meaning that you never get dependent on in-cluster reconciliation.
 
 This means, to deploy your project, you can always revert back to using
 the [Kluctl CLI]({{% ref "docs/kluctl/commands/" %}}) even if you leverage GitOps as your main deployment strategy.
-This might sound counter intiutive at first when talking about GitOps, but there are actually very good reasons and use
+This might sound counterintuitive at first when talking about GitOps, but there are actually very good reasons and use
 cases why you might consider mixing GitOps with other strategies. Please read the next chapter for more details on this.
 
 ## Pull vs. Push
@@ -467,4 +470,4 @@ It allows you to monitor and control your KluctlDeployments. You can suspend, re
 your deployments. It shows you historical deployment results (with diffs), current drift, validation state, and much
 more.
 
-As mentioned, it's still experimental but it already showcases the future potential.
+As mentioned, it's still experimental, but it already showcases the future potential.
