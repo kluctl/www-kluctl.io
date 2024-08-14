@@ -13,8 +13,6 @@ images:
 
 ![image](/images/blog/2023-02-28-managing-helm-with-kluctl-cover.jpg)
 
-[test]({{% ref "docs/kluctl/kluctl-project/targets" %}})
-
 If you are a DevOps engineer, SRA, a Homelab enthusiast or in any other comparable role that needs to manage Kubernetes
 deployments, you'll probably have made the same journey that many others have gone. You started with plain YAML
 manifests deployed via kubectl and eventually found out about Helm and Kustomize.
