@@ -665,8 +665,7 @@ These topics will however require another post, as it would be too much to be co
 This post has shown the "push" flow of Kluctl by simply calling Kluctl from your local machine. The same flow can be
 adapted to a pipeline based CI/CD system, e.g. Github Actions or Gitlab CI.
 
-Kluctl also offers a pull based flow, implemented through the [Kluctl controller]({{% ref "docs/gitops" %}})
-(GitHub repository is located [here](https://github.com/kluctl/flux-kluctl-controller)). This is comparable to how Flux
+Kluctl also offers a pull based flow, implemented through the [Kluctl controller]({{% ref "docs/gitops" %}}). This is comparable to how Flux
 does it, you deploy a `KluctlDeployment` custom resource and the controller handles reconciliation via periodic
 deployments.
 
