@@ -20,10 +20,10 @@ With the introduction of [Custom Resource Definitions](https://kubernetes.io/doc
 
 The next step was obvious in hindsight, but still a surprise for me personally: Why not manage Kubernetes Clusters itself from inside Kubernetes Clusters. [Cluster API](https://cluster-api.sigs.k8s.io/) was born.
 
-# Implications of Custom Resources
+## Implications of Custom Resources
 Having something in the form of a Custom Resource also means that it becomes a regular Kubernetes Resource that can be managed with all available tooling in the Kubernetes ecosystem. It can be managed with plain Kubectl, but also with more advances tools like [Helm](https://helm.sh/), [Flux](https://fluxcd.io/), [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) or [Kluctl](https://kluctl.io).
 
-# So, why Kluctl?
+## So, why Kluctl?
 Kluctl is general purpose deployment tool for Kubernetes. It allows you to define Kubernetes deployments of any complexity and manage them via a [unified CLI]({{% ref "docs/kluctl/commands" %}}) and/or an optional [GitOps controller]({{% ref "docs/gitops" %}}). Here a are a few features that make Kluctl interesting for the management of Cluster API based clusters.
 
 1. [Targets]({{% ref "docs/kluctl/kluctl-project/targets" %}}) allow you to manage multiple workload clusters with the same Kluctl deployment project.
@@ -33,11 +33,11 @@ Kluctl is general purpose deployment tool for Kubernetes. It allows you to defin
 5. The [Kluctl diff]({{% ref "docs/kluctl/commands/diff" %}}) command will always tell you if you're good or not when you change things (because it's based on a server-side dry-run).
 6. [GitOps]({{% ref "docs/gitops" %}}) is fully supported but also optional. It can even be [mixed]({{% ref "docs/kluctl/commands/gitops-deploy" %}}) with a classical push style CLI.
 
-# Installing Kluctl
+## Installing Kluctl
 
 For this tutorial, you'll need the Kluctl CLI installed. Please follow the instructions [here]({{% ref "docs/kluctl/installation#installing-the-cli" %}}). There is no need to install the GitOps controller or the Webui, but feel free to try these out as well after the tutorial.
 
-# Let's setup cluster-api
+## Let's setup cluster-api
 In this tutorial, we'll work completely locally without any cloud resources being involved. This means, we're using [Kind](https://kind.sigs.k8s.io/) and the CAPD (Cluster API Docker) infrastructure provider. In the real world, you'll need to adapt the principles learned here to a proper Cluster API infrastructure provider.
 
 First, lets set up a local Kind cluster. If you don't have Kind installed yet, read through the [installation instructions](https://kind.sigs.k8s.io/#installation-and-usage).
@@ -97,7 +97,7 @@ You can now create your first workload cluster by running the following:
 
 We now have a fully functional Cluster API installation that is able to provision and manage workload clusters in the form of Docker Containers.
 
-# Basic project structure
+## Basic project structure
 Let's talk about the basic Kluctl project structure that we'll follow for this tutorial. You can find the full project at https://github.com/kluctl/cluster-api-demo. This repository contains multiple subdirectories with different versions of the project. The first version, as described in this and the next section, is inside `1-initial`.
 
 The root directory will contain 2 files.
@@ -138,7 +138,7 @@ deployments:
 
 This will include a [Kustomize]({{% ref "docs/kluctl/deployments/deployment-yml#kustomize-deployments" %}}) deployment from the directory that is resolved via the template `{{ target.name }}`. "target" is a global variable that is always present, and it allows you to access the properties used in the current target, defined in the `.kluctl.yaml` from above. This means, if you later deploy the target "demo-1", Kluctl will load the Kustomize deployment found in the "clusters/demo-1" folder.
 
-# Creating a workload cluster
+## Creating a workload cluster
 Now, create the following files in the clusters/demo-1 directory:
 
 ```yaml
@@ -300,7 +300,7 @@ spec:
 
 The above file describes everything needed to create a pool of nodes. This includes a [DockerMachineTemplate](https://doc.crds.dev/github.com/kubernetes-sigs/cluster-api/infrastructure.cluster.x-k8s.io/DockerMachineTemplate/v1beta1@v1.6.2), a [KubeadmConfigTemplate](https://doc.crds.dev/github.com/kubernetes-sigs/cluster-api/bootstrap.cluster.x-k8s.io/KubeadmConfigTemplate/v1beta1@v1.6.2) and a [MachineDeployment](https://doc.crds.dev/github.com/kubernetes-sigs/cluster-api/cluster.x-k8s.io/MachineDeployment/v1beta1@v1.6.2).
 
-# Deploying the workload cluster
+## Deploying the workload cluster
 
 We now have a working Kluctl Deployment Project that can be deployed via the [Kluctl CLI]({{% ref "docs/kluctl/commands" %}}) (we will later also explore GitOps). Execute the following command:
 
@@ -333,7 +333,7 @@ $ kubectl --kubeconfig=./demo-1.kubeconfig \
 
 After a few seconds, re-running the above `get node` command will show that nodes are ready.
 
-# Modifying the workload cluster
+## Modifying the workload cluster
 
 You can now try to modify something in the workload cluster manifests.
 
@@ -391,17 +391,17 @@ demo-1-md-0-mtcpn-n2jdt      NotReady   <none>          20s   v1.29.0
 demo-1-md-0-mtcpn-wnb8v      Ready      <none>          12h   v1.29.0
 ```
 
-# Add and remove node pools
+## Add and remove node pools
 You can also try more types of modifications. It gets especially interesting when you start to add or remove resources, for example if you add another node pool by copying `workers.yaml` to `workers-2.yaml` (don't forget to also update `kustomization.yaml`) and replace all occurrences of `md-0` with `md-1`. When you deploy this, Kluctl will show you that new resources will be created and actually create these after confirmation.
 
 If you tried this, also try to delete `workers-2.yaml` again and then see what `kluctl deploy -t demo-1` will do. It will inform you about the orphaned resources, which you then can [prune]({{% ref "docs/kluctl/commands/prune" %}}) via `kluctl prune -t demo-1`. Pruning can also be combined with deploying via `kluctl deploy -t demo-1 --prune`. We won't get into more detail at this point, because this will get more clear and powerful when we combine this with templating in the next section.
 
-# Introducing templating
+## Introducing templating
 So far, we've only used very static manifests. To introduce new clusters, or even node pools, we'd have to do a lot of copy-paste while replacing names everywhere. This is of course not considered best practice and we should seek for a better way. Cluster API has an experimental feature called [cluster classes](https://cluster-api.sigs.k8s.io/tasks/experimental-features/cluster-class/) which tries to solve this problem. We'll however not use these in this tutorial and instead rely on Kluctl's templating functionality to solve the same requirements. A later section will also explain why templating is a viable alternative to ClusterClass.
 
 The following changes to the project structure and files can also be found in the same [repository](https://github.com/kluctl/cluster-api-demo) already mentioned before, but inside the `2-templating` directory.
 
-# Preparing some templated deployments
+## Preparing some templated deployments
 We will now introduce two reusable and templated Kustomize deployments for the cluster iteself and its workers. The cluster deployment is meant to be included once for per cluster. The workers deployment can be included multiple times, depending on how many different worker node pools you need.
 
 Let's start by moving `kustomization.yaml`, `namespace.yaml`, `cluster.yaml` and `control-plane.yaml` into `templates/cluster/`. Also remove `workers.yaml` from the resources list in `kustomization.yaml`. This will be the cluster deployment.
@@ -414,7 +414,7 @@ Please note that this tutorial keeps the amount of configuration possible in the
 
 Also, a real world example might consider putting the cluster/worker templates in seprate git repositories and including them via [git]({{% ref "docs/kluctl/deployments/deployment-yml#git-includes" %}}) or [oci]({{% ref "docs/kluctl/deployments/deployment-yml#oci-includes" %}}) includes. Both will allow you to implement versioning and other best practices for the templates.
 
-# Using the templated deployments
+## Using the templated deployments
 The previously prepared templated deployments can now be included as often as you want, with different configuration.
 
 For this to work, we must however change the `clusters/demo-1` Kustomize deployment to become an [included sub-deployment]({{% ref "docs/kluctl/deployments/deployment-yml#includes" %}}). Replace `path` with `include` inside `clusters/deployment.yaml`:
@@ -456,7 +456,7 @@ The above sub-deployment defines some global configuration (e.g. `cluster.name`)
 
 You'll also find a [barrier]({{% ref "docs/kluctl/deployments/deployment-yml#barriers" %}}) in the list of deployment items. This barrier ensures that Kluctl does not continue deploying worker resources before the cluster resources are applied already.
 
-# Deploying the refactored workload cluster
+## Deploying the refactored workload cluster
 
 Simply re-run the deploy command:
 
@@ -501,15 +501,15 @@ You'll see a lot of changes in regard to [tags]({{% ref "docs/kluctl/deployments
 
 You should also see that the new workers are being created. You could now try to experiment a little bit by adding more workers or removing old ones. Kluctl will always support you by showing what is new and what got orphaned, allowing you to prune these either via `kluctl prune -t demo-1` or via `kluctl deploy -t demo-1 --prune`.
 
-# Adding more clusters
+## Adding more clusters
 
 Adding more clusters is hopefully self-explanatory at this point. It's basically just copying the `demo-1` directory, changing the cluster name in `deployment.yaml` and adding a new target in `.kluctl.yaml`.
 
-# Introducing GitOps
+## Introducing GitOps
 
 If you prefer to manage your workload clusters via GitOps, the same Kluctl project can be re-used via a simple [KluctlDeployment]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment" %}}) pointing to your Git repository. We won't go into more detail about GitOps here, but feel free to read the documentation and try it on your own. Moving to GitOps doesn't mean that you have to do a full buy-in, as you'll always be able to mix non-GitOp related workflows with GitOps workflows. For example, a `kluctl diff` / `kluctl gitops diff` can always be used even if the same deployment is already managed via GitOps.
 
-# Kluctl vs. ClusterClass
+## Kluctl vs. ClusterClass
 
 You might ask why one would use Kluctl instead of simply relying on [ClusterClass](https://cluster-api.sigs.k8s.io/tasks/experimental-features/cluster-class/), which is a cluster-api native way of achieving reusability. There are multiple reasons why I believe that Kluctl is a good alternative to ClusterClass, let's go through a few of them.
 
@@ -529,7 +529,7 @@ With Kluctl, you can use whatever resources you want for the cluster and/or work
 
 [Changing a ClusterClass](https://cluster-api.sigs.k8s.io/tasks/experimental-features/cluster-class/change-clusterclass) is a risky thing and in my opinion it is crucial to have proper dry-run and diff capabilites. With ClusterClass, this is [supported](https://cluster-api.sigs.k8s.io/clusterctl/commands/alpha-topology-plan#clusterctl-alpha-topology-plan) to some degree but hard to use and [not 100% reliable](https://cluster-api.sigs.k8s.io/clusterctl/commands/alpha-topology-plan#limitations-server-side-apply). With Kluctl, testing changes becomes as easy as changing something and then running `kluctl diff -t demo-1`.
 
-# Wrapping it up
+## Wrapping it up
 
 If you want to try out the results of this tutorial without copy-pasing all the YAML, simply clone https://github.com/kluctl/cluster-api-demo and follow the instructions in the README.md.
 
