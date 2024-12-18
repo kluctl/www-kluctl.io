@@ -2,7 +2,7 @@
 description: KluctlDeployment documentation
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-05-31T16:49:33+02:00"
+lastmod: "2024-12-02T16:29:34+01:00"
 linkTitle: KluctlDeployment
 path_base_for_github_subdir:
     from: .*
@@ -139,6 +139,13 @@ See [Reconciliation](#reconciliation).
 ### deployInterval
 If set, the controller will periodically force a deployment, even if the rendered manifests have not changed. 
 See [Reconciliation](#reconciliation) for more details.
+
+### timeout
+The maximum time granted for the all the work needed to perform in a reconciliation. If `timeout` is not specified,
+then the value of `deployInterval` is used as the default value, but only if it is set. If `deployInterval` is not set,
+then the value of `interval` is used as default.
+
+When a reconciliation takes longer then the determined timeout value, then the reconciliation is aborted with an error.
 
 ### suspend
 See [Reconciliation](#reconciliation).

@@ -2,7 +2,7 @@
 description: Structure of deployment.yaml.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-03-22T09:44:34+01:00"
+lastmod: "2024-10-02T10:13:10+02:00"
 linkTitle: Deployments
 path_base_for_github_subdir:
     from: .*
@@ -25,7 +25,7 @@ deployments:
 - path: my-app
 - include: monitoring
 - git:
-    url: git@github.com/example/example.git
+    url: git@github.com:example/example.git
 - oci:
     url: oci://ghcr.io/kluctl/kluctl-examples/simple
 
@@ -100,17 +100,17 @@ For library projects, [args](#args) is the preferred way to pass configuration.
 Simple example:
 ```yaml
 deployments:
-- git: git@github.com/example/example.git
+- git: git@github.com:example/example.git
 ```
 
-This will clone the git repository at `git@github.com/example/example.git`, checkout the default branch and include it
+This will clone the git repository at `git@github.com:example/example.git`, checkout the default branch and include it
 into the current project.
 
 Advanced Example:
 ```yaml
 deployments:
 - git:
-    url: git@github.com/example/example.git
+    url: git@github.com:example/example.git
     ref:
       branch: my-branch
     subDir: some/sub/dir

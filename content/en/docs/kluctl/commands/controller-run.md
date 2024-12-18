@@ -2,7 +2,7 @@
 description: controller command
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-30T18:06:26+01:00"
+lastmod: "2024-10-04T21:17:48+02:00"
 linkTitle: controller run
 path_base_for_github_subdir:
     from: .*
@@ -33,6 +33,8 @@ Misc arguments:
       --concurrency int                       Configures how many KluctlDeployments can be be reconciled
                                               concurrently. (default 4)
       --context string                        Override the context to use.
+      --controller-name string                The controller name used for metrics and logs. (default
+                                              "kluctl-controller")
       --controller-namespace string           The namespace where the controller runs in. (default "kluctl-system")
       --default-service-account string        Default service account used for impersonation.
       --dry-run                               Run all deployments in dryRun=true mode.
