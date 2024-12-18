@@ -2,7 +2,7 @@
 description: Common arguments
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-06-18T11:20:42+02:00"
+lastmod: "2024-10-02T17:27:30+02:00"
 linkTitle: Common Arguments
 path_base_for_github_subdir:
     from: .*
@@ -151,6 +151,29 @@ Command Results:
       --keep-validate-results-count int   Configure how many old validate results to keep. (default 2)
       --write-command-result              Enable writing of command results into the cluster. This is enabled by
                                           default. (default true)
+
+```
+<!-- END SECTION -->
+
+## Git arguments
+
+These arguments mainly control authentication to Git repositories.
+
+<!-- BEGIN SECTION "deploy" "Git arguments" true -->
+```
+Git arguments:
+  Configure Git authentication.
+
+      --git-ca-file stringArray                Specify CA bundle to use for https verification. Must be in the
+                                               form --git-ca-file=<registry>/<repo>=<filePath>.
+      --git-password stringArray               Specify password to use for Git basic authentication. Must be in
+                                               the form --git-password=<host>/<path>=<password>.
+      --git-ssh-key-file stringArray           Specify SSH key to use for Git authentication. Must be in the form
+                                               --git-ssh-key-file=<host>/<path>=<filePath>.
+      --git-ssh-known-hosts-file stringArray   Specify known_hosts file to use for Git authentication. Must be in
+                                               the form --git-ssh-known-hosts-file=<host>/<path>=<filePath>.
+      --git-username stringArray               Specify username to use for Git basic authentication. Must be in
+                                               the form --git-username=<host>/<path>=<username>.
 
 ```
 <!-- END SECTION -->

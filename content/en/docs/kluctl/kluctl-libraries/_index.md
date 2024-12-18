@@ -2,7 +2,7 @@
 description: Kluctl library project configuration, found in the .kluctl-library.yaml file.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-01-05T11:52:13+01:00"
+lastmod: "2024-10-02T10:13:10+02:00"
 linkTitle: Kluctl Library Projects
 path_base_for_github_subdir:
     from: .*
@@ -32,7 +32,7 @@ Consider the following root `deployment.yaml` inside your root project:
 ```yaml
 deployments:
   - git:
-      url: git@github.com/example/example-library.git
+      url: git@github.com:example/example-library.git
     args:
       arg1: value1
 ```
