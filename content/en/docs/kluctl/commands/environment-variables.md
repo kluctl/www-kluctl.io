@@ -2,7 +2,7 @@
 description: Controlling Kluctl via environment variables
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-17T00:30:26+02:00"
+lastmod: "2024-12-18T11:36:37+01:00"
 linkTitle: Environment Variables
 path_base_for_github_subdir:
     from: .*
@@ -27,7 +27,4 @@ names of the environment variables, e.g. `KLUCTL_ARG_0=name1=value1` and `KLUCTL
 ## Additional environment variables
 A few additional environment variables are supported which do not belong to an option/argument. These are:
 
-1. `KLUCTL_REGISTRY_<idx>_HOST`, `KLUCTL_REGISTRY_<idx>_USERNAME`, and so on. See [OCI authentication](../deployments/oci.md#authentication) for details.
-2. `KLUCTL_HELM_<idx>_HOST`, `KLUCTL_HELM_<idx>_USERNAME`, and so on. See [Helm private repositories](../deployments/helm.md#private-repositories) for details.
-3. `KLUCTL_GIT_<idx>_HOST`, `KLUCTL_GIT_<idx>_USERNAME`, and so on.
-4. `KLUCTL_SSH_DISABLE_STRICT_HOST_KEY_CHECKING`. Disable ssh host key checking when accessing git repositories.
+1. `KLUCTL_SSH_DISABLE_STRICT_HOST_KEY_CHECKING`. Disable ssh host key checking when accessing git repositories.

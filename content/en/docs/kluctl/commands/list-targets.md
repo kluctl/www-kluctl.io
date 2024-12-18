@@ -2,7 +2,7 @@
 description: list-targets command
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-08-26T09:38:51+02:00"
+lastmod: "2024-12-18T11:36:37+01:00"
 linkTitle: list-targets
 path_base_for_github_subdir:
     from: .*
@@ -29,6 +29,7 @@ The following arguments are available:
 Misc arguments:
   Command specific arguments.
 
+      --only-names           If provided --only-names will only output 
   -o, --output stringArray   Specify output target file. Can be specified multiple times
 
 ```

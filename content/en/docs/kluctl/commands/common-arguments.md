@@ -2,7 +2,7 @@
 description: Common arguments
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-10-02T17:27:30+02:00"
+lastmod: "2024-12-18T11:36:37+01:00"
 linkTitle: Common Arguments
 path_base_for_github_subdir:
     from: .*
@@ -178,6 +178,26 @@ Git arguments:
 ```
 <!-- END SECTION -->
 
+All the arguments from above can also be passed via [environment variables](./environment-variables.md). For example:
+
+```shell
+# for http(s) username/password auth
+export KLUCTL_GIT_0_HOST="github.com"
+export KLUCTL_GIT_0_USERNAME="my-user"
+export KLUCTL_GIT_0_PASSWORD="my-password"
+# in case you have self-signed certs or other non-standard CAs
+export KLUCTL_GIT_0_CA_BUNDLE="/path/to/ca/bundle"
+
+# for ssh auth
+export KLUCTL_GIT_1_HOST="gitlab.com"
+export KLUCTL_GIT_1_SSH_KEY="/path/to/ssh/key"
+# optionally specify path glob to limit this credentials set to only a defined set of repos (can also be used with http auth)
+export KLUCTL_GIT_1_PATH="my-org/*"
+```
+
+In addition to the provided credentials, Kluctl will also try to use default Git authentication mechanisms like git
+credentials helpers, default SSH keys and SSH agents.
+
 ## Helm arguments
 
 These arguments mainly control authentication to Helm repositories.
@@ -225,6 +245,19 @@ Helm arguments:
 ```
 <!-- END SECTION -->
 
+All the arguments from above can also be passed via [environment variables](./environment-variables.md). For example:
+
+```shell
+# for http(s) username/password auth
+export KLUCTL_HELM_0_HOST="gitlab.com"
+export KLUCTL_HELM_0_USERNAME="my-user"
+export KLUCTL_HELM_0_PASSWORD="my-password"
+export KLUCTL_HELM_0_PATH="api/v4/projects/1111111/packages/helm/stable"
+# in case you have self-signed certs or other non-standard CAs
+export KLUCTL_HELM_0_CA_FILE="/path/to/ca/bundle"
+...
+```
+
 ## Registry arguments
 
 These arguments mainly control authentication to OCI based registries. This is used by the Helm integration and
@@ -265,3 +298,16 @@ Registry arguments:
 
 ```
 <!-- END SECTION -->
+
+All the arguments from above can also be passed via [environment variables](./environment-variables.md). For example:
+
+```shell
+# for http(s) username/password auth
+export KLUCTL_REGISTRY_0_HOST="docker.io"
+export KLUCTL_REGISTRY_0_USERNAME="my-user"
+export KLUCTL_REGISTRY_0_PASSWORD="my-password"
+export KLUCTL_REGISTRY_0_PATH="my-org/*"
+# in case you have self-signed certs or other non-standard CAs
+export KLUCTL_REGISTRY_0_CA_FILE="/path/to/ca/bundle"
+...
+```
