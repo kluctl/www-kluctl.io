@@ -2,7 +2,7 @@
 description: Installation documentation
 github_branch: main
 github_repo: https://github.com/kluctl/template-controller
-lastmod: "2024-10-23T15:54:14+02:00"
+lastmod: "2025-02-14T17:27:42+01:00"
 path_base_for_github_subdir:
     from: .*
     to: docs/install.md
@@ -18,7 +18,7 @@ The Template Controller can currently be installed via static manifests or via H
 
 ## Static Manifests
 ```sh
-kubectl apply -f "https://raw.githubusercontent.com/kluctl/template-controller/v0.9.3/deploy/manifests/template-controller.yaml"
+kubectl apply -f "https://raw.githubusercontent.com/kluctl/template-controller/v0.9.4/deploy/manifests/template-controller.yaml"
 ```
 
 ## Helm

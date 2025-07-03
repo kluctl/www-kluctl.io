@@ -2,7 +2,7 @@
 description: Installing kluctl.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-12-18T10:27:01+01:00"
+lastmod: "2025-07-03T13:24:15+02:00"
 linkTitle: Installation
 path_base_for_github_subdir:
     from: .*
@@ -119,7 +119,7 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/controller
       ref:
-        tag: v2.26.0
+        tag: v2.27.0
 ```
 
 ## Installing the Kluctl Webui
