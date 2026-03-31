@@ -36,6 +36,17 @@ We release two set of binaries for technical reasons. The extended version is no
 
 3. Open your web browser and go to `http://localhost:1313` to preview the Kluctl website.
 
+## Podman container
+
+If you don't want to install the dependencies locally, you can run hugo in podman:
+
+```bash
+podman build -t hugo-ext .
+podman run --rm -it -v $(pwd):/src \
+    -v $(pwd)/.cache:/root/.cache \
+    -p 1313:1313 hugo-ext server --bind 0.0.0.0
+```
+
 ## GitHub Codespaces
 
 For GitHub Codespaces, no additional setup is needed. Follow these steps:

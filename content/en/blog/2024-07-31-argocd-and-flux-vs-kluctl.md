@@ -56,7 +56,7 @@ do however not follow potential chains of CRs.
 
 ### Kluctl
 
-Kluctl also uses CRs ([KluctlDeployment]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment/" %}}), but only as a
+Kluctl also uses CRs ([KluctlDeployment]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment" %}}), but only as a
 bridge between Kluctl deployment projects and GitOps. The actual project structure is solely defined via the Kluctl
 project and deployment YAML files found inside your Git repository. The KluctlDeployment CR does not add anything
 special to the deployment project itself, meaning that you never get dependent on in-cluster reconciliation.
@@ -93,10 +93,10 @@ Kluctl allows you to choose between the push and the pull-based strategy. It eve
 mix these in the same project. Please read the [chapter](#Use-of-Custom-Resources) about Custom Resources to understand
 why this is possible in Kluctl.
 
-Push-based GitOps is implemented via the [Kluctl CLI]({{% ref "docs/kluctl/commands/" %}}), which you can run from
+Push-based GitOps is implemented via the [Kluctl CLI]({{% ref "docs/kluctl/commands" %}}), which you can run from
 your local machine or from a continuous delivery pipeline. Pull based GitOps is implemented via
-the [Kluctl Controller]({{% ref "docs/gitops/" %}}), which takes
-a [KluctlDeployment]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment/" %}}) as input and then performs periodic
+the [Kluctl Controller]({{% ref "docs/gitops" %}}), which takes
+a [KluctlDeployment]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment" %}}) as input and then performs periodic
 reconciliation. In the end, both strategies end up using your Git source to perform exactly the same deployment actions.
 
 There are many use-cases where mixing is useful.
@@ -144,9 +144,9 @@ of controllers on every cluster, while Git repositories might be shared (using d
 
 Kluctl uses a Kluctl deployment project to install the controller into your target cluster. This project is embedded
 into the CLI and can be deployed
-via [kluctl controller install]({{% ref "docs/gitops/installation/#using-the-install-sub-command" %}}). As an
+via [kluctl controller install]({{% ref "docs/gitops/installation#using-the-install-sub-command" %}}). As an
 alternative, you can set up your own Kluctl deployment project that
-just [git includes]({{% ref "docs/gitops/installation/#using-a-kluctl-deployment" %}}) the actual controller
+just [git includes]({{% ref "docs/gitops/installation#using-a-kluctl-deployment" %}}) the actual controller
 deployment. It's common to have such a bootstrap deployment to setup the controller and all the other things a cluster
 requires to function, for example your CNI, cert-manager, ingress/gateway controllers, cloud specific controllers, and
 so on.
@@ -211,7 +211,7 @@ Both projects also allow you to fully or partially (on resource level via annota
 ### Kluctl
 
 Kluctl does not perform bookkeeping but instead marks all applied resources
-with [discriminator labels]({{% ref "docs/kluctl/kluctl-project/targets/#discriminator" %}}). These allow Kluctl to
+with [discriminator labels]({{% ref "docs/kluctl/kluctl-project/targets#discriminator" %}}). These allow Kluctl to
 efficiently query the cluster for all the resources previously deployed from the given Kluctl deployment project. The
 query result is then used to determine what got orphaned and thus needs to be pruned. This type of orphan detection has
 the advantage that it also works without the CRs and the Kluctl Controller and thus can also be leveraged by the CLI.
@@ -300,12 +300,12 @@ Kustomize, making it harder to test/verify changes without commiting and pushing
 ### Kluctl
 
 Kluctl uses Kustomize as the low-level building block
-for [deployment items]({{% ref "docs/kluctl/deployments/deployment-yml/#kustomize-deployments" %}}). Everything,
+for [deployment items]({{% ref "docs/kluctl/deployments/deployment-yml#kustomize-deployments" %}}). Everything,
 including Helm Charts, ends up being processed by Kustomize and the resulting manifests are then applied to the cluster.
 
-Before Kustomize is being invoked, [templating]({{% ref "docs/kluctl/templating/" %}}) is performed on all involved
+Before Kustomize is being invoked, [templating]({{% ref "docs/kluctl/templating" %}}) is performed on all involved
 manifests, including the `kustomization.yaml` itself. This allows advanced variable substitution (variables come from
-different [sources]({{% ref "docs/kluctl/templating/variable-sources/" %}})) and even conditional
+different [sources]({{% ref "docs/kluctl/templating/variable-sources" %}})) and even conditional
 inclusion/exclusion of resources.
 
 This also makes the Kustomizations incompatible to native Kustomize, but still allows to perform all desired actions
@@ -344,8 +344,8 @@ dependent Kustomizations can be deferred until readiness.
 ### Kluctl
 
 Kluctl by default applies all deployment items in
-the [deployment.yaml]({{% ref "docs/kluctl/deployments/deployment-yml/" %}}) in parallel to speed up deployments.
-When a [barrier item]({{% ref "docs/kluctl/deployments/deployment-yml/#barriers" %}}) is encountered, Kluctl will
+the [deployment.yaml]({{% ref "docs/kluctl/deployments/deployment-yml" %}}) in parallel to speed up deployments.
+When a [barrier item]({{% ref "docs/kluctl/deployments/deployment-yml#barriers" %}}) is encountered, Kluctl will
 stop and wait for all previously encountered deployment items to fully apply before it continues with further parallel
 processing.
 
@@ -354,7 +354,7 @@ order and thus allows you to easily specify an intent like "deploy operator X an
 after this apply the corresponding CRs".
 
 Additional deployment item types
-like [waitReadinessObjects]({{% ref "docs/kluctl/deployments/deployment-yml/#waitreadinessobjects" %}}) allow you to
+like [waitReadinessObjects]({{% ref "docs/kluctl/deployments/deployment-yml#waitreadinessobjects" %}}) allow you to
 also wait for readiness of individual resources (e.g. an operator implementing a Webhook or performing delayed CRD
 installation).
 
@@ -385,21 +385,21 @@ overlay or a HelmRelease CR with dedicated Helm values.
 can be used to inject variables sourced from ConfigMaps or Secrets. This can be used to further configure environments.
 
 Flux itself does not provide dynamic creation of CRs (like ApplicationSets in ArgoCD). You can however use
-the [template-controller]({{% ref "docs/template-controller/" %}}) from the Kluctl project to create dynamic
+the [template-controller]({{% ref "docs/template-controller" %}}) from the Kluctl project to create dynamic
 CRs/environments.
 
 ### Kluctl
 
 Even though Kluctl supports the same way of configuration via plain Kustomize and Helm as the other solutions, it is
 generally not recommended due to Kluctl offering its own solution. Kluctl allows to
-use [templating]({{% ref "docs/kluctl/templating/" %}}) in all involved files inside your deployment project. At the
-same time, dynamic [variable sources]({{% ref "docs/kluctl/templating/variable-sources/" %}}) can be used to pull in
+use [templating]({{% ref "docs/kluctl/templating" %}}) in all involved files inside your deployment project. At the
+same time, dynamic [variable sources]({{% ref "docs/kluctl/templating/variable-sources" %}}) can be used to pull in
 all kinds of configuration sources (e.g. plain YAML files, Git repos, ConfigMaps, Secrets, AWSSecretsManager,
 Vault, ...).
 
 Dynamic creation of KluctlDeployment CRs can either be implemented via native Kluctl (e.g. by using
-a [gitFiles]({{% ref "docs/kluctl/templating/variable-sources/#gitfiles" %}}) source) or via
-the [template-controller]({{% ref "docs/template-controller/" %}}).
+a [gitFiles]({{% ref "docs/kluctl/templating/variable-sources#gitfiles" %}}) source) or via
+the [template-controller]({{% ref "docs/template-controller" %}}).
 
 ## Testability
 
@@ -437,14 +437,14 @@ diffs are also not supported.
 
 ### Kluctl
 
-Kluctl supports [manual deployments]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment/#manual" %}}) which must be
+Kluctl supports [manual deployments]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment#manual" %}}) which must be
 approved via the UI (which shows the diff) before they are deployed. This can be used the same way as manual syncs in
 ArgoCD.
 
-The [kluctl diff]({{% ref "docs/kluctl/commands/diff/" %}}) command can be used to locally dry-run apply and diff a
+The [kluctl diff]({{% ref "docs/kluctl/commands/diff" %}}) command can be used to locally dry-run apply and diff a
 local version of your deployment project. It fully supports nested Kluctl deployment projects.
 
-In addition, [kluctl gitops diff]({{% ref "docs/kluctl/commands/gitops-diff/" %}}) can be used to instruct the
+In addition, [kluctl gitops diff]({{% ref "docs/kluctl/commands/gitops-diff" %}}) can be used to instruct the
 controller to perform a diff, based on the local version of the deployment project.
 
 ## UI

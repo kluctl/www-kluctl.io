@@ -89,7 +89,7 @@ iteration. If necessary, the drift can be viewed and fixed via the [Kluctl Webui
 the [GitOps commands](#gitops-commands).
 
 You can also override this behavior to match the behavior of other GitOps solutions by using
-[deployInterval]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment/#deployinterval" %}}), which will cause the
+[deployInterval]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment#deployinterval" %}}), which will cause the
 reconciliation loop to periodically perform a deployment even if the source does not change.
 
 ## Starting with Kluctl GitOps
@@ -112,7 +112,7 @@ sections will go into more detail.
 
 ## Dedicated GitOps deployment project
 
-In this setup, you'll have one dedicated directory ([a simple deployment item]({{% ref "docs/kluctl/deployments/deployment-yml/#simple-deployments" %}}))
+In this setup, you'll have one dedicated directory ([a simple deployment item]({{% ref "docs/kluctl/deployments/deployment-yml#simple-deployments" %}}))
 for each cluster. These deployment items will contain one or more `KluctlDeployment` resources.
 
 The deployment works by using a simple templated entry in `deployments` which uses the argument `cluster_name` so that
@@ -270,7 +270,7 @@ authentication for Git repositories, Helm repositories or OCI registries in your
 everything is public and/or Open Source.
 
 To add authentication for the `KluctlDeployment`s, fill the
-[credentials]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment/#credentials" %}}) field in the spec of the
+[credentials]({{% ref "docs/gitops/spec/v1beta1/kluctldeployment#credentials" %}}) field in the spec of the
 `KluctlDeployment`s. These `credentials` refer to `Secret`s which also need to be deployed to the cluster.
 
 You can either provide these secrets manually (should be avoided), via [SOPS]({{% ref "docs/kluctl/deployments/sops" %}})

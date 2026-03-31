@@ -43,3 +43,15 @@ list:
     testimonial: "Without Kluctl, we’d be unable to iterate as fast as we do today. We can dry-run against real-world environments without causing any interruptions while having the confidence that it will work when merged and deployed."
     author: Lukas Panhirsch
     authorTitle: DevOps Engineer
+  - logo: "images/adopters/gozynta.svg"
+    description: "Gozynta"
+    url: https://www.gozynta.com
+    testimonial: "With Kluctl we get the reliability and simplicity of a push-based approach direct from our CI.  It feels like working directly with Kubernetes, so can focus on our deployments instead of our tooling."
+    author: Brian Johnson
+    authorTitle: CTO
+  - logo: "images/adopters/launchpad023.svg"
+    description: "Launchpad023 - open tech community in Haarlem"
+    url: https://www.launchpad023.nl
+    testimonial: "At Launchpad023 we're building an example of how to bring reproducible declarative infrastructure and open source technology to smaller businesses.  Kluctl's simplicity is a key component to making this possible."
+    author: Brian Johnson
+    authorTitle: Co-founder
