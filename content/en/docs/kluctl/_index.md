@@ -3,7 +3,7 @@ description: |
     Kluctl Documentation
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-10-31T17:42:01+01:00"
+lastmod: "2025-12-18T22:38:37+01:00"
 linkTitle: Kluctl
 path_base_for_github_subdir:
     from: .*
@@ -67,12 +67,12 @@ from monitoring, persistency and the actual custom services. The philosophy of t
 "what belongs together, should be put together", meaning that only as much Git repositories were involved as necessary.
 
 The problems to solve turned out to be always the same:
-* Dozens of Helm Charts, kustomize deployments and standalone Kubernetes manifests needed to be orchestrated in a way
+* Dozens of Helm Charts, Kustomize deployments and standalone Kubernetes manifests needed to be orchestrated in a way
   that they work together (services need to connect to the correct databases, and so on)
 * (Encrypted) Secrets needed to be managed and orchestrated for multiple environments and clusters
 * Updates of components was always risky and required keeping track of what actually changed since the last deployment
 * Available tools (Helm, Kustomize) were not suitable to solve this on its own in an easy/natural way
-* A lot of bash scripting was required to put things together
+* A lot of Bash scripting was required to put things together
 
 When this got more and more complex, and the bash scripts started to become a mess (as "simple" Bash scripts always tend to become),
 kluctl was started from scratch. It now tries to solve the mentioned problems and provide a useful set of features (commands)

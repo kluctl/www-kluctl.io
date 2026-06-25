@@ -2,7 +2,7 @@
 description: controller command
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2023-08-26T09:38:51+02:00"
+lastmod: "2025-12-18T22:52:49+01:00"
 linkTitle: controller install
 path_base_for_github_subdir:
     from: .*

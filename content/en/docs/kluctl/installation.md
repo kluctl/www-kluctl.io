@@ -2,7 +2,7 @@
 description: Installing kluctl.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2025-07-03T13:24:15+02:00"
+lastmod: "2026-06-25T09:21:44+02:00"
 linkTitle: Installation
 path_base_for_github_subdir:
     from: .*
@@ -56,7 +56,7 @@ $ git clone https://github.com/kluctl/kluctl
 $ cd kluctl
 ```
 
-Build the `kluctl` binary (requires go >= 1.19):
+Build the `kluctl` binary (requires Go >= 1.19):
 
 ```bash
 $ make build
@@ -119,7 +119,7 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/controller
       ref:
-        tag: v2.27.0
+        tag: v2.28.1
 ```
 
 ## Installing the Kluctl Webui

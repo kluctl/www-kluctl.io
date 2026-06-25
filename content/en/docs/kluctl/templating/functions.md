@@ -2,7 +2,7 @@
 description: Available functions.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-06-19T10:40:07+02:00"
+lastmod: "2026-06-25T08:54:31+02:00"
 linkTitle: Functions
 path_base_for_github_subdir:
     from: .*
@@ -49,6 +49,21 @@ data:
 ```
 
 `digest_len` is an optional parameter that allows to limit the length of the returned hex digest.
+
+### load_latest_git_commit(file, sha_len)
+Loads the first parent git repository of the given file and returns the latest commit sha1 hash as a hex string.
+
+The filename given to `load_latest_git_commit` is treated the same as in `load_template` and `load_sha256`.
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config-{{ load_latest_git_commit("configmap.yaml") }}
+data:
+```
+
+`sha_len` is an optional parameter that allows to limit the length of the returned hex digest.
 
 ### load_base64(file, width)
 Loads the given file into memory and returns the base64 representation of the binary data.

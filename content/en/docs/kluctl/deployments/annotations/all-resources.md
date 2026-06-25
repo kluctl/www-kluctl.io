@@ -2,7 +2,7 @@
 description: Annotations on all resources
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-04-10T11:31:10+02:00"
+lastmod: "2026-03-06T07:33:49+01:00"
 linkTitle: All resources
 path_base_for_github_subdir:
     from: .*
@@ -20,6 +20,13 @@ The following annotations control the behavior of the `deploy` and related comma
 ## Control deploy behavior
 
 The following annotations control deploy behavior, especially in regard to conflict resolution.
+
+### kluctl.io/ignore
+If set to "true", the resource is completely ignored by Kluctl. This is equivalent to the resource not existing in your
+project.
+
+This however means that if it was deployed in the past and then later `kluctl.io/ignore` is set to "true", the resource
+will be treated as orphan (which will cause deletion on prune). To avoid this, also set `kluctl.io/skip-delete` to "true".
 
 ### kluctl.io/delete
 If set to "true", the resource will be deleted at deployment time. Kluctl will not emit an error in case the resource
@@ -49,7 +56,7 @@ If more than one field needs to be specified, add `-xxx` to the annotation key, 
 As an alternative, conflict resolution can be controlled via [conflictResolution](../deployment-yml.md#conflictresolution).
 
 ### kluctl.io/ignore-conflicts
-If set to "true", the whole all fields of the object are going to be ignored when conflicts arise.
+If set to "true", all object fields are going to be ignored when conflicts arise.
 This effectively disables the warnings that are shown when field ownership is lost.
 
 As an alternative, conflict resolution can be controlled via [conflictResolution](../deployment-yml.md#conflictresolution).

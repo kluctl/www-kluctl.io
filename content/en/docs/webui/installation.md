@@ -2,7 +2,7 @@
 description: Installing the Kluctl Webui
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2025-07-03T13:24:15+02:00"
+lastmod: "2026-06-25T09:21:44+02:00"
 linkTitle: Installation
 path_base_for_github_subdir:
     from: .*
@@ -16,7 +16,9 @@ weight: 10
 
 
 The Kluctl Webui can be installed by using a [Git Include](../kluctl/deployments/deployment-yml.md#git-includes) that refers
-to the [webui deployment project](https://github.com/kluctl/kluctl/tree/main/install/webui). Example:
+to the [webui deployment project](https://github.com/kluctl/kluctl/tree/main/install/webui).
+
+Example:
 
 ```yaml
 deployments:
@@ -24,7 +26,7 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/webui
       ref:
-        tag: v2.27.0
+        tag: v2.28.1
 ```
 
 ## Login
@@ -33,7 +35,9 @@ deployments:
 
 By default, the Webui will automatically generate an static credentials for an admin and for a viewer user. These
 credentials can be extracted from the `kluctl-system/webui-secret` Secret after the Webui has started up for the first
-time. To get the admin password, invoke:
+time.
+
+To get the admin password, invoke:
 
 ```shell
 $ kubectl -n kluctl-system get secret webui-secret -o jsonpath='{.data.admin-password}' | base64 -d
@@ -66,7 +70,7 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/webui
       ref:
-        tag: v2.27.0
+        tag: v2.28.1
     vars:
       - values:
           webui_args:
@@ -87,7 +91,7 @@ deployments:
     vars:
       - values:
           args:
-            kluctl_version: v2.27.0
+            kluctl_version: v2.28.1
 ```
 
 ### Passing arguments
@@ -100,7 +104,7 @@ deployments:
       url: https://github.com/kluctl/kluctl.git
       subDir: install/webui
       ref:
-        tag: v2.27.0
+        tag: v2.28.1
     vars:
       - values:
           webui_args:

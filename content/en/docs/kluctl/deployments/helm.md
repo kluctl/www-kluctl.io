@@ -2,7 +2,7 @@
 description: How Helm is integrated into Kluctl.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-10-02T17:21:57+02:00"
+lastmod: "2026-06-10T16:37:59+02:00"
 linkTitle: Helm Integration
 path_base_for_github_subdir:
     from: .*
@@ -79,10 +79,6 @@ helmChart:
   namespace: "{{ my.jinja2.var }}"
   output: helm-rendered.yaml # this is optional
 ```
-
-When running the `helm-pull` command, it will search for all `helm-chart.yaml` files in your project and then pull the
-chart from the specified repository with the specified version. The pull chart will then be located in the sub-directory
-`charts` below the same directory as the `helm-chart.yaml`
 
 The same filename that was specified in `output` must then be referred in a `kustomization.yaml` as a normal local
 resource. If `output` is omitted, the default value `helm-rendered.yaml` is used and must also be referenced in
@@ -199,11 +195,6 @@ against OCI registries.
 All [commands](../commands/) that interact with Helm Chart repositories and OCI registries support the
 [helm arguments](../commands/common-arguments.md#helm-arguments) and [registry arguments](../commands/common-arguments.md#registry-arguments)
 to specify authentication per repository and/or OCI registry.
-
-⚠️DEPRECATION WARNING ⚠️
-Previous versions (prior to v2.22.0) of Kluctl supported managing Helm credentials via `credentialsId` in `helm-chart.yaml`.
-This is deprecated now and will be removed in the future. Please switch to hostname/registry-name based authentication
-instead. See [helm arguments](../commands/common-arguments.md#helm-arguments) for details.
 
 ### Use environment variables to specify authentication
 You can also use environment variables to specify Helm Chart repository authentication. For OCI based registries, see

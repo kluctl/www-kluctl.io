@@ -2,7 +2,7 @@
 description: Structure of deployment.yaml.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-10-02T10:13:10+02:00"
+lastmod: "2026-06-20T23:33:10+02:00"
 linkTitle: Deployments
 path_base_for_github_subdir:
     from: .*
@@ -55,6 +55,18 @@ Example:
 deployments:
 - path: path/to/manifests
 ```
+
+If the manifests are stored in a nested directory structure (for example, when using the [Rendered Manifests Pattern](https://akuity.io/blog/the-rendered-manifests-pattern)), you can configure Kluctl to recursively walk and discover manifests by setting `recursive: true`.
+
+Note that `recursive: true` is mutually exclusive with having a `kustomization.yaml` or `kustomization.yml` in the root directory of the deployment item. If a root kustomization file is present, setting `recursive: true` will result in a validation error.
+
+Example:
+```yaml
+deployments:
+- path: path/to/manifests
+  recursive: true
+```
+
 
 ### Kustomize deployments
 

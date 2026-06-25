@@ -2,7 +2,7 @@
 description: KluctlDeployment documentation
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-12-02T16:29:34+01:00"
+lastmod: "2026-06-10T17:48:05+02:00"
 linkTitle: KluctlDeployment
 path_base_for_github_subdir:
     from: .*
@@ -693,7 +693,7 @@ spec:
 ```
 
 The `sops-keys` Secret has the same format as in the
-[Flux Kustomize Controller](https://fluxcd.io/flux/components/kustomize/kustomization/#decryption-secret-reference).
+[Flux Kustomize Controller](https://fluxcd.io/flux/components/kustomize/kustomizations/#decryption).
 
 ### AWS KMS with IRSA
 

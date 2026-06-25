@@ -2,7 +2,7 @@
 description: webui command
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-02-28T09:26:42+01:00"
+lastmod: "2026-06-10T17:48:05+02:00"
 linkTitle: gitops diff
 path_base_for_github_subdir:
     from: .*
@@ -131,7 +131,9 @@ GitOps overrides:
                                                cause kluctl to not use git to clone for the specified repository
                                                but instead use the local directory. This is useful in case you
                                                need to test out changes in external git repositories without
-                                               pushing them.
+                                               pushing them. Repositories are specified as 'normalized repo keys',
+                                               which are in the format '<host>/<path>', meaning that no schema (no
+                                               git://) must be specified.
       --local-oci-group-override stringArray   Same as --local-git-group-override, but for OCI repositories.
       --local-oci-override stringArray         Same as --local-git-override, but for OCI repositories.
       --replace-on-error                       When patching an object fails, try to replace it. See documentation

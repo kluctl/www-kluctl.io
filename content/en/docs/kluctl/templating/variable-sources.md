@@ -2,7 +2,7 @@
 description: Available variable sources.
 github_branch: main
 github_repo: https://github.com/kluctl/kluctl
-lastmod: "2024-06-18T10:00:46+02:00"
+lastmod: "2026-05-17T23:44:31+02:00"
 linkTitle: Variable Sources
 path_base_for_github_subdir:
     from: .*
@@ -72,9 +72,61 @@ Kubernetes secrets.
 Specifies a [JSON path](https://goessner.net/articles/JsonPath/) to be used as the target path in the new templating
 context.
 
-Only simple pathes are supported that do not contain wildcards or lists.
+Only simple paths are supported that do not contain wildcards or lists.
 
 For some variable sources, `targetPath` will become mandatory when the resulting variable is not a dictionary.
+It is also mandatory when `multidoc` is set to `true`.
+
+Consider the following example:
+
+```yaml
+# file: deployment.yaml
+vars:
+- file: vars1.yaml
+  targetPath: myvars
+```
+
+```yaml
+# file: vars1.yaml
+var1: test
+```
+
+This will make the variables found in `vars1.yaml` accessible via `{{ myvars.xxx }}`.
+
+##### multidoc
+When set to `true`, the vars source's underlying yaml document is treated as a yaml multidoc and the resulting variable
+will be an array.
+
+Using `multidoc` also requires you to set `targetPath`.
+
+Consider the following example.
+
+```yaml
+# file: deployment.yaml
+vars:
+- file: vars1.yaml
+  multidoc: true
+  targetPath: myvars
+```
+
+```yaml
+# file: vars1.yaml
+---
+var1: test1
+---
+var1: test2
+---
+var1: test3
+```
+
+This will load all documents from `vars1.yaml`, separated by `---` and stored in the list `myvars`. The variables are
+then accessible via `{{ myvars[x].var1 }}`.
+
+Standard Jinja2 [for loops](https://jinja.palletsprojects.com/en/stable/templates/#for) can also be used with the
+documents loaded in `myvars`.
+
+Without `multidoc: true`, `vars1.yaml` would be loaded as a single document, stored in `myvars`. This means that only
+the first document is loaded while the rest is discarded.
 
 ## Variable source types
 Different types of vars entries are possible:
@@ -501,7 +553,7 @@ substitute PROJECT-NAME with your real project name in google. Service account i
 To run kluctl locally with gcpSecretManager enabled refer to [setting local development environment](https://cloud.google.com/docs/authentication/provide-credentials-adc#local-dev) article.
 
 ### azureKeyVault
-[Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault/) integration.
+[Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview) integration.
 Loads a variables YAML from an Azure Key Vault.
 
 Example
